@@ -1,7 +1,12 @@
 import type { MetadataRoute } from "next";
 
+const HOST = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? "vormik.vercel.app";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    // Позволяет сайту спросить у браузера, установлено ли уже приложение (getInstalledRelatedApps).
+    related_applications: [{ platform: "webapp", url: `https://${HOST}/manifest.webmanifest` }],
+    prefer_related_applications: false,
     id: "/train",
     // Манифест один на все языки, поэтому название нейтральное, а язык выбирается в приложении.
     name: "Vormik",

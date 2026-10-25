@@ -1,9 +1,16 @@
 // Service worker Vormik: страницы — сначала из сети, статика — из кэша.
-const CACHE = "vormik-v4";
+const CACHE = "vormik-v5";
 const PAGES = ["/", "/en", "/fi", "/train"];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PAGES)));
+  // Если заранее закэшировать страницы не вышло, service worker всё равно ставится:
+  // страницы попадут в кэш при первом открытии (см. обработчик fetch).
+  event.waitUntil(
+    caches
+      .open(CACHE)
+      .then((cache) => cache.addAll(PAGES))
+      .catch(() => {}),
+  );
   self.skipWaiting();
 });
 

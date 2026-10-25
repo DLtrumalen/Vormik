@@ -12,19 +12,26 @@ declare global {
     __vormikInstallPrompt?: BeforeInstallPromptEvent | null;
     __vormikInstalled?: boolean;
   }
+  interface Navigator {
+    getInstalledRelatedApps?: () => Promise<{ platform: string; url?: string }[]>;
+  }
 }
 
 export type InstallState =
   /** Ещё на сервере или до первой отрисовки. */
   | "unknown"
-  /** Открыто как установленное приложение. */
+  /** Приложение установлено: открыто как приложение или браузер сообщил, что оно уже стоит. */
   | "installed"
   /** Браузер готов показать системное окно установки. */
   | "available"
-  /** Браузер не может установить приложение (пока или вообще). */
-  | "unavailable";
+  /** Браузер пока не прислал разрешение на установку. */
+  | "waiting";
 
 const EVENT = "vormik:install";
+
+function notify() {
+  window.dispatchEvent(new Event(EVENT));
+}
 
 /** Открыто ли как установленное приложение (на iOS это отдельный флаг navigator.standalone). */
 export function isStandalone() {
@@ -34,10 +41,23 @@ export function isStandalone() {
   );
 }
 
+// Если приложение уже установлено, Chrome не присылает beforeinstallprompt — спрашиваем напрямую.
+if (typeof window !== "undefined" && navigator.getInstalledRelatedApps) {
+  navigator
+    .getInstalledRelatedApps()
+    .then((apps) => {
+      if (apps.length > 0) {
+        window.__vormikInstalled = true;
+        notify();
+      }
+    })
+    .catch(() => {});
+}
+
 function snapshot(): InstallState {
   if (window.__vormikInstalled || isStandalone()) return "installed";
   if (window.__vormikInstallPrompt) return "available";
-  return "unavailable";
+  return "waiting";
 }
 
 function subscribe(listener: () => void) {
@@ -49,6 +69,23 @@ export function useInstallState() {
   return useSyncExternalStore(subscribe, snapshot, () => "unknown" as const);
 }
 
+/** Ждёт, пока браузер разрешит установку (нажатие на странице часто и есть недостающее условие). */
+export function waitForInstallPrompt(timeoutMs: number): Promise<boolean> {
+  if (window.__vormikInstallPrompt) return Promise.resolve(true);
+  return new Promise((resolve) => {
+    const done = (ok: boolean) => {
+      window.removeEventListener(EVENT, onEvent);
+      clearTimeout(timer);
+      resolve(ok);
+    };
+    const onEvent = () => {
+      if (window.__vormikInstallPrompt) done(true);
+    };
+    const timer = setTimeout(() => done(false), timeoutMs);
+    window.addEventListener(EVENT, onEvent);
+  });
+}
+
 /** Показывает системное окно установки. Возвращает true, если пользователь согласился. */
 export async function promptInstall() {
   const event = window.__vormikInstallPrompt;
@@ -58,6 +95,6 @@ export async function promptInstall() {
   await event.prompt();
   const { outcome } = await event.userChoice;
   if (outcome === "accepted") window.__vormikInstalled = true;
-  window.dispatchEvent(new Event(EVENT));
+  notify();
   return outcome === "accepted";
 }
