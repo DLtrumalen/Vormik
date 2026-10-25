@@ -52,10 +52,10 @@ export function isWindowsDesktop() {
   return /Windows NT/.test(navigator.userAgent) && !isDesktopApp();
 }
 
-/** Установщик настольного приложения для Windows: последний выпуск в публичном репозитории vormik-releases. */
+/** Установщик настольного приложения для Windows: последний выпуск в репозитории Vormik на GitHub. */
 export const DESKTOP_DOWNLOAD_URL =
   process.env.NEXT_PUBLIC_DESKTOP_DOWNLOAD_URL ??
-  "https://github.com/DLtrumalen/vormik-releases/releases/latest/download/Vormik-Setup.exe";
+  "https://github.com/DLtrumalen/Vormik/releases/latest/download/Vormik-Setup.exe";
 
 const noSubscribe = () => () => {};
 
