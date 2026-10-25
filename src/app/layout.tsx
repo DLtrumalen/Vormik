@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ServiceWorker } from "@/components/ServiceWorker";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,14 +14,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vormik",
-  description: "Тренажёр эстонских падежей для русскоязычных",
+  title: "Vormik — тренажёр эстонских падежей",
+  description:
+    "Тренируйте формы эстонских слов во всех 14 падежах. Интервальное повторение и объяснения на русском.",
+  applicationName: "Vormik",
+  appleWebApp: { capable: true, title: "Vormik", statusBarStyle: "default" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0072ce",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ServiceWorker />
+      </body>
     </html>
   );
 }
