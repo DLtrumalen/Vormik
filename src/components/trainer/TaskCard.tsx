@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
-import { checkAnswer, normalize, type CheckResult } from "@/lib/check";
+import { checkAnswer, type CheckResult } from "@/lib/check";
 import { CASE_BY_KEY, NUMBER_LABEL } from "@/lib/cases";
+import { explain, type Explanation } from "@/lib/explain";
 import { parseTaskId, type TaskId } from "@/lib/srs";
-import { WORD_BY_ID, formationHint } from "@/lib/words";
+import { WORD_BY_ID } from "@/lib/words";
 
 const LETTERS = ["õ", "ä", "ö", "ü", "š", "ž"];
 
@@ -48,9 +49,6 @@ export function TaskCard({ id, isNew, onAnswer, onNext }: Props) {
       el.setSelectionRange(start + 1, start + 1);
     });
   }
-
-  const hint = formationHint(word, number, info.suffix, caseKey);
-  const keyForms = [word.forms["sg.nom"][0], word.forms["sg.gen"][0], word.forms["sg.part"][0]];
 
   const inputBorder =
     result === "correct"
@@ -124,27 +122,8 @@ export function TaskCard({ id, isNew, onAnswer, onNext }: Props) {
         <p className="text-center text-sm text-muted">Сначала напишите ответ.</p>
       )}
 
-      {answered && (
-        <>
-          <Feedback result={result} variants={variants} input={input} />
-
-          <section className="space-y-2.5 rounded-2xl bg-surface p-4 text-sm leading-relaxed">
-            {hint && (
-              <p>
-                <span className="text-muted">Как образуется:</span>{" "}
-                <b className="font-mono text-brand">{hint}</b>
-              </p>
-            )}
-            <p>
-              <span className="text-muted">Ключевые формы:</span> {keyForms.join(" — ")}
-              <span className="text-muted"> · мн. ч. {word.forms["pl.part"].join(" / ")}</span>
-            </p>
-            <p className="text-muted">{info.explanation}</p>
-            <p className="rounded-xl bg-surface-raised px-3 py-2">
-              <i>{info.example.et}</i> <span className="text-muted">— {info.example.ru}</span>
-            </p>
-          </section>
-        </>
+      {result && result !== "empty" && (
+        <AnswerExplanation explanation={explain(word, formKey, input, result)} result={result} />
       )}
 
       <button
@@ -157,41 +136,65 @@ export function TaskCard({ id, isNew, onAnswer, onNext }: Props) {
   );
 }
 
-function Feedback({
+const VERDICT: Record<Exclude<CheckResult, "empty">, { title: string; tone: string }> = {
+  correct: { title: "Верно!", tone: "bg-success-soft text-success" },
+  diacritics: { title: "Почти! Проверьте эстонские буквы", tone: "bg-warning-soft text-warning" },
+  wrong: {
+    title: "Пока нет — эта форма вернётся через минуту",
+    tone: "bg-danger-soft text-danger",
+  },
+};
+
+function AnswerExplanation({
+  explanation: e,
   result,
-  variants,
-  input,
 }: {
-  result: CheckResult;
-  variants: string[];
-  input: string;
+  explanation: Explanation;
+  result: Exclude<CheckResult, "empty">;
 }) {
-  const all = variants.join(" / ");
-  if (result === "correct") {
-    const others = variants.filter((v) => normalize(v) !== normalize(input));
-    return (
-      <div className="rounded-2xl bg-success-soft p-4 text-center text-success">
-        <p className="text-lg font-semibold">Верно!</p>
-        {others.length > 0 && <p className="mt-1 text-sm">Тоже правильно: {others.join(" / ")}</p>}
-      </div>
-    );
-  }
-  if (result === "diacritics") {
-    return (
-      <div className="rounded-2xl bg-warning-soft p-4 text-center text-warning">
-        <p className="text-lg font-semibold">Почти! Проверьте эстонские буквы</p>
-        <p className="mt-1 text-sm">
-          Правильно: <b>{all}</b>
-        </p>
-      </div>
-    );
-  }
+  const verdict = VERDICT[result];
   return (
-    <div className="rounded-2xl bg-danger-soft p-4 text-center text-danger">
-      <p className="text-lg font-semibold">Пока нет</p>
-      <p className="mt-1 text-sm">
-        Правильно: <b>{all}</b> · вернётся через минуту
-      </p>
-    </div>
+    <>
+      <div className={`rounded-2xl p-4 text-center ${verdict.tone}`}>
+        <p className="text-sm font-semibold">{verdict.title}</p>
+        <p className="mt-1 text-3xl font-semibold tracking-tight text-foreground">{e.answer}</p>
+        {e.alternatives.length > 0 && (
+          <p className="mt-1 text-sm text-foreground/80">
+            Тоже правильно: {e.alternatives.join(" / ")}
+          </p>
+        )}
+      </div>
+
+      {e.mistake && (
+        <p className="rounded-2xl bg-surface px-4 py-3 text-sm leading-relaxed">
+          <span className="font-semibold text-danger">Что не так. </span>
+          {e.mistake}
+        </p>
+      )}
+
+      <section className="rounded-2xl bg-surface p-4 text-sm leading-relaxed">
+        <h2 className="font-semibold">Как получается эта форма</h2>
+        <ol className="mt-2 space-y-1.5">
+          {e.steps.map((step, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="grid size-5 shrink-0 place-items-center rounded-full bg-brand-soft text-xs font-semibold text-brand">
+                {i + 1}
+              </span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+
+        <h2 className="mt-4 font-semibold">Когда нужен этот падеж</h2>
+        <p className="mt-1 text-muted">{e.usage}</p>
+
+        <h2 className="mt-4 font-semibold">Пример с этим словом</h2>
+        <p className="mt-1.5 rounded-xl bg-surface-raised px-3 py-2">
+          <b className="text-brand">{e.example.et}</b>
+          <br />
+          <span className="text-muted">{e.example.ru}</span>
+        </p>
+      </section>
+    </>
   );
 }

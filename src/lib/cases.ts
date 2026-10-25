@@ -78,8 +78,7 @@ export const CASES: CaseInfo[] = [
     questionRu: "куда? во что?",
     ending: "-sse или краткая форма",
     suffix: "sse",
-    explanation:
-      "Движение внутрь. У многих слов есть краткая форма (majja, kätte) — обе формы правильные.",
+    explanation: "Движение внутрь чего-то: куда? во что?",
     example: { et: "Ma lähen majja.", ru: "Я иду в дом." },
   },
   {
@@ -101,7 +100,7 @@ export const CASES: CaseInfo[] = [
     questionRu: "откуда? из чего?",
     ending: "-st",
     suffix: "st",
-    explanation: "Движение изнутри наружу, а также тема разговора: räägime filmist.",
+    explanation: "Движение изнутри наружу, а также тема разговора: о чём говорим.",
     example: { et: "Ma tulen majast.", ru: "Я выхожу из дома." },
   },
   {

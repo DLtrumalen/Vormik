@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CASES } from "./cases";
-import { WORDS, WORD_BY_ID, formationHint } from "./words";
+import { WORDS, WORD_BY_ID } from "./words";
 
 describe("словарь", () => {
   it("у каждого слова есть все 28 форм", () => {
@@ -25,15 +25,5 @@ describe("словарь", () => {
   it("хранит параллельные формы", () => {
     expect(WORD_BY_ID.jalg!.forms["pl.part"]).toEqual(["jalgu", "jalgasid"]);
     expect(WORD_BY_ID.maja!.forms["sg.ill"]).toEqual(["majja", "majasse"]);
-  });
-});
-
-describe("formationHint", () => {
-  it("строит местные падежи от родительного", () => {
-    const jalg = WORD_BY_ID.jalg!;
-    expect(formationHint(jalg, "sg", "ga", "com")).toBe("jala + ga");
-    expect(formationHint(jalg, "pl", "s", "ines")).toBe("jalgade + s");
-    expect(formationHint(jalg, "pl", "", "nom")).toBe("jala + d");
-    expect(formationHint(jalg, "sg", "", "part")).toBeNull();
   });
 });

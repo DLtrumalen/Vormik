@@ -11,6 +11,7 @@ import {
   type Progress,
 } from "@/lib/srs";
 import { loadProgress, resetProgress, saveProgress } from "@/lib/storage";
+import { CasePickerFields, settingsSummary } from "./CasePicker";
 import { DoneCard } from "./DoneCard";
 import { SettingsView } from "./SettingsView";
 import { StatsView } from "./StatsView";
@@ -36,6 +37,7 @@ const TABS: { key: View; label: string; icon: ReactNode }[] = [
 export default function Trainer() {
   const [session, setSession] = useState(startSession);
   const [view, setView] = useState<View>("train");
+  const [pickerOpen, setPickerOpen] = useState(false);
   const { progress, task } = session;
 
   function update(next: Progress, { advance }: { advance: boolean }) {
@@ -86,6 +88,20 @@ export default function Trainer() {
 
       <main className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-6">
         <div className="mx-auto flex max-w-md flex-col gap-4 pt-2">
+          {view === "train" && (
+            <button
+              type="button"
+              onClick={() => setPickerOpen(true)}
+              className="flex items-center justify-between gap-3 rounded-2xl bg-surface px-4 py-3 text-left text-sm transition-colors hover:bg-surface-raised"
+            >
+              <span>
+                <span className="block text-xs text-muted">Учу сейчас</span>
+                <b>{settingsSummary(progress.settings)}</b>
+              </span>
+              <span className="shrink-0 font-medium text-brand">Выбрать падежи</span>
+            </button>
+          )}
+
           {view === "train" &&
             (task.kind === "task" ? (
               <TaskCard
@@ -126,6 +142,39 @@ export default function Trainer() {
           )}
         </div>
       </main>
+
+      {pickerOpen && (
+        <div
+          className="fixed inset-0 z-20 flex items-end bg-black/60 backdrop-blur-sm"
+          onClick={() => setPickerOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="picker-title"
+            onClick={(e) => e.stopPropagation()}
+            className="mx-auto max-h-[88dvh] w-full max-w-md overflow-y-auto rounded-t-[1.75rem] bg-surface px-5 pt-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] shadow-2xl"
+          >
+            <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-line" aria-hidden="true" />
+            <div className="mb-4 flex items-center justify-between">
+              <h2 id="picker-title" className="text-lg font-semibold">
+                Какие падежи учить
+              </h2>
+              <button
+                type="button"
+                onClick={() => setPickerOpen(false)}
+                className="rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-white"
+              >
+                Готово
+              </button>
+            </div>
+            <CasePickerFields
+              settings={progress.settings}
+              onChange={(settings) => update({ ...progress, settings }, { advance: true })}
+            />
+          </div>
+        </div>
+      )}
 
       <nav
         aria-label="Разделы"

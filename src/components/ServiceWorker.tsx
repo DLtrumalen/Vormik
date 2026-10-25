@@ -25,9 +25,36 @@ export function ServiceWorker() {
       return;
     }
 
-    navigator.serviceWorker.register("/sw.js", { scope: "/", updateViaCache: "none" }).catch(() => {
-      // Без service worker всё работает, просто не офлайн.
-    });
+    // Когда новая версия service worker берёт управление, перезагружаем страницу, чтобы сразу показать
+    // свежую версию. При самой первой установке управления ещё не было — тогда перезагрузка не нужна.
+    const hadController = Boolean(navigator.serviceWorker.controller);
+    let reloaded = false;
+    const onControllerChange = () => {
+      if (!hadController || reloaded) return;
+      reloaded = true;
+      window.location.reload();
+    };
+    navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
+
+    let registration: ServiceWorkerRegistration | undefined;
+    const checkForUpdate = () => {
+      if (document.visibilityState === "visible") registration?.update().catch(() => {});
+    };
+    document.addEventListener("visibilitychange", checkForUpdate);
+
+    navigator.serviceWorker
+      .register("/sw.js", { scope: "/", updateViaCache: "none" })
+      .then((reg) => {
+        registration = reg;
+      })
+      .catch(() => {
+        // Без service worker всё работает, просто не офлайн.
+      });
+
+    return () => {
+      navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
+      document.removeEventListener("visibilitychange", checkForUpdate);
+    };
   }, []);
 
   return null;
