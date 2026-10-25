@@ -1,0 +1,48 @@
+{
+  "name": "vormik-desktop",
+  "productName": "Vormik",
+  "version": "1.0.0",
+  "description": "Vormik — Estonian case trainer",
+  "author": "Dimitri Larionov",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "app.vercel.vormik",
+    "productName": "Vormik",
+    "compression": "maximum",
+    "electronLanguages": [
+      "ru",
+      "en-US",
+      "fi"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "offline.html",
+      "icon.png"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Vormik",
+      "artifactName": "Vormik-Setup.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0"
+  }
+}

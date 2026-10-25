@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# desktop app dependencies and build output
+/desktop/node_modules
+/desktop/dist
+
 # local tooling
 .claude/launch.json
 __pycache__/

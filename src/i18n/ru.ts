@@ -172,6 +172,7 @@ export const ru: Dictionary = {
 
   install: {
     download: "Скачать приложение",
+    downloadWindows: "Скачать для Windows",
     openTrainer: "Открыть тренажёр",
   },
 

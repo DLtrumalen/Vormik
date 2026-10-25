@@ -69,6 +69,7 @@ export type Dictionary = {
 
   install: {
     download: string;
+    downloadWindows: string;
     openTrainer: string;
   };
 

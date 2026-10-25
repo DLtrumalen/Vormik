@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Настольное приложение на Electron — отдельный проект со своими зависимостями.
+    "desktop/**",
   ]),
 ]);
 

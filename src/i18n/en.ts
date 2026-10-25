@@ -164,6 +164,7 @@ export const en: Dictionary = {
 
   install: {
     download: "Download app",
+    downloadWindows: "Download for Windows",
     openTrainer: "Open trainer",
   },
 

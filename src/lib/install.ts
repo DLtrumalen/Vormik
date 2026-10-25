@@ -33,12 +33,34 @@ function notify() {
   window.dispatchEvent(new Event(EVENT));
 }
 
+/** Открыто ли в настольном приложении Vormik для Windows (оно добавляет метку в User-Agent). */
+export function isDesktopApp() {
+  return navigator.userAgent.includes("VormikDesktop");
+}
+
 /** Открыто ли как установленное приложение (на iOS это отдельный флаг navigator.standalone). */
 export function isStandalone() {
   return (
+    isDesktopApp() ||
     window.matchMedia("(display-mode: standalone)").matches ||
     (navigator as Navigator & { standalone?: boolean }).standalone === true
   );
+}
+
+/** Компьютер с Windows, на который можно поставить настольное приложение. */
+export function isWindowsDesktop() {
+  return /Windows NT/.test(navigator.userAgent) && !isDesktopApp();
+}
+
+/** Установщик настольного приложения для Windows (последний выпуск на GitHub). */
+export const DESKTOP_DOWNLOAD_URL =
+  process.env.NEXT_PUBLIC_DESKTOP_DOWNLOAD_URL ??
+  "https://github.com/DLtrumalen/Vormik/releases/latest/download/Vormik-Setup.exe";
+
+const noSubscribe = () => () => {};
+
+export function useIsWindowsDesktop() {
+  return useSyncExternalStore(noSubscribe, isWindowsDesktop, () => false);
 }
 
 // Если приложение уже установлено, Chrome не присылает beforeinstallprompt — спрашиваем напрямую.

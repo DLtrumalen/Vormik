@@ -164,6 +164,7 @@ export const fi: Dictionary = {
 
   install: {
     download: "Lataa sovellus",
+    downloadWindows: "Lataa Windowsille",
     openTrainer: "Avaa harjoittelu",
   },
 

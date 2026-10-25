@@ -3,7 +3,13 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { getDictionary, type Locale } from "@/i18n";
-import { promptInstall, useInstallState, waitForInstallPrompt } from "@/lib/install";
+import {
+  DESKTOP_DOWNLOAD_URL,
+  promptInstall,
+  useInstallState,
+  useIsWindowsDesktop,
+  waitForInstallPrompt,
+} from "@/lib/install";
 
 type Props = { locale: Locale; size?: "md" | "lg" };
 
@@ -12,16 +18,21 @@ const WAIT_AFTER_CLICK_MS = 4000;
 
 /**
  * Кнопка установки без подсказок:
- * браузер готов — системное окно установки; ещё не готов — ждём несколько секунд;
- * установить нельзя (iPhone, Firefox) или приложение уже стоит — открываем тренажёр.
+ * Windows — скачивается настольное приложение (установщик .exe);
+ * остальные — системное окно установки браузера, а если его нет — открываем тренажёр.
  */
 export function InstallButton({ locale, size = "md" }: Props) {
   const t = getDictionary(locale).install;
   const state = useInstallState();
+  const windows = useIsWindowsDesktop();
   const router = useRouter();
   const [busy, setBusy] = useState(false);
 
   async function handleClick() {
+    if (windows) {
+      window.location.href = DESKTOP_DOWNLOAD_URL;
+      return;
+    }
     if (state === "installed") {
       router.push("/train");
       return;
@@ -39,6 +50,7 @@ export function InstallButton({ locale, size = "md" }: Props) {
   }
 
   const sizing = size === "lg" ? "h-13 px-7 text-base rounded-2xl" : "h-11 px-5 text-sm rounded-xl";
+  const label = windows ? t.downloadWindows : state === "installed" ? t.openTrainer : t.download;
 
   return (
     <button
@@ -64,7 +76,7 @@ export function InstallButton({ locale, size = "md" }: Props) {
           />
         </svg>
       )}
-      {state === "installed" ? t.openTrainer : t.download}
+      {label}
     </button>
   );
 }
