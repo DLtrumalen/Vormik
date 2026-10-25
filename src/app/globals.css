@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7f9;
+  --surface: #ffffff;
+  --surface-raised: #f0f2f5;
+  --foreground: #14171c;
+  --muted: #5b6472;
+  --line: #e3e6eb;
+  --brand: #0072ce;
+  --brand-strong: #005aa6;
+  --brand-soft: #e5f1fb;
+  --success: #12805c;
+  --success-soft: #e3f4ec;
+  --danger: #c2372f;
+  --danger-soft: #fbe9e7;
+  --warning: #9a6200;
+  --warning-soft: #fdf2dc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1014;
+    --surface: #161a20;
+    --surface-raised: #1d222a;
+    --foreground: #eceff3;
+    --muted: #9aa3b0;
+    --line: #262c35;
+    --brand: #3d9bf0;
+    --brand-strong: #6cb4f5;
+    --brand-soft: #142638;
+    --success: #4cc792;
+    --success-soft: #11291f;
+    --danger: #f07a70;
+    --danger-soft: #331815;
+    --warning: #e8b45a;
+    --warning-soft: #2e2311;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Приложение-тренажёр: своя тёмная палитра, независимо от темы системы и от сайта. */
+.app-theme {
+  --background: #0b1220;
+  --surface: #141d2f;
+  --surface-raised: #1b2640;
+  --foreground: #eef2f8;
+  --muted: #8a97ad;
+  --line: #222e47;
+  --brand: #4c9dff;
+  --brand-strong: #78b5ff;
+  --brand-soft: #172a4d;
+  --success: #3fd29a;
+  --success-soft: #0f2f26;
+  --danger: #ff7b6f;
+  --danger-soft: #3a1b1b;
+  --warning: #f5c062;
+  --warning-soft: #392c13;
+  color-scheme: dark;
+  background: radial-gradient(120% 60% at 50% -10%, #16305c 0%, transparent 60%), var(--background);
+  color: var(--foreground);
+  -webkit-tap-highlight-color: transparent;
+}
