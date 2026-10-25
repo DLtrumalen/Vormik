@@ -32,7 +32,9 @@ export function InstallButton({ size = "md", tone = "brand" }: Props) {
 
   async function handleClick() {
     if (state.kind === "available") {
-      await promptInstall();
+      const accepted = await promptInstall();
+      // Пользователь закрыл окно — показываем, как установить вручную.
+      if (!accepted) setShowHelp(true);
       return;
     }
     setShowHelp((v) => !v);
@@ -51,11 +53,29 @@ export function InstallButton({ size = "md", tone = "brand" }: Props) {
               На iPhone и iPad: нажмите <b className="text-foreground">«Поделиться»</b> внизу экрана
               Safari, затем <b className="text-foreground">«На экран „Домой“»</b>.
             </p>
+          ) : state.kind === "chromium" ? (
+            <>
+              <p>
+                <b className="text-foreground">На компьютере:</b> значок установки справа в адресной
+                строке (монитор со стрелкой) или меню ⋮ →{" "}
+                <b className="text-foreground">«Трансляция, сохранение и отправка»</b> →{" "}
+                <b className="text-foreground">«Установить страницу как приложение»</b>.
+              </p>
+              <p className="mt-2">
+                <b className="text-foreground">На Android:</b> меню ⋮ →{" "}
+                <b className="text-foreground">«Установить приложение»</b> или{" "}
+                <b className="text-foreground">«Добавить на главный экран»</b>.
+              </p>
+              <p className="mt-2">
+                Если пункта нет — приложение, скорее всего, уже установлено: найдите Vormik среди
+                приложений.
+              </p>
+            </>
           ) : (
             <p>
-              Откройте сайт в <b className="text-foreground">Chrome</b> или{" "}
-              <b className="text-foreground">Edge</b> и нажмите значок установки в адресной строке.
-              На Android — меню ⋮ → <b className="text-foreground">«Установить приложение»</b>.
+              Этот браузер не умеет устанавливать приложения. Откройте сайт в{" "}
+              <b className="text-foreground">Chrome</b> или <b className="text-foreground">Edge</b>,
+              а на iPhone — в <b className="text-foreground">Safari</b>.
             </p>
           )}
           <p className="mt-2">

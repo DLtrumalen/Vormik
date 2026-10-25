@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { CASES, NUMBER_LABEL, type CaseKey, type GrammaticalNumber } from "@/lib/cases";
 import { DEFAULT_SETTINGS, type Settings } from "@/lib/srs";
 
@@ -75,6 +76,13 @@ export function SettingsView({ settings, onChange }: Props) {
       >
         Выбрать всё
       </button>
+
+      <p className="border-t border-line pt-4 text-sm text-muted">
+        Vormik — тренажёр эстонских падежей.{" "}
+        <Link href="/" className="font-medium text-brand underline-offset-2 hover:underline">
+          О приложении
+        </Link>
+      </p>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 type Props = {
+  answered: number;
   nextDue: Date | null;
   canAddNew: boolean;
   onAddNew: () => void;
@@ -13,24 +14,28 @@ function formatWait(date: Date) {
   return date.toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
 }
 
-export function DoneCard({ nextDue, canAddNew, onAddNew, onRefresh }: Props) {
+export function DoneCard({ answered, nextDue, canAddNew, onAddNew, onRefresh }: Props) {
   return (
-    <div className="rounded-3xl border border-line bg-surface p-8 text-center shadow-sm">
-      <p className="text-4xl" aria-hidden="true">
+    <section className="flex flex-col items-center rounded-[1.75rem] bg-surface px-6 py-10 text-center shadow-xl shadow-black/20">
+      <span
+        aria-hidden="true"
+        className="grid size-16 place-items-center rounded-full bg-success-soft text-3xl text-success"
+      >
         ✓
-      </p>
-      <h1 className="mt-3 text-2xl font-semibold">На сейчас всё</h1>
+      </span>
+      <h1 className="mt-5 text-2xl font-semibold">На сейчас всё</h1>
+      {answered > 0 && <p className="mt-1 text-muted">Ответов за эту сессию: {answered}</p>}
       <p className="mt-2 text-muted">
         {nextDue
           ? `Следующее повторение ${formatWait(nextDue)}.`
           : "Все формы при текущих настройках пройдены."}
       </p>
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
+      <div className="mt-8 flex w-full flex-col gap-3">
         {canAddNew && (
           <button
             type="button"
             onClick={onAddNew}
-            className="h-11 rounded-xl bg-brand px-5 font-semibold text-white hover:bg-brand-strong"
+            className="h-14 rounded-2xl bg-brand text-lg font-semibold text-white shadow-lg shadow-brand/25 hover:bg-brand-strong"
           >
             Ещё 10 новых форм
           </button>
@@ -38,11 +43,11 @@ export function DoneCard({ nextDue, canAddNew, onAddNew, onRefresh }: Props) {
         <button
           type="button"
           onClick={onRefresh}
-          className="h-11 rounded-xl border border-line px-5 font-medium hover:border-brand hover:text-brand"
+          className="h-12 rounded-2xl bg-surface-raised font-medium hover:text-brand"
         >
           Проверить снова
         </button>
       </div>
-    </div>
+    </section>
   );
 }

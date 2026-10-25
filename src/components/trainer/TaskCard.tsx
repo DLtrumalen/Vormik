@@ -52,28 +52,39 @@ export function TaskCard({ id, isNew, onAnswer, onNext }: Props) {
   const hint = formationHint(word, number, info.suffix, caseKey);
   const keyForms = [word.forms["sg.nom"][0], word.forms["sg.gen"][0], word.forms["sg.part"][0]];
 
+  const inputBorder =
+    result === "correct"
+      ? "border-success"
+      : result === "wrong"
+        ? "border-danger"
+        : result === "diacritics"
+          ? "border-warning"
+          : "border-transparent focus:border-brand";
+
   return (
-    <form
-      onSubmit={submit}
-      className="rounded-3xl border border-line bg-surface p-5 shadow-sm sm:p-8"
-      aria-live="polite"
-    >
-      <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wide text-muted">
-        <span>{word.pos === "noun" ? "существительное" : "прилагательное"}</span>
-        {isNew && <span className="rounded-full bg-brand-soft px-2.5 py-1 text-brand">новое</span>}
-      </div>
+    <form onSubmit={submit} className="flex flex-col gap-4" aria-live="polite">
+      <section className="rounded-[1.75rem] bg-surface px-5 pt-5 pb-6 text-center shadow-xl shadow-black/20">
+        <div className="flex items-center justify-between text-[11px] font-medium tracking-wide text-muted uppercase">
+          <span>{word.pos === "noun" ? "существительное" : "прилагательное"}</span>
+          {isNew ? (
+            <span className="rounded-full bg-brand-soft px-2.5 py-1 text-brand">новое</span>
+          ) : (
+            <span className="rounded-full bg-surface-raised px-2.5 py-1">повтор</span>
+          )}
+        </div>
 
-      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">{word.lemma}</h1>
-      <p className="mt-1 text-lg text-muted">{word.ru}</p>
+        <h1 className="mt-6 text-5xl font-semibold tracking-tight">{word.lemma}</h1>
+        <p className="mt-1 text-lg text-muted">{word.ru}</p>
 
-      <div className="mt-6 rounded-2xl bg-brand-soft p-4">
-        <p className="text-lg font-semibold text-brand">
-          {info.et} <span className="font-normal">· {info.ru}</span>
-        </p>
-        <p className="mt-1 text-sm text-foreground">
-          <b>{NUMBER_LABEL[number]}</b> · {info.questionEt} — {info.questionRu}
-        </p>
-      </div>
+        <div className="mt-6 inline-flex flex-col items-center rounded-2xl bg-brand-soft px-5 py-3">
+          <p className="text-lg font-semibold text-brand">
+            {info.et} · {NUMBER_LABEL[number]}
+          </p>
+          <p className="mt-0.5 text-sm text-foreground/80">
+            {info.ru} · {info.questionEt}
+          </p>
+        </div>
+      </section>
 
       <label htmlFor="answer" className="sr-only">
         Форма слова
@@ -89,26 +100,19 @@ export function TaskCard({ id, isNew, onAnswer, onNext }: Props) {
         autoCapitalize="off"
         autoCorrect="off"
         spellCheck={false}
-        placeholder="Напишите форму слова"
-        className={`mt-6 h-14 w-full rounded-2xl border-2 bg-background px-4 text-xl outline-none transition-colors focus:border-brand ${
-          result === "correct"
-            ? "border-success"
-            : result === "wrong"
-              ? "border-danger"
-              : result === "diacritics"
-                ? "border-warning"
-                : "border-line"
-        }`}
+        enterKeyHint={answered ? "next" : "done"}
+        placeholder="Ваш ответ"
+        className={`h-16 w-full rounded-2xl border-2 bg-surface px-5 text-center text-2xl font-medium outline-none transition-colors placeholder:text-muted/60 ${inputBorder}`}
       />
 
       {!answered && (
-        <div className="mt-3 flex flex-wrap gap-2" aria-label="Эстонские буквы">
+        <div className="grid grid-cols-6 gap-2" aria-label="Эстонские буквы">
           {LETTERS.map((letter) => (
             <button
               key={letter}
               type="button"
               onClick={() => insertLetter(letter)}
-              className="size-10 rounded-xl border border-line bg-background text-lg font-medium hover:border-brand hover:text-brand"
+              className="h-12 rounded-xl bg-surface-raised text-xl font-medium shadow-[inset_0_-2px_0_rgba(0,0,0,0.35)] transition-transform active:translate-y-px active:shadow-none"
             >
               {letter}
             </button>
@@ -116,37 +120,38 @@ export function TaskCard({ id, isNew, onAnswer, onNext }: Props) {
         </div>
       )}
 
-      {result === "empty" && <p className="mt-3 text-sm text-muted">Сначала напишите ответ.</p>}
+      {result === "empty" && (
+        <p className="text-center text-sm text-muted">Сначала напишите ответ.</p>
+      )}
 
       {answered && (
-        <div className="mt-5 space-y-4">
+        <>
           <Feedback result={result} variants={variants} input={input} />
 
-          <div className="space-y-2 rounded-2xl border border-line p-4 text-sm leading-relaxed">
+          <section className="space-y-2.5 rounded-2xl bg-surface p-4 text-sm leading-relaxed">
             {hint && (
               <p>
                 <span className="text-muted">Как образуется:</span>{" "}
-                <b className="font-mono">{hint}</b>
+                <b className="font-mono text-brand">{hint}</b>
               </p>
             )}
             <p>
               <span className="text-muted">Ключевые формы:</span> {keyForms.join(" — ")}
-              <span className="text-muted"> (мн. ч. {word.forms["pl.part"].join(" / ")})</span>
+              <span className="text-muted"> · мн. ч. {word.forms["pl.part"].join(" / ")}</span>
             </p>
             <p className="text-muted">{info.explanation}</p>
-            <p>
+            <p className="rounded-xl bg-surface-raised px-3 py-2">
               <i>{info.example.et}</i> <span className="text-muted">— {info.example.ru}</span>
             </p>
-          </div>
-        </div>
+          </section>
+        </>
       )}
 
       <button
         type="submit"
-        className="mt-6 h-12 w-full rounded-2xl bg-brand font-semibold text-white transition-colors hover:bg-brand-strong"
+        className="h-14 w-full rounded-2xl bg-brand text-lg font-semibold text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-strong active:scale-[0.99]"
       >
         {answered ? "Дальше" : "Проверить"}
-        <span className="ml-2 text-sm font-normal opacity-70">Enter</span>
       </button>
     </form>
   );
@@ -165,16 +170,16 @@ function Feedback({
   if (result === "correct") {
     const others = variants.filter((v) => normalize(v) !== normalize(input));
     return (
-      <div className="rounded-2xl bg-success-soft p-4 text-success">
-        <p className="font-semibold">Верно!</p>
+      <div className="rounded-2xl bg-success-soft p-4 text-center text-success">
+        <p className="text-lg font-semibold">Верно!</p>
         {others.length > 0 && <p className="mt-1 text-sm">Тоже правильно: {others.join(" / ")}</p>}
       </div>
     );
   }
   if (result === "diacritics") {
     return (
-      <div className="rounded-2xl bg-warning-soft p-4 text-warning">
-        <p className="font-semibold">Почти! Проверьте эстонские буквы.</p>
+      <div className="rounded-2xl bg-warning-soft p-4 text-center text-warning">
+        <p className="text-lg font-semibold">Почти! Проверьте эстонские буквы</p>
         <p className="mt-1 text-sm">
           Правильно: <b>{all}</b>
         </p>
@@ -182,10 +187,10 @@ function Feedback({
     );
   }
   return (
-    <div className="rounded-2xl bg-danger-soft p-4 text-danger">
-      <p className="font-semibold">Пока нет</p>
+    <div className="rounded-2xl bg-danger-soft p-4 text-center text-danger">
+      <p className="text-lg font-semibold">Пока нет</p>
       <p className="mt-1 text-sm">
-        Правильно: <b>{all}</b>. Эта форма вернётся скоро.
+        Правильно: <b>{all}</b> · вернётся через минуту
       </p>
     </div>
   );

@@ -3,6 +3,7 @@
 :root {
   --background: #f6f7f9;
   --surface: #ffffff;
+  --surface-raised: #f0f2f5;
   --foreground: #14171c;
   --muted: #5b6472;
   --line: #e3e6eb;
@@ -20,6 +21,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-line: var(--line);
@@ -40,6 +42,7 @@
   :root {
     --background: #0d1014;
     --surface: #161a20;
+    --surface-raised: #1d222a;
     --foreground: #eceff3;
     --muted: #9aa3b0;
     --line: #262c35;
@@ -59,4 +62,27 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Приложение-тренажёр: своя тёмная палитра, независимо от темы системы и от сайта. */
+.app-theme {
+  --background: #0b1220;
+  --surface: #141d2f;
+  --surface-raised: #1b2640;
+  --foreground: #eef2f8;
+  --muted: #8a97ad;
+  --line: #222e47;
+  --brand: #4c9dff;
+  --brand-strong: #78b5ff;
+  --brand-soft: #172a4d;
+  --success: #3fd29a;
+  --success-soft: #0f2f26;
+  --danger: #ff7b6f;
+  --danger-soft: #3a1b1b;
+  --warning: #f5c062;
+  --warning-soft: #392c13;
+  color-scheme: dark;
+  background: radial-gradient(120% 60% at 50% -10%, #16305c 0%, transparent 60%), var(--background);
+  color: var(--foreground);
+  -webkit-tap-highlight-color: transparent;
 }

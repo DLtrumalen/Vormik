@@ -7,48 +7,43 @@ type BeforeInstallPromptEvent = Event & {
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 };
 
+declare global {
+  interface Window {
+    __vormikInstallPrompt?: BeforeInstallPromptEvent | null;
+    __vormikInstalled?: boolean;
+  }
+}
+
 export type InstallState =
+  /** Ещё на сервере или до первой отрисовки. */
   | { kind: "unknown" }
+  /** Открыто как установленное приложение. */
   | { kind: "installed" }
+  /** Chrome готов показать окно установки. */
   | { kind: "available" }
+  /** iPhone/iPad: установка только через «Поделиться». */
   | { kind: "ios" }
+  /** Chrome/Edge, но окно установки сейчас недоступно (уже установлено или пользователь закрыл окно). */
+  | { kind: "chromium" }
+  /** Firefox, Safari на Mac и прочие. */
   | { kind: "manual" };
 
-let deferred: BeforeInstallPromptEvent | null = null;
-let installed = false;
-const listeners = new Set<() => void>();
-
-function notify() {
-  for (const listener of listeners) listener();
-}
-
-// Браузер присылает событие один раз вскоре после загрузки, поэтому ловим его сразу при импорте модуля.
-if (typeof window !== "undefined") {
-  window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault();
-    deferred = event as BeforeInstallPromptEvent;
-    notify();
-  });
-  window.addEventListener("appinstalled", () => {
-    deferred = null;
-    installed = true;
-    notify();
-  });
-}
+const EVENT = "vormik:install";
 
 let cached: InstallState = { kind: "unknown" };
 
-function snapshot(): InstallState {
-  let next: InstallState;
-  if (installed || window.matchMedia("(display-mode: standalone)").matches) {
-    next = { kind: "installed" };
-  } else if (deferred) {
-    next = { kind: "available" };
-  } else if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    next = { kind: "ios" };
-  } else {
-    next = { kind: "manual" };
+function compute(): InstallState {
+  if (window.__vormikInstalled || window.matchMedia("(display-mode: standalone)").matches) {
+    return { kind: "installed" };
   }
+  if (window.__vormikInstallPrompt) return { kind: "available" };
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) return { kind: "ios" };
+  if ("BeforeInstallPromptEvent" in window) return { kind: "chromium" };
+  return { kind: "manual" };
+}
+
+function snapshot(): InstallState {
+  const next = compute();
   if (next.kind !== cached.kind) cached = next;
   return cached;
 }
@@ -56,22 +51,23 @@ function snapshot(): InstallState {
 const serverSnapshot: InstallState = { kind: "unknown" };
 
 function subscribe(listener: () => void) {
-  listeners.add(listener);
-  return () => listeners.delete(listener);
+  window.addEventListener(EVENT, listener);
+  return () => window.removeEventListener(EVENT, listener);
 }
 
 export function useInstallState() {
   return useSyncExternalStore(subscribe, snapshot, () => serverSnapshot);
 }
 
-/** Показывает системное окно установки. Возвращает true, если пользователь согласился. */
+/** Показывает системное окно установки Chrome. Возвращает true, если пользователь согласился. */
 export async function promptInstall() {
-  if (!deferred) return false;
-  const event = deferred;
-  deferred = null;
+  const event = window.__vormikInstallPrompt;
+  if (!event) return false;
+  // Событие можно использовать только один раз.
+  window.__vormikInstallPrompt = null;
   await event.prompt();
   const { outcome } = await event.userChoice;
-  if (outcome === "accepted") installed = true;
-  notify();
+  if (outcome === "accepted") window.__vormikInstalled = true;
+  window.dispatchEvent(new Event(EVENT));
   return outcome === "accepted";
 }

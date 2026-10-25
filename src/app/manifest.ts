@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    id: "/train",
     name: "Vormik — тренажёр эстонских падежей",
     short_name: "Vormik",
     description: "Тренируйте формы эстонских слов во всех 14 падежах. Объяснения на русском.",
@@ -9,8 +10,11 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/train",
     scope: "/",
     display: "standalone",
-    background_color: "#f6f7f9",
-    theme_color: "#0072ce",
+    orientation: "portrait",
+    categories: ["education"],
+    // Цвета приложения, а не сайта: тёмная заставка и тёмная системная строка.
+    background_color: "#0b1220",
+    theme_color: "#0b1220",
     icons: [
       { src: "/icon/192", sizes: "192x192", type: "image/png" },
       { src: "/icon/512", sizes: "512x512", type: "image/png" },
