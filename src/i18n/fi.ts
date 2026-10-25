@@ -120,7 +120,7 @@ export const fi: Dictionary = {
     title: "Viron sijamuodot ilman taulukoiden pänttäämistä",
     lead: "Vormik antaa sanan ja sijan — sinä kirjoitat muodon. Virheet palaavat useammin, osatut harvemmin. Kaikki 14 sijaa, molemmat luvut, selitykset suomeksi.",
     perks: "Ilmainen · ei rekisteröitymistä · toimii ilman nettiä",
-    nav: { features: "Ominaisuudet", cases: "Sijat", download: "Lataa" },
+    nav: { features: "Ominaisuudet", cases: "Sijat" },
     openTrainer: "Avaa harjoittelu",
     stats: { cases: "sijaa", words: "yleistä sanaa", forms: "harjoiteltavaa muotoa" },
     featuresTitle: "Miksi se toimii",
@@ -157,9 +157,6 @@ export const fi: Dictionary = {
     casesTitle: "Kaikki 14 sijaa",
     casesLead:
       "Lunttilappu, joka löytyy myös sovelluksesta: kysymys, pääte ja esimerkki jokaiselle sijalle.",
-    downloadTitle: "Asenna Vormik",
-    downloadText:
-      "Sovellus avautuu aloitusnäytöltä kuten mikä tahansa sovellus ja toimii ilman nettiä. Androidille, iPhonelle, Windowsille ja macOS:lle.",
     footerProject: "Vormik — opetusprojekti viron kielen opiskelijoille.",
     footerForms: "Sanamuodot on tuottanut morfologinen generaattori",
     preview: { correct: "Oikein!", alsoCorrect: "Myös oikein", howBuilt: "Muodostus" },
@@ -168,41 +165,6 @@ export const fi: Dictionary = {
   install: {
     download: "Lataa sovellus",
     openTrainer: "Avaa harjoittelu",
-    alreadyInstalled: "Sovellus on jo asennettu.",
-    title: "Asenna Vormik",
-    subtitle: "Ilmainen, 3 vaihetta, ei sovelluskauppaa",
-    close: "Sulje",
-    tabs: { android: "Android", ios: "iPhone", desktop: "Tietokone" },
-    installNow: "Asenna nyt",
-    steps: {
-      android: [
-        "Avaa **{host}** **Chrome**-selaimessa.",
-        "Napauta [[⋮]] — kolme pistettä oikeassa yläkulmassa.",
-        "Valitse **”Asenna sovellus”** (tai **”Lisää aloitusnäytölle”**) ja vahvista **”Asenna”**.",
-      ],
-      ios: [
-        "Avaa **{host}** **Safarissa** (myös Chrome käy).",
-        "Napauta {share} **Jaa**: Safarissa näytön alareunassa (iOS 26:ssa ensin [[•••]]), Chromessa osoiterivin oikealla puolella.",
-        "Valitse {plus} **”Lisää Koti-valikkoon”** ja napauta **”Lisää”**.",
-      ],
-      desktop: [
-        "Avaa **{host}** **Chromessa** tai **Edgessä**.",
-        "Napsauta {install}-kuvaketta osoiterivin oikeassa reunassa. Jos sitä ei ole: valikko [[⋮]] → **”Suoratoista, tallenna ja jaa”** → **”Asenna sivu sovelluksena”**.",
-        "Napsauta **”Asenna”**.",
-      ],
-    },
-    doneMobile:
-      "Valmis: Vormik-kuvake ilmestyy aloitusnäytölle ja avautuu omana sovelluksenaan, myös ilman nettiä.",
-    doneDesktop:
-      "Valmis: Vormik ilmestyy Käynnistä-valikkoon ja tehtäväpalkkiin ja avautuu omana sovelluksenaan, myös ilman nettiä.",
-    copy: "Kopioi linkki sivustoon",
-    copied: "Linkki kopioitu ✓",
-    inAppTitle: "Avaa sivusto ensin selaimessa",
-    inAppText:
-      "Linkki avautui toisen sovelluksen sisällä (Telegram, Instagram…) — sieltä ei voi asentaa.",
-    inAppIos: "Napauta [[•••]] tai kompassikuvaketta ja valitse **”Avaa Safarissa”**.",
-    inAppAndroid: "Napauta alla olevaa painiketta tai [[⋮]] → **”Avaa selaimessa”**.",
-    openInChrome: "Avaa Chromessa",
   },
 
   app: {

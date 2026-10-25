@@ -28,9 +28,6 @@ export function Landing({ locale }: { locale: Locale }) {
             <a href="#cases" className="hover:text-foreground">
               {s.nav.cases}
             </a>
-            <a href="#download" className="hover:text-foreground">
-              {s.nav.download}
-            </a>
           </nav>
           <div className="flex items-center gap-2">
             <Link
@@ -130,16 +127,6 @@ export function Landing({ locale }: { locale: Locale }) {
                   </article>
                 );
               })}
-            </div>
-          </div>
-        </section>
-
-        <section id="download" className="scroll-mt-20 px-4 py-20">
-          <div className="mx-auto flex max-w-4xl flex-col items-center rounded-[2rem] bg-brand px-6 py-14 text-center text-white sm:px-12">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{s.downloadTitle}</h2>
-            <p className="mt-4 max-w-xl text-lg text-white/85">{s.downloadText}</p>
-            <div className="mt-8 text-left">
-              <InstallButton locale={locale} size="lg" tone="light" />
             </div>
           </div>
         </section>

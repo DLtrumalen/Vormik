@@ -53,7 +53,7 @@ export type Dictionary = {
     title: string;
     lead: string;
     perks: string;
-    nav: { features: string; cases: string; download: string };
+    nav: { features: string; cases: string };
     openTrainer: string;
     stats: { cases: string; words: string; forms: string };
     featuresTitle: string;
@@ -62,8 +62,6 @@ export type Dictionary = {
     steps: { title: string; text: string }[];
     casesTitle: string;
     casesLead: string;
-    downloadTitle: string;
-    downloadText: string;
     footerProject: string;
     footerForms: string;
     preview: { correct: string; alsoCorrect: string; howBuilt: string };
@@ -72,23 +70,6 @@ export type Dictionary = {
   install: {
     download: string;
     openTrainer: string;
-    alreadyInstalled: string;
-    title: string;
-    subtitle: string;
-    close: string;
-    tabs: { android: string; ios: string; desktop: string };
-    installNow: string;
-    /** Шаги с разметкой: **жирный**, [[клавиша]], {share} {plus} {install} — иконки, {host} — адрес. */
-    steps: { android: string[]; ios: string[]; desktop: string[] };
-    doneMobile: string;
-    doneDesktop: string;
-    copy: string;
-    copied: string;
-    inAppTitle: string;
-    inAppText: string;
-    inAppIos: string;
-    inAppAndroid: string;
-    openInChrome: string;
   };
 
   app: {

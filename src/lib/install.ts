@@ -19,44 +19,12 @@ export type InstallState =
   | "unknown"
   /** Открыто как установленное приложение. */
   | "installed"
-  /** Chrome готов показать системное окно установки. */
+  /** Браузер готов показать системное окно установки. */
   | "available"
-  /** Окна установки нет — показываем инструкцию. */
-  | "guide";
-
-export type Device = {
-  os: "android" | "ios" | "desktop";
-  browser: "chrome" | "edge" | "samsung" | "safari" | "other";
-  /** Встроенный браузер Telegram, Instagram и т. п. — из него установить приложение нельзя. */
-  inApp: boolean;
-};
+  /** Браузер не может установить приложение (пока или вообще). */
+  | "unavailable";
 
 const EVENT = "vormik:install";
-
-/** Определяет устройство и браузер по строке User-Agent. */
-export function detectDevice(ua: string, platform = "", maxTouchPoints = 0): Device {
-  // iPadOS выдаёт себя за Mac, но у Mac нет сенсорного экрана.
-  const ios = /iPad|iPhone|iPod/.test(ua) || (platform === "MacIntel" && maxTouchPoints > 1);
-  const android = /Android/.test(ua);
-  const inApp =
-    /Telegram|Instagram|FBAN|FBAV|FB_IAB|Line\/|Snapchat|TikTok|musical_ly|VKClient|Viber/.test(
-      ua,
-    ) ||
-    (android && /; wv\)/.test(ua));
-
-  let browser: Device["browser"] = "other";
-  if (/SamsungBrowser/.test(ua)) browser = "samsung";
-  else if (/EdgA?\/|EdgiOS/.test(ua)) browser = "edge";
-  else if (/OPR\/|OPiOS|YaBrowser|Firefox|FxiOS/.test(ua)) browser = "other";
-  else if (/CriOS|Chrome\//.test(ua)) browser = "chrome";
-  else if (/Safari\//.test(ua)) browser = "safari";
-
-  return { os: ios ? "ios" : android ? "android" : "desktop", browser, inApp };
-}
-
-export function currentDevice() {
-  return detectDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
-}
 
 /** Открыто ли как установленное приложение (на iOS это отдельный флаг navigator.standalone). */
 export function isStandalone() {
@@ -69,7 +37,7 @@ export function isStandalone() {
 function snapshot(): InstallState {
   if (window.__vormikInstalled || isStandalone()) return "installed";
   if (window.__vormikInstallPrompt) return "available";
-  return "guide";
+  return "unavailable";
 }
 
 function subscribe(listener: () => void) {
@@ -81,7 +49,7 @@ export function useInstallState() {
   return useSyncExternalStore(subscribe, snapshot, () => "unknown" as const);
 }
 
-/** Показывает системное окно установки Chrome. Возвращает true, если пользователь согласился. */
+/** Показывает системное окно установки. Возвращает true, если пользователь согласился. */
 export async function promptInstall() {
   const event = window.__vormikInstallPrompt;
   if (!event) return false;
@@ -92,10 +60,4 @@ export async function promptInstall() {
   if (outcome === "accepted") window.__vormikInstalled = true;
   window.dispatchEvent(new Event(EVENT));
   return outcome === "accepted";
-}
-
-/** Ссылка, которая на Android открывает страницу в Chrome из встроенного браузера (Telegram и т. п.). */
-export function openInChromeUrl(url: string) {
-  const { host, pathname, search } = new URL(url);
-  return `intent://${host}${pathname}${search}#Intent;scheme=https;package=com.android.chrome;end`;
 }
