@@ -16,25 +16,47 @@ declare global {
 
 export type InstallState =
   /** Ещё на сервере или до первой отрисовки. */
-  | { kind: "unknown" }
+  | "unknown"
   /** Открыто как установленное приложение. */
-  | { kind: "installed" }
-  /** Chrome готов показать окно установки. */
-  | { kind: "available" }
-  /**
-   * iPhone/iPad: Apple не даёт сайтам открыть окно установки, только «Поделиться» → «На экран „Домой“».
-   * browser — где открыт сайт: в Safari кнопка «Поделиться» внизу, в Chrome/Edge — в адресной строке,
-   * а во встроенных браузерах (Instagram, Facebook) такого пункта нет вовсе.
-   */
-  | { kind: "ios"; browser: "safari" | "other" | "in-app" }
-  /** Chrome/Edge, но окно установки сейчас недоступно (уже установлено или пользователь закрыл окно). */
-  | { kind: "chromium" }
-  /** Firefox, Safari на Mac и прочие. */
-  | { kind: "manual" };
+  | "installed"
+  /** Chrome готов показать системное окно установки. */
+  | "available"
+  /** Окна установки нет — показываем инструкцию. */
+  | "guide";
+
+export type Device = {
+  os: "android" | "ios" | "desktop";
+  browser: "chrome" | "edge" | "samsung" | "safari" | "other";
+  /** Встроенный браузер Telegram, Instagram и т. п. — из него установить приложение нельзя. */
+  inApp: boolean;
+};
 
 const EVENT = "vormik:install";
 
-let cached: InstallState = { kind: "unknown" };
+/** Определяет устройство и браузер по строке User-Agent. */
+export function detectDevice(ua: string, platform = "", maxTouchPoints = 0): Device {
+  // iPadOS выдаёт себя за Mac, но у Mac нет сенсорного экрана.
+  const ios = /iPad|iPhone|iPod/.test(ua) || (platform === "MacIntel" && maxTouchPoints > 1);
+  const android = /Android/.test(ua);
+  const inApp =
+    /Telegram|Instagram|FBAN|FBAV|FB_IAB|Line\/|Snapchat|TikTok|musical_ly|VKClient|Viber/.test(
+      ua,
+    ) ||
+    (android && /; wv\)/.test(ua));
+
+  let browser: Device["browser"] = "other";
+  if (/SamsungBrowser/.test(ua)) browser = "samsung";
+  else if (/EdgA?\/|EdgiOS/.test(ua)) browser = "edge";
+  else if (/OPR\/|OPiOS|YaBrowser|Firefox|FxiOS/.test(ua)) browser = "other";
+  else if (/CriOS|Chrome\//.test(ua)) browser = "chrome";
+  else if (/Safari\//.test(ua)) browser = "safari";
+
+  return { os: ios ? "ios" : android ? "android" : "desktop", browser, inApp };
+}
+
+export function currentDevice() {
+  return detectDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
+}
 
 /** Открыто ли как установленное приложение (на iOS это отдельный флаг navigator.standalone). */
 export function isStandalone() {
@@ -44,36 +66,11 @@ export function isStandalone() {
   );
 }
 
-function isIOS() {
-  // iPadOS выдаёт себя за Mac, но у Mac нет сенсорного экрана.
-  return (
-    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
-  );
-}
-
-function iosBrowser(): "safari" | "other" | "in-app" {
-  const ua = navigator.userAgent;
-  if (/Instagram|FBAN|FBAV|Line\/|Snapchat|TikTok|musical_ly/.test(ua)) return "in-app";
-  if (/CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/.test(ua)) return "other";
-  return "safari";
-}
-
-function compute(): InstallState {
-  if (window.__vormikInstalled || isStandalone()) return { kind: "installed" };
-  if (window.__vormikInstallPrompt) return { kind: "available" };
-  if (isIOS()) return { kind: "ios", browser: iosBrowser() };
-  if ("BeforeInstallPromptEvent" in window) return { kind: "chromium" };
-  return { kind: "manual" };
-}
-
 function snapshot(): InstallState {
-  const next = compute();
-  if (JSON.stringify(next) !== JSON.stringify(cached)) cached = next;
-  return cached;
+  if (window.__vormikInstalled || isStandalone()) return "installed";
+  if (window.__vormikInstallPrompt) return "available";
+  return "guide";
 }
-
-const serverSnapshot: InstallState = { kind: "unknown" };
 
 function subscribe(listener: () => void) {
   window.addEventListener(EVENT, listener);
@@ -81,7 +78,7 @@ function subscribe(listener: () => void) {
 }
 
 export function useInstallState() {
-  return useSyncExternalStore(subscribe, snapshot, () => serverSnapshot);
+  return useSyncExternalStore(subscribe, snapshot, () => "unknown" as const);
 }
 
 /** Показывает системное окно установки Chrome. Возвращает true, если пользователь согласился. */
@@ -95,4 +92,10 @@ export async function promptInstall() {
   if (outcome === "accepted") window.__vormikInstalled = true;
   window.dispatchEvent(new Event(EVENT));
   return outcome === "accepted";
+}
+
+/** Ссылка, которая на Android открывает страницу в Chrome из встроенного браузера (Telegram и т. п.). */
+export function openInChromeUrl(url: string) {
+  const { host, pathname, search } = new URL(url);
+  return `intent://${host}${pathname}${search}#Intent;scheme=https;package=com.android.chrome;end`;
 }
