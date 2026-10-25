@@ -1,6 +1,6 @@
 // Service worker Vormik: страницы — сначала из сети, статика — из кэша.
-const CACHE = "vormik-v3";
-const PAGES = ["/", "/train"];
+const CACHE = "vormik-v4";
+const PAGES = ["/", "/en", "/fi", "/train"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PAGES)));

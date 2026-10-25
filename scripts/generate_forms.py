@@ -69,7 +69,10 @@ def main():
                 problems.append(f"{lemma}: нет форм {', '.join(empty)}")
             if forms["sg.nom"] != [lemma]:
                 problems.append(f"{lemma}: sg.nom = {forms['sg.nom']}")
-            words.append({"id": lemma, "lemma": lemma, "pos": POS[pos], "ru": row["ru"], "forms": forms})
+            translations = {lang: row[lang] for lang in ("ru", "en", "fi")}
+            words.append(
+                {"id": lemma, "lemma": lemma, "pos": POS[pos], "tr": translations, "forms": forms}
+            )
 
     if problems:
         print("\n".join(problems), file=sys.stderr)

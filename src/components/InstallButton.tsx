@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { getDictionary, type Locale } from "@/i18n";
 import { promptInstall, useInstallState } from "@/lib/install";
 import { InstallGuide } from "./InstallGuide";
 
-type Props = { size?: "md" | "lg"; tone?: "brand" | "light" };
+type Props = { locale: Locale; size?: "md" | "lg"; tone?: "brand" | "light" };
 
-export function InstallButton({ size = "md", tone = "brand" }: Props) {
+export function InstallButton({ locale, size = "md", tone = "brand" }: Props) {
+  const t = getDictionary(locale).install;
   const state = useInstallState();
   const [guideOpen, setGuideOpen] = useState(false);
 
@@ -22,10 +24,10 @@ export function InstallButton({ size = "md", tone = "brand" }: Props) {
     return (
       <div className="flex flex-col items-start gap-2">
         <Link href="/train" className={base}>
-          Открыть тренажёр
+          {t.openTrainer}
         </Link>
         <p className={`text-sm ${tone === "light" ? "text-white/80" : "text-muted"}`}>
-          Приложение уже установлено.
+          {t.alreadyInstalled}
         </p>
       </div>
     );
@@ -49,9 +51,9 @@ export function InstallButton({ size = "md", tone = "brand" }: Props) {
             strokeLinejoin="round"
           />
         </svg>
-        Скачать приложение
+        {t.download}
       </button>
-      {guideOpen && <InstallGuide onClose={() => setGuideOpen(false)} />}
+      {guideOpen && <InstallGuide locale={locale} onClose={() => setGuideOpen(false)} />}
     </>
   );
 }

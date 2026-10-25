@@ -1,22 +1,23 @@
 "use client";
 
-import { CASE_BY_KEY, NUMBER_LABEL, type CaseKey, type GrammaticalNumber } from "@/lib/cases";
+import type { Dictionary } from "@/i18n";
+import { CASE_BY_KEY, type CaseKey, type GrammaticalNumber } from "@/lib/cases";
 import type { Settings } from "@/lib/srs";
 
-const GROUPS: { title: string; keys: CaseKey[] }[] = [
-  { title: "Основные", keys: ["nom", "gen", "part"] },
-  { title: "Внутренние местные · в / из", keys: ["ill", "ines", "ela"] },
-  { title: "Внешние местные · на / с", keys: ["all", "ade", "abl"] },
-  { title: "Остальные", keys: ["transl", "term", "ess", "abess", "com"] },
+const GROUPS: CaseKey[][] = [
+  ["nom", "gen", "part"],
+  ["ill", "ines", "ela"],
+  ["all", "ade", "abl"],
+  ["transl", "term", "ess", "abess", "com"],
 ];
 
-const ALL: CaseKey[] = GROUPS.flatMap((g) => g.keys);
+const ALL: CaseKey[] = GROUPS.flat();
 
-const PRESETS: { label: string; cases: CaseKey[] }[] = [
-  { label: "Все 14", cases: ALL },
-  { label: "Основные", cases: ["gen", "part"] },
-  { label: "Местные (6)", cases: ["ill", "ines", "ela", "all", "ade", "abl"] },
-  { label: "Остальные (5)", cases: ["transl", "term", "ess", "abess", "com"] },
+const PRESETS: CaseKey[][] = [
+  ALL,
+  ["gen", "part"],
+  ["ill", "ines", "ela", "all", "ade", "abl"],
+  ["transl", "term", "ess", "abess", "com"],
 ];
 
 function toggle<T>(list: T[], item: T) {
@@ -27,30 +28,22 @@ function sameSet<T>(a: T[], b: T[]) {
   return a.length === b.length && a.every((x) => b.includes(x));
 }
 
-function plural(n: number) {
-  const mod10 = n % 10;
-  const mod100 = n % 100;
-  if (mod10 === 1 && mod100 !== 11) return "падеж";
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "падежа";
-  return "падежей";
-}
-
 /** Короткое описание выбора для кнопки: «Все падежи · ед. и мн. ч.». */
-export function settingsSummary(settings: Settings) {
+export function settingsSummary(settings: Settings, t: Dictionary) {
   const cases =
     settings.cases.length === ALL.length
-      ? "Все падежи"
+      ? t.picker.all
       : settings.cases.length <= 2
         ? settings.cases.map((c) => CASE_BY_KEY[c].et).join(", ")
-        : `${settings.cases.length} ${plural(settings.cases.length)}`;
+        : t.picker.count(settings.cases.length);
   const numbers =
-    settings.numbers.length === 2 ? "ед. и мн. ч." : NUMBER_LABEL[settings.numbers[0]!];
+    settings.numbers.length === 2 ? t.picker.bothNumbers : t.number[settings.numbers[0]!];
   return `${cases} · ${numbers}`;
 }
 
-type Props = { settings: Settings; onChange: (settings: Settings) => void };
+type Props = { t: Dictionary; settings: Settings; onChange: (settings: Settings) => void };
 
-export function CasePickerFields({ settings, onChange }: Props) {
+export function CasePickerFields({ t, settings, onChange }: Props) {
   function setCases(cases: CaseKey[]) {
     if (cases.length > 0) onChange({ ...settings, cases });
   }
@@ -61,22 +54,18 @@ export function CasePickerFields({ settings, onChange }: Props) {
   return (
     <div className="space-y-5">
       <fieldset>
-        <legend className="mb-2 text-sm font-medium">Быстрый выбор</legend>
+        <legend className="mb-2 text-sm font-medium">{t.picker.quick}</legend>
         <div className="flex flex-wrap gap-2">
-          {PRESETS.map((p) => (
-            <Chip
-              key={p.label}
-              active={sameSet(settings.cases, p.cases)}
-              onClick={() => setCases(p.cases)}
-            >
-              {p.label}
+          {PRESETS.map((cases, i) => (
+            <Chip key={i} active={sameSet(settings.cases, cases)} onClick={() => setCases(cases)}>
+              {t.picker.presets[i]}
             </Chip>
           ))}
         </div>
       </fieldset>
 
       <fieldset>
-        <legend className="mb-2 text-sm font-medium">Число</legend>
+        <legend className="mb-2 text-sm font-medium">{t.picker.number}</legend>
         <div className="flex gap-2">
           {(["sg", "pl"] as const).map((n) => (
             <Chip
@@ -84,17 +73,17 @@ export function CasePickerFields({ settings, onChange }: Props) {
               active={settings.numbers.includes(n)}
               onClick={() => setNumbers(toggle(settings.numbers, n))}
             >
-              {n === "sg" ? "Единственное" : "Множественное"}
+              {t.numberFull[n]}
             </Chip>
           ))}
         </div>
       </fieldset>
 
-      {GROUPS.map((group) => (
-        <fieldset key={group.title}>
-          <legend className="mb-2 text-sm font-medium">{group.title}</legend>
+      {GROUPS.map((keys, i) => (
+        <fieldset key={i}>
+          <legend className="mb-2 text-sm font-medium">{t.picker.groups[i]}</legend>
           <div className="grid grid-cols-2 gap-2">
-            {group.keys.map((key) => {
+            {keys.map((key) => {
               const info = CASE_BY_KEY[key];
               const active = settings.cases.includes(key);
               return (
@@ -111,7 +100,7 @@ export function CasePickerFields({ settings, onChange }: Props) {
                     {info.et}
                   </span>
                   <span className="block text-xs text-muted">
-                    {info.ru.split(" (")[0]} · {info.questionEt.split(" ")[0]}
+                    {t.cases[key].name.split(" (")[0]} · {info.questionEt.split(" ")[0]}
                   </span>
                 </button>
               );
@@ -120,7 +109,7 @@ export function CasePickerFields({ settings, onChange }: Props) {
         </fieldset>
       ))}
 
-      <p className="text-xs text-muted">Хотя бы один падеж и одно число должны быть выбраны.</p>
+      <p className="text-xs text-muted">{t.picker.minHint}</p>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 "use client";
 
+import type { Dictionary } from "@/i18n";
 import { CASES } from "@/lib/cases";
 import type { CaseStats, Progress } from "@/lib/srs";
 
-type Props = { progress: Progress; onReset: () => void };
+type Props = { t: Dictionary; progress: Progress; onReset: () => void };
 
 function accuracy(stats?: CaseStats) {
   if (!stats) return null;
@@ -11,7 +12,8 @@ function accuracy(stats?: CaseStats) {
   return total === 0 ? null : { percent: Math.round((stats.right / total) * 100), total };
 }
 
-export function StatsView({ progress, onReset }: Props) {
+export function StatsView({ t, progress, onReset }: Props) {
+  const s = t.stats;
   const rows = CASES.map((c) => {
     const sg = progress.stats[`sg.${c.key}`];
     const pl = progress.stats[`pl.${c.key}`];
@@ -27,27 +29,23 @@ export function StatsView({ progress, onReset }: Props) {
   const total = rows.reduce((n, r) => n + (r.all?.total ?? 0), 0);
 
   function reset() {
-    if (window.confirm("Удалить весь прогресс? Это нельзя отменить.")) onReset();
+    if (window.confirm(s.confirmReset)) onReset();
   }
 
   return (
     <section className="space-y-4">
-      <div className="rounded-3xl border border-line bg-surface p-5 shadow-sm sm:p-6">
-        <h1 className="text-xl font-semibold">Как даются падежи</h1>
+      <div className="rounded-[1.75rem] bg-surface p-5 shadow-xl shadow-black/20 sm:p-6">
+        <h1 className="text-xl font-semibold">{s.title}</h1>
         {total === 0 ? (
-          <p className="mt-2 text-muted">
-            Ответьте на несколько заданий — здесь появится статистика.
-          </p>
+          <p className="mt-2 text-muted">{s.empty}</p>
         ) : weakest.length > 0 ? (
           <p className="mt-2 text-muted">
-            Сложнее всего:{" "}
-            <b className="text-foreground">{weakest.map((r) => r.info.et).join(", ")}</b>. Эти формы
-            будут повторяться чаще.
+            {s.weakest}{" "}
+            <b className="text-foreground">{weakest.map((r) => r.info.et).join(", ")}</b>.{" "}
+            {s.weakestNote}
           </p>
         ) : (
-          <p className="mt-2 text-muted">
-            Всего ответов: {total}. Для выводов нужно хотя бы по 3 ответа на падеж.
-          </p>
+          <p className="mt-2 text-muted">{s.notEnough(total)}</p>
         )}
 
         <ul className="mt-5 divide-y divide-line">
@@ -58,20 +56,20 @@ export function StatsView({ progress, onReset }: Props) {
             >
               <div>
                 <p className="font-medium">{info.et}</p>
-                <p className="text-xs text-muted">{info.ru}</p>
+                <p className="text-xs text-muted">{t.cases[info.key].name}</p>
               </div>
               <p className="text-right text-sm tabular-nums">
                 {all ? (
                   <>
-                    <b>{all.percent}%</b> <span className="text-muted">из {all.total}</span>
+                    <b>{all.percent}%</b> <span className="text-muted">{s.outOf(all.total)}</span>
                   </>
                 ) : (
                   <span className="text-muted">—</span>
                 )}
               </p>
               <div className="col-span-2 grid grid-cols-2 gap-3">
-                <Bar label="ед. ч." value={sg} />
-                <Bar label="мн. ч." value={pl} />
+                <Bar label={t.number.sg} value={sg} />
+                <Bar label={t.number.pl} value={pl} />
               </div>
             </li>
           ))}
@@ -83,7 +81,7 @@ export function StatsView({ progress, onReset }: Props) {
         onClick={reset}
         className="text-sm text-muted underline-offset-2 hover:text-danger hover:underline"
       >
-        Сбросить прогресс
+        {s.reset}
       </button>
     </section>
   );
@@ -100,7 +98,7 @@ function Bar({ label, value }: { label: string; value: { percent: number } | nul
           : "bg-danger";
   return (
     <div className="flex items-center gap-2 text-xs text-muted">
-      <span className="w-10 shrink-0">{label}</span>
+      <span className="w-16 shrink-0 truncate">{label}</span>
       <div className="h-2 flex-1 overflow-hidden rounded-full bg-background">
         {value && (
           <div

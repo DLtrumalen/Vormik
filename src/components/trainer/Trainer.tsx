@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
+import { LangSwitcher } from "@/components/LangSwitcher";
+import { getDictionary, localeHref, type Dictionary } from "@/i18n";
+import { useLocale } from "@/i18n/client";
 import { isStandalone } from "@/lib/install";
 import {
   addNewCards,
@@ -30,10 +33,10 @@ function startSession(): Session {
   return { progress, task: nextTask(progress, now), turn: 0, answered: 0 };
 }
 
-const TABS: { key: View; label: string; icon: ReactNode }[] = [
-  { key: "train", label: "Учить", icon: <CardsIcon /> },
-  { key: "stats", label: "Прогресс", icon: <ChartIcon /> },
-  { key: "settings", label: "Настройки", icon: <SlidersIcon /> },
+const TABS: { key: View; tab: keyof Dictionary["app"]["tabs"]; icon: ReactNode }[] = [
+  { key: "train", tab: "learn", icon: <CardsIcon /> },
+  { key: "stats", tab: "progress", icon: <ChartIcon /> },
+  { key: "settings", tab: "settings", icon: <SlidersIcon /> },
 ];
 
 export default function Trainer() {
@@ -42,6 +45,8 @@ export default function Trainer() {
   const [pickerOpen, setPickerOpen] = useState(false);
   // Тренажёр рендерится только на клиенте, поэтому режим запуска можно узнать сразу.
   const [standalone] = useState(isStandalone);
+  const locale = useLocale();
+  const t = getDictionary(locale);
   const { progress, task } = session;
 
   function update(next: Progress, { advance }: { advance: boolean }) {
@@ -68,27 +73,35 @@ export default function Trainer() {
           {/* В браузере логотип ведёт на главную страницу сайта, в установленном приложении — нет. */}
           {standalone ? (
             <div className="flex items-center gap-2.5">
-              <Brand learned={learned} />
+              <Brand learned={`${t.app.learned}: ${learned}`} />
             </div>
           ) : (
             <Link
-              href="/"
-              title="На главную"
+              href={localeHref(locale)}
+              title={t.app.home}
               className="flex items-center gap-2.5 rounded-xl transition-opacity hover:opacity-80"
             >
-              <Brand learned={learned} />
+              <Brand learned={`${t.app.learned}: ${learned}`} />
             </Link>
           )}
-          <div className="flex gap-2 text-xs font-medium">
-            <Chip label="повторить" value={due} />
-            <Chip label="новых" value={`${newCount}/${newLimit}`} />
-          </div>
+          <LangSwitcher locale={locale} mode="app" />
         </div>
-        <div className="mx-auto mt-3 h-1.5 max-w-md overflow-hidden rounded-full bg-surface">
-          <div
-            className="h-full rounded-full bg-brand transition-[width] duration-500"
-            style={{ width: `${Math.min(100, (newCount / newLimit) * 100)}%` }}
-          />
+        <div className="mx-auto mt-3 flex max-w-md items-center gap-3 text-xs text-muted">
+          <span className="whitespace-nowrap">
+            <b className="text-foreground tabular-nums">{due}</b> {t.app.due}
+          </span>
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface">
+            <div
+              className="h-full rounded-full bg-brand transition-[width] duration-500"
+              style={{ width: `${Math.min(100, (newCount / newLimit) * 100)}%` }}
+            />
+          </div>
+          <span className="whitespace-nowrap">
+            <b className="text-foreground tabular-nums">
+              {newCount}/{newLimit}
+            </b>{" "}
+            {t.app.fresh}
+          </span>
         </div>
       </header>
 
@@ -101,10 +114,10 @@ export default function Trainer() {
               className="flex items-center justify-between gap-3 rounded-2xl bg-surface px-4 py-3 text-left text-sm transition-colors hover:bg-surface-raised"
             >
               <span>
-                <span className="block text-xs text-muted">Учу сейчас</span>
-                <b>{settingsSummary(progress.settings)}</b>
+                <span className="block text-xs text-muted">{t.app.learningNow}</span>
+                <b>{settingsSummary(progress.settings, t)}</b>
               </span>
-              <span className="shrink-0 font-medium text-brand">Выбрать падежи</span>
+              <span className="shrink-0 font-medium text-brand">{t.app.chooseCases}</span>
             </button>
           )}
 
@@ -112,6 +125,7 @@ export default function Trainer() {
             (task.kind === "task" ? (
               <TaskCard
                 key={session.turn}
+                t={t}
                 id={task.id}
                 isNew={task.isNew}
                 onAnswer={(correct) => {
@@ -122,6 +136,7 @@ export default function Trainer() {
               />
             ) : (
               <DoneCard
+                t={t}
                 answered={session.answered}
                 nextDue={task.nextDue}
                 canAddNew={task.canAddNew}
@@ -132,6 +147,7 @@ export default function Trainer() {
 
           {view === "stats" && (
             <StatsView
+              t={t}
               progress={progress}
               onReset={() => {
                 resetProgress();
@@ -142,6 +158,7 @@ export default function Trainer() {
 
           {view === "settings" && (
             <SettingsView
+              t={t}
               settings={progress.settings}
               onChange={(settings) => update({ ...progress, settings }, { advance: true })}
             />
@@ -164,17 +181,18 @@ export default function Trainer() {
             <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-line" aria-hidden="true" />
             <div className="mb-4 flex items-center justify-between">
               <h2 id="picker-title" className="text-lg font-semibold">
-                Какие падежи учить
+                {t.app.pickerTitle}
               </h2>
               <button
                 type="button"
                 onClick={() => setPickerOpen(false)}
                 className="rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-white"
               >
-                Готово
+                {t.app.done}
               </button>
             </div>
             <CasePickerFields
+              t={t}
               settings={progress.settings}
               onChange={(settings) => update({ ...progress, settings }, { advance: true })}
             />
@@ -183,7 +201,7 @@ export default function Trainer() {
       )}
 
       <nav
-        aria-label="Разделы"
+        aria-label={t.app.sections}
         className="shrink-0 border-t border-line bg-surface/90 px-2 pt-1.5 pb-[max(env(safe-area-inset-bottom),0.5rem)] backdrop-blur"
       >
         <div className="mx-auto grid max-w-md grid-cols-3">
@@ -206,7 +224,7 @@ export default function Trainer() {
                 >
                   {tab.icon}
                 </span>
-                {tab.label}
+                {t.app.tabs[tab.tab]}
               </button>
             );
           })}
@@ -216,7 +234,7 @@ export default function Trainer() {
   );
 }
 
-function Brand({ learned }: { learned: number }) {
+function Brand({ learned }: { learned: string }) {
   return (
     <>
       <span
@@ -227,18 +245,9 @@ function Brand({ learned }: { learned: number }) {
       </span>
       <span className="leading-tight">
         <span className="block font-semibold">Vormik</span>
-        <span className="block text-xs whitespace-nowrap text-muted">выучено: {learned}</span>
+        <span className="block text-xs whitespace-nowrap text-muted">{learned}</span>
       </span>
     </>
-  );
-}
-
-function Chip({ label, value }: { label: string; value: ReactNode }) {
-  return (
-    <span className="flex flex-col items-center rounded-xl bg-surface px-2.5 py-1 leading-tight whitespace-nowrap">
-      <b className="text-sm text-foreground tabular-nums">{value}</b>
-      <span className="text-[10px] text-muted">{label}</span>
-    </span>
   );
 }
 

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { LOCALES } from "@/i18n";
 import { explain } from "./explain";
 import { DEFAULT_SETTINGS, parseTaskId, taskIds } from "./srs";
 import { WORD_BY_ID } from "./words";
@@ -46,11 +47,11 @@ describe("explain", () => {
   });
 
   it("для прилагательного показывает согласование с существительным", () => {
-    expect(explain(uus, "sg.ill", "", "wrong").example.ru).toContain("«uude majja»");
+    expect(explain(uus, "sg.ill", "", "wrong").example.note).toContain("«uude majja»");
   });
 
   it("в kaasaütlev прилагательное с существительным стоит в родительном", () => {
-    expect(explain(uus, "sg.com", "", "wrong").example.ru).toContain("«uue majaga»");
+    expect(explain(uus, "sg.com", "", "wrong").example.note).toContain("«uue majaga»");
   });
 
   it("объясняет краткую форму мн. ч. и показывает ту, что разобрана в шагах", () => {
@@ -61,28 +62,41 @@ describe("explain", () => {
     expect(explain(keel, "pl.abl", "keelilt", "correct").answer).toBe("keelilt");
   });
 
-  it("работает для каждой формы словаря, и пример содержит саму форму", () => {
-    for (const id of taskIds(DEFAULT_SETTINGS)) {
-      const { wordId, formKey } = parseTaskId(id);
-      const word = WORD_BY_ID[wordId]!;
-      const e = explain(word, formKey, "x", "wrong");
-      expect(e.steps.length, id).toBeGreaterThan(0);
-      const otherNumber = formKey.startsWith("sg") ? "pl" : "sg";
-      const wrongNumber =
-        word.forms[`${otherNumber}.${formKey.split(".")[1]}` as typeof formKey][0]!;
-      const texts = [
-        ...e.steps,
-        e.example.ru,
-        explain(word, formKey, wrongNumber, "wrong").mistake,
-      ];
-      for (const text of texts) expect(text, id).not.toMatch(/\.\./);
-      expect(e.example.et, id).toContain(e.answer);
-      for (const step of e.steps) {
-        const result = step.split(" = ")[1]?.replace(/\.$/, "");
-        if (result) expect(word.forms[formKey], `${id}: ${step}`).toContain(result);
-      }
-    }
+  it("говорит на английском и финском", () => {
+    expect(explain(nimi, "pl.ill", "nimisse", "wrong", "en").steps.at(-1)).toBe(
+      "Add the ending -sse: nimede + sse = nimedesse.",
+    );
+    expect(explain(nimi, "pl.ill", "nimesse", "wrong", "fi").mistake).toBe(
+      "”nimesse” on sisseütlev, yksikkö, mutta tarvitaan monikko",
+    );
+    expect(explain(uus, "sg.ill", "", "wrong", "en").example.note).toContain("“new house”");
   });
+
+  it.each(LOCALES)(
+    "работает для каждой формы словаря (%s), и пример содержит саму форму",
+    (locale) => {
+      for (const id of taskIds(DEFAULT_SETTINGS)) {
+        const { wordId, formKey } = parseTaskId(id);
+        const word = WORD_BY_ID[wordId]!;
+        const e = explain(word, formKey, "x", "wrong", locale);
+        expect(e.steps.length, id).toBeGreaterThan(0);
+        const otherNumber = formKey.startsWith("sg") ? "pl" : "sg";
+        const wrongNumber =
+          word.forms[`${otherNumber}.${formKey.split(".")[1]}` as typeof formKey][0]!;
+        const texts = [
+          ...e.steps,
+          e.example.note,
+          explain(word, formKey, wrongNumber, "wrong", locale).mistake,
+        ];
+        for (const text of texts) expect(text, id).not.toMatch(/\.\./);
+        expect(e.example.et, id).toContain(e.answer);
+        for (const step of e.steps) {
+          const result = step.split(" = ")[1]?.replace(/\.$/, "");
+          if (result) expect(word.forms[formKey], `${id}: ${step}`).toContain(result);
+        }
+      }
+    },
+  );
 
   it("строит мн. ч. именительный от родительного ед. ч.", () => {
     expect(explain(jalg, "pl.nom", "", "wrong").steps.at(-1)).toBe(

@@ -3,10 +3,10 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/train",
-    name: "Vormik — тренажёр эстонских падежей",
+    // Манифест один на все языки, поэтому название нейтральное, а язык выбирается в приложении.
+    name: "Vormik",
     short_name: "Vormik",
-    description: "Тренируйте формы эстонских слов во всех 14 падежах. Объяснения на русском.",
-    lang: "ru",
+    description: "Estonian case trainer · Тренажёр эстонских падежей · Viron sijamuodot",
     start_url: "/train",
     scope: "/",
     display: "standalone",

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ServiceWorker } from "@/components/ServiceWorker";
+import { ru } from "@/i18n/ru";
 import { INSTALL_CAPTURE_SCRIPT } from "@/lib/install-capture";
 import "./globals.css";
 
@@ -15,9 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vormik — тренажёр эстонских падежей",
-  description:
-    "Тренируйте формы эстонских слов во всех 14 падежах. Интервальное повторение и объяснения на русском.",
+  title: ru.meta.title,
+  description: ru.meta.description,
   applicationName: "Vormik",
   appleWebApp: { capable: true, title: "Vormik", statusBarStyle: "black-translucent" },
   // Next выводит только новый тег mobile-web-app-capable; старые iOS понимают лишь этот.

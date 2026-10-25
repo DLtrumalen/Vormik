@@ -1,4 +1,5 @@
 import data from "@/data/words.json";
+import type { Locale } from "@/i18n";
 import type { CaseKey, GrammaticalNumber } from "./cases";
 
 export type FormKey = `${GrammaticalNumber}.${CaseKey}`;
@@ -7,7 +8,8 @@ export type Word = {
   id: string;
   lemma: string;
   pos: "noun" | "adj";
-  ru: string;
+  /** Перевод слова на языки интерфейса. */
+  tr: Record<Locale, string>;
   forms: Record<FormKey, string[]>;
 };
 

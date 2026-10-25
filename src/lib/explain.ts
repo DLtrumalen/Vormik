@@ -1,4 +1,5 @@
-import { CASE_BY_KEY, CASES, NUMBER_LABEL, type CaseKey, type GrammaticalNumber } from "./cases";
+import { getDictionary, type Dictionary, type Locale } from "@/i18n";
+import { CASE_BY_KEY, CASES, type CaseKey, type GrammaticalNumber } from "./cases";
 import { normalize, type CheckResult } from "./check";
 import { WORD_BY_ID, type FormKey, type Word } from "./words";
 
@@ -12,20 +13,21 @@ export type Explanation = {
   steps: string[];
   /** Короткое правило: когда нужен этот падеж. */
   usage: string;
-  /** Пример с этим же словом в нужной форме. */
-  example: { et: string; ru: string };
+  /** Пример с этим же словом в нужной форме и пояснение к нему на языке интерфейса. */
+  example: { et: string; note: string };
 };
 
 const NOUN_FOR_ADJECTIVES = "maja";
 
-function formLabel(key: FormKey) {
-  const [number, caseKey] = key.split(".") as [GrammaticalNumber, CaseKey];
-  const info = CASE_BY_KEY[caseKey];
-  return `${info.et} (${info.ru}), ${NUMBER_LABEL[number]}`;
-}
+/** В этих падежах прилагательное перед существительным стоит в родительном: suure majaga. */
+const GENITIVE_ATTRIBUTE: CaseKey[] = ["term", "ess", "abess", "com"];
 
 function first(word: Word, key: FormKey) {
   return word.forms[key][0]!;
+}
+
+function splitKey(key: FormKey) {
+  return key.split(".") as [GrammaticalNumber, CaseKey];
 }
 
 /** Какой форме этого же слова соответствует ответ пользователя. */
@@ -42,136 +44,104 @@ function matchOtherForm(word: Word, input: string, target: FormKey): FormKey | n
 }
 
 function describeMistake(
+  t: Dictionary,
   word: Word,
   input: string,
   result: CheckResult,
   key: FormKey,
-  number: GrammaticalNumber,
-  caseKey: CaseKey,
 ): string | null {
   if (result === "correct") return null;
-  if (result === "diacritics") {
-    return "Почти: форма верная, но перепутаны эстонские буквы (õ, ä, ö, ü). Сравните с правильным ответом.";
-  }
+  if (result === "diacritics") return t.explain.diacritics;
 
+  const [number, caseKey] = splitKey(key);
+  const answer = normalize(input);
   const other = matchOtherForm(word, input, key);
   if (other) {
-    const [otherNumber, otherCase] = other.split(".") as [GrammaticalNumber, CaseKey];
+    const [otherNumber, otherCase] = splitKey(other);
     if (otherCase === caseKey && otherNumber !== number) {
-      return `«${normalize(input)}» — это ${CASE_BY_KEY[caseKey].et} ${NUMBER_LABEL[otherNumber]}, а нужно ${NUMBER_LABEL[number]}`;
+      return t.explain.otherNumber(
+        answer,
+        CASE_BY_KEY[caseKey].et,
+        t.number[otherNumber],
+        t.number[number],
+      );
     }
-    return `«${normalize(input)}» — это другой падеж: ${formLabel(other)}`;
+    const label = `${CASE_BY_KEY[otherCase].et} (${t.cases[otherCase].name}), ${t.number[otherNumber]}`;
+    return t.explain.otherCase(answer, label);
   }
 
   const suffix = CASE_BY_KEY[caseKey].suffix;
-  const answer = normalize(input);
   if (suffix && answer.endsWith(suffix) && answer.length > suffix.length) {
     const stem = answer.slice(0, -suffix.length);
     const expectedStem = number === "sg" ? first(word, "sg.gen") : first(word, "pl.gen");
-    return `Окончание -${suffix} верное, ошибка в основе: не «${stem}-», а «${expectedStem}-».`;
+    return t.explain.stemError(suffix, stem, expectedStem);
   }
 
-  return `У слова ${word.lemma} нет формы «${answer}».`;
+  return t.explain.noSuchForm(word.lemma, answer);
 }
 
-function buildSteps(word: Word, number: GrammaticalNumber, caseKey: CaseKey): string[] {
-  const info = CASE_BY_KEY[caseKey];
+function buildSteps(t: Dictionary, word: Word, number: GrammaticalNumber, caseKey: CaseKey) {
+  const e = t.explain;
+  const suffix = CASE_BY_KEY[caseKey].suffix;
   const target = word.forms[`${number}.${caseKey}`];
   const sgGen = first(word, "sg.gen");
   const sgPart = first(word, "sg.part");
   const plGen = first(word, "pl.gen");
-  const steps: string[] = [];
 
-  if (caseKey === "gen" && number === "sg") {
-    return [
-      `Родительный ед. ч. не строится по правилу — его запоминают вместе со словом: ${word.lemma} → ${sgGen}.`,
-      `От этой формы образуется большинство других падежей: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
-    ];
-  }
-  if (caseKey === "part" && number === "sg") {
-    return [
-      `Частичный ед. ч. тоже запоминают вместе со словом: ${word.lemma} — ${sgGen} — ${sgPart}.`,
-      `Эти три формы (именительный, родительный, частичный) — «ключ» к слову.`,
-    ];
-  }
-  if (caseKey === "part" && number === "pl") {
-    return [
-      `Частичный мн. ч. нужно запомнить: ${target.join(" / ")}.`,
-      `Для сравнения: частичный ед. ч. — ${sgPart}.`,
-    ];
-  }
-
-  if (caseKey === "nom" && number === "pl") {
-    steps.push(`Берём родительный ед. ч.: ${word.lemma} → ${sgGen}.`);
-    steps.push(`Добавляем -d: ${sgGen} + d = ${sgGen}d.`);
-    return steps;
-  }
+  if (number === "sg" && caseKey === "gen") return e.genSg(word.lemma, sgGen);
+  if (number === "sg" && caseKey === "part") return e.partSg(word.lemma, sgGen, sgPart);
+  if (number === "pl" && caseKey === "part") return e.partPl(target.join(" / "), sgPart);
+  if (number === "pl" && caseKey === "nom") return [e.takeGen(word.lemma, sgGen), e.addD(sgGen)];
 
   if (number === "pl") {
-    steps.push(`Родительный ед. ч.: ${word.lemma} → ${sgGen}, частичный ед. ч.: ${sgPart}.`);
-    if (caseKey === "gen") {
-      steps.push(
-        `Родительный мн. ч. образуется от частичного ед. ч. + -de или -te: ${sgPart} → ${plGen}.`,
-      );
-      return steps;
-    }
-    steps.push(`Родительный мн. ч. (от частичного ед. ч. + -de/-te): ${plGen}.`);
-    steps.push(
-      `Добавляем окончание -${info.suffix}: ${plGen} + ${info.suffix} = ${plGen}${info.suffix}.`,
-    );
-    return steps;
+    const intro = e.plIntro(word.lemma, sgGen, sgPart);
+    if (caseKey === "gen") return [intro, e.plGenFrom(sgPart, plGen)];
+    return [intro, e.plGenIs(plGen), e.addEnding(suffix, plGen)];
   }
 
   // Единственное число, местные и остальные падежи.
-  steps.push(`Берём родительный ед. ч.: ${word.lemma} → ${sgGen}.`);
-  steps.push(
-    `Добавляем окончание -${info.suffix}: ${sgGen} + ${info.suffix} = ${sgGen}${info.suffix}.`,
-  );
+  const steps = [e.takeGen(word.lemma, sgGen), e.addEnding(suffix, sgGen)];
   if (caseKey === "ill") {
     const short = target.filter((v) => !v.endsWith("sse"));
-    if (short.length > 0) {
-      steps.push(
-        `У этого слова есть и краткая форма: ${short.join(" / ")} — в речи она встречается чаще. Обе формы правильные.`,
-      );
-    }
+    if (short.length > 0) steps.push(e.shortIll(short.join(" / ")));
   }
   return steps;
 }
 
-/** В этих падежах прилагательное перед существительным стоит в родительном: suure majaga. */
-const GENITIVE_ATTRIBUTE: CaseKey[] = ["term", "ess", "abess", "com"];
-
-function buildExample(
-  word: Word,
-  form: string,
-  key: FormKey,
-  number: GrammaticalNumber,
-  caseKey: CaseKey,
-) {
-  const info = CASE_BY_KEY[caseKey];
-  const et = `${info.questionEt} → ${form}`;
+function buildExample(t: Dictionary, word: Word, form: string, key: FormKey) {
+  const [number, caseKey] = splitKey(key);
+  const et = `${CASE_BY_KEY[caseKey].questionEt} → ${form}`;
+  const translation = word.tr[t.locale];
   if (word.pos !== "adj") {
-    return { et, ru: `${info.questionRu} → «${word.ru}», ${NUMBER_LABEL[number]}` };
+    return {
+      et,
+      note: t.explain.exampleNoun(t.cases[caseKey].question, translation, t.number[number]),
+    };
   }
 
   const nounForm = first(WORD_BY_ID[NOUN_FOR_ADJECTIVES]!, key);
+  const phraseTranslation = `${translation} ${t.explain.house}`;
   if (GENITIVE_ATTRIBUTE.includes(caseKey)) {
     const adjGen = first(word, `${number}.gen`);
-    return {
-      et,
-      ru: `С существительным: «${adjGen} ${nounForm}» («${word.ru} дом»). В падежах rajav, olev, ilmaütlev и kaasaütlev прилагательное перед существительным ставится в родительный.`,
-    };
+    return { et, note: t.explain.exampleAdjGenitive(`${adjGen} ${nounForm}`, phraseTranslation) };
   }
   return {
     et,
-    ru: `С существительным: «${form} ${nounForm}» («${word.ru} дом», ${NUMBER_LABEL[number]}) — прилагательное стоит в том же падеже, что и существительное.`,
+    note: t.explain.exampleAdj(`${form} ${nounForm}`, phraseTranslation, t.number[number]),
   };
 }
 
-export function explain(word: Word, key: FormKey, input: string, result: CheckResult): Explanation {
-  const [number, caseKey] = key.split(".") as [GrammaticalNumber, CaseKey];
+export function explain(
+  word: Word,
+  key: FormKey,
+  input: string,
+  result: CheckResult,
+  locale: Locale = "ru",
+): Explanation {
+  const t = getDictionary(locale);
+  const [number, caseKey] = splitKey(key);
   const variants = word.forms[key];
-  const steps = buildSteps(word, number, caseKey);
+  const steps = buildSteps(t, word, number, caseKey);
 
   // Форма, которая получается по правилу из шагов (строка вида «… = keeltelt.»).
   const ruleIndex = steps.findLastIndex((s) => s.includes(" = "));
@@ -181,20 +151,14 @@ export function explain(word: Word, key: FormKey, input: string, result: CheckRe
     derived = ruleResult;
   } else if (ruleResult) {
     // По правилу получается не словарная форма — честно говорим, что её надо запомнить.
-    steps.splice(
-      ruleIndex,
-      1,
-      `Эта форма образуется не по общему правилу — её нужно запомнить: ${variants.join(" / ")}.`,
-    );
+    steps.splice(ruleIndex, 1, t.explain.irregular(variants.join(" / ")));
   }
 
   // Краткие формы мн. ч. (keelilt, jalusse) строятся от частичного мн. ч. — объясняем их отдельно.
   if (derived && number === "pl") {
     const others = variants.filter((v) => v !== derived);
     if (others.length > 0) {
-      steps.push(
-        `Есть и краткая форма мн. ч. — от частичного мн. ч. (${first(word, "pl.part")}): ${others.join(" / ")}. Она тоже правильная.`,
-      );
+      steps.push(t.explain.shortPl(first(word, "pl.part"), others.join(" / ")));
     }
   }
 
@@ -207,9 +171,9 @@ export function explain(word: Word, key: FormKey, input: string, result: CheckRe
   return {
     answer,
     alternatives: variants.filter((v) => v !== answer),
-    mistake: describeMistake(word, input, result, key, number, caseKey),
+    mistake: describeMistake(t, word, input, result, key),
     steps,
-    usage: CASE_BY_KEY[caseKey].explanation,
-    example: buildExample(word, answer, key, number, caseKey),
+    usage: t.cases[caseKey].explanation,
+    example: buildExample(t, word, answer, key),
   };
 }
