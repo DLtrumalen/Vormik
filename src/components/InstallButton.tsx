@@ -49,10 +49,7 @@ export function InstallButton({ size = "md", tone = "brand" }: Props) {
       {showHelp && (
         <div className="max-w-sm rounded-xl border border-line bg-surface p-4 text-left text-sm leading-relaxed text-muted">
           {state.kind === "ios" ? (
-            <p>
-              На iPhone и iPad: нажмите <b className="text-foreground">«Поделиться»</b> внизу экрана
-              Safari, затем <b className="text-foreground">«На экран „Домой“»</b>.
-            </p>
+            <IosSteps browser={state.browser} />
           ) : state.kind === "chromium" ? (
             <>
               <p>
@@ -78,19 +75,93 @@ export function InstallButton({ size = "md", tone = "brand" }: Props) {
               а на iPhone — в <b className="text-foreground">Safari</b>.
             </p>
           )}
-          <p className="mt-2">
-            Или{" "}
-            <Link
-              href="/train"
-              className="font-medium text-brand underline-offset-2 hover:underline"
-            >
-              занимайтесь прямо в браузере
-            </Link>
-            .
-          </p>
         </div>
       )}
     </div>
+  );
+}
+
+/** Apple не даёт сайтам открыть окно установки — показываем, где нажать. */
+function IosSteps({ browser }: { browser: "safari" | "other" | "in-app" }) {
+  if (browser === "in-app") {
+    return (
+      <p>
+        Сейчас сайт открыт внутри другого приложения, отсюда установить нельзя. Нажмите{" "}
+        <b className="text-foreground">•••</b> и выберите{" "}
+        <b className="text-foreground">«Открыть в Safari»</b>, затем нажмите «Скачать приложение»
+        ещё раз.
+      </p>
+    );
+  }
+  const shareWhere =
+    browser === "safari"
+      ? "внизу экрана (в новых iOS — сначала «•••» справа внизу)"
+      : "справа в адресной строке";
+  return (
+    <>
+      <p className="font-semibold text-foreground">Установка на iPhone и iPad</p>
+      <ol className="mt-2 space-y-2.5">
+        <Step n={1}>
+          Нажмите <ShareIcon /> <b className="text-foreground">«Поделиться»</b> {shareWhere}.
+        </Step>
+        <Step n={2}>
+          Пролистайте вниз и выберите <PlusSquareIcon />{" "}
+          <b className="text-foreground">«На экран „Домой“»</b>.
+        </Step>
+        <Step n={3}>
+          Нажмите <b className="text-foreground">«Добавить»</b> — значок Vormik появится на главном
+          экране и будет открываться как отдельное приложение.
+        </Step>
+      </ol>
+    </>
+  );
+}
+
+function Step({ n, children }: { n: number; children: React.ReactNode }) {
+  return (
+    <li className="flex gap-2.5">
+      <span className="grid size-5 shrink-0 place-items-center rounded-full bg-brand-soft text-xs font-semibold text-brand">
+        {n}
+      </span>
+      <span>{children}</span>
+    </li>
+  );
+}
+
+function ShareIcon() {
+  return (
+    <svg
+      className="inline-block align-[-3px] text-brand"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 15V3m0 0L8 7m4-4 4 4M7 10H5v11h14V10h-2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PlusSquareIcon() {
+  return (
+    <svg
+      className="inline-block align-[-3px] text-brand"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4" stroke="currentColor" strokeWidth="2" />
+      <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
   );
 }
 

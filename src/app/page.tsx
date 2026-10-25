@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { InstallButton } from "@/components/InstallButton";
 import { Logo } from "@/components/Logo";
+import { StandaloneRedirect } from "@/components/StandaloneRedirect";
 import { TrainerPreview } from "@/components/landing/TrainerPreview";
 import { CASES } from "@/lib/cases";
 import { taskIds, DEFAULT_SETTINGS } from "@/lib/srs";
@@ -42,6 +43,7 @@ export default function Home() {
 
   return (
     <>
+      <StandaloneRedirect />
       <header className="sticky top-0 z-10 border-b border-line/70 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <Logo />
@@ -78,14 +80,8 @@ export default function Home() {
               Vormik даёт слово и падеж — вы пишете форму. Ошибки возвращаются чаще, выученное —
               реже. Все 14 падежей, оба числа, объяснения на русском.
             </p>
-            <div className="mt-8 flex flex-wrap items-start gap-4">
+            <div className="mt-8">
               <InstallButton size="lg" />
-              <Link
-                href="/train"
-                className="inline-flex h-13 items-center rounded-2xl px-4 font-semibold text-brand hover:bg-brand-soft"
-              >
-                Попробовать в браузере →
-              </Link>
             </div>
             <p className="mt-4 text-sm text-muted">Бесплатно · без регистрации · работает офлайн</p>
           </div>

@@ -1,6 +1,8 @@
 ﻿"use client";
 
+import Link from "next/link";
 import { useState, type ReactNode } from "react";
+import { isStandalone } from "@/lib/install";
 import {
   addNewCards,
   countDue,
@@ -38,6 +40,8 @@ export default function Trainer() {
   const [session, setSession] = useState(startSession);
   const [view, setView] = useState<View>("train");
   const [pickerOpen, setPickerOpen] = useState(false);
+  // Тренажёр рендерится только на клиенте, поэтому режим запуска можно узнать сразу.
+  const [standalone] = useState(isStandalone);
   const { progress, task } = session;
 
   function update(next: Progress, { advance }: { advance: boolean }) {
@@ -61,18 +65,20 @@ export default function Trainer() {
     <div className="app-theme fixed inset-0 flex flex-col">
       <header className="shrink-0 px-4 pt-[max(env(safe-area-inset-top),0.75rem)] pb-3">
         <div className="mx-auto flex max-w-md items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <span
-              aria-hidden="true"
-              className="grid size-9 place-items-center rounded-xl bg-brand text-xl leading-none text-white shadow-lg shadow-brand/30"
-            >
-              õ
-            </span>
-            <div className="leading-tight">
-              <p className="font-semibold">Vormik</p>
-              <p className="text-xs whitespace-nowrap text-muted">выучено: {learned}</p>
+          {/* В браузере логотип ведёт на главную страницу сайта, в установленном приложении — нет. */}
+          {standalone ? (
+            <div className="flex items-center gap-2.5">
+              <Brand learned={learned} />
             </div>
-          </div>
+          ) : (
+            <Link
+              href="/"
+              title="На главную"
+              className="flex items-center gap-2.5 rounded-xl transition-opacity hover:opacity-80"
+            >
+              <Brand learned={learned} />
+            </Link>
+          )}
           <div className="flex gap-2 text-xs font-medium">
             <Chip label="повторить" value={due} />
             <Chip label="новых" value={`${newCount}/${newLimit}`} />
@@ -207,6 +213,23 @@ export default function Trainer() {
         </div>
       </nav>
     </div>
+  );
+}
+
+function Brand({ learned }: { learned: number }) {
+  return (
+    <>
+      <span
+        aria-hidden="true"
+        className="grid size-9 place-items-center rounded-xl bg-brand text-xl leading-none text-white shadow-lg shadow-brand/30"
+      >
+        õ
+      </span>
+      <span className="leading-tight">
+        <span className="block font-semibold">Vormik</span>
+        <span className="block text-xs whitespace-nowrap text-muted">выучено: {learned}</span>
+      </span>
+    </>
   );
 }
 

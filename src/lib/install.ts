@@ -21,8 +21,12 @@ export type InstallState =
   | { kind: "installed" }
   /** Chrome готов показать окно установки. */
   | { kind: "available" }
-  /** iPhone/iPad: установка только через «Поделиться». */
-  | { kind: "ios" }
+  /**
+   * iPhone/iPad: Apple не даёт сайтам открыть окно установки, только «Поделиться» → «На экран „Домой“».
+   * browser — где открыт сайт: в Safari кнопка «Поделиться» внизу, в Chrome/Edge — в адресной строке,
+   * а во встроенных браузерах (Instagram, Facebook) такого пункта нет вовсе.
+   */
+  | { kind: "ios"; browser: "safari" | "other" | "in-app" }
   /** Chrome/Edge, но окно установки сейчас недоступно (уже установлено или пользователь закрыл окно). */
   | { kind: "chromium" }
   /** Firefox, Safari на Mac и прочие. */
@@ -32,19 +36,40 @@ const EVENT = "vormik:install";
 
 let cached: InstallState = { kind: "unknown" };
 
+/** Открыто ли как установленное приложение (на iOS это отдельный флаг navigator.standalone). */
+export function isStandalone() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    (navigator as Navigator & { standalone?: boolean }).standalone === true
+  );
+}
+
+function isIOS() {
+  // iPadOS выдаёт себя за Mac, но у Mac нет сенсорного экрана.
+  return (
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  );
+}
+
+function iosBrowser(): "safari" | "other" | "in-app" {
+  const ua = navigator.userAgent;
+  if (/Instagram|FBAN|FBAV|Line\/|Snapchat|TikTok|musical_ly/.test(ua)) return "in-app";
+  if (/CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/.test(ua)) return "other";
+  return "safari";
+}
+
 function compute(): InstallState {
-  if (window.__vormikInstalled || window.matchMedia("(display-mode: standalone)").matches) {
-    return { kind: "installed" };
-  }
+  if (window.__vormikInstalled || isStandalone()) return { kind: "installed" };
   if (window.__vormikInstallPrompt) return { kind: "available" };
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) return { kind: "ios" };
+  if (isIOS()) return { kind: "ios", browser: iosBrowser() };
   if ("BeforeInstallPromptEvent" in window) return { kind: "chromium" };
   return { kind: "manual" };
 }
 
 function snapshot(): InstallState {
   const next = compute();
-  if (next.kind !== cached.kind) cached = next;
+  if (JSON.stringify(next) !== JSON.stringify(cached)) cached = next;
   return cached;
 }
 

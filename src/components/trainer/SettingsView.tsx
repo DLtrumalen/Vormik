@@ -20,7 +20,7 @@ export function SettingsView({ settings, onChange }: Props) {
 
       <p className="border-t border-line pt-4 text-sm text-muted">
         Vormik — тренажёр эстонских падежей.{" "}
-        <Link href="/" className="font-medium text-brand underline-offset-2 hover:underline">
+        <Link href="/?about" className="font-medium text-brand underline-offset-2 hover:underline">
           О приложении
         </Link>
       </p>

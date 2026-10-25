@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "Тренируйте формы эстонских слов во всех 14 падежах. Интервальное повторение и объяснения на русском.",
   applicationName: "Vormik",
   appleWebApp: { capable: true, title: "Vormik", statusBarStyle: "black-translucent" },
+  // Next выводит только новый тег mobile-web-app-capable; старые iOS понимают лишь этот.
+  other: { "apple-mobile-web-app-capable": "yes" },
 };
 
 export const viewport: Viewport = {
