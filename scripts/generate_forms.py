@@ -45,14 +45,16 @@ def unique(items):
     return seen
 
 
-def build_forms(lemma, pos):
+def build_forms(lemma, pos, hint=""):
+    # hint — правильный родительный ед. ч. для омонимов (kool → kooli, а не koola):
+    # без него Vabamorf смешивает формы разных слов.
     forms = {}
     for number, number_code in NUMBERS.items():
         for case, case_code in CASES.items():
-            variants = synthesize(lemma, f"{number_code} {case_code}", pos)
+            variants = synthesize(lemma, f"{number_code} {case_code}", pos, hint)
             # Краткий иллатив (majja) стоит первым: он употребительнее длинного (majasse).
             if number == "sg" and case == "ill":
-                variants = synthesize(lemma, "adt", pos) + variants
+                variants = synthesize(lemma, "adt", pos, hint) + variants
             forms[f"{number}.{case}"] = unique(variants)
     return forms
 
@@ -63,7 +65,7 @@ def main():
     with SOURCE.open(encoding="utf-8") as f:
         for row in csv.DictReader(f, delimiter="\t"):
             lemma, pos = row["lemma"], row["pos"]
-            forms = build_forms(lemma, pos)
+            forms = build_forms(lemma, pos, row.get("hint") or "")
             empty = [key for key, variants in forms.items() if not variants]
             if empty:
                 problems.append(f"{lemma}: нет форм {', '.join(empty)}")

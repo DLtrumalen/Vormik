@@ -53,6 +53,17 @@ pip install estnltk
 python scripts/generate_forms.py
 ```
 
+Для омонимов в столбце `hint` указан правильный родительный падеж (`kool → kooli`), иначе генератор смешивает формы разных слов.
+
+Каждое задание — короткое предложение с пропуском и переводом: «Ma sõidan \_\_\_\_\_.» — «Я еду на машине.». Предложения лежат в `src/data/sentences.json`; их собирает `scripts/generate_sentences.py` из шаблонов по группам слов (места, люди, еда, время…). Русские формы в переводе строит [pymorphy3](https://github.com/no-plagiarism/pymorphy3) (MIT), английские — простые правила:
+
+```bash
+pip install pymorphy3 pymorphy3-dicts-ru
+python scripts/generate_sentences.py
+```
+
+Задание есть, только если для формы есть естественное предложение: формы вроде _leivani_ («до хлеба») в тренажёр не попадают.
+
 ## Приложение для Windows
 
 ```bash

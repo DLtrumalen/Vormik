@@ -14,14 +14,14 @@ export const en: Dictionary = {
   language: "Language",
   cases: {
     nom: {
-      name: "nominative",
+      name: "dictionary form",
       question: "who? what?",
       ending: "—",
       explanation: "The dictionary form. In the plural: genitive stem + -d.",
       example: "The house is big.",
     },
     gen: {
-      name: "genitive",
+      name: "of / whose",
       question: "whose? of what?",
       ending: "vowel",
       explanation:
@@ -29,7 +29,7 @@ export const en: Dictionary = {
       example: "The door of the house is open.",
     },
     part: {
-      name: "partitive",
+      name: "partial object",
       question: "whom? what? (part of)",
       ending: "-t, -d or vowel",
       explanation:
@@ -37,77 +37,77 @@ export const en: Dictionary = {
       example: "I drink water.",
     },
     ill: {
-      name: "illative",
+      name: "into",
       question: "where to? into what?",
       ending: "-sse or short form",
       explanation: "Movement into something: where to? into what?",
       example: "I go into the house.",
     },
     ines: {
-      name: "inessive",
+      name: "inside",
       question: "where? in what?",
       ending: "-s",
       explanation: "Being inside something.",
       example: "I am in the house.",
     },
     ela: {
-      name: "elative",
+      name: "out of",
       question: "where from? out of what?",
       ending: "-st",
       explanation: "Movement out of something, and the topic of conversation: what we talk about.",
       example: "I come out of the house.",
     },
     all: {
-      name: "allative",
+      name: "onto / to whom",
       question: "where to? to whom? onto what?",
       ending: "-le",
       explanation: "Movement onto a surface, and the recipient: to whom.",
       example: "I give the book to a friend.",
     },
     ade: {
-      name: "adessive",
+      name: "on / who has",
       question: "where? on what? who has?",
       ending: "-l",
       explanation: "Being on a surface, and possession: I have.",
       example: "The book is on the table.",
     },
     abl: {
-      name: "ablative",
+      name: "off / from whom",
       question: "where from? from whom? off what?",
       ending: "-lt",
       explanation: "Movement off a surface, and the source: from whom.",
       example: "I take the book from the table.",
     },
     transl: {
-      name: "translative",
+      name: "become",
       question: "into what? (become)",
       ending: "-ks",
       explanation: "What something turns into or whom someone becomes.",
       example: "He wants to become a doctor.",
     },
     term: {
-      name: "terminative",
+      name: "up to",
       question: "up to whom? up to what?",
       ending: "-ni",
       explanation: "A limit in space or time: up to, until.",
       example: "I walk up to the river.",
     },
     ess: {
-      name: "essive",
+      name: "as",
       question: "as whom? as what?",
       ending: "-na",
       explanation: "In the role of someone or something.",
       example: "He works as a doctor.",
     },
     abess: {
-      name: "abessive",
+      name: "without",
       question: "without whom? without what?",
       ending: "-ta",
       explanation: "The absence of something.",
       example: "I drink coffee without milk.",
     },
     com: {
-      name: "comitative",
+      name: "with",
       question: "with whom? with what?",
       ending: "-ga",
       explanation: "Together with someone or by means of something.",
@@ -229,6 +229,9 @@ export const en: Dictionary = {
     lead: "Choose cases and number. Tasks will only come from your selection.",
     footer: "Vormik — Estonian case trainer.",
     about: "About",
+    theme: "Appearance",
+    themes: { dark: "Dark", light: "Light", system: "System" },
+    switchTo: { dark: "Switch to dark theme", light: "Switch to light theme" },
   },
 
   picker: {
@@ -252,36 +255,31 @@ export const en: Dictionary = {
       `The ending -${suffix} is right, the stem is wrong: not “${stem}-” but “${expected}-”.`,
     noSuchForm: (lemma, input) => `The word ${lemma} has no form “${input}”.`,
     genSg: (lemma, sgGen) => [
-      `The genitive singular doesn't follow a rule — learn it together with the word: ${lemma} → ${sgGen}.`,
-      `Most other cases are built from it: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
+      `Just memorise the genitive singular together with the word: ${lemma} → ${sgGen}.`,
+      `Almost all other cases are built on it: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
-      `The partitive singular is also learned together with the word: ${lemma} — ${sgGen} — ${sgPart}.`,
-      "These three forms (nominative, genitive, partitive) are the “key” to the word.",
+      `Memorise the partitive singular with the word too: ${lemma} — ${sgGen} — ${sgPart}.`,
     ],
-    partPl: (forms, sgPart) => [
-      `The partitive plural has to be memorised: ${forms}.`,
-      `Compare: partitive singular — ${sgPart}.`,
-    ],
+    partPl: (forms) => [`Memorise the partitive plural: ${forms}.`],
     takeGen: (lemma, sgGen) => `Take the genitive singular: ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Add -d: ${sgGen} + d = ${sgGen}d.`,
-    plIntro: (lemma, sgGen, sgPart) =>
-      `Genitive singular: ${lemma} → ${sgGen}, partitive singular: ${sgPart}.`,
-    plGenFrom: (sgPart, plGen) =>
-      `The genitive plural is built from the partitive singular + -de or -te: ${sgPart} → ${plGen}.`,
-    plGenIs: (plGen) => `Genitive plural (partitive singular + -de/-te): ${plGen}.`,
+    plBase: (plGen) => `Plural cases are built on the genitive plural: ${plGen}.`,
+    plGenRule: (sgPart, ending, reason, plGen, others) =>
+      `Look at the partitive singular ${sgPart}: it ends in ${
+        { vowel: "a vowel", d: "‑d", t: "‑t" }[reason]
+      }, so add ‑${ending}: ${plGen}.${others ? ` Also correct: ${others}.` : ""} ${
+        ending === "de"
+          ? "If it ended in ‑t, it would be ‑te: keelt → keelte."
+          : "If it ended in a vowel, it would be ‑de: pilti → piltide."
+      }`,
+    plGenException: (sgPart, plGen) =>
+      `This word is an exception: ${sgPart} → ${plGen}. Just memorise this form.`,
     addEnding: (suffix, base) =>
       `Add the ending -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `This word also has a short form: ${short} — it is more common in speech. Both forms are correct.`,
+      `There is also a short form, ${short} — it is even more common. Both forms are correct.`,
     irregular: (forms) => `This form doesn't follow the general rule — memorise it: ${forms}.`,
-    shortPl: (plPart, others) =>
-      `There is also a short plural form, built from the partitive plural (${plPart}): ${others}. It is correct too.`,
-    exampleNoun: (question, translation, number) => `${question} → “${translation}”, ${number}`,
-    exampleAdjGenitive: (phrase, translation) =>
-      `With a noun: “${phrase}” (“${translation}”). In rajav, olev, ilmaütlev and kaasaütlev an adjective before a noun takes the genitive.`,
-    exampleAdj: (phrase, translation, number) =>
-      `With a noun: “${phrase}” (“${translation}”, ${number}) — the adjective takes the same case as the noun.`,
-    house: "house",
+    shortPl: (others) => `There is also a short form: ${others}. It is correct too.`,
   },
 };

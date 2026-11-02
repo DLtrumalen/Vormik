@@ -229,6 +229,9 @@ export const fi: Dictionary = {
     lead: "Valitse sijat ja luku. Tehtävät tulevat vain valinnoistasi.",
     footer: "Vormik — viron sijamuotojen harjoittelu.",
     about: "Tietoja",
+    theme: "Ulkoasu",
+    themes: { dark: "Tumma", light: "Vaalea", system: "Järjestelmän mukaan" },
+    switchTo: { dark: "Vaihda tummaan teemaan", light: "Vaihda vaaleaan teemaan" },
   },
 
   picker: {
@@ -252,36 +255,31 @@ export const fi: Dictionary = {
       `Pääte -${suffix} on oikein, virhe on vartalossa: ei ”${stem}-” vaan ”${expected}-”.`,
     noSuchForm: (lemma, input) => `Sanalla ${lemma} ei ole muotoa ”${input}”.`,
     genSg: (lemma, sgGen) => [
-      `Yksikön genetiiviä ei muodosteta säännöllä — se opetellaan sanan mukana: ${lemma} → ${sgGen}.`,
-      `Siitä muodostetaan useimmat muut sijat: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
+      `Yksikön genetiivi opetellaan sanan mukana: ${lemma} → ${sgGen}.`,
+      `Siitä muodostetaan lähes kaikki muut sijat: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
       `Myös yksikön partitiivi opetellaan sanan mukana: ${lemma} — ${sgGen} — ${sgPart}.`,
-      "Nämä kolme muotoa (nominatiivi, genetiivi, partitiivi) ovat sanan ”avain”.",
     ],
-    partPl: (forms, sgPart) => [
-      `Monikon partitiivi pitää opetella ulkoa: ${forms}.`,
-      `Vertaa: yksikön partitiivi — ${sgPart}.`,
-    ],
+    partPl: (forms) => [`Monikon partitiivi pitää opetella: ${forms}.`],
     takeGen: (lemma, sgGen) => `Otetaan yksikön genetiivi: ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Lisätään -d: ${sgGen} + d = ${sgGen}d.`,
-    plIntro: (lemma, sgGen, sgPart) =>
-      `Yksikön genetiivi: ${lemma} → ${sgGen}, yksikön partitiivi: ${sgPart}.`,
-    plGenFrom: (sgPart, plGen) =>
-      `Monikon genetiivi muodostetaan yksikön partitiivista + -de tai -te: ${sgPart} → ${plGen}.`,
-    plGenIs: (plGen) => `Monikon genetiivi (yksikön partitiivi + -de/-te): ${plGen}.`,
+    plBase: (plGen) => `Monikon sijat muodostetaan monikon genetiivistä: ${plGen}.`,
+    plGenRule: (sgPart, ending, reason, plGen, others) =>
+      `Katsotaan yksikön partitiivia ${sgPart}: se päättyy ${
+        { vowel: "vokaaliin", d: "‑d:hen", t: "‑t:hen" }[reason]
+      }, joten lisätään ‑${ending}: ${plGen}.${others ? ` Myös oikein: ${others}.` : ""} ${
+        ending === "de"
+          ? "Jos se päättyisi ‑t:hen, pääte olisi ‑te: keelt → keelte."
+          : "Jos se päättyisi vokaaliin, pääte olisi ‑de: pilti → piltide."
+      }`,
+    plGenException: (sgPart, plGen) =>
+      `Tämä sana on poikkeus: ${sgPart} → ${plGen}. Opettele tämä muoto.`,
     addEnding: (suffix, base) =>
       `Lisätään pääte -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `Sanalla on myös lyhyt muoto: ${short} — puheessa se on yleisempi. Molemmat muodot ovat oikein.`,
+      `Sanalla on myös lyhyt muoto ${short} — se on jopa yleisempi. Molemmat muodot ovat oikein.`,
     irregular: (forms) => `Tämä muoto ei noudata yleistä sääntöä — opettele se: ${forms}.`,
-    shortPl: (plPart, others) =>
-      `Monikossa on myös lyhyt muoto, joka muodostetaan monikon partitiivista (${plPart}): ${others}. Sekin on oikein.`,
-    exampleNoun: (question, translation, number) => `${question} → ”${translation}”, ${number}`,
-    exampleAdjGenitive: (phrase, translation) =>
-      `Substantiivin kanssa: ”${phrase}” (”${translation}”). Sijoissa rajav, olev, ilmaütlev ja kaasaütlev adjektiivi on substantiivin edellä genetiivissä.`,
-    exampleAdj: (phrase, translation, number) =>
-      `Substantiivin kanssa: ”${phrase}” (”${translation}”, ${number}) — adjektiivi on samassa sijassa kuin substantiivi.`,
-    house: "talo",
+    shortPl: (others) => `On myös lyhyt muoto: ${others}. Sekin on oikein.`,
   },
 };

@@ -1,6 +1,7 @@
 import { getDictionary, type Dictionary, type Locale } from "@/i18n";
 import { CASE_BY_KEY, CASES, type CaseKey, type GrammaticalNumber } from "./cases";
 import { normalize, type CheckResult } from "./check";
+import { adjectiveNoun, sentenceTemplate } from "./usage";
 import { WORD_BY_ID, type FormKey, type Word } from "./words";
 
 export type Explanation = {
@@ -13,14 +14,14 @@ export type Explanation = {
   steps: string[];
   /** Короткое правило: когда нужен этот падеж. */
   usage: string;
-  /** Пример с этим же словом в нужной форме и пояснение к нему на языке интерфейса. */
-  example: { et: string; note: string };
+  /** Предложение с этим словом в нужной форме и перевод (для финского перевода нет). */
+  example: Sentence;
 };
 
-const NOUN_FOR_ADJECTIVES = "maja";
+export type Sentence = { et: string; translation: string | null };
 
-/** В этих падежах прилагательное перед существительным стоит в родительном: suure majaga. */
-const GENITIVE_ATTRIBUTE: CaseKey[] = ["term", "ess", "abess", "com"];
+/** Пропуск в предложении задания. */
+export const GAP = "_____";
 
 function first(word: Word, key: FormKey) {
   return word.forms[key][0]!;
@@ -80,23 +81,69 @@ function describeMistake(
   return t.explain.noSuchForm(word.lemma, answer);
 }
 
-function buildSteps(t: Dictionary, word: Word, number: GrammaticalNumber, caseKey: CaseKey) {
+/**
+ * Почему родительный мн. ч. оканчивается на -de или -te.
+ * Правило: частичный ед. ч. на -t → -te (keelt → keelte), на гласную или -d → -de (pilti → piltide).
+ * У части слов правило не работает (autot → autode) — тогда это исключение.
+ */
+export function pluralGenitive(word: Word):
+  | {
+      kind: "rule";
+      ending: "de" | "te";
+      reason: "vowel" | "d" | "t";
+      form: string;
+      others: string[];
+    }
+  | { kind: "exception"; form: string } {
+  const sgPart = first(word, "sg.part");
+  const forms = word.forms["pl.gen"];
+  const reason = sgPart.endsWith("t") ? "t" : sgPart.endsWith("d") ? "d" : "vowel";
+  const ending = reason === "t" ? "te" : "de";
+  const form = forms.find((f) => f.endsWith(ending));
+  if (!form) return { kind: "exception", form: forms[0]! };
+  return { kind: "rule", ending, reason, form, others: forms.filter((f) => f !== form) };
+}
+
+/** Ошибся ли пользователь именно в -de/-te: написал «koolteks» вместо «koolideks». */
+function mixedUpDeTe(input: string, base: string, suffix: string) {
+  const answer = normalize(input);
+  const stem = suffix && answer.endsWith(suffix) ? answer.slice(0, -suffix.length) : answer;
+  if (base.endsWith("de")) return stem.endsWith("te");
+  if (base.endsWith("te")) return stem.endsWith("de");
+  return false;
+}
+
+function buildSteps(
+  t: Dictionary,
+  word: Word,
+  number: GrammaticalNumber,
+  caseKey: CaseKey,
+  input: string,
+) {
   const e = t.explain;
   const suffix = CASE_BY_KEY[caseKey].suffix;
   const target = word.forms[`${number}.${caseKey}`];
   const sgGen = first(word, "sg.gen");
   const sgPart = first(word, "sg.part");
-  const plGen = first(word, "pl.gen");
 
   if (number === "sg" && caseKey === "gen") return e.genSg(word.lemma, sgGen);
   if (number === "sg" && caseKey === "part") return e.partSg(word.lemma, sgGen, sgPart);
-  if (number === "pl" && caseKey === "part") return e.partPl(target.join(" / "), sgPart);
+  if (number === "pl" && caseKey === "part") return e.partPl(target.join(" / "));
   if (number === "pl" && caseKey === "nom") return [e.takeGen(word.lemma, sgGen), e.addD(sgGen)];
 
   if (number === "pl") {
-    const intro = e.plIntro(word.lemma, sgGen, sgPart);
-    if (caseKey === "gen") return [intro, e.plGenFrom(sgPart, plGen)];
-    return [intro, e.plGenIs(plGen), e.addEnding(suffix, plGen)];
+    const why = pluralGenitive(word);
+    const whyStep =
+      why.kind === "rule"
+        ? e.plGenRule(sgPart, why.ending, why.reason, why.form, why.others.join(" / "))
+        : e.plGenException(sgPart, why.form);
+    // Спрашивают сам родительный мн. ч. — объясняем, откуда -de или -te.
+    if (caseKey === "gen") return [whyStep];
+    // В остальных падежах мн. ч. правило -de/-te только мешает; показываем его, если ошибка именно в нём.
+    const steps = [e.plBase(why.form)];
+    if (mixedUpDeTe(input, why.form, suffix)) steps.push(whyStep);
+    steps.push(e.addEnding(suffix, why.form));
+    return steps;
   }
 
   // Единственное число, местные и остальные падежи.
@@ -108,27 +155,47 @@ function buildSteps(t: Dictionary, word: Word, number: GrammaticalNumber, caseKe
   return steps;
 }
 
-function buildExample(t: Dictionary, word: Word, form: string, key: FormKey) {
-  const [number, caseKey] = splitKey(key);
-  const et = `${CASE_BY_KEY[caseKey].questionEt} → ${form}`;
-  const translation = word.tr[t.locale];
-  if (word.pos !== "adj") {
-    return {
-      et,
-      note: t.explain.exampleNoun(t.cases[caseKey].question, translation, t.number[number]),
-    };
-  }
+/**
+ * Слово в предложении. Существительное — сама форма; прилагательное — вместе с подходящим
+ * существительным (kiires autos). «Стать каким», «будучи каким» — прилагательное без существительного.
+ * Возвращает часть, которую спрашиваем, и существительное после неё.
+ */
+function phraseParts(word: Word, form: string, key: FormKey): [string, string | null] {
+  const [, caseKey] = splitKey(key);
+  if (word.pos !== "adj" || caseKey === "transl" || caseKey === "ess") return [form, null];
+  // Существительное того же типа, что и прилагательное: длинная форма к длинной (headele sõpradele),
+  // краткая к краткой (heile sõbrule).
+  const byLength = (a: string, b: string) => b.length - a.length;
+  const adjVariants = [...word.forms[key]].sort(byLength);
+  const nounVariants = [...WORD_BY_ID[adjectiveNoun(word.lemma)]!.forms[key]].sort(byLength);
+  const index = Math.max(0, adjVariants.indexOf(form));
+  return [form, nounVariants[Math.min(index, nounVariants.length - 1)]!];
+}
 
-  const nounForm = first(WORD_BY_ID[NOUN_FOR_ADJECTIVES]!, key);
-  const phraseTranslation = `${translation} ${t.explain.house}`;
-  if (GENITIVE_ATTRIBUTE.includes(caseKey)) {
-    const adjGen = first(word, `${number}.gen`);
-    return { et, note: t.explain.exampleAdjGenitive(`${adjGen} ${nounForm}`, phraseTranslation) };
-  }
-  return {
-    et,
-    note: t.explain.exampleAdj(`${form} ${nounForm}`, phraseTranslation, t.number[number]),
-  };
+function fill(template: string, part: string, noun: string | null) {
+  const text = template.replace("{}", noun ? `${part} ${noun}` : part);
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function translate(word: Word, key: FormKey, locale: Locale) {
+  const template = sentenceTemplate(word, key);
+  return template && locale !== "fi" ? template[locale] : null;
+}
+
+/** Предложение задания с пропуском на месте нужной формы: «Ma sõidan _____.» */
+export function taskSentence(word: Word, key: FormKey, locale: Locale): Sentence | null {
+  const template = sentenceTemplate(word, key);
+  if (!template) return null;
+  const [, noun] = phraseParts(word, word.forms[key][0]!, key);
+  return { et: fill(template.et, GAP, noun), translation: translate(word, key, locale) };
+}
+
+/** То же предложение с правильной формой: «Ma sõidan autoga.» */
+export function fullSentence(word: Word, key: FormKey, form: string, locale: Locale): Sentence {
+  const template = sentenceTemplate(word, key);
+  const [part, noun] = phraseParts(word, form, key);
+  if (!template) return { et: noun ? `${part} ${noun}` : part, translation: null };
+  return { et: fill(template.et, part, noun), translation: translate(word, key, locale) };
 }
 
 export function explain(
@@ -141,7 +208,7 @@ export function explain(
   const t = getDictionary(locale);
   const [number, caseKey] = splitKey(key);
   const variants = word.forms[key];
-  const steps = buildSteps(t, word, number, caseKey);
+  const steps = buildSteps(t, word, number, caseKey, input);
 
   // Форма, которая получается по правилу из шагов (строка вида «… = keeltelt.»).
   const ruleIndex = steps.findLastIndex((s) => s.includes(" = "));
@@ -158,14 +225,20 @@ export function explain(
   if (derived && number === "pl") {
     const others = variants.filter((v) => v !== derived);
     if (others.length > 0) {
-      steps.push(t.explain.shortPl(first(word, "pl.part"), others.join(" / ")));
+      steps.push(t.explain.shortPl(others.join(" / ")));
     }
   }
 
   // Крупно показываем то, что написал пользователь (если верно), иначе — форму из шагов.
   const typed = variants.find((v) => normalize(v) === normalize(input));
-  // В иллативе ед. ч. первой стоит краткая форма (majja) — она употребительнее.
-  const preferred = number === "sg" && caseKey === "ill" ? variants[0]! : derived;
+  // В иллативе ед. ч. первой стоит краткая форма (majja) — она употребительнее;
+  // в родительном мн. ч. показываем форму, которую объясняет правило -de/-te (koerade, а не koerte).
+  const preferred =
+    number === "sg" && caseKey === "ill"
+      ? variants[0]!
+      : number === "pl" && caseKey === "gen"
+        ? pluralGenitive(word).form
+        : derived;
   const answer = (result === "correct" && typed) || preferred || variants[0]!;
 
   return {
@@ -174,6 +247,6 @@ export function explain(
     mistake: describeMistake(t, word, input, result, key),
     steps,
     usage: t.cases[caseKey].explanation,
-    example: buildExample(t, word, answer, key),
+    example: fullSentence(word, key, answer, locale),
   };
 }

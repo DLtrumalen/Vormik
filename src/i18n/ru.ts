@@ -22,7 +22,7 @@ export const ru: Dictionary = {
   language: "Язык",
   cases: {
     nom: {
-      name: "именительный",
+      name: "словарная форма",
       question: "кто? что?",
       ending: "—",
       explanation: "Словарная форма. Во множественном числе: основа родительного + -d.",
@@ -37,7 +37,7 @@ export const ru: Dictionary = {
       example: "Дверь дома открыта.",
     },
     part: {
-      name: "частичный (партитив)",
+      name: "частичный",
       question: "кого? что? (часть)",
       ending: "-t, -d или гласная",
       explanation:
@@ -45,77 +45,77 @@ export const ru: Dictionary = {
       example: "Я пью воду.",
     },
     ill: {
-      name: "входный (иллатив)",
+      name: "куда внутрь",
       question: "куда? во что?",
       ending: "-sse или краткая форма",
       explanation: "Движение внутрь чего-то: куда? во что?",
       example: "Я иду в дом.",
     },
     ines: {
-      name: "внутриместный (инессив)",
+      name: "где внутри",
       question: "где? в чём?",
       ending: "-s",
       explanation: "Нахождение внутри чего-то.",
       example: "Я в доме.",
     },
     ela: {
-      name: "исходный (элатив)",
+      name: "откуда изнутри",
       question: "откуда? из чего?",
       ending: "-st",
       explanation: "Движение изнутри наружу, а также тема разговора: о чём говорим.",
       example: "Я выхожу из дома.",
     },
     all: {
-      name: "направительный (аллатив)",
+      name: "куда на / кому",
       question: "куда? кому? на что?",
       ending: "-le",
       explanation: "Движение на поверхность, а также адресат: кому дать.",
       example: "Я даю книгу другу.",
     },
     ade: {
-      name: "наружноместный (адессив)",
+      name: "где на / у кого",
       question: "где? у кого? на чём?",
       ending: "-l",
       explanation: "Нахождение на поверхности, а также обладание: у меня есть.",
       example: "Книга на столе.",
     },
     abl: {
-      name: "отложительный (аблатив)",
+      name: "откуда с / от кого",
       question: "откуда? от кого? с чего?",
       ending: "-lt",
       explanation: "Движение с поверхности, а также источник: от кого получил.",
       example: "Я беру книгу со стола.",
     },
     transl: {
-      name: "превратительный (транслатив)",
+      name: "кем стать",
       question: "кем? чем? (стать)",
       ending: "-ks",
       explanation: "Во что превращается или кем становится.",
       example: "Он хочет стать врачом.",
     },
     term: {
-      name: "предельный (терминатив)",
+      name: "до чего",
       question: "до кого? до чего?",
       ending: "-ni",
       explanation: "Предел в пространстве или времени.",
       example: "Я дойду до реки.",
     },
     ess: {
-      name: "эссив",
+      name: "кем быть",
       question: "кем? чем? (быть)",
       ending: "-na",
       explanation: "В качестве кого или чего.",
       example: "Он работает врачом.",
     },
     abess: {
-      name: "лишительный (абессив)",
+      name: "без чего",
       question: "без кого? без чего?",
       ending: "-ta",
       explanation: "Отсутствие чего-то.",
       example: "Я пью кофе без молока.",
     },
     com: {
-      name: "совместный (комитатив)",
+      name: "с чем / с кем",
       question: "с кем? с чем?",
       ending: "-ga",
       explanation: "Вместе с кем-то или с помощью чего-то.",
@@ -236,6 +236,9 @@ export const ru: Dictionary = {
     lead: "Выберите падежи и число. Задания будут только из выбранного.",
     footer: "Vormik — тренажёр эстонских падежей.",
     about: "О приложении",
+    theme: "Оформление",
+    themes: { dark: "Тёмное", light: "Светлое", system: "Как в системе" },
+    switchTo: { dark: "Включить тёмную тему", light: "Включить светлую тему" },
   },
 
   picker: {
@@ -259,37 +262,32 @@ export const ru: Dictionary = {
       `Окончание -${suffix} верное, ошибка в основе: не «${stem}-», а «${expected}-».`,
     noSuchForm: (lemma, input) => `У слова ${lemma} нет формы «${input}».`,
     genSg: (lemma, sgGen) => [
-      `Родительный ед. ч. не строится по правилу — его запоминают вместе со словом: ${lemma} → ${sgGen}.`,
-      `От этой формы образуется большинство других падежей: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
+      `Родительный ед. ч. просто запоминают вместе со словом: ${lemma} → ${sgGen}.`,
+      `От него строятся почти все остальные падежи: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
       `Частичный ед. ч. тоже запоминают вместе со словом: ${lemma} — ${sgGen} — ${sgPart}.`,
-      "Эти три формы (именительный, родительный, частичный) — «ключ» к слову.",
     ],
-    partPl: (forms, sgPart) => [
-      `Частичный мн. ч. нужно запомнить: ${forms}.`,
-      `Для сравнения: частичный ед. ч. — ${sgPart}.`,
-    ],
+    partPl: (forms) => [`Частичный мн. ч. нужно запомнить: ${forms}.`],
     takeGen: (lemma, sgGen) => `Берём родительный ед. ч.: ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Добавляем -d: ${sgGen} + d = ${sgGen}d.`,
-    plIntro: (lemma, sgGen, sgPart) =>
-      `Родительный ед. ч.: ${lemma} → ${sgGen}, частичный ед. ч.: ${sgPart}.`,
-    plGenFrom: (sgPart, plGen) =>
-      `Родительный мн. ч. образуется от частичного ед. ч. + -de или -te: ${sgPart} → ${plGen}.`,
-    plGenIs: (plGen) => `Родительный мн. ч. (от частичного ед. ч. + -de/-te): ${plGen}.`,
+    plBase: (plGen) => `Падежи мн. ч. строятся от родительного мн. ч.: ${plGen}.`,
+    plGenRule: (sgPart, ending, reason, plGen, others) =>
+      `Смотрим на частичный ед. ч. ${sgPart}: он оканчивается ${
+        { vowel: "на гласную", d: "на ‑d", t: "на ‑t" }[reason]
+      }, поэтому добавляем ‑${ending}: ${plGen}.${others ? ` Тоже правильно: ${others}.` : ""} ${
+        ending === "de"
+          ? "А если бы он оканчивался на ‑t, было бы ‑te: keelt → keelte."
+          : "А если бы он оканчивался на гласную, было бы ‑de: pilti → piltide."
+      }`,
+    plGenException: (sgPart, plGen) =>
+      `Это слово — исключение: ${sgPart} → ${plGen}. Эту форму нужно просто запомнить.`,
     addEnding: (suffix, base) =>
       `Добавляем окончание -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `У этого слова есть и краткая форма: ${short} — в речи она встречается чаще. Обе формы правильные.`,
+      `Есть и краткая форма ${short} — её говорят даже чаще. Обе формы правильные.`,
     irregular: (forms) =>
       `Эта форма образуется не по общему правилу — её нужно запомнить: ${forms}.`,
-    shortPl: (plPart, others) =>
-      `Есть и краткая форма мн. ч. — от частичного мн. ч. (${plPart}): ${others}. Она тоже правильная.`,
-    exampleNoun: (question, translation, number) => `${question} → «${translation}», ${number}`,
-    exampleAdjGenitive: (phrase, translation) =>
-      `С существительным: «${phrase}» («${translation}»). В падежах rajav, olev, ilmaütlev и kaasaütlev прилагательное перед существительным ставится в родительный.`,
-    exampleAdj: (phrase, translation, number) =>
-      `С существительным: «${phrase}» («${translation}», ${number}) — прилагательное стоит в том же падеже, что и существительное.`,
-    house: "дом",
+    shortPl: (others) => `Есть и краткая форма: ${others}. Она тоже правильная.`,
   },
 };

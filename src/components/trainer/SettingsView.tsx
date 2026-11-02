@@ -3,14 +3,40 @@
 import Link from "next/link";
 import { localeHref, type Dictionary } from "@/i18n";
 import type { Settings } from "@/lib/srs";
+import { saveThemePreference, useThemePreference, type ThemePreference } from "@/lib/theme";
 import { CasePickerFields } from "./CasePicker";
 
 type Props = { t: Dictionary; settings: Settings; onChange: (settings: Settings) => void };
 
+const THEMES: ThemePreference[] = ["dark", "light", "system"];
+
 export function SettingsView({ t, settings, onChange }: Props) {
+  const themePreference = useThemePreference();
+
   return (
     <section className="space-y-5 rounded-[1.75rem] bg-surface p-5 shadow-xl shadow-black/20">
-      <div>
+      <fieldset>
+        <legend className="mb-2 text-sm font-medium">{t.settings.theme}</legend>
+        <div className="grid grid-cols-3 gap-1 rounded-xl bg-surface-raised p-1 text-sm">
+          {THEMES.map((theme) => (
+            <button
+              key={theme}
+              type="button"
+              aria-pressed={themePreference === theme}
+              onClick={() => saveThemePreference(theme)}
+              className={`rounded-lg px-2 py-2 font-medium transition-colors ${
+                themePreference === theme
+                  ? "bg-surface text-foreground shadow-sm"
+                  : "text-muted hover:text-foreground"
+              }`}
+            >
+              {t.settings.themes[theme]}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <div className="border-t border-line pt-5">
         <h1 className="text-xl font-semibold">{t.settings.title}</h1>
         <p className="mt-1 text-sm text-muted">{t.settings.lead}</p>
       </div>

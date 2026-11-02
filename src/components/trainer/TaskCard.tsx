@@ -4,7 +4,7 @@ import { useRef, useState, type FormEvent } from "react";
 import { checkAnswer, type CheckResult } from "@/lib/check";
 import type { Dictionary } from "@/i18n";
 import { CASE_BY_KEY } from "@/lib/cases";
-import { explain, type Explanation } from "@/lib/explain";
+import { explain, taskSentence, type Explanation } from "@/lib/explain";
 import { parseTaskId, type TaskId } from "@/lib/srs";
 import { WORD_BY_ID } from "@/lib/words";
 
@@ -23,6 +23,7 @@ export function TaskCard({ t, id, isNew, onAnswer, onNext }: Props) {
   const word = WORD_BY_ID[wordId]!;
   const info = CASE_BY_KEY[caseKey];
   const variants = word.forms[formKey];
+  const sentence = taskSentence(word, formKey, t.locale);
 
   const [input, setInput] = useState("");
   const [result, setResult] = useState<CheckResult | null>(null);
@@ -86,6 +87,15 @@ export function TaskCard({ t, id, isNew, onAnswer, onNext }: Props) {
             {t.cases[caseKey].name} · {info.questionEt}
           </p>
         </div>
+
+        {sentence && (
+          <div className="mt-5 border-t border-foreground/10 pt-4">
+            <p className="text-xl font-medium">{sentence.et}</p>
+            {sentence.translation && (
+              <p className="mt-1 text-sm text-muted">{sentence.translation}</p>
+            )}
+          </div>
+        )}
       </section>
 
       <label htmlFor="answer" className="sr-only">
@@ -193,11 +203,12 @@ function AnswerExplanation({
         <p className="mt-1 text-muted">{e.usage}</p>
 
         <h2 className="mt-4 font-semibold">{t.task.exampleTitle}</h2>
-        <p className="mt-1.5 rounded-xl bg-surface-raised px-3 py-2">
-          <b className="text-brand">{e.example.et}</b>
-          <br />
-          <span className="text-muted">{e.example.note}</span>
-        </p>
+        <div className="mt-1.5 rounded-xl bg-surface-raised px-3 py-2">
+          <p className="text-base font-semibold text-brand">{e.example.et}</p>
+          {e.example.translation && (
+            <p className="mt-0.5 text-xs text-muted">{e.example.translation}</p>
+          )}
+        </div>
       </section>
     </>
   );

@@ -1,5 +1,6 @@
 import { createEmptyCard, fsrs, Rating, State, type Card, type CardInput } from "ts-fsrs";
 import { CASES, type CaseKey, type GrammaticalNumber } from "./cases";
+import { isNaturalTask } from "./usage";
 import { WORDS, type FormKey } from "./words";
 
 /** Карточка — одна форма одного слова: «jalg|pl.part». */
@@ -56,13 +57,18 @@ export function parseTaskId(id: TaskId) {
   return { wordId, formKey, number, caseKey };
 }
 
-/** Все задания, доступные при текущих настройках. Именительный ед. ч. — это сама словарная форма, его не спрашиваем. */
+/**
+ * Все задания, доступные при текущих настройках. Именительный ед. ч. — это сама словарная форма,
+ * его не спрашиваем; неестественные сочетания слова и падежа тоже (см. usage.ts).
+ */
 export function taskIds(settings: Settings): TaskId[] {
   const ids: TaskId[] = [];
   for (const word of WORDS) {
     for (const number of settings.numbers) {
       for (const caseKey of settings.cases) {
         if (number === "sg" && caseKey === "nom") continue;
+        // Пропускаем сочетания, которые в жизни не встречаются (leivani — «до хлеба»).
+        if (!isNaturalTask(word, number, caseKey)) continue;
         ids.push(`${word.id}|${number}.${caseKey}`);
       }
     }
