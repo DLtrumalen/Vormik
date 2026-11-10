@@ -62,7 +62,21 @@ pip install pymorphy3 pymorphy3-dicts-ru
 python scripts/generate_sentences.py
 ```
 
+Новое существительное нужно добавить в одну из групп `GROUPS` в скрипте, а новое прилагательное — в пару к существительному в `src/data/adjective-nouns.json`; иначе скрипт остановится и назовёт эти слова.
+
 Задание есть, только если для формы есть естественное предложение: формы вроде _leivani_ («до хлеба») в тренажёр не попадают.
+
+## Приложение для Android (Google Play)
+
+Тренажёр упакован в приложение через [Capacitor](https://capacitorjs.com): все файлы лежат внутри приложения, поэтому оно работает без интернета с первого запуска. Android-проект — в `android/`, иконки и заставка собираются из `assets/`.
+
+```bash
+npm run build:app        # статичная сборка тренажёра в out/
+npx cap sync android     # копирует out/ в Android-проект
+npx cap open android     # открывает проект в Android Studio: запуск на телефоне, сборка .aab для Google Play
+```
+
+Для сборки нужен [Android Studio](https://developer.android.com/studio). Приложение для iOS собирается так же (`npx cap add ios`), но только на Mac с Xcode.
 
 ## Приложение для Windows
 

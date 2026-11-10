@@ -137,7 +137,7 @@ export type Dictionary = {
     footer: string;
     about: string;
     theme: string;
-    themes: { dark: string; light: string; system: string };
+    themes: { dark: string; light: string };
     /** Подпись кнопки быстрого переключения: «включить светлую» / «включить тёмную». */
     switchTo: { dark: string; light: string };
   };

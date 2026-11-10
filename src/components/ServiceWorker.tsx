@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { isStoreApp } from "@/lib/install";
 
 /**
  * Регистрирует service worker, чтобы приложение открывалось без интернета.
@@ -8,7 +9,8 @@ import { useEffect } from "react";
  */
 export function ServiceWorker() {
   useEffect(() => {
-    if (!("serviceWorker" in navigator)) return;
+    // В приложении из магазина все файлы и так внутри: service worker только мешал бы обновлениям.
+    if (!("serviceWorker" in navigator) || isStoreApp()) return;
 
     if (process.env.NODE_ENV !== "production") {
       navigator.serviceWorker
@@ -46,6 +48,16 @@ export function ServiceWorker() {
       .register("/sw.js", { scope: "/", updateViaCache: "none" })
       .then((reg) => {
         registration = reg;
+        return navigator.serviceWorker.ready;
+      })
+      .then((ready) => {
+        // Файлы, загруженные ещё до service worker, иначе не попадут в кэш, и без интернета
+        // приложение откроется пустым.
+        const urls = performance
+          .getEntriesByType("resource")
+          .map((entry) => entry.name)
+          .filter((url) => new URL(url).pathname.startsWith("/_next/static/"));
+        ready.active?.postMessage({ type: "cache", urls });
       })
       .catch(() => {
         // Без service worker всё работает, просто не офлайн.

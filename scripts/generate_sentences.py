@@ -682,6 +682,16 @@ def main():
     words = json.loads(WORDS.read_text(encoding="utf-8"))
     by_id = {w["id"]: w for w in words}
     adjective_nouns = json.loads(ADJECTIVE_NOUNS.read_text(encoding="utf-8"))
+    # Каждое существительное должно быть в одной из групп GROUPS (от группы зависят шаблоны),
+    # каждое прилагательное — иметь пару в adjective-nouns.json.
+    missing_nouns = [w["lemma"] for w in words if w["pos"] != "adj" and w["lemma"] not in GROUP]
+    missing_adjs = [w["lemma"] for w in words if w["pos"] == "adj" and w["id"] not in adjective_nouns]
+    if missing_nouns or missing_adjs:
+        if missing_nouns:
+            print("Добавьте эти слова в одну из групп GROUPS:", ", ".join(missing_nouns))
+        if missing_adjs:
+            print(f"Добавьте существительное к этим прилагательным в {ADJECTIVE_NOUNS.name}:", ", ".join(missing_adjs))
+        raise SystemExit(1)
     sentences = {}
     for w in words:
         entry = {}
@@ -690,7 +700,7 @@ def main():
                 if number == "sg" and case == "nom":
                     continue  # словарную форму не спрашиваем
                 if w["pos"] == "adj":
-                    noun = by_id[adjective_nouns.get(w["id"], "maja")]
+                    noun = by_id[adjective_nouns[w["id"]]]
                     if case == "transl":
                         frame = ADJ_TRANSL.get(w["lemma"])
                     elif case == "ess":

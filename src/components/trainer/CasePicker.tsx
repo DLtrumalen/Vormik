@@ -2,7 +2,7 @@
 
 import type { Dictionary } from "@/i18n";
 import { CASE_BY_KEY, type CaseKey, type GrammaticalNumber } from "@/lib/cases";
-import type { Settings } from "@/lib/srs";
+import { taskIds, type Settings } from "@/lib/srs";
 
 const GROUPS: CaseKey[][] = [
   ["nom", "gen", "part"],
@@ -44,11 +44,16 @@ export function settingsSummary(settings: Settings, t: Dictionary) {
 type Props = { t: Dictionary; settings: Settings; onChange: (settings: Settings) => void };
 
 export function CasePickerFields({ t, settings, onChange }: Props) {
+  // Выбор, при котором не остаётся ни одного задания (например, только именительный в ед. ч. —
+  // словарную форму не спрашиваем), не применяем: иначе тренажёр сразу сказал бы «всё сделано».
+  function apply(next: Settings) {
+    if (taskIds(next).length > 0) onChange(next);
+  }
   function setCases(cases: CaseKey[]) {
-    if (cases.length > 0) onChange({ ...settings, cases });
+    apply({ ...settings, cases });
   }
   function setNumbers(numbers: GrammaticalNumber[]) {
-    if (numbers.length > 0) onChange({ ...settings, numbers });
+    apply({ ...settings, numbers });
   }
 
   return (
@@ -99,9 +104,7 @@ export function CasePickerFields({ t, settings, onChange }: Props) {
                   <span className={`block text-sm font-semibold ${active ? "text-brand" : ""}`}>
                     {info.et}
                   </span>
-                  <span className="block text-xs text-muted">
-                    {t.cases[key].name.split(" (")[0]} · {info.questionEt.split(" ")[0]}
-                  </span>
+                  <span className="block text-xs text-muted">{t.cases[key].name}</span>
                 </button>
               );
             })}

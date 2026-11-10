@@ -87,8 +87,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Светлая тема приложения (выбирается в настройках). */
-.app-theme.app-light {
+/* Светлая тема приложения (выбирается в настройках). Класс на <html> ставится ещё до загрузки
+   React (см. THEME_SCRIPT), поэтому светлая тема видна с первого кадра. */
+.app-theme.app-light,
+.vormik-light .app-theme {
   --background: #eef2f7;
   --surface: #ffffff;
   --surface-raised: #f1f4f9;

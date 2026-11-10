@@ -1,26 +1,26 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { THEME_KEY as KEY } from "./theme-script";
 
-export type ThemePreference = "dark" | "light" | "system";
+export { LIGHT_CLASS } from "./theme-script";
 
-const KEY = "vormik:theme";
+export type Theme = "dark" | "light";
+
 const EVENT = "vormik:theme";
-const SYSTEM_DARK = "(prefers-color-scheme: dark)";
 
-function readPreference(): ThemePreference {
+function readTheme(): Theme {
   try {
-    const value = window.localStorage.getItem(KEY);
-    if (value === "dark" || value === "light" || value === "system") return value;
+    if (window.localStorage.getItem(KEY) === "light") return "light";
   } catch {
     // Хранилище недоступно — тема по умолчанию.
   }
   return "dark";
 }
 
-export function saveThemePreference(preference: ThemePreference) {
+export function saveTheme(theme: Theme) {
   try {
-    window.localStorage.setItem(KEY, preference);
+    window.localStorage.setItem(KEY, theme);
   } catch {
     // Хранилище недоступно — тема продержится до перезагрузки.
   }
@@ -28,33 +28,17 @@ export function saveThemePreference(preference: ThemePreference) {
 }
 
 function subscribe(listener: () => void) {
-  const media = window.matchMedia(SYSTEM_DARK);
   window.addEventListener(EVENT, listener);
   window.addEventListener("storage", listener);
-  media.addEventListener("change", listener);
   return () => {
     window.removeEventListener(EVENT, listener);
     window.removeEventListener("storage", listener);
-    media.removeEventListener("change", listener);
   };
 }
 
-/** Выбор пользователя: тёмная, светлая или как в системе. По умолчанию — тёмная. */
-export function useThemePreference(): ThemePreference {
-  return useSyncExternalStore(subscribe, readPreference, () => "dark" as const);
-}
-
-/** Тема, которая сейчас применяется («как в системе» превращается в тёмную или светлую). */
-export function useResolvedTheme(): "dark" | "light" {
-  return useSyncExternalStore(
-    subscribe,
-    () => {
-      const preference = readPreference();
-      if (preference !== "system") return preference;
-      return window.matchMedia(SYSTEM_DARK).matches ? "dark" : "light";
-    },
-    () => "dark" as const,
-  );
+/** Тема тренажёра: тёмная (по умолчанию) или светлая. */
+export function useTheme(): Theme {
+  return useSyncExternalStore(subscribe, readTheme, () => "dark" as const);
 }
 
 /** Цвет системной строки браузера/телефона под тему приложения. */

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
@@ -15,8 +15,13 @@ import {
   type NextTask,
   type Progress,
 } from "@/lib/srs";
-import { loadProgress, resetProgress, saveProgress } from "@/lib/storage";
-import { saveThemePreference, THEME_COLOR, useResolvedTheme } from "@/lib/theme";
+import {
+  loadProgress,
+  onProgressChangedElsewhere,
+  resetProgress,
+  saveProgress,
+} from "@/lib/storage";
+import { LIGHT_CLASS, saveTheme, THEME_COLOR, useTheme } from "@/lib/theme";
 import { CasePickerFields, settingsSummary } from "./CasePicker";
 import { DoneCard } from "./DoneCard";
 import { SettingsView } from "./SettingsView";
@@ -48,12 +53,22 @@ export default function Trainer() {
   const [standalone] = useState(isStandalone);
   const locale = useLocale();
   const t = getDictionary(locale);
-  const theme = useResolvedTheme();
+  const theme = useTheme();
 
   // Цвет системной строки телефона и заголовка окна — под выбранную тему.
   useEffect(() => {
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLOR[theme]);
+    document.documentElement.classList.toggle(LIGHT_CLASS, theme === "light");
   }, [theme]);
+
+  // Ответили в другой вкладке — берём её прогресс, чтобы не затереть его своим.
+  useEffect(
+    () =>
+      onProgressChangedElsewhere(() =>
+        setSession((s) => ({ ...s, progress: loadProgress(new Date()) })),
+      ),
+    [],
+  );
   const { progress, task } = session;
 
   function update(next: Progress, { advance }: { advance: boolean }) {
@@ -136,8 +151,10 @@ export default function Trainer() {
             </button>
           )}
 
-          {view === "train" &&
-            (task.kind === "task" ? (
+          {/* Карточку не размонтируем при переходе на другие вкладки: иначе отвеченное задание
+              вернулось бы чистым и его можно было бы засчитать второй раз. */}
+          <div hidden={view !== "train"} className="flex flex-col gap-4">
+            {task.kind === "task" ? (
               <TaskCard
                 key={session.turn}
                 t={t}
@@ -158,7 +175,8 @@ export default function Trainer() {
                 onAddNew={() => update(addNewCards(progress, new Date()), { advance: true })}
                 onRefresh={goNext}
               />
-            ))}
+            )}
+          </div>
 
           {view === "stats" && (
             <StatsView
@@ -266,12 +284,12 @@ function Brand({ learned }: { learned: string }) {
   );
 }
 
-/** Быстрое переключение светлой и тёмной темы; подробный выбор (и «как в системе») — в настройках. */
+/** Быстрое переключение светлой и тёмной темы (то же есть в настройках). */
 function ThemeToggle({ theme, label }: { theme: "dark" | "light"; label: string }) {
   return (
     <button
       type="button"
-      onClick={() => saveThemePreference(theme === "dark" ? "light" : "dark")}
+      onClick={() => saveTheme(theme === "dark" ? "light" : "dark")}
       aria-label={label}
       title={label}
       className="grid size-9 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:border-brand hover:text-brand"

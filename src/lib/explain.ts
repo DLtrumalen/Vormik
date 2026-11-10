@@ -67,7 +67,7 @@ function describeMistake(
         t.number[number],
       );
     }
-    const label = `${CASE_BY_KEY[otherCase].et} (${t.cases[otherCase].name}), ${t.number[otherNumber]}`;
+    const label = `${CASE_BY_KEY[otherCase].et} — ${t.cases[otherCase].name}, ${t.number[otherNumber]}`;
     return t.explain.otherCase(answer, label);
   }
 

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { TrainerLoader } from "@/components/trainer/TrainerLoader";
+import { THEME_SCRIPT } from "@/lib/theme-script";
 
 export const metadata: Metadata = {
   title: "Vormik",
@@ -12,5 +13,10 @@ export const viewport: Viewport = {
 };
 
 export default function TrainPage() {
-  return <TrainerLoader />;
+  return (
+    <>
+      <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      <TrainerLoader />
+    </>
+  );
 }
