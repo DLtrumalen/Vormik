@@ -4,6 +4,7 @@ import Link from "next/link";
 import { localeHref, type Dictionary } from "@/i18n";
 import type { Settings } from "@/lib/srs";
 import { saveTheme, useTheme, type Theme } from "@/lib/theme";
+import { privacyHref, privacyTitle } from "@/components/PrivacyPolicy";
 import { CasePickerFields } from "./CasePicker";
 
 type Props = { t: Dictionary; settings: Settings; onChange: (settings: Settings) => void };
@@ -50,6 +51,13 @@ export function SettingsView({ t, settings, onChange }: Props) {
           className="font-medium text-brand underline-offset-2 hover:underline"
         >
           {t.settings.about}
+        </Link>
+        {" · "}
+        <Link
+          href={privacyHref(t.locale)}
+          className="font-medium text-brand underline-offset-2 hover:underline"
+        >
+          {privacyTitle(t.locale)}
         </Link>
       </p>
     </section>

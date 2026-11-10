@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { privacyHref } from "@/components/PrivacyPolicy";
 import { localeHref, LOCALES } from "@/i18n";
 import { SITE_URL } from "@/lib/site";
 
@@ -12,5 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     })),
     { url: `${SITE_URL}/train`, priority: 0.8 },
+    ...LOCALES.map((locale) => ({ url: `${SITE_URL}${privacyHref(locale)}`, priority: 0.3 })),
   ];
 }
