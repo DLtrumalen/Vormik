@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { INTL_LOCALE, localeHref, type Locale } from "@/i18n";
+import { localeHref, type Locale } from "@/i18n";
 import { readSavedLocale } from "@/i18n/client";
 import { isStandalone } from "@/lib/install";
 
@@ -16,9 +16,6 @@ export function SiteRedirect({ locale }: { locale: Locale }) {
   const router = useRouter();
 
   useEffect(() => {
-    // Корневой layout общий для всех языков, поэтому lang выставляем здесь.
-    document.documentElement.lang = INTL_LOCALE[locale].slice(0, 2);
-
     const about = new URLSearchParams(window.location.search).has("about");
     if (isStandalone() && !about) {
       router.replace("/train");
