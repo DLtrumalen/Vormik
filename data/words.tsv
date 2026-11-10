@@ -11,7 +11,7 @@ tee	S	дорога	road	tie
 auto	S	машина	car	auto	
 rong	S	поезд	train	juna	
 laev	S	корабль	ship	laiva	
-lennuk	S	самолёт	airplane	lentokone	
+lennuk	S	самолёт	plane	lentokone	
 kool	S	школа	school	koulu	kooli
 ülikool	S	университет	university	yliopisto	
 kirik	S	церковь	church	kirkko	
@@ -22,10 +22,10 @@ sõber	S	друг	friend	ystävä
 ema	S	мама	mother	äiti	
 isa	S	папа	father	isä	
 laps	S	ребёнок	child	lapsi	
-mees	S	мужчина	man	mies	
-naine	S	женщина	woman	nainen	
+mees	S	мужчина, муж	man, husband	mies	
+naine	S	женщина, жена	woman, wife	nainen	
 poiss	S	мальчик	boy	poika	
-tüdruk	S	девочка	girl	tyttö	
+tüdruk	S	девочка, девушка	girl	tyttö	
 inimene	S	человек	person	ihminen	
 pere	S	семья	family	perhe	
 arst	S	врач	doctor	lääkäri	
@@ -47,25 +47,25 @@ päev	S	день	day	päivä
 öö	S	ночь	night	yö	
 nädal	S	неделя	week	viikko	
 aasta	S	год	year	vuosi	
-tund	S	час	hour	tunti	
+tund	S	час, урок	hour, lesson	tunti	
 töö	S	работа	work	työ	
 leib	S	хлеб	bread	leipä	
 vesi	S	вода	water	vesi	
 õun	S	яблоко	apple	omena	
 käsi	S	рука	hand	käsi	
-jalg	S	нога	leg	jalka	
+jalg	S	нога	leg, foot	jalka	
 pea	S	голова	head	pää	
 silm	S	глаз	eye	silmä	silma
 sõrm	S	палец	finger	sormi	
 süda	S	сердце	heart	sydän	
-keel	S	язык	language	kieli	
+keel	S	язык	language, tongue	kieli	
 sõna	S	слово	word	sana	
 nimi	S	имя	name	nimi	
 küsimus	S	вопрос	question	kysymys	
-lugu	S	история	story	tarina	
-pilt	S	картина	picture	kuva	
+lugu	S	история, песня	story, song	tarina	
+pilt	S	картинка, изображение	picture	kuva	
 riik	S	страна	country	valtio	
-uni	S	сон	sleep	uni	
+uni	S	сон	sleep, dream	uni	
 ilus	A	красивый	beautiful	kaunis	
 suur	A	большой	big	suuri	
 väike	A	маленький	small	pieni	

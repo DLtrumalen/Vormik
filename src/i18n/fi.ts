@@ -14,10 +14,11 @@ export const fi: Dictionary = {
   language: "Kieli",
   cases: {
     nom: {
-      name: "perusmuoto",
+      name: "kuka? mikä?",
       question: "kuka? mikä?",
       ending: "—",
-      explanation: "Sanakirjamuoto. Monikossa: genetiivin vartalo + -d.",
+      explanation:
+        "Subjekti ja sanakirjamuoto: Maja on suur. Monikossa myös kokonaisobjekti: Ma ostsin raamatud.",
       example: "Talo on suuri.",
     },
     gen: {
@@ -25,7 +26,7 @@ export const fi: Dictionary = {
       question: "kenen? minkä?",
       ending: "vokaali",
       explanation:
-        "Tärkein opeteltava muoto: siitä muodostetaan useimmat muut sijat. Monikossa: -de tai -te.",
+        "Kenen? minkä?: maja uks — talon ovi. Myös kokonaisobjekti (Ma ostsin raamatu) ja sanat kuten juures, jaoks, kohta: maja juures.",
       example: "Talon ovi on auki.",
     },
     part: {
@@ -33,7 +34,7 @@ export const fi: Dictionary = {
       question: "ketä? mitä?",
       ending: "-t, -d tai vokaali",
       explanation:
-        "Osittainen objekti, osa jostakin, kielto, lukusanat kahdesta ylöspäin. Muoto opetellaan sanan mukana.",
+        "Osaobjekti tai kesken oleva toiminta (Ma loen raamatut), osa jostakin (Ma joon vett), kiellon jälkeen (Ma ei näe maja) ja lukusanojen jälkeen kahdesta alkaen (kaks maja).",
       example: "Juon vettä.",
     },
     ill: {
@@ -118,7 +119,7 @@ export const fi: Dictionary = {
   site: {
     tagline: "Viron sijamuotojen harjoittelu",
     title: "Viron sijamuodot ilman taulukoiden pänttäämistä",
-    lead: "Vormik antaa sanan ja sijan — sinä kirjoitat muodon. Virheet palaavat useammin, osatut harvemmin. Kaikki 14 sijaa, molemmat luvut, selitykset suomeksi.",
+    lead: "Vormik antaa sanan, sijan ja lyhyen lauseen, jossa on aukko — sinä kirjoitat oikean muodon. Virheet palaavat useammin, osatut harvemmin. Kaikki 14 sijaa, molemmat luvut, selitykset suomeksi.",
     perks: "Ilmainen · ei rekisteröitymistä · toimii ilman nettiä",
     nav: { features: "Ominaisuudet", cases: "Sijat" },
     openTrainer: "Avaa harjoittelu",
@@ -144,7 +145,10 @@ export const fi: Dictionary = {
     ],
     stepsTitle: "Miten harjoittelu etenee",
     steps: [
-      { title: "Sana ja sija", text: "Esimerkiksi: jalg, illatiivi, monikko." },
+      {
+        title: "Sana ja sija",
+        text: "Esimerkiksi: jalg, sisseütlev (mihin?), monikko — ja lyhyt lause, jossa on aukko.",
+      },
       {
         title: "Vastauksesi",
         text: "Kirjoita muoto. Kirjaimille õ ä ö ü on napit — virolaista näppäimistöä ei tarvita.",
@@ -248,28 +252,36 @@ export const fi: Dictionary = {
 
   explain: {
     diacritics:
-      "Melkein: muoto on oikein, mutta virolaiset kirjaimet (õ, ä, ö, ü) ovat sekaisin. Vertaa oikeaan vastaukseen.",
+      "Muoto on oikein, mutta virolaiset kirjaimet (õ, ä, ö, ü) ovat sekaisin. Vertaa oikeaan vastaukseen.",
+    cyrillic:
+      "Näyttää siltä, että kyrillinen näppäimistö on päällä: vastauksessa on kyrillisiä kirjaimia. Vaihda latinalaisiin.",
     otherNumber: (input, caseEt, actual, needed) =>
-      `”${input}” on ${caseEt}, ${actual}, mutta tarvitaan ${needed}`,
-    otherCase: (input, label) => `”${input}” on eri sija: ${label}`,
+      `”${input}” on ${caseEt}, ${actual}, mutta tarvitaan ${needed}.`,
+    otherCase: (input, label, needed) => `”${input}” on ${label}. Tarvitaan ${needed}.`,
     stemError: (suffix, stem, expected) =>
       `Pääte -${suffix} on oikein, virhe on vartalossa: ei ”${stem}-” vaan ”${expected}-”.`,
+    endingError: (suffix, stem) =>
+      `Vartalo ${stem}- on oikein, virhe on päätteessä: tarvitaan -${suffix}.`,
     noSuchForm: (lemma, input) => `Sanalla ${lemma} ei ole muotoa ”${input}”.`,
     genSg: (lemma, sgGen) => [
-      `Yksikön genetiivi opetellaan sanan mukana: ${lemma} → ${sgGen}.`,
+      `Yksikön omastav (genetiivi) opetellaan sanan mukana: ${lemma} → ${sgGen}.`,
       `Siitä muodostetaan lähes kaikki muut sijat: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
-      `Myös yksikön partitiivi opetellaan sanan mukana: ${lemma} — ${sgGen} — ${sgPart}.`,
+      `Myös yksikön osastav (partitiivi) opetellaan sanan mukana: ${lemma} — ${sgGen} — ${sgPart}.`,
     ],
-    partPl: (forms) => [`Monikon partitiivi pitää opetella: ${forms}.`],
-    takeGen: (lemma, sgGen) => `Otetaan yksikön genetiivi: ${lemma} → ${sgGen}.`,
+    partPl: (forms) => [`Monikon osastav pitää opetella: ${forms}.`],
+    partPlRule: (sgPart, form) =>
+      `Vinkki: jos yksikön osastav päättyy vokaaliin, voi lisätä -sid: ${sgPart} + sid = ${form}.`,
+    takeGen: (lemma, sgGen) => `Otetaan yksikön omastav (genetiivi): ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Lisätään -d: ${sgGen} + d = ${sgGen}d.`,
-    plBase: (plGen) => `Monikon sijat muodostetaan monikon genetiivistä: ${plGen}.`,
+    plBase: (plGen) => `Monikon sijat muodostetaan monikon omastavista: ${plGen}.`,
     plGenRule: (sgPart, ending, reason, plGen, others) =>
-      `Katsotaan yksikön partitiivia ${sgPart}: se päättyy ${
+      `Katsotaan yksikön osastavia ${sgPart}: se päättyy ${
         { vowel: "vokaaliin", d: "‑d:hen", t: "‑t:hen" }[reason]
-      }, joten lisätään ‑${ending}: ${plGen}.${others ? ` Myös oikein: ${others}.` : ""} ${
+      }, joten lisätään ‑${ending}: ${plGen.slice(0, -2)} + ${ending} = ${plGen}.${
+        others ? ` Myös oikein: ${others}.` : ""
+      } ${
         ending === "de"
           ? "Jos se päättyisi ‑t:hen, pääte olisi ‑te: keelt → keelte."
           : "Jos se päättyisi vokaaliin, pääte olisi ‑de: pilti → piltide."
@@ -279,8 +291,13 @@ export const fi: Dictionary = {
     addEnding: (suffix, base) =>
       `Lisätään pääte -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `Sanalla on myös lyhyt muoto ${short} — se on jopa yleisempi. Molemmat muodot ovat oikein.`,
+      `Sanalla on myös lyhyt muoto ${short}, joka on myös yleinen. Molemmat muodot ovat oikein.`,
     irregular: (forms) => `Tämä muoto ei noudata yleistä sääntöä — opettele se: ${forms}.`,
-    shortPl: (others) => `On myös lyhyt muoto: ${others}. Sekin on oikein.`,
+    shortPl: (forms, many) =>
+      many
+        ? `On myös lyhyitä muotoja: ${forms}. Nekin ovat oikein.`
+        : `On myös lyhyt muoto: ${forms}. Sekin on oikein.`,
+    altPlGen: (gen, forms) =>
+      `Muodon voi rakentaa myös monikon toisesta omastavista (${gen}): ${forms}.`,
   },
 };

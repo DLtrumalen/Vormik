@@ -115,7 +115,6 @@ export function Landing({ locale }: { locale: Locale }) {
                       <h3 className="font-semibold">{c.et}</h3>
                       <span className="font-mono text-sm text-brand">{ct.ending}</span>
                     </div>
-                    <p className="text-sm text-muted">{ct.name}</p>
                     <p className="mt-3 text-sm">
                       <span className="text-muted">{c.questionEt}</span> — {ct.question}
                     </p>

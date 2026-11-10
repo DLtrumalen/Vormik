@@ -48,11 +48,11 @@ describe("explain", () => {
       translation: "Я еду на самолёте.",
     });
     expect(explain(lennuk, "sg.com", "", "wrong", "en").example.translation).toBe(
-      "I travel by airplane.",
+      "I travel by plane.",
     );
     expect(explain(WORD_BY_ID.sõber!, "sg.ade", "", "wrong").example).toEqual({
-      et: "Sõbral on auto.",
-      translation: "У друга есть машина.",
+      et: "Sõbral on koer.",
+      translation: "У друга есть собака.",
     });
   });
 
@@ -62,7 +62,7 @@ describe("explain", () => {
       translation: "Я еду на самолёте.",
     });
     expect(taskSentence(WORD_BY_ID.sõber!, "sg.ade", "fi")).toEqual({
-      et: `${GAP} on auto.`,
+      et: `${GAP} on koer.`,
       translation: null,
     });
   });
@@ -103,7 +103,7 @@ describe("explain", () => {
       reason: "d",
     });
     expect(explain(WORD_BY_ID.pilt!, "pl.gen", "", "wrong").steps[0]).toContain(
-      "частичный ед. ч. pilti: он оканчивается на гласную, поэтому добавляем ‑de: piltide.",
+      "osastav ед. ч. pilti: он оканчивается на гласную, поэтому добавляем ‑de: pilti + de = piltide.",
     );
   });
 
@@ -111,7 +111,7 @@ describe("explain", () => {
     const kool = WORD_BY_ID.kool!;
     const plain = explain(kool, "pl.ade", "koolil", "wrong");
     expect(plain.steps).toEqual([
-      "Падежи мн. ч. строятся от родительного мн. ч.: koolide.",
+      "Падежи мн. ч. строятся от omastav мн. ч.: koolide.",
       "Добавляем окончание -l: koolide + l = koolidel.",
     ]);
   });
@@ -142,7 +142,7 @@ describe("explain", () => {
       "Add the ending -sse: nimede + sse = nimedesse.",
     );
     expect(explain(nimi, "pl.ill", "nimesse", "wrong", "fi").mistake).toBe(
-      "”nimesse” on sisseütlev, yksikkö, mutta tarvitaan monikko",
+      "”nimesse” on sisseütlev, yksikkö, mutta tarvitaan monikko.",
     );
     expect(explain(uus, "sg.ill", "", "wrong", "fi").example).toEqual({
       et: "Ma lähen uude majja.",
@@ -168,15 +168,39 @@ describe("explain", () => {
         ];
         for (const text of texts) expect(text, id).not.toMatch(/\.\./);
         expect(e.example.et.toLowerCase(), id).toContain(e.answer.toLowerCase());
-        expect(taskSentence(word, formKey, locale)?.et, id).toContain(GAP);
+        const gap = taskSentence(word, formKey, locale)!.et;
+        expect(gap, id).toContain(GAP);
+        // Пропуск, заполненный ответом, даёт ровно предложение из примера (без расхождений вроде teile/teedele).
+        expect(gap.replace(GAP, e.answer).toLowerCase(), id).toBe(e.example.et.toLowerCase());
         if (locale !== "fi") expect(e.example.translation, id).toBeTruthy();
         for (const step of e.steps) {
-          const result = step.split(" = ")[1]?.replace(/\.$/, "");
+          const result = step.split(" = ")[1]?.match(/^[^\s.,]+/)?.[0];
           if (result) expect(word.forms[formKey], `${id}: ${step}`).toContain(result);
         }
       }
     },
   );
+
+  it("замечает русскую раскладку", () => {
+    expect(explain(maja, "sg.ill", "mаjja", "wrong").mistake).toContain("русская раскладка");
+  });
+
+  it("называет ошибку в окончании, если основа верная", () => {
+    expect(explain(WORD_BY_ID.rong!, "pl.term", "rongidenni", "wrong").mistake).toBe(
+      "Основа rongide- верная, ошибка в окончании: нужно -ni.",
+    );
+  });
+
+  it("форму другого числа того же падежа узнаёт раньше совпадения с другим падежом", () => {
+    expect(explain(WORD_BY_ID.kool!, "pl.part", "kooli", "wrong").mistake).toContain(
+      "osastav, ед. ч., а нужно мн. ч.",
+    );
+  });
+
+  it("формы от второго родительного мн. ч. не называет краткими", () => {
+    const steps = explain(WORD_BY_ID.koer!, "pl.ade", "", "wrong").steps;
+    expect(steps.join(" ")).toContain("от второй формы omastav мн. ч. (koerte): koertel");
+  });
 
   it("строит мн. ч. именительный от родительного ед. ч.", () => {
     expect(explain(jalg, "pl.nom", "", "wrong").steps.at(-1)).toBe(

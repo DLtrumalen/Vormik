@@ -6,13 +6,19 @@ export type Locale = (typeof LOCALES)[number];
 /** Тексты разбора ответа. Шаг с формулой обязан иметь вид «… основа + окончание = форма.». */
 export type ExplainText = {
   diacritics: string;
+  /** В ответе русские буквы: включена не та раскладка. */
+  cyrillic: string;
   otherNumber: (input: string, caseEt: string, actual: string, needed: string) => string;
-  otherCase: (input: string, label: string) => string;
+  otherCase: (input: string, label: string, needed: string) => string;
   stemError: (suffix: string, stem: string, expected: string) => string;
+  /** Основа верная, ошибка в окончании. */
+  endingError: (suffix: string, stem: string) => string;
   noSuchForm: (lemma: string, input: string) => string;
   genSg: (lemma: string, sgGen: string) => string[];
   partSg: (lemma: string, sgGen: string, sgPart: string) => string[];
   partPl: (forms: string) => string[];
+  /** Частичный мн. ч. на -sid от частичного ед. ч. на гласную (maja → majasid). */
+  partPlRule: (sgPart: string, form: string) => string;
   takeGen: (lemma: string, sgGen: string) => string;
   addD: (sgGen: string) => string;
   /** Падежи мн. ч. строятся от родительного мн. ч. */
@@ -33,7 +39,10 @@ export type ExplainText = {
   addEnding: (suffix: string, base: string) => string;
   shortIll: (short: string) => string;
   irregular: (forms: string) => string;
-  shortPl: (others: string) => string;
+  /** Краткие формы мн. ч. (keelilt): одна или несколько. */
+  shortPl: (forms: string, many: boolean) => string;
+  /** Формы от второго варианта родительного мн. ч. (koerte → koertel). */
+  altPlGen: (gen: string, forms: string) => string;
 };
 
 export type CaseText = {

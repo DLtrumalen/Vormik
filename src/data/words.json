@@ -193,7 +193,7 @@
       "pl.ade": ["akendel", "aknail"],
       "pl.abl": ["akendelt", "aknailt"],
       "pl.transl": ["akendeks", "aknaiks"],
-      "pl.term": ["akendeni", "aknaini"],
+      "pl.term": ["akendeni"],
       "pl.ess": ["akendena", "aknaina"],
       "pl.abess": ["akendeta"],
       "pl.com": ["akendega"]
@@ -265,7 +265,7 @@
       "sg.com": ["linnaga"],
       "pl.nom": ["linnad"],
       "pl.gen": ["linnade"],
-      "pl.part": ["linnu", "linnasid"],
+      "pl.part": ["linnasid", "linnu"],
       "pl.ill": ["linnadesse"],
       "pl.ines": ["linnades"],
       "pl.ela": ["linnadest"],
@@ -313,7 +313,7 @@
       "pl.ade": ["tänavail", "tänavatel"],
       "pl.abl": ["tänavailt", "tänavatelt"],
       "pl.transl": ["tänavaiks", "tänavateks"],
-      "pl.term": ["tänavaini", "tänavateni"],
+      "pl.term": ["tänavateni"],
       "pl.ess": ["tänavaina", "tänavatena"],
       "pl.abess": ["tänavateta"],
       "pl.com": ["tänavatega"]
@@ -345,15 +345,15 @@
       "sg.com": ["teega"],
       "pl.nom": ["teed"],
       "pl.gen": ["teede"],
-      "pl.part": ["teid", "teesid"],
+      "pl.part": ["teid"],
       "pl.ill": ["teisse", "teedesse"],
       "pl.ines": ["teis", "teedes"],
       "pl.ela": ["teist", "teedest"],
-      "pl.all": ["teile", "teedele"],
-      "pl.ade": ["teil", "teedel"],
-      "pl.abl": ["teilt", "teedelt"],
+      "pl.all": ["teedele"],
+      "pl.ade": ["teedel"],
+      "pl.abl": ["teedelt"],
       "pl.transl": ["teiks", "teedeks"],
-      "pl.term": ["teini", "teedeni"],
+      "pl.term": ["teedeni"],
       "pl.ess": ["teina", "teedena"],
       "pl.abess": ["teedeta"],
       "pl.com": ["teedega"]
@@ -485,7 +485,7 @@
     "pos": "noun",
     "tr": {
       "ru": "самолёт",
-      "en": "airplane",
+      "en": "plane",
       "fi": "lentokone"
     },
     "forms": {
@@ -513,7 +513,7 @@
       "pl.ade": ["lennukeil", "lennukitel"],
       "pl.abl": ["lennukeilt", "lennukitelt"],
       "pl.transl": ["lennukeiks", "lennukiteks"],
-      "pl.term": ["lennukeini", "lennukiteni"],
+      "pl.term": ["lennukiteni"],
       "pl.ess": ["lennukeina", "lennukitena"],
       "pl.abess": ["lennukiteta"],
       "pl.com": ["lennukitega"]
@@ -633,7 +633,7 @@
       "pl.ade": ["kirikuil", "kirikutel"],
       "pl.abl": ["kirikuilt", "kirikutelt"],
       "pl.transl": ["kirikuiks", "kirikuteks"],
-      "pl.term": ["kirikuini", "kirikuteni"],
+      "pl.term": ["kirikuteni"],
       "pl.ess": ["kirikuina", "kirikutena"],
       "pl.abess": ["kirikuteta"],
       "pl.com": ["kirikutega"]
@@ -705,7 +705,7 @@
       "sg.com": ["toaga"],
       "pl.nom": ["toad"],
       "pl.gen": ["tubade"],
-      "pl.part": ["tube", "tubasid"],
+      "pl.part": ["tubasid", "tube"],
       "pl.ill": ["tubadesse"],
       "pl.ines": ["tubades"],
       "pl.ela": ["tubadest"],
@@ -924,8 +924,8 @@
     "lemma": "mees",
     "pos": "noun",
     "tr": {
-      "ru": "мужчина",
-      "en": "man",
+      "ru": "мужчина, муж",
+      "en": "man, husband",
       "fi": "mies"
     },
     "forms": {
@@ -964,8 +964,8 @@
     "lemma": "naine",
     "pos": "noun",
     "tr": {
-      "ru": "женщина",
-      "en": "woman",
+      "ru": "женщина, жена",
+      "en": "woman, wife",
       "fi": "nainen"
     },
     "forms": {
@@ -1044,7 +1044,7 @@
     "lemma": "tüdruk",
     "pos": "noun",
     "tr": {
-      "ru": "девочка",
+      "ru": "девочка, девушка",
       "en": "girl",
       "fi": "tyttö"
     },
@@ -1433,7 +1433,7 @@
       "pl.ade": ["puil", "puudel"],
       "pl.abl": ["puilt", "puudelt"],
       "pl.transl": ["puiks", "puudeks"],
-      "pl.term": ["puini", "puudeni"],
+      "pl.term": ["puudeni"],
       "pl.ess": ["puina", "puudena"],
       "pl.abess": ["puudeta"],
       "pl.com": ["puudega"]
@@ -1924,8 +1924,8 @@
     "lemma": "tund",
     "pos": "noun",
     "tr": {
-      "ru": "час",
-      "en": "hour",
+      "ru": "час, урок",
+      "en": "hour, lesson",
       "fi": "tunti"
     },
     "forms": {
@@ -2165,7 +2165,7 @@
     "pos": "noun",
     "tr": {
       "ru": "нога",
-      "en": "leg",
+      "en": "leg, foot",
       "fi": "jalka"
     },
     "forms": {
@@ -2365,7 +2365,7 @@
     "pos": "noun",
     "tr": {
       "ru": "язык",
-      "en": "language",
+      "en": "language, tongue",
       "fi": "kieli"
     },
     "forms": {
@@ -2427,7 +2427,7 @@
       "pl.gen": ["sõnade"],
       "pl.part": ["sõnu", "sõnasid"],
       "pl.ill": ["sõnusse", "sõnadesse"],
-      "pl.ines": ["sõnus", "sõnades"],
+      "pl.ines": ["sõnades"],
       "pl.ela": ["sõnust", "sõnadest"],
       "pl.all": ["sõnule", "sõnadele"],
       "pl.ade": ["sõnul", "sõnadel"],
@@ -2524,8 +2524,8 @@
     "lemma": "lugu",
     "pos": "noun",
     "tr": {
-      "ru": "история",
-      "en": "story",
+      "ru": "история, песня",
+      "en": "story, song",
       "fi": "tarina"
     },
     "forms": {
@@ -2564,7 +2564,7 @@
     "lemma": "pilt",
     "pos": "noun",
     "tr": {
-      "ru": "картина",
+      "ru": "картинка, изображение",
       "en": "picture",
       "fi": "kuva"
     },
@@ -2645,7 +2645,7 @@
     "pos": "noun",
     "tr": {
       "ru": "сон",
-      "en": "sleep",
+      "en": "sleep, dream",
       "fi": "uni"
     },
     "forms": {
@@ -2866,9 +2866,9 @@
       "pl.nom": ["vanad"],
       "pl.gen": ["vanade"],
       "pl.part": ["vanu", "vanasid"],
-      "pl.ill": ["vanusse", "vanadesse"],
-      "pl.ines": ["vanus", "vanades"],
-      "pl.ela": ["vanust", "vanadest"],
+      "pl.ill": ["vanadesse"],
+      "pl.ines": ["vanades"],
+      "pl.ela": ["vanadest"],
       "pl.all": ["vanule", "vanadele"],
       "pl.ade": ["vanul", "vanadel"],
       "pl.abl": ["vanult", "vanadelt"],

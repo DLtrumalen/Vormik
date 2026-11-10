@@ -22,10 +22,11 @@ export const ru: Dictionary = {
   language: "Язык",
   cases: {
     nom: {
-      name: "словарная форма",
+      name: "кто? что?",
       question: "кто? что?",
       ending: "—",
-      explanation: "Словарная форма. Во множественном числе: основа родительного + -d.",
+      explanation:
+        "Подлежащее и словарная форма: Maja on suur. Во мн. ч. ещё и полный объект: Ma ostsin raamatud.",
       example: "Дом большой.",
     },
     gen: {
@@ -33,7 +34,7 @@ export const ru: Dictionary = {
       question: "чей? чего?",
       ending: "гласная",
       explanation:
-        "Главная форма для запоминания: от неё образуется большинство других падежей. Во множественном числе: -de или -te.",
+        "Чей? чего?: maja uks — дверь дома. Ещё полный объект (Ma ostsin raamatu) и слова вроде juures, jaoks, kohta: maja juures.",
       example: "Дверь дома открыта.",
     },
     part: {
@@ -41,7 +42,7 @@ export const ru: Dictionary = {
       question: "кого? что? (часть)",
       ending: "-t, -d или гласная",
       explanation:
-        "Неполный объект, часть чего-то, отрицание, числа после двух. Форму нужно запоминать вместе со словом.",
+        "Неполный объект или действие в процессе (Ma loen raamatut), часть чего-то (Ma joon vett), после отрицания (Ma ei näe maja) и после чисел от двух (kaks maja).",
       example: "Я пью воду.",
     },
     ill: {
@@ -126,7 +127,7 @@ export const ru: Dictionary = {
   site: {
     tagline: "Тренажёр для русскоязычных",
     title: "Эстонские падежи без зубрёжки таблиц",
-    lead: "Vormik даёт слово и падеж — вы пишете форму. Ошибки возвращаются чаще, выученное — реже. Все 14 падежей, оба числа, объяснения на русском.",
+    lead: "Vormik даёт слово, падеж и короткое предложение с пропуском — вы вписываете нужную форму. Ошибки возвращаются чаще, выученное — реже. Все 14 падежей, оба числа, объяснения на русском.",
     perks: "Бесплатно · без регистрации · работает офлайн",
     nav: { features: "Возможности", cases: "Падежи" },
     openTrainer: "Открыть тренажёр",
@@ -152,7 +153,10 @@ export const ru: Dictionary = {
     ],
     stepsTitle: "Как проходит тренировка",
     steps: [
-      { title: "Слово и падеж", text: "Например: jalg, входный падеж, множественное число." },
+      {
+        title: "Слово и падеж",
+        text: "Например: jalg, sisseütlev (куда? во что?), мн. ч. — и короткое предложение с пропуском.",
+      },
       {
         title: "Ваш ответ",
         text: "Пишете форму. Для õ ä ö ü есть кнопки — эстонская раскладка не нужна.",
@@ -255,28 +259,35 @@ export const ru: Dictionary = {
 
   explain: {
     diacritics:
-      "Почти: форма верная, но перепутаны эстонские буквы (õ, ä, ö, ü). Сравните с правильным ответом.",
+      "Форма верная, но перепутаны эстонские буквы (õ, ä, ö, ü). Сравните с правильным ответом.",
+    cyrillic:
+      "Похоже, включена русская раскладка: в ответе есть русские буквы. Переключитесь на латиницу.",
     otherNumber: (input, caseEt, actual, needed) =>
-      `«${input}» — это ${caseEt} ${actual}, а нужно ${needed}`,
-    otherCase: (input, label) => `«${input}» — это другой падеж: ${label}`,
+      `«${input}» — это ${caseEt}, ${actual}, а нужно ${needed}.`,
+    otherCase: (input, label, needed) => `«${input}» — это ${label}. А нужен ${needed}.`,
     stemError: (suffix, stem, expected) =>
       `Окончание -${suffix} верное, ошибка в основе: не «${stem}-», а «${expected}-».`,
+    endingError: (suffix, stem) => `Основа ${stem}- верная, ошибка в окончании: нужно -${suffix}.`,
     noSuchForm: (lemma, input) => `У слова ${lemma} нет формы «${input}».`,
     genSg: (lemma, sgGen) => [
-      `Родительный ед. ч. просто запоминают вместе со словом: ${lemma} → ${sgGen}.`,
+      `Omastav (родительный) ед. ч. запоминают вместе со словом: ${lemma} → ${sgGen}.`,
       `От него строятся почти все остальные падежи: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
-      `Частичный ед. ч. тоже запоминают вместе со словом: ${lemma} — ${sgGen} — ${sgPart}.`,
+      `Osastav (частичный) ед. ч. тоже запоминают вместе со словом: ${lemma} — ${sgGen} — ${sgPart}.`,
     ],
-    partPl: (forms) => [`Частичный мн. ч. нужно запомнить: ${forms}.`],
-    takeGen: (lemma, sgGen) => `Берём родительный ед. ч.: ${lemma} → ${sgGen}.`,
+    partPl: (forms) => [`Osastav мн. ч. нужно запомнить: ${forms}.`],
+    partPlRule: (sgPart, form) =>
+      `Подсказка: если osastav ед. ч. оканчивается на гласную, можно добавить -sid: ${sgPart} + sid = ${form}.`,
+    takeGen: (lemma, sgGen) => `Берём omastav (родительный) ед. ч.: ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Добавляем -d: ${sgGen} + d = ${sgGen}d.`,
-    plBase: (plGen) => `Падежи мн. ч. строятся от родительного мн. ч.: ${plGen}.`,
+    plBase: (plGen) => `Падежи мн. ч. строятся от omastav мн. ч.: ${plGen}.`,
     plGenRule: (sgPart, ending, reason, plGen, others) =>
-      `Смотрим на частичный ед. ч. ${sgPart}: он оканчивается ${
+      `Смотрим на osastav ед. ч. ${sgPart}: он оканчивается ${
         { vowel: "на гласную", d: "на ‑d", t: "на ‑t" }[reason]
-      }, поэтому добавляем ‑${ending}: ${plGen}.${others ? ` Тоже правильно: ${others}.` : ""} ${
+      }, поэтому добавляем ‑${ending}: ${plGen.slice(0, -2)} + ${ending} = ${plGen}.${
+        others ? ` Тоже правильно: ${others}.` : ""
+      } ${
         ending === "de"
           ? "А если бы он оканчивался на ‑t, было бы ‑te: keelt → keelte."
           : "А если бы он оканчивался на гласную, было бы ‑de: pilti → piltide."
@@ -286,9 +297,13 @@ export const ru: Dictionary = {
     addEnding: (suffix, base) =>
       `Добавляем окончание -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `Есть и краткая форма ${short} — её говорят даже чаще. Обе формы правильные.`,
+      `Есть и краткая форма ${short} — её тоже часто говорят. Обе формы правильные.`,
     irregular: (forms) =>
       `Эта форма образуется не по общему правилу — её нужно запомнить: ${forms}.`,
-    shortPl: (others) => `Есть и краткая форма: ${others}. Она тоже правильная.`,
+    shortPl: (forms, many) =>
+      many
+        ? `Есть и краткие формы: ${forms}. Они тоже правильные.`
+        : `Есть и краткая форма: ${forms}. Она тоже правильная.`,
+    altPlGen: (gen, forms) => `Можно строить и от второй формы omastav мн. ч. (${gen}): ${forms}.`,
   },
 };

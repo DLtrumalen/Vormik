@@ -31,17 +31,30 @@ function splitKey(key: FormKey) {
   return key.split(".") as [GrammaticalNumber, CaseKey];
 }
 
-/** Какой форме этого же слова соответствует ответ пользователя. */
+/**
+ * Какой форме этого же слова соответствует ответ пользователя. Одна и та же форма бывает в разных
+ * падежах (kooli — omastav ед. ч. и osastav ед. ч.), поэтому сначала ищем тот же падеж в другом
+ * числе, потом другие падежи того же числа и только потом остальное.
+ */
 function matchOtherForm(word: Word, input: string, target: FormKey): FormKey | null {
   const answer = normalize(input);
-  for (const number of ["sg", "pl"] as const) {
-    for (const c of CASES) {
-      const key: FormKey = `${number}.${c.key}`;
-      if (key === target) continue;
-      if (word.forms[key].some((v) => normalize(v) === answer)) return key;
-    }
+  const [number, caseKey] = splitKey(target);
+  const otherNumber = number === "sg" ? "pl" : "sg";
+  const candidates: FormKey[] = [
+    `${otherNumber}.${caseKey}`,
+    ...CASES.map((c): FormKey => `${number}.${c.key}`),
+    ...CASES.map((c): FormKey => `${otherNumber}.${c.key}`),
+  ];
+  for (const key of candidates) {
+    if (key === target) continue;
+    if (word.forms[key].some((v) => normalize(v) === answer)) return key;
   }
   return null;
+}
+
+/** Основа, от которой строится падеж: родительный ед. ч. или тот родительный мн. ч., что в шагах. */
+function caseStem(word: Word, number: GrammaticalNumber) {
+  return number === "sg" ? first(word, "sg.gen") : pluralGenitive(word).form;
 }
 
 function describeMistake(
@@ -53,9 +66,11 @@ function describeMistake(
 ): string | null {
   if (result === "correct") return null;
   if (result === "diacritics") return t.explain.diacritics;
+  if (/[а-яё]/i.test(input)) return t.explain.cyrillic;
 
   const [number, caseKey] = splitKey(key);
   const answer = normalize(input);
+  const needed = `${CASE_BY_KEY[caseKey].et} (${t.cases[caseKey].name}), ${t.number[number]}`;
   const other = matchOtherForm(word, input, key);
   if (other) {
     const [otherNumber, otherCase] = splitKey(other);
@@ -67,15 +82,19 @@ function describeMistake(
         t.number[number],
       );
     }
-    const label = `${CASE_BY_KEY[otherCase].et} — ${t.cases[otherCase].name}, ${t.number[otherNumber]}`;
-    return t.explain.otherCase(answer, label);
+    const label = `${CASE_BY_KEY[otherCase].et} (${t.cases[otherCase].name}), ${t.number[otherNumber]}`;
+    return t.explain.otherCase(answer, label, needed);
   }
 
   const suffix = CASE_BY_KEY[caseKey].suffix;
+  const expectedStem = caseStem(word, number);
+  // Основа верная — значит, ошибка в окончании (rongidenni вместо rongideni).
+  if (suffix && answer.startsWith(expectedStem) && answer.length > expectedStem.length) {
+    return t.explain.endingError(suffix, expectedStem);
+  }
   if (suffix && answer.endsWith(suffix) && answer.length > suffix.length) {
     const stem = answer.slice(0, -suffix.length);
-    const expectedStem = number === "sg" ? first(word, "sg.gen") : first(word, "pl.gen");
-    return t.explain.stemError(suffix, stem, expectedStem);
+    if (stem !== expectedStem) return t.explain.stemError(suffix, stem, expectedStem);
   }
 
   return t.explain.noSuchForm(word.lemma, answer);
@@ -128,7 +147,12 @@ function buildSteps(
 
   if (number === "sg" && caseKey === "gen") return e.genSg(word.lemma, sgGen);
   if (number === "sg" && caseKey === "part") return e.partSg(word.lemma, sgGen, sgPart);
-  if (number === "pl" && caseKey === "part") return e.partPl(target.join(" / "));
+  if (number === "pl" && caseKey === "part") {
+    const steps = e.partPl(target.join(" / "));
+    const sid = `${sgPart}sid`;
+    if (/[aeiouõäöü]$/.test(sgPart) && target.includes(sid)) steps.push(e.partPlRule(sgPart, sid));
+    return steps;
+  }
   if (number === "pl" && caseKey === "nom") return [e.takeGen(word.lemma, sgGen), e.addD(sgGen)];
 
   if (number === "pl") {
@@ -149,7 +173,7 @@ function buildSteps(
   // Единственное число, местные и остальные падежи.
   const steps = [e.takeGen(word.lemma, sgGen), e.addEnding(suffix, sgGen)];
   if (caseKey === "ill") {
-    const short = target.filter((v) => !v.endsWith("sse"));
+    const short = target.filter((v) => v !== `${sgGen}sse`);
     if (short.length > 0) steps.push(e.shortIll(short.join(" / ")));
   }
   return steps;
@@ -186,7 +210,9 @@ function translate(word: Word, key: FormKey, locale: Locale) {
 export function taskSentence(word: Word, key: FormKey, locale: Locale): Sentence | null {
   const template = sentenceTemplate(word, key);
   if (!template) return null;
-  const [, noun] = phraseParts(word, word.forms[key][0]!, key);
+  // Существительное подбираем к той же форме, что покажем в ответе: иначе в задании могло бы
+  // стоять «teile», а в ответе «lühikestele teedele».
+  const [, noun] = phraseParts(word, explain(word, key, "", "wrong", locale).answer, key);
   return { et: fill(template.et, GAP, noun), translation: translate(word, key, locale) };
 }
 
@@ -212,7 +238,9 @@ export function explain(
 
   // Форма, которая получается по правилу из шагов (строка вида «… = keeltelt.»).
   const ruleIndex = steps.findLastIndex((s) => s.includes(" = "));
-  const ruleResult = ruleIndex >= 0 ? steps[ruleIndex]!.split(" = ")[1]!.replace(/\.$/, "") : null;
+  // Слово сразу после « = » (дальше в шаге может идти пояснение).
+  const ruleResult =
+    ruleIndex >= 0 ? (steps[ruleIndex]!.split(" = ")[1]!.match(/^[^\s.,]+/)?.[0] ?? null) : null;
   let derived: string | null = null;
   if (ruleResult && variants.includes(ruleResult)) {
     derived = ruleResult;
@@ -222,11 +250,18 @@ export function explain(
   }
 
   // Краткие формы мн. ч. (keelilt, jalusse) строятся от частичного мн. ч. — объясняем их отдельно.
-  if (derived && number === "pl") {
+  // В родительном мн. ч. другие варианты уже названы в правиле -de/-te.
+  if (derived && number === "pl" && caseKey !== "gen") {
     const others = variants.filter((v) => v !== derived);
-    if (others.length > 0) {
-      steps.push(t.explain.shortPl(others.join(" / ")));
+    const suffix = CASE_BY_KEY[caseKey].suffix;
+    const base = pluralGenitive(word).form;
+    const altGens = word.forms["pl.gen"].filter((g) => g !== base);
+    for (const gen of altGens) {
+      const forms = others.filter((v) => v === `${gen}${suffix}`);
+      if (forms.length > 0) steps.push(t.explain.altPlGen(gen, forms.join(" / ")));
     }
+    const short = others.filter((v) => !altGens.some((g) => v === `${g}${suffix}`));
+    if (short.length > 0) steps.push(t.explain.shortPl(short.join(" / "), short.length > 1));
   }
 
   // Крупно показываем то, что написал пользователь (если верно), иначе — форму из шагов.
@@ -244,7 +279,8 @@ export function explain(
   return {
     answer,
     alternatives: variants.filter((v) => v !== answer),
-    mistake: describeMistake(t, word, input, result, key),
+    // «ед. ч.» в конце фразы + точка предложения дали бы «ед. ч..».
+    mistake: describeMistake(t, word, input, result, key)?.replace(/\.\./g, ".") ?? null,
     steps,
     usage: t.cases[caseKey].explanation,
     example: fullSentence(word, key, answer, locale),

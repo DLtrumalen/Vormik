@@ -45,6 +45,28 @@ def unique(items):
     return seen
 
 
+# Формы, которые Vabamorf строит, но принимать их не стоит: совпадают с другими словами
+# (teile — «вам», vanus — «возраст») или практически не употребляются (aknaini, puini).
+DROP = {
+    "tee": {"teile", "teil", "teilt", "teini", "teesid"},
+    "aken": {"aknaini"},
+    "tänav": {"tänavaini"},
+    "lennuk": {"lennukeini"},
+    "kirik": {"kirikuini"},
+    "puu": {"puini"},
+    "vana": {"vanus", "vanusse", "vanust"},
+    "sõna": {"sõnus"},
+}
+
+# Какую форму показывать первой, если употребительная форма у Vabamorf не первая
+# (linnu — редкая и совпадает с формой слова lind «птица»).
+PREFER = {
+    ("linn", "pl.part"): "linnasid",
+    ("tuba", "pl.part"): "tubasid",
+    ("tee", "pl.part"): "teid",
+}
+
+
 def build_forms(lemma, pos, hint=""):
     # hint — правильный родительный ед. ч. для омонимов (kool → kooli, а не koola):
     # без него Vabamorf смешивает формы разных слов.
@@ -55,7 +77,12 @@ def build_forms(lemma, pos, hint=""):
             # Краткий иллатив (majja) стоит первым: он употребительнее длинного (majasse).
             if number == "sg" and case == "ill":
                 variants = synthesize(lemma, "adt", pos, hint) + variants
-            forms[f"{number}.{case}"] = unique(variants)
+            key = f"{number}.{case}"
+            variants = [v for v in unique(variants) if v not in DROP.get(lemma, ())]
+            preferred = PREFER.get((lemma, key))
+            if preferred in variants:
+                variants = [preferred] + [v for v in variants if v != preferred]
+            forms[key] = variants
     return forms
 
 

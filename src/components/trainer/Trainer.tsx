@@ -292,7 +292,7 @@ function ThemeToggle({ theme, label }: { theme: "dark" | "light"; label: string 
       onClick={() => saveTheme(theme === "dark" ? "light" : "dark")}
       aria-label={label}
       title={label}
-      className="grid size-9 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:border-brand hover:text-brand"
+      className="grid size-11 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:border-brand hover:text-brand"
     >
       {theme === "dark" ? (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">

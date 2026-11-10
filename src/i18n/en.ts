@@ -14,10 +14,11 @@ export const en: Dictionary = {
   language: "Language",
   cases: {
     nom: {
-      name: "dictionary form",
+      name: "who? what?",
       question: "who? what?",
       ending: "—",
-      explanation: "The dictionary form. In the plural: genitive stem + -d.",
+      explanation:
+        "The subject and the dictionary form: Maja on suur. In the plural also a complete object: Ma ostsin raamatud.",
       example: "The house is big.",
     },
     gen: {
@@ -25,7 +26,7 @@ export const en: Dictionary = {
       question: "whose? of what?",
       ending: "vowel",
       explanation:
-        "The key form to learn: most other cases are built from it. In the plural: -de or -te.",
+        "Whose? of what?: maja uks — the door of the house. Also a complete object (Ma ostsin raamatu) and words like juures, jaoks, kohta: maja juures.",
       example: "The door of the house is open.",
     },
     part: {
@@ -33,7 +34,7 @@ export const en: Dictionary = {
       question: "whom? what? (part of)",
       ending: "-t, -d or vowel",
       explanation:
-        "Partial object, part of something, negation, numbers from two up. Learn this form together with the word.",
+        "An incomplete object or an action in progress (Ma loen raamatut), part of something (Ma joon vett), after negation (Ma ei näe maja) and after numbers from two (kaks maja).",
       example: "I drink water.",
     },
     ill: {
@@ -118,7 +119,7 @@ export const en: Dictionary = {
   site: {
     tagline: "Estonian case trainer",
     title: "Estonian cases without memorising tables",
-    lead: "Vormik gives you a word and a case — you type the form. Mistakes come back more often, what you know comes back less. All 14 cases, both numbers, explanations in English.",
+    lead: "Vormik gives you a word, a case and a short sentence with a gap — you type the right form. Mistakes come back more often, what you know comes back less. All 14 cases, both numbers, explanations in English.",
     perks: "Free · no sign-up · works offline",
     nav: { features: "Features", cases: "Cases" },
     openTrainer: "Open trainer",
@@ -144,7 +145,10 @@ export const en: Dictionary = {
     ],
     stepsTitle: "How a session works",
     steps: [
-      { title: "Word and case", text: "For example: jalg, illative, plural." },
+      {
+        title: "Word and case",
+        text: "For example: jalg, sisseütlev (where to? into what?), plural — and a short sentence with a gap.",
+      },
       {
         title: "Your answer",
         text: "Type the form. There are buttons for õ ä ö ü — no Estonian keyboard needed.",
@@ -248,28 +252,36 @@ export const en: Dictionary = {
 
   explain: {
     diacritics:
-      "Almost: the form is right, but the Estonian letters (õ, ä, ö, ü) are mixed up. Compare with the correct answer.",
+      "The form is right, but the Estonian letters (õ, ä, ö, ü) are mixed up. Compare with the correct answer.",
+    cyrillic:
+      "It looks like a Cyrillic keyboard is on: your answer has Cyrillic letters. Switch to Latin.",
     otherNumber: (input, caseEt, actual, needed) =>
-      `“${input}” is ${caseEt} ${actual}, but ${needed} is needed`,
-    otherCase: (input, label) => `“${input}” is a different case: ${label}`,
+      `“${input}” is ${caseEt}, ${actual}, but ${needed} is needed.`,
+    otherCase: (input, label, needed) => `“${input}” is ${label}. ${needed} is needed.`,
     stemError: (suffix, stem, expected) =>
       `The ending -${suffix} is right, the stem is wrong: not “${stem}-” but “${expected}-”.`,
+    endingError: (suffix, stem) =>
+      `The stem ${stem}- is right, the ending is wrong: it should be -${suffix}.`,
     noSuchForm: (lemma, input) => `The word ${lemma} has no form “${input}”.`,
     genSg: (lemma, sgGen) => [
-      `Just memorise the genitive singular together with the word: ${lemma} → ${sgGen}.`,
+      `Memorise the omastav (genitive) singular together with the word: ${lemma} → ${sgGen}.`,
       `Almost all other cases are built on it: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
-      `Memorise the partitive singular with the word too: ${lemma} — ${sgGen} — ${sgPart}.`,
+      `Memorise the osastav (partitive) singular with the word too: ${lemma} — ${sgGen} — ${sgPart}.`,
     ],
-    partPl: (forms) => [`Memorise the partitive plural: ${forms}.`],
-    takeGen: (lemma, sgGen) => `Take the genitive singular: ${lemma} → ${sgGen}.`,
+    partPl: (forms) => [`Memorise the osastav plural: ${forms}.`],
+    partPlRule: (sgPart, form) =>
+      `Tip: if the osastav singular ends in a vowel, you can add -sid: ${sgPart} + sid = ${form}.`,
+    takeGen: (lemma, sgGen) => `Take the omastav (genitive) singular: ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Add -d: ${sgGen} + d = ${sgGen}d.`,
-    plBase: (plGen) => `Plural cases are built on the genitive plural: ${plGen}.`,
+    plBase: (plGen) => `Plural cases are built on the omastav plural: ${plGen}.`,
     plGenRule: (sgPart, ending, reason, plGen, others) =>
-      `Look at the partitive singular ${sgPart}: it ends in ${
+      `Look at the osastav singular ${sgPart}: it ends in ${
         { vowel: "a vowel", d: "‑d", t: "‑t" }[reason]
-      }, so add ‑${ending}: ${plGen}.${others ? ` Also correct: ${others}.` : ""} ${
+      }, so add ‑${ending}: ${plGen.slice(0, -2)} + ${ending} = ${plGen}.${
+        others ? ` Also correct: ${others}.` : ""
+      } ${
         ending === "de"
           ? "If it ended in ‑t, it would be ‑te: keelt → keelte."
           : "If it ended in a vowel, it would be ‑de: pilti → piltide."
@@ -279,8 +291,13 @@ export const en: Dictionary = {
     addEnding: (suffix, base) =>
       `Add the ending -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `There is also a short form, ${short} — it is even more common. Both forms are correct.`,
-    irregular: (forms) => `This form doesn't follow the general rule — memorise it: ${forms}.`,
-    shortPl: (others) => `There is also a short form: ${others}. It is correct too.`,
+      `There is also a short form, ${short}, which is common too. Both forms are correct.`,
+    irregular: (forms) => `This form does not follow the general rule — memorise it: ${forms}.`,
+    shortPl: (forms, many) =>
+      many
+        ? `There are also short forms: ${forms}. They are correct too.`
+        : `There is also a short form: ${forms}. It is correct too.`,
+    altPlGen: (gen, forms) =>
+      `You can also build it on the second omastav plural (${gen}): ${forms}.`,
   },
 };
