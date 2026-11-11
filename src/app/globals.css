@@ -64,7 +64,7 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Приложение-тренажёр: своя тёмная палитра, независимо от темы системы и от сайта. */
+/* Приложение-тренажёр: своя палитра, независимо от темы системы и от сайта. По умолчанию тёмная. */
 .app-theme {
   --background: #0b1220;
   --surface: #141d2f;
@@ -85,4 +85,27 @@ body {
   background: radial-gradient(120% 60% at 50% -10%, #16305c 0%, transparent 60%), var(--background);
   color: var(--foreground);
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Светлая тема приложения (выбирается в настройках). Класс на <html> ставится ещё до загрузки
+   React (см. THEME_SCRIPT), поэтому светлая тема видна с первого кадра. */
+.app-theme.app-light,
+.vormik-light .app-theme {
+  --background: #eef2f7;
+  --surface: #ffffff;
+  --surface-raised: #f1f4f9;
+  --foreground: #121826;
+  --muted: #5d6779;
+  --line: #dce2ea;
+  --brand: #0072ce;
+  --brand-strong: #005aa6;
+  --brand-soft: #e3effb;
+  --success: #12805c;
+  --success-soft: #e2f4ec;
+  --danger: #c2372f;
+  --danger-soft: #fbe9e7;
+  --warning: #9a6200;
+  --warning-soft: #fdf2dc;
+  color-scheme: light;
+  background: radial-gradient(120% 60% at 50% -10%, #d6e7fb 0%, transparent 60%), var(--background);
 }

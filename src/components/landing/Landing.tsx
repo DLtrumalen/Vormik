@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { InstallButton } from "@/components/InstallButton";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { privacyHref, privacyTitle } from "@/components/PrivacyPolicy";
 import { Logo } from "@/components/Logo";
 import { SiteRedirect } from "@/components/SiteRedirect";
 import { TrainerPreview } from "@/components/landing/TrainerPreview";
@@ -115,7 +116,6 @@ export function Landing({ locale }: { locale: Locale }) {
                       <h3 className="font-semibold">{c.et}</h3>
                       <span className="font-mono text-sm text-brand">{ct.ending}</span>
                     </div>
-                    <p className="text-sm text-muted">{ct.name}</p>
                     <p className="mt-3 text-sm">
                       <span className="text-muted">{c.questionEt}</span> — {ct.question}
                     </p>
@@ -134,7 +134,15 @@ export function Landing({ locale }: { locale: Locale }) {
 
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:justify-between">
-          <p>{s.footerProject}</p>
+          <p>
+            {s.footerProject}{" "}
+            <Link
+              href={privacyHref(locale)}
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              {privacyTitle(locale)}
+            </Link>
+          </p>
           <p>
             {s.footerForms}{" "}
             <a

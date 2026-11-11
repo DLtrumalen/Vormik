@@ -20,6 +20,18 @@ export function saveProgress(progress: Progress) {
   }
 }
 
+/**
+ * Сообщает, когда прогресс сохранила другая вкладка: иначе каждая вкладка держит свою копию,
+ * и та, что сохранит последней, затрёт ответы, данные в другой.
+ */
+export function onProgressChangedElsewhere(listener: () => void) {
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === KEY || event.key === null) listener();
+  };
+  window.addEventListener("storage", onStorage);
+  return () => window.removeEventListener("storage", onStorage);
+}
+
 export function resetProgress() {
   try {
     window.localStorage.removeItem(KEY);

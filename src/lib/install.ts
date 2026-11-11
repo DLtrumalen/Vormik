@@ -38,9 +38,15 @@ export function isDesktopApp() {
   return navigator.userAgent.includes("VormikDesktop");
 }
 
+/** Сборка для приложения в магазинах (Capacitor): тренажёр уже внутри приложения. */
+export function isStoreApp() {
+  return process.env.NEXT_PUBLIC_VORMIK_APP === "1";
+}
+
 /** Открыто ли как установленное приложение (на iOS это отдельный флаг navigator.standalone). */
 export function isStandalone() {
   return (
+    isStoreApp() ||
     isDesktopApp() ||
     window.matchMedia("(display-mode: standalone)").matches ||
     (navigator as Navigator & { standalone?: boolean }).standalone === true

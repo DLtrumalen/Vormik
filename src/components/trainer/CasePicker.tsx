@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import type { Dictionary } from "@/i18n";
 import { CASE_BY_KEY, type CaseKey, type GrammaticalNumber } from "@/lib/cases";
-import type { Settings } from "@/lib/srs";
+import { taskIds, type Settings } from "@/lib/srs";
 
 const GROUPS: CaseKey[][] = [
   ["nom", "gen", "part"],
@@ -44,11 +45,21 @@ export function settingsSummary(settings: Settings, t: Dictionary) {
 type Props = { t: Dictionary; settings: Settings; onChange: (settings: Settings) => void };
 
 export function CasePickerFields({ t, settings, onChange }: Props) {
+  const [blocked, setBlocked] = useState(false);
+
+  // Выбор, при котором не остаётся ни одного задания (например, только именительный в ед. ч. —
+  // словарную форму не спрашиваем), не применяем: иначе тренажёр сразу сказал бы «всё сделано».
+  // Но и молча не игнорируем — объясняем, почему кнопка не нажалась.
+  function apply(next: Settings) {
+    const ok = taskIds(next).length > 0;
+    setBlocked(!ok);
+    if (ok) onChange(next);
+  }
   function setCases(cases: CaseKey[]) {
-    if (cases.length > 0) onChange({ ...settings, cases });
+    apply({ ...settings, cases });
   }
   function setNumbers(numbers: GrammaticalNumber[]) {
-    if (numbers.length > 0) onChange({ ...settings, numbers });
+    apply({ ...settings, numbers });
   }
 
   return (
@@ -63,6 +74,12 @@ export function CasePickerFields({ t, settings, onChange }: Props) {
           ))}
         </div>
       </fieldset>
+
+      {blocked && (
+        <p role="status" className="rounded-xl bg-warning-soft px-3 py-2 text-sm text-warning">
+          {t.picker.blocked}
+        </p>
+      )}
 
       <fieldset>
         <legend className="mb-2 text-sm font-medium">{t.picker.number}</legend>
@@ -99,9 +116,7 @@ export function CasePickerFields({ t, settings, onChange }: Props) {
                   <span className={`block text-sm font-semibold ${active ? "text-brand" : ""}`}>
                     {info.et}
                   </span>
-                  <span className="block text-xs text-muted">
-                    {t.cases[key].name.split(" (")[0]} · {info.questionEt.split(" ")[0]}
-                  </span>
+                  <span className="block text-xs text-muted">{t.cases[key].name}</span>
                 </button>
               );
             })}

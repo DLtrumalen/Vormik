@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { LangSwitcher } from "@/components/LangSwitcher";
 import { getDictionary, localeHref, type Dictionary } from "@/i18n";
 import { useLocale } from "@/i18n/client";
@@ -15,7 +15,13 @@ import {
   type NextTask,
   type Progress,
 } from "@/lib/srs";
-import { loadProgress, resetProgress, saveProgress } from "@/lib/storage";
+import {
+  loadProgress,
+  onProgressChangedElsewhere,
+  resetProgress,
+  saveProgress,
+} from "@/lib/storage";
+import { LIGHT_CLASS, saveTheme, THEME_COLOR, useTheme } from "@/lib/theme";
 import { CasePickerFields, settingsSummary } from "./CasePicker";
 import { DoneCard } from "./DoneCard";
 import { SettingsView } from "./SettingsView";
@@ -47,6 +53,22 @@ export default function Trainer() {
   const [standalone] = useState(isStandalone);
   const locale = useLocale();
   const t = getDictionary(locale);
+  const theme = useTheme();
+
+  // Цвет системной строки телефона и заголовка окна — под выбранную тему.
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLOR[theme]);
+    document.documentElement.classList.toggle(LIGHT_CLASS, theme === "light");
+  }, [theme]);
+
+  // Ответили в другой вкладке — берём её прогресс, чтобы не затереть его своим.
+  useEffect(
+    () =>
+      onProgressChangedElsewhere(() =>
+        setSession((s) => ({ ...s, progress: loadProgress(new Date()) })),
+      ),
+    [],
+  );
   const { progress, task } = session;
 
   function update(next: Progress, { advance }: { advance: boolean }) {
@@ -67,7 +89,9 @@ export default function Trainer() {
   const { newCount, newLimit } = progress.daily;
 
   return (
-    <div className="app-theme fixed inset-0 flex flex-col">
+    <div
+      className={`app-theme fixed inset-0 flex flex-col ${theme === "light" ? "app-light" : ""}`}
+    >
       <header className="shrink-0 px-4 pt-[max(env(safe-area-inset-top),0.75rem)] pb-3">
         <div className="mx-auto flex max-w-md items-center justify-between gap-3">
           {/* В браузере логотип ведёт на главную страницу сайта, в установленном приложении — нет. */}
@@ -84,7 +108,13 @@ export default function Trainer() {
               <Brand learned={`${t.app.learned}: ${learned}`} />
             </Link>
           )}
-          <LangSwitcher locale={locale} mode="app" />
+          <div className="flex items-center gap-2">
+            <LangSwitcher locale={locale} mode="app" />
+            <ThemeToggle
+              theme={theme}
+              label={t.settings.switchTo[theme === "dark" ? "light" : "dark"]}
+            />
+          </div>
         </div>
         <div className="mx-auto mt-3 flex max-w-md items-center gap-3 text-xs text-muted">
           <span className="whitespace-nowrap">
@@ -121,8 +151,10 @@ export default function Trainer() {
             </button>
           )}
 
-          {view === "train" &&
-            (task.kind === "task" ? (
+          {/* Карточку не размонтируем при переходе на другие вкладки: иначе отвеченное задание
+              вернулось бы чистым и его можно было бы засчитать второй раз. */}
+          <div hidden={view !== "train"} className="flex flex-col gap-4">
+            {task.kind === "task" ? (
               <TaskCard
                 key={session.turn}
                 t={t}
@@ -143,7 +175,8 @@ export default function Trainer() {
                 onAddNew={() => update(addNewCards(progress, new Date()), { advance: true })}
                 onRefresh={goNext}
               />
-            ))}
+            )}
+          </div>
 
           {view === "stats" && (
             <StatsView
@@ -248,6 +281,40 @@ function Brand({ learned }: { learned: string }) {
         <span className="block text-xs whitespace-nowrap text-muted">{learned}</span>
       </span>
     </>
+  );
+}
+
+/** Быстрое переключение светлой и тёмной темы (то же есть в настройках). */
+function ThemeToggle({ theme, label }: { theme: "dark" | "light"; label: string }) {
+  return (
+    <button
+      type="button"
+      onClick={() => saveTheme(theme === "dark" ? "light" : "dark")}
+      aria-label={label}
+      title={label}
+      className="grid size-11 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:border-brand hover:text-brand"
+    >
+      {theme === "dark" ? (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+          <path
+            d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+        </svg>
+      ) : (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </button>
   );
 }
 

@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Настольное приложение на Electron — отдельный проект со своими зависимостями.
     "desktop/**",
+    // Android-проект Capacitor генерируется командой npx cap add android.
+    "android/**",
   ]),
 ]);
 

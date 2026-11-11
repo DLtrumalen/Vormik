@@ -22,6 +22,17 @@ describe("словарь", () => {
     expect(Object.keys(WORD_BY_ID)).toHaveLength(WORDS.length);
   });
 
+  it("не смешивает типы склонения омонимов (kool → kooli, а не koola)", () => {
+    // Два родительных ед. ч. — признак того, что генератор смешал два разных слова.
+    const allowed = new Set(["väike", "päike"]); // väikese / väikse, päikese / päikse — оба нормативны
+    for (const word of WORDS) {
+      if (allowed.has(word.lemma)) continue;
+      expect(word.forms["sg.gen"], word.lemma).toHaveLength(1);
+    }
+    expect(WORD_BY_ID.kool!.forms["pl.gen"]).toEqual(["koolide"]);
+    expect(WORD_BY_ID.silm!.forms["sg.gen"]).toEqual(["silma"]);
+  });
+
   it("хранит параллельные формы", () => {
     expect(WORD_BY_ID.jalg!.forms["pl.part"]).toEqual(["jalgu", "jalgasid"]);
     expect(WORD_BY_ID.maja!.forms["sg.ill"]).toEqual(["majja", "majasse"]);

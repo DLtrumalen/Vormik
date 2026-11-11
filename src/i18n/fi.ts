@@ -14,100 +14,101 @@ export const fi: Dictionary = {
   language: "Kieli",
   cases: {
     nom: {
-      name: "nominatiivi",
+      name: "kuka? mikä?",
       question: "kuka? mikä?",
       ending: "—",
-      explanation: "Sanakirjamuoto. Monikossa: genetiivin vartalo + -d.",
+      explanation:
+        "Subjekti ja sanakirjamuoto: Maja on suur. Monikossa myös kokonaisobjekti: Ma ostsin raamatud.",
       example: "Talo on suuri.",
     },
     gen: {
-      name: "genetiivi",
+      name: "kenen? minkä?",
       question: "kenen? minkä?",
       ending: "vokaali",
       explanation:
-        "Tärkein opeteltava muoto: siitä muodostetaan useimmat muut sijat. Monikossa: -de tai -te.",
+        "Kenen? minkä?: maja uks — talon ovi. Myös kokonaisobjekti (Ma ostsin raamatu) ja sanat kuten juures, jaoks, kohta: maja juures.",
       example: "Talon ovi on auki.",
     },
     part: {
-      name: "partitiivi",
+      name: "mitä? (osa tai kesken)",
       question: "ketä? mitä?",
       ending: "-t, -d tai vokaali",
       explanation:
-        "Osittainen objekti, osa jostakin, kielto, lukusanat kahdesta ylöspäin. Muoto opetellaan sanan mukana.",
+        "Osaobjekti tai kesken oleva toiminta (Ma loen raamatut), osa jostakin (Ma joon vett), kiellon jälkeen (Ma ei näe maja) ja lukusanojen jälkeen kahdesta alkaen (kaks maja).",
       example: "Juon vettä.",
     },
     ill: {
-      name: "illatiivi",
+      name: "mihin? (sisään)",
       question: "mihin? keneen?",
       ending: "-sse tai lyhyt muoto",
       explanation: "Liike jonkin sisään: mihin?",
       example: "Menen taloon.",
     },
     ines: {
-      name: "inessiivi",
+      name: "missä? (sisällä)",
       question: "missä? kenessä?",
       ending: "-s",
       explanation: "Oleminen jonkin sisällä.",
       example: "Olen talossa.",
     },
     ela: {
-      name: "elatiivi",
+      name: "mistä? (sisältä)",
       question: "mistä? kenestä?",
       ending: "-st",
       explanation: "Liike jostakin ulos sekä puheenaihe: mistä puhutaan.",
       example: "Tulen talosta.",
     },
     all: {
-      name: "allatiivi",
+      name: "mille? kenelle?",
       question: "mille? kenelle?",
       ending: "-le",
       explanation: "Liike jonkin pinnalle sekä vastaanottaja: kenelle.",
       example: "Annan kirjan ystävälle.",
     },
     ade: {
-      name: "adessiivi",
+      name: "millä? kenellä?",
       question: "millä? kenellä?",
       ending: "-l",
       explanation: "Oleminen jonkin pinnalla sekä omistaminen: minulla on.",
       example: "Kirja on pöydällä.",
     },
     abl: {
-      name: "ablatiivi",
+      name: "miltä? keneltä?",
       question: "miltä? keneltä?",
       ending: "-lt",
       explanation: "Liike jonkin pinnalta sekä lähde: keneltä.",
       example: "Otan kirjan pöydältä.",
     },
     transl: {
-      name: "translatiivi",
+      name: "miksi? (tulla joksikin)",
       question: "miksi? keneksi?",
       ending: "-ks",
       explanation: "Miksi jokin muuttuu tai keneksi joku tulee.",
       example: "Hän haluaa lääkäriksi.",
     },
     term: {
-      name: "terminatiivi",
+      name: "mihin asti?",
       question: "mihin asti? keneen asti?",
       ending: "-ni",
       explanation: "Raja paikassa tai ajassa: johonkin asti.",
       example: "Kävelen joelle asti.",
     },
     ess: {
-      name: "essiivi",
+      name: "minä? (jonakin)",
       question: "minä? kenenä?",
       ending: "-na",
       explanation: "Jonkin roolissa oleminen: minä, kenenä.",
       example: "Hän työskentelee lääkärinä.",
     },
     abess: {
-      name: "abessiivi",
+      name: "ilman mitä?",
       question: "ilman ketä? ilman mitä?",
       ending: "-ta",
       explanation: "Jonkin puuttuminen: ilman.",
       example: "Juon kahvia ilman maitoa.",
     },
     com: {
-      name: "komitatiivi",
+      name: "minkä kanssa? kenen kanssa?",
       question: "kenen kanssa? minkä kanssa?",
       ending: "-ga",
       explanation: "Yhdessä jonkun kanssa tai jonkin avulla.",
@@ -118,7 +119,7 @@ export const fi: Dictionary = {
   site: {
     tagline: "Viron sijamuotojen harjoittelu",
     title: "Viron sijamuodot ilman taulukoiden pänttäämistä",
-    lead: "Vormik antaa sanan ja sijan — sinä kirjoitat muodon. Virheet palaavat useammin, osatut harvemmin. Kaikki 14 sijaa, molemmat luvut, selitykset suomeksi.",
+    lead: "Vormik antaa sanan, sijan ja lyhyen lauseen, jossa on aukko — sinä kirjoitat oikean muodon. Virheet palaavat useammin, osatut harvemmin. Kaikki 14 sijaa, molemmat luvut, selitykset suomeksi.",
     perks: "Ilmainen · ei rekisteröitymistä · toimii ilman nettiä",
     nav: { features: "Ominaisuudet", cases: "Sijat" },
     openTrainer: "Avaa harjoittelu",
@@ -144,7 +145,10 @@ export const fi: Dictionary = {
     ],
     stepsTitle: "Miten harjoittelu etenee",
     steps: [
-      { title: "Sana ja sija", text: "Esimerkiksi: jalg, illatiivi, monikko." },
+      {
+        title: "Sana ja sija",
+        text: "Esimerkiksi: jalg, sisseütlev (mihin?), monikko — ja lyhyt lause, jossa on aukko.",
+      },
       {
         title: "Vastauksesi",
         text: "Kirjoita muoto. Kirjaimille õ ä ö ü on napit — virolaista näppäimistöä ei tarvita.",
@@ -229,6 +233,9 @@ export const fi: Dictionary = {
     lead: "Valitse sijat ja luku. Tehtävät tulevat vain valinnoistasi.",
     footer: "Vormik — viron sijamuotojen harjoittelu.",
     about: "Tietoja",
+    theme: "Ulkoasu",
+    themes: { dark: "Tumma", light: "Vaalea" },
+    switchTo: { dark: "Vaihda tummaan teemaan", light: "Vaihda vaaleaan teemaan" },
   },
 
   picker: {
@@ -236,7 +243,10 @@ export const fi: Dictionary = {
     number: "Luku",
     groups: ["Perussijat", "Sisäpaikallissijat", "Ulkopaikallissijat", "Muut"],
     presets: ["Kaikki 14", "Perussijat", "Paikallissijat (6)", "Muut (5)"],
-    minHint: "Valitse vähintään yksi sija ja yksi luku.",
+    blocked:
+      "Silloin ei jäisi yhtään tehtävää. Yksikön nimetav on sanakirjamuoto, eikä sitä kysytä, joten valitse vielä ainakin yksi sija.",
+    minHint:
+      "Vähintään yksi tehtävä täytyy jäädä. Yksikön nominatiivi on sanakirjamuoto, sitä ei kysytä.",
     all: "Kaikki sijat",
     count: (n) => `${n} sijaa`,
     bothNumbers: "yks. ja mon.",
@@ -244,44 +254,52 @@ export const fi: Dictionary = {
 
   explain: {
     diacritics:
-      "Melkein: muoto on oikein, mutta virolaiset kirjaimet (õ, ä, ö, ü) ovat sekaisin. Vertaa oikeaan vastaukseen.",
+      "Muoto on oikein, mutta virolaiset kirjaimet (õ, ä, ö, ü) ovat sekaisin. Vertaa oikeaan vastaukseen.",
+    cyrillic:
+      "Näyttää siltä, että kyrillinen näppäimistö on päällä: vastauksessa on kyrillisiä kirjaimia. Vaihda latinalaisiin.",
     otherNumber: (input, caseEt, actual, needed) =>
-      `”${input}” on ${caseEt}, ${actual}, mutta tarvitaan ${needed}`,
-    otherCase: (input, label) => `”${input}” on eri sija: ${label}`,
+      `”${input}” on ${caseEt}, ${actual}, mutta tarvitaan ${needed}.`,
+    otherCase: (input, label, needed) => `”${input}” on ${label}. Tarvitaan ${needed}.`,
     stemError: (suffix, stem, expected) =>
       `Pääte -${suffix} on oikein, virhe on vartalossa: ei ”${stem}-” vaan ”${expected}-”.`,
+    endingError: (suffix, stem) =>
+      `Vartalo ${stem}- on oikein, virhe on päätteessä: tarvitaan -${suffix}.`,
     noSuchForm: (lemma, input) => `Sanalla ${lemma} ei ole muotoa ”${input}”.`,
     genSg: (lemma, sgGen) => [
-      `Yksikön genetiiviä ei muodosteta säännöllä — se opetellaan sanan mukana: ${lemma} → ${sgGen}.`,
-      `Siitä muodostetaan useimmat muut sijat: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
+      `Yksikön omastav (genetiivi) opetellaan sanan mukana: ${lemma} → ${sgGen}.`,
+      `Siitä muodostetaan lähes kaikki muut sijat: ${sgGen}s, ${sgGen}st, ${sgGen}ga…`,
     ],
     partSg: (lemma, sgGen, sgPart) => [
-      `Myös yksikön partitiivi opetellaan sanan mukana: ${lemma} — ${sgGen} — ${sgPart}.`,
-      "Nämä kolme muotoa (nominatiivi, genetiivi, partitiivi) ovat sanan ”avain”.",
+      `Myös yksikön osastav (partitiivi) opetellaan sanan mukana: ${lemma} — ${sgGen} — ${sgPart}.`,
     ],
-    partPl: (forms, sgPart) => [
-      `Monikon partitiivi pitää opetella ulkoa: ${forms}.`,
-      `Vertaa: yksikön partitiivi — ${sgPart}.`,
-    ],
-    takeGen: (lemma, sgGen) => `Otetaan yksikön genetiivi: ${lemma} → ${sgGen}.`,
+    partPl: (forms) => [`Monikon osastav pitää opetella: ${forms}.`],
+    partPlRule: (sgPart, form) =>
+      `Vinkki: jos yksikön osastav päättyy vokaaliin, voi lisätä -sid: ${sgPart} + sid = ${form}.`,
+    takeGen: (lemma, sgGen) => `Otetaan yksikön omastav (genetiivi): ${lemma} → ${sgGen}.`,
     addD: (sgGen) => `Lisätään -d: ${sgGen} + d = ${sgGen}d.`,
-    plIntro: (lemma, sgGen, sgPart) =>
-      `Yksikön genetiivi: ${lemma} → ${sgGen}, yksikön partitiivi: ${sgPart}.`,
-    plGenFrom: (sgPart, plGen) =>
-      `Monikon genetiivi muodostetaan yksikön partitiivista + -de tai -te: ${sgPart} → ${plGen}.`,
-    plGenIs: (plGen) => `Monikon genetiivi (yksikön partitiivi + -de/-te): ${plGen}.`,
+    plBase: (plGen) => `Monikon sijat muodostetaan monikon omastavista: ${plGen}.`,
+    plGenRule: (sgPart, ending, reason, plGen, others) =>
+      `Katsotaan yksikön osastavia ${sgPart}: se päättyy ${
+        { vowel: "vokaaliin", d: "‑d:hen", t: "‑t:hen" }[reason]
+      }, joten lisätään ‑${ending}: ${plGen.slice(0, -2)} + ${ending} = ${plGen}.${
+        others ? ` Myös oikein: ${others}.` : ""
+      } ${
+        ending === "de"
+          ? "Jos se päättyisi ‑t:hen, pääte olisi ‑te: keelt → keelte."
+          : "Jos se päättyisi vokaaliin, pääte olisi ‑de: pilti → piltide."
+      }`,
+    plGenException: (sgPart, plGen) =>
+      `Tämä sana on poikkeus: ${sgPart} → ${plGen}. Opettele tämä muoto.`,
     addEnding: (suffix, base) =>
       `Lisätään pääte -${suffix}: ${base} + ${suffix} = ${base}${suffix}.`,
     shortIll: (short) =>
-      `Sanalla on myös lyhyt muoto: ${short} — puheessa se on yleisempi. Molemmat muodot ovat oikein.`,
+      `Sanalla on myös lyhyt muoto ${short}, joka on myös yleinen. Molemmat muodot ovat oikein.`,
     irregular: (forms) => `Tämä muoto ei noudata yleistä sääntöä — opettele se: ${forms}.`,
-    shortPl: (plPart, others) =>
-      `Monikossa on myös lyhyt muoto, joka muodostetaan monikon partitiivista (${plPart}): ${others}. Sekin on oikein.`,
-    exampleNoun: (question, translation, number) => `${question} → ”${translation}”, ${number}`,
-    exampleAdjGenitive: (phrase, translation) =>
-      `Substantiivin kanssa: ”${phrase}” (”${translation}”). Sijoissa rajav, olev, ilmaütlev ja kaasaütlev adjektiivi on substantiivin edellä genetiivissä.`,
-    exampleAdj: (phrase, translation, number) =>
-      `Substantiivin kanssa: ”${phrase}” (”${translation}”, ${number}) — adjektiivi on samassa sijassa kuin substantiivi.`,
-    house: "talo",
+    shortPl: (forms, many) =>
+      many
+        ? `On myös lyhyitä muotoja: ${forms}. Nekin ovat oikein.`
+        : `On myös lyhyt muoto: ${forms}. Sekin on oikein.`,
+    altPlGen: (gen, forms) =>
+      `Muodon voi rakentaa myös monikon toisesta omastavista (${gen}): ${forms}.`,
   },
 };

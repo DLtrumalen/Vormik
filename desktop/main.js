@@ -45,6 +45,12 @@ function createWindow() {
     `${win.webContents.getUserAgent()} VormikDesktop/${app.getVersion()}`,
   );
 
+  // Тренажёру не нужны ни камера, ни микрофон, ни геолокация, ни уведомления — отказываем во всём.
+  win.webContents.session.setPermissionRequestHandler((_wc, _permission, callback) =>
+    callback(false),
+  );
+  win.webContents.session.setPermissionCheckHandler(() => false);
+
   // Всё, что не тренажёр (сайт, внешние ссылки), открываем в обычном браузере.
   win.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);

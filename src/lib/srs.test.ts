@@ -8,7 +8,6 @@ import {
   NEW_PER_DAY,
   type TaskId,
 } from "./srs";
-import { WORDS } from "./words";
 
 const NOW = new Date("2026-10-25T10:00:00");
 const first = () => 0;
@@ -17,7 +16,10 @@ describe("taskIds", () => {
   it("не спрашивает именительный ед. ч.", () => {
     const ids = taskIds({ cases: ["nom", "gen"], numbers: ["sg", "pl"] });
     expect(ids.some((id) => id.endsWith("|sg.nom"))).toBe(false);
-    expect(ids).toHaveLength(WORDS.length * 3);
+    expect(ids).toContain("maja|pl.nom");
+    expect(ids).toContain("maja|sg.gen");
+    // У vesi множественного числа нет — для него нет и естественного предложения.
+    expect(ids).not.toContain("vesi|pl.nom");
   });
 });
 

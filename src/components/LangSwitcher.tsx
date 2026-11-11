@@ -43,7 +43,7 @@ export function LangSwitcher({ locale, mode, className = "" }: Props) {
       <select
         value={locale}
         onChange={(e) => change(e.target.value)}
-        className="h-9 cursor-pointer appearance-none rounded-xl border border-line bg-surface pr-3 pl-8 text-sm font-medium text-foreground hover:border-brand focus:border-brand focus:outline-none"
+        className="h-11 cursor-pointer appearance-none rounded-xl border border-line bg-surface pr-3 pl-8 text-sm font-medium text-foreground hover:border-brand focus:border-brand focus:outline-none"
       >
         {LOCALES.map((l) => (
           <option key={l} value={l}>
