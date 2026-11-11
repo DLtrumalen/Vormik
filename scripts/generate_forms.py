@@ -56,6 +56,14 @@ DROP = {
     "puu": {"puini"},
     "vana": {"vanus", "vanusse", "vanust"},
     "sõna": {"sõnus"},
+    # ÕS: muuseumi, muuseume / muuseumisid, muuseumides — остальное ненормативно.
+    "muuseum": {
+        "muuseumit", "muuseumite", "muuseumeid", "muuseumeisse", "muuseumeis", "muuseumeist",
+        "muuseumitesse", "muuseumites", "muuseumitest", "muuseumitele", "muuseumitel", "muuseumitelt",
+        "muuseumiteks", "muuseumiteni", "muuseumitena", "muuseumiteta", "muuseumitega",
+        "muuseumeile", "muuseumeil", "muuseumeilt", "muuseumeiks", "muuseumeini", "muuseumeina",
+        "muuseumeita", "muuseumeiga",
+    },
 }
 
 # Какую форму показывать первой, если употребительная форма у Vabamorf не первая
@@ -64,6 +72,8 @@ PREFER = {
     ("linn", "pl.part"): "linnasid",
     ("tuba", "pl.part"): "tubasid",
     ("tee", "pl.part"): "teid",
+    # külla — «в гости»; переезжают в деревню — külasse.
+    ("küla", "sg.ill"): "külasse",
 }
 
 

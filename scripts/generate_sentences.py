@@ -29,19 +29,33 @@ CASES = ["nom", "gen", "part", "ill", "ines", "ela", "all", "ade", "abl", "trans
 # ---------------------------------------------------------------------------------------------
 
 GROUPS = {
-    "building": ["maja", "kool", "ülikool", "kirik", "pood", "tuba", "köök"],
-    "open": ["linn", "tänav", "tee", "mets", "meri", "järv", "jõgi", "saar", "mägi"],
-    "vehicle": ["auto", "rong", "laev", "lennuk"],
-    "thing": ["laud", "tool", "aken", "uks", "raamat", "pilt", "lill", "puu"],
+    "building": [
+        "maja", "kool", "ülikool", "kirik", "pood", "tuba", "köök",
+        "korter", "haigla", "apteek", "pank", "kino", "teater", "muuseum", "restoran", "kohvik", "hotell",
+        "raamatukogu", "kontor",
+    ],
+    "open": [
+        "linn", "tänav", "tee", "mets", "meri", "järv", "jõgi", "saar", "mägi",
+        "park", "väljak", "aed", "põld", "rand", "küla", "turg", "sild",
+    ],
+    "vehicle": ["auto", "rong", "laev", "lennuk", "buss", "tramm", "jalgratas", "paat", "takso"],
+    "thing": [
+        "laud", "tool", "aken", "uks", "raamat", "pilt", "lill", "puu",
+        "voodi", "kapp", "lamp", "tass", "taldrik", "klaas", "nuga", "pudel", "kott", "võti", "telefon",
+        "arvuti", "kell", "pall",
+    ],
+    "clothing": ["särk", "kleit", "jope", "müts", "sall", "king", "sokk", "mantel"],
     "person": [
         "sõber", "ema", "isa", "laps", "mees", "naine", "poiss", "tüdruk", "inimene", "arst", "õpetaja", "pere",
+        "vend", "õde", "vanaema", "vanaisa", "poeg", "tütar", "naaber", "õpilane", "müüja", "kokk",
     ],
-    "animal": ["koer", "kass", "kala"],
-    "food": ["leib", "vesi", "õun"],
+    "animal": ["koer", "kass", "kala", "hobune", "lehm", "lind", "hiir", "karu", "hunt", "kana"],
+    "food": ["leib", "vesi", "õun", "piim", "kohv", "juust", "liha", "supp", "kook", "muna", "kartul", "tomat", "mahl"],
     "body": ["käsi", "jalg", "pea", "silm", "sõrm", "süda"],
     "abstract": ["töö", "keel", "sõna", "nimi", "küsimus", "lugu", "uni", "riik"],
     "weather": ["lumi", "vihm"],
-    "time": ["päev", "öö", "nädal", "aasta", "tund"],
+    "nature": ["päike", "tuul", "kivi"],
+    "time": ["päev", "öö", "nädal", "aasta", "tund", "talv", "suvi", "hommik", "õhtu"],
 }
 GROUP = {lemma: group for group, lemmas in GROUPS.items() for lemma in lemmas}
 
@@ -71,7 +85,7 @@ AT = F("Ma ootan {} juures.", "Я жду {P:у:gent}.", "I'm waiting by the {n}.
 # поэтому для частичного падежа — vaatama.
 LOOK = F("Ma vaatan {}.", "Я смотрю {P:на:accs}.", "I look at the {n}.")
 LIVE_WITHOUT = F("Ma ei saa elada {}.", "Я не могу жить {P:без:gent}.", "I can't live without {the} {n}.", SG)
-WALK_TO = F("Ma kõnnin {}.", "Я дохожу {P:до:gent}.", "I walk up to the {n}.", SG)
+WALK_TO = F("Ma kõnnin kuni {}.", "Я дохожу {P:до:gent}.", "I walk as far as the {n}.", SG)
 BIRD_ONTO = F(
     "Lind lendab {}.||Linnud lendavad {}.",
     "Птица летит {ON:accs}.||Птицы летят {ON:accs}.",
@@ -111,19 +125,19 @@ FRAMES = {
         "gen": F("Ma ootan {} juures.||See on {} nimekiri.", "Я жду {P:у:gent}.||Это список {N:gent}.", "I'm waiting by the {n}.||This is a list of {n}."),
         "part": LOOK,
         "ill": F(
-            "Ma lähen {}.||Lapsed lähevad {}.",
-            "Я иду {IN:accs}.||Дети идут {IN:accs}.",
-            "I go into the {n}.||The children go into the {n}.",
+            "Ma lähen {}.||Inimesed lähevad {}.",
+            "Я иду {IN:accs}.||Люди идут {IN:accs}.",
+            "I go into the {n}.||People go into the {n}.",
         ),
         "ines": F(
-            "Ma olen {}.||Lapsed on {}.",
-            "Я {IN:loct}.||Дети {IN:loct}.",
-            "I am in the {n}.||The children are in the {n}.",
+            "Ma olen {}.||Inimesed on {}.",
+            "Я {IN:loct}.||Люди {IN:loct}.",
+            "I am in the {n}.||People are in the {n}.",
         ),
         "ela": F(
-            "Ma tulen {}.||Lapsed tulevad {}.",
-            "Я выхожу {OUT:gent}.||Дети выходят {OUT:gent}.",
-            "I come out of the {n}.||The children come out of the {n}.",
+            "Ma tulen {}.||Inimesed tulevad {}.",
+            "Я выхожу {OUT:gent}.||Люди выходят {OUT:gent}.",
+            "I come out of the {n}.||People come out of the {n}.",
         ),
         "term": WALK_TO,
     },
@@ -143,7 +157,23 @@ FRAMES = {
             "I travel by {sg}.||My dad works with {n}.",
         ),
     },
-    "thing": {"nom": NOM, "gen": AT, "part": LOOK},
+    "thing": {
+        "nom": NOM,
+        "gen": F(
+            "See on {} hind.||Need on {} hinnad.",
+            "Это цена {N:gent}.||Это цены {P:на:accs}.",
+            "This is the price of the {n}.||These are the prices of the {n}.",
+        ),
+        "part": LOOK,
+    },
+    "clothing": {
+        "nom": NOM,
+        "gen": F("See on {} hind.", "Это цена {N:gent}.", "This is the price of the {n}."),
+        "part": F("Ma pesen {}.", "Я стираю {N:accs}.", "I'm washing the {n}."),
+        "com": F("Ma lähen välja {}.", "Я выхожу на улицу {P:в:loct}.", "I go out in {a}.", SG),
+        "abess": F("Ma ei lähe välja {}.", "Я не выхожу на улицу {P:без:gent}.", "I don't go out without {a}.", SG),
+    },
+    "nature": {},
     "person": {
         "nom": NOM,
         "gen": F(
@@ -164,20 +194,13 @@ FRAMES = {
     "animal": {
         "nom": NOM,
         "gen": F("See on {} toit.", "Это корм {P:для:gent}.", "This is food for the {n}."),
-        "part": F("Ma silitan {}.", "Я глажу {N:accs}.", "I pet the {n}."),
+        "part": F("Ma silitan {}.", "Я глажу {N:accs}.", "I stroke the {n}."),
         "all": F("Ma annan {} süüa.", "Я кормлю {N:accs}.", "I feed the {n}."),
         "ade": F(
             "{} on nimi.||{} on nimed.",
             "{P:у:gent} есть кличка.||{P:у:gent} есть клички.",
             "The {n} {has} a name.||The {n} have names.",
         ),
-        "abl": F("Ma võtan palli {}.", "Я забираю мяч {P:у:gent}.", "I take the ball from the {n}."),
-        "abess": F(
-            "Ma ei saa elada {}.",
-            "Я не могу жить {P:без:gent}.",
-            "I can't live without my {n}.",
-        ),
-        "com": F("Ma jalutan {}.", "Я гуляю {P:с:ablt}.", "I walk the {n}."),
     },
     "food": {
         "nom": NOM,
@@ -251,6 +274,10 @@ WORD_FRAMES = {
         "abl": F("Ma saan kirja {}.", "Я получаю письмо {P:из:gent}.", "I get a letter from the {n}."),
         "abess": F("Linn jäi {}.", "Город остался {P:без:gent}.", "The city was left without {a}.", SG),
     },
+    "haigla": {
+        "ines": F("Ma olen {}.||Inimesed on {}.", "Я {IN:loct}.||Люди {IN:loct}.", "I'm at the {n}.||People are at the {n}."),
+    },
+    "kino": {"part": F("Ma otsin {}.", "Я ищу {N:accs}.", "I'm looking for the {n}.")},
     "pood": {
         "ill": F("Ma lähen {}.||Inimesed lähevad {}.", "Я иду {IN:accs}.||Люди идут {IN:accs}.", "I go into the {n}.||People go into the {n}."),
         "ines": F("Ma olen {}.||Inimesed on {}.", "Я {IN:loct}.||Люди {IN:loct}.", "I am in the {n}.||People are in the {n}."),
@@ -366,23 +393,27 @@ WORD_FRAMES = {
     },
     # Предметы.
     "laud": {
+        "gen": AT,
         "all": F("Ma panen raamatu {}.||Me paneme raamatud {}.", "Я кладу книгу {ON:accs}.||Мы кладём книги {ON:accs}.", "I put the book on the {n}.||We put the books on the {n}."),
         "ade": F("Raamat on {}.||Raamatud on {}.", "Книга {ON:loct}.||Книги {ON:loct}.", "The book is on the {n}.||The books are on the {n}."),
         "abl": F("Ma võtan raamatu {}.||Me võtame raamatud {}.", "Я беру книгу {OFF:gent}.||Мы берём книги {OFF:gent}.", "I take the book off the {n}.||We take the books off the {n}."),
         "term": WALK_TO,
     },
     "tool": {
+        "gen": AT,
         "all": F("Ma panen koti {}.||Me paneme kotid {}.", "Я ставлю сумку {ON:accs}.||Мы ставим сумки {ON:accs}.", "I put the bag on the {n}.||We put the bags on the {n}."),
         "ade": F("Kass istub {}.||Kassid istuvad {}.", "Кошка сидит {ON:loct}.||Кошки сидят {ON:loct}.", "The cat sits on the {n}.||The cats sit on the {n}."),
         "abl": F("Kass hüppab {}.||Kassid hüppavad {}.", "Кошка спрыгивает {OFF:gent}.||Кошки спрыгивают {OFF:gent}.", "The cat jumps off the {n}.||The cats jump off the {n}."),
     },
     "aken": {
+        "gen": AT,
         "ela": F("Ma vaatan {} välja.||Inimesed vaatavad {} välja.", "Я смотрю {OUT:gent}.||Люди смотрят {OUT:gent}.", "I look out of the {n}.||People look out of the {n}."),
         "all": BIRD_ONTO, "ade": BIRD_ON, "abl": BIRD_OFF,
         "term": WALK_TO,
         "abess": F("{} tuba on pime.", "Комната {P:без:gent} тёмная.", "A room without a window is dark.", SG),
     },
     "uks": {
+        "gen": AT,
         "ela": F("Ma tulen {} sisse.", "Я вхожу {P:через:accs}.", "I come in through the {n}.", SG),
         "all": WRITE_ON,
         "ade": F("{} on number.||{} on numbrid.", "{ON:loct} есть номер.||{ON:loct} есть номера.", "There is a number on the {n}.||There are numbers on the {n}."),
@@ -482,7 +513,17 @@ WORD_FRAMES = {
         "ess": F("Ta töötab {}.||Nad töötavad {}.", "Он работает {N:ablt}.||Они работают {N:ablt}.", "He works as {a}.||They work as {n}."),
     },
     # Животные.
-    "kass": {"com": F("Ma mängin {}.", "Я играю {P:с:ablt}.", "I play with the {n}.")},
+    "koer": {
+        "abl": F("Ma võtan palli {}.", "Я забираю мяч {P:у:gent}.", "I take the ball from the {n}."),
+        "abess": F("Ma ei saa elada {}.", "Я не могу жить {P:без:gent}.", "I can't live without my {n}."),
+        "com": F("Ma jalutan {}.", "Я гуляю {P:с:ablt}.", "I walk the {n}."),
+    },
+    "kass": {
+        "ade": F("{} on rohelised silmad.", "{P:у:gent} зелёные глаза.", "The {n} {has} green eyes.||The {n} have green eyes."),
+        "abl": F("Ma võtan palli {}.", "Я забираю мяч {P:у:gent}.", "I take the ball from the {n}."),
+        "abess": F("Ma ei saa elada {}.", "Я не могу жить {P:без:gent}.", "I can't live without my {n}."),
+        "com": F("Ma mängin {}.", "Я играю {P:с:ablt}.", "I play with the {n}."),
+    },
     "kala": {
         "gen": F("See on {} hind.", "Это цена {N:gent}.", "This is the price of the {n}."),
         "part": F(
@@ -711,6 +752,306 @@ WORD_FRAMES = {
         "part": F("Ma ootan juba kaks {}.", "Я жду уже два часа.", "I've been waiting for two hours.", SG),
         "ines": F("Buss käib kaks korda {}.", "Автобус ходит два раза в час.", "The bus runs twice an hour.", SG),
     },
+    # ---------------------------------------------------------------------------------------
+    # Новые слова (100 слов, ноябрь 2026).
+    # ---------------------------------------------------------------------------------------
+    # Открытые места.
+    "park": {
+        "ill": F("Ma lähen {}.||Lapsed lähevad {}.", "Я иду {IN:accs}.||Дети идут {IN:accs}.", "I go to the {n}.||The children go to the {n}."),
+        "ines": F("Ma jalutan {}.||Inimesed jalutavad {}.", "Я гуляю {IN:loct}.||Люди гуляют {IN:loct}.", "I walk in the {n}.||People walk in the {n}."),
+        "ela": F("Ma tulen {}.||Lapsed tulevad {}.", "Я возвращаюсь {OUT:gent}.||Дети возвращаются {OUT:gent}.", "I come back from the {n}.||The children come back from the {n}."),
+    },
+    "väljak": {
+        "all": F("Ma lähen {}.||Inimesed kogunevad {}.", "Я иду {ON:accs}.||Люди собираются {ON:loct}.", "I go to the {n}.||People gather in the {n}."),
+        "ade": F("Ma seisan {}.||Inimesed on {}.", "Я стою {ON:loct}.||Люди {ON:loct}.", "I'm standing in the {n}.||People are in the {n}."),
+        "abl": F("Ma tulen {}.", "Я иду {OFF:gent}.", "I'm coming from the {n}.", SG),
+    },
+    "aed": {
+        "ill": F("Ma lähen {}.", "Я иду {IN:accs}.", "I go into the {n}.", SG),
+        "ines": F("Ma töötan {}.||Lapsed mängivad {}.", "Я работаю {IN:loct}.||Дети играют {IN:loct}.", "I work in the {n}.||Children play in the {n}."),
+        "ela": F("Ma toon {} õunu.", "Я приношу яблоки {OUT:gent}.", "I bring apples from the {n}.", SG),
+    },
+    "põld": {
+        "all": F("Traktor sõidab {}.", "Трактор едет {ON:accs}.", "The tractor drives onto the {n}.", SG),
+        "ade": F("Talunik töötab {}.||Lehmad on {}.", "Фермер работает {P:в:loct}.||Коровы {P:в:loct}.", "The farmer works in the {n}.||The cows are in the {n}."),
+        "abl": F("Talunik tuleb {} koju.", "Фермер возвращается домой {OFF:gent}.", "The farmer comes home from the {n}.", SG),
+    },
+    "rand": {
+        "ill": F("Ma lähen {}.||Turistid lähevad {}.", "Я иду {ON:accs}.||Туристы идут {ON:accs}.", "I go to the {n}.||Tourists go to the {n}."),
+        "ines": F("Lapsed mängivad {}.||Inimesed on {}.", "Дети играют {ON:loct}.||Люди {ON:loct}.", "The children play on the {n}.||People are on the {n}."),
+        "ela": F("Ma tulen {} koju.", "Я возвращаюсь домой {OFF:gent}.", "I come home from the {n}.", SG),
+    },
+    "küla": {
+        "ill": F("Ma kolin {}.", "Я переезжаю {IN:accs}.", "I'm moving to a {n}.", SG),
+        "ines": F("Ma elan {}.||Inimesed elavad {}.", "Я живу {IN:loct}.||Люди живут {IN:loct}.", "I live in a {n}.||People live in {n}."),
+        "ela": F("Ma tulen {}.||Lapsed tulevad {} linna kooli.", "Я приезжаю {OUT:gent}.||Дети приезжают в городскую школу {OUT:gent}.", "I come from a {n}.||Children come from the {n} to school in town."),
+    },
+    "turg": {
+        "all": F("Ma lähen {}.", "Я иду {ON:accs}.", "I go to the {n}.", SG),
+        "ade": F("Ma ostan {} köögivilja.", "Я покупаю овощи {ON:loct}.", "I buy vegetables at the {n}.", SG),
+        "abl": F("Ma tulen {} koju.", "Я возвращаюсь домой {OFF:gent}.", "I come home from the {n}.", SG),
+    },
+    "sild": {
+        "all": F("Auto sõidab {}.", "Машина въезжает {ON:accs}.", "A car drives onto the {n}.", SG),
+        "ade": F("Ma seisan {}.||Inimesed seisavad {}.", "Я стою {ON:loct}.||Люди стоят {ON:loct}.", "I'm standing on the {n}.||People are standing on the {n}."),
+        "abl": F("Ma vaatan {} jõge.", "Я смотрю на реку {OFF:gent}.", "I look at the river from the {n}.", SG),
+    },
+    # Транспорт.
+    "buss": {
+        "gen": F("Ma seisan {} juures.||See on {} sõiduplaan.", "Я стою {P:у:gent}.||Это расписание {N:gent}.", "I'm standing by the {n}.||This is the timetable for the {n}."),
+        "ill": F("Ma astun {}.||Inimesed astuvad {}.", "Я сажусь {IN:accs}.||Люди садятся {IN:accs}.", "I get on the {n}.||People get on the {n}."),
+        "com": F("Ma sõidan tööle {}.||Lapsed sõidavad kooli {}.", "Я езжу на работу {P:на:loct}.||Дети ездят в школу {P:на:loct}.", "I go to work by {sg}.||The children go to school by {sg}."),
+        "ines": F("Ma olen {}.||Inimesed on {}.", "Я {IN:loct}.||Люди {IN:loct}.", "I am on the {n}.||People are on the {n}."),
+        "ela": F("Ma tulen {} välja.||Inimesed tulevad {} välja.", "Я выхожу {OUT:gent}.||Люди выходят {OUT:gent}.", "I get off the {n}.||People get off the {n}."),
+    },
+    "tramm": {
+        "gen": F("Ma seisan {} juures.||See on {} sõiduplaan.", "Я стою {P:у:gent}.||Это расписание {N:gent}.", "I'm standing by the {n}.||This is the timetable for the {n}."),
+        "ill": F("Ma astun {}.||Inimesed astuvad {}.", "Я сажусь {IN:accs}.||Люди садятся {IN:accs}.", "I get on the {n}.||People get on the {n}."),
+        "com": F("Ma sõidan tööle {}.||Lapsed sõidavad kooli {}.", "Я езжу на работу {P:на:loct}.||Дети ездят в школу {P:на:loct}.", "I go to work by {sg}.||The children go to school by {sg}."),
+        "ines": F("Ma olen {}.||Inimesed on {}.", "Я {IN:loct}.||Люди {IN:loct}.", "I am on the {n}.||People are on the {n}."),
+        "ela": F("Ma tulen {} välja.||Inimesed tulevad {} välja.", "Я выхожу {OUT:gent}.||Люди выходят {OUT:gent}.", "I get off the {n}.||People get off the {n}."),
+    },
+    "takso": {
+        "ill": F("Ma astun {}.", "Я сажусь {IN:accs}.", "I get into the {n}.", SG),
+        "ines": F("Ma olen {}.", "Я {IN:loct}.", "I am in the {n}.", SG),
+        "ela": F("Ma tulen {} välja.", "Я выхожу {OUT:gent}.", "I get out of the {n}.", SG),
+        "com": F("Ma sõidan koju {}.", "Я еду домой {P:на:loct}.", "I go home by {sg}.", SG),
+    },
+    "paat": {
+        "ill": F("Ma astun {}.", "Я сажусь {IN:accs}.", "I get into the {n}.", SG),
+        "ines": F("Ma olen {}.||Kalurid on {}.", "Я {IN:loct}.||Рыбаки {IN:loct}.", "I am in the {n}.||The fishermen are in the {n}."),
+        "ela": F("Ma tulen {} välja.", "Я выхожу {OUT:gent}.", "I get out of the {n}.", SG),
+        "com": F("Ma sõidan {} saarele.", "Я плыву на остров {P:на:loct}.", "I go to the island by {sg}.", SG),
+    },
+    "jalgratas": {
+        "part": F("Ma parandan {}.", "Я чиню {N:accs}.", "I'm fixing the {n}."),
+        "all": F("Ma hüppan {}.", "Я запрыгиваю {ON:accs}.", "I jump on the {n}.", SG),
+        "ade": F("{} on kaks ratast.", "{P:у:gent} два колеса.", "A {n} has two wheels.", SG),
+        "abl": F("Ma kukkusin {}.", "Я упал {OFF:gent}.", "I fell off the {n}.", SG),
+        "com": F("Ma sõidan tööle {}.", "Я езжу на работу {P:на:loct}.", "I go to work by {sg}.", SG),
+    },
+    # Предметы.
+    "voodi": {
+        "ill": F("Ma lähen {}.", "Я ложусь {P:в:accs}.", "I go to bed.", SG),
+        "ines": F("Ma loen {}.", "Я читаю {P:в:loct}.", "I read in bed.", SG),
+        "ela": F("Ma tõusen {}.", "Я встаю {P:с:gent}.", "I get out of bed.", SG),
+    },
+    "kapp": {
+        "ill": F("Ma panen riided {}.", "Я кладу одежду {P:в:accs}.", "I put the clothes in the wardrobe.", SG),
+        "ines": F("Riided on {}.", "Одежда {P:в:loct}.", "The clothes are in the wardrobe.||The clothes are in the wardrobes."),
+        "ela": F("Ma võtan riided {}.", "Я достаю одежду {P:из:gent}.", "I take the clothes out of the wardrobe.", SG),
+    },
+    "tass": {
+        "ill": F("Ma valan kohvi {}.", "Я наливаю кофе {P:в:accs}.", "I pour coffee into the {n}.", SG),
+        "ines": F("{} on kohv.", "{P:в:loct} кофе.", "There is coffee in the {n}.", SG),
+        "ela": F("Ma joon {}.", "Я пью {P:из:gent}.", "I drink from the {n}.", SG),
+    },
+    "klaas": {
+        "ill": F("Ma valan vett {}.", "Я наливаю воду {P:в:accs}.", "I pour water into the {n}.", SG),
+        "ines": F("{} on vesi.", "{P:в:loct} вода.", "There is water in the {n}.", SG),
+        "ela": F("Ma joon {}.", "Я пью {P:из:gent}.", "I drink from the {n}.", SG),
+    },
+    "pudel": {
+        "ill": F("Ma valan vett {}.", "Я наливаю воду {P:в:accs}.", "I pour water into the {n}.", SG),
+        "ines": F("{} on piim.||{} on mahl.", "{P:в:loct} молоко.||{P:в:loct} сок.", "There is milk in the {n}.||There is juice in the {n}."),
+        "ela": F("Ma joon {}.", "Я пью {P:из:gent}.", "I drink from the {n}.", SG),
+    },
+    "taldrik": {
+        "all": F("Ma panen toidu {}.", "Я кладу еду {ON:accs}.", "I put the food on the {n}.", SG),
+        "ade": F("Toit on {}.||Toit on {}.", "Еда {ON:loct}.||Еда {ON:loct}.", "The food is on the {n}.||The food is on the {n}."),
+        "abl": F("Ma söön {}.", "Я ем {P:с:gent}.", "I eat off the {n}.", SG),
+    },
+    "nuga": {
+        "com": F("Ma lõikan leiba {}.", "Я режу хлеб {N:ablt}.", "I cut the bread with a knife.", SG),
+    },
+    "kott": {
+        "ill": F("Ma panen raamatu {}.", "Я кладу книгу {P:в:accs}.", "I put the book in the {n}.", SG),
+        "ines": F("Mul on raamat {}.", "У меня книга {P:в:loct}.", "I have a book in my {n}.", SG),
+        "ela": F("Ma võtan raamatu {}.", "Я достаю книгу {P:из:gent}.", "I take the book out of my {n}.", SG),
+        "com": F("Ma lähen poodi {}.", "Я иду в магазин {P:с:ablt}.", "I go to the shop with {a}.||I go to the shop with {n}."),
+    },
+    "võti": {
+        "com": F("Ma avan ukse {}.", "Я открываю дверь {N:ablt}.", "I open the door with the {n}.", SG),
+        "abess": F("Ma ei saa sisse {}.", "Я не могу войти {P:без:gent}.", "I can't get in without the {n}.", SG),
+    },
+    "telefon": {
+        "ines": F("{} on palju pilte.", "{P:в:loct} много фотографий.", "There are many photos on the {n}.", SG),
+        "com": F("Ma teen {} pilti.", "Я фотографирую {N:ablt}.", "I take a photo with my {n}.", SG),
+        "abess": F("Ma ei saa elada {}.", "Я не могу жить {P:без:gent}.", "I can't live without my {n}.", SG),
+    },
+    "arvuti": {
+        "ines": F("{} on palju faile.", "{P:в:loct} много файлов.", "There are many files on the {n}.", SG),
+        "com": F("Ma töötan {}.", "Я работаю {P:за:ablt}.", "I work at the {n}.", SG),
+        "abess": F("Ma ei saa töötada {}.", "Я не могу работать {P:без:gent}.", "I can't work without a {n}.", SG),
+    },
+    "kell": {
+        "nom": F("See on {}.||Need on {}.", "Это часы.", "This is a clock.||These are clocks."),
+        "gen": F("See on {} hind.||Need on {} hinnad.", "Это цена часов.||Это цены часов.", "This is the price of the {n}.||These are the prices of the {n}."),
+        "part": F("Ma vaatan {}.", "Я смотрю на часы.", "I look at the {n}."),
+    },
+    "pall": {
+        "com": F("Lapsed mängivad {}.", "Дети играют в мяч.||Дети играют с мячами.", "The children play with a ball.||The children play with balls."),
+    },
+    # Одежда.
+    "king": {
+        "part": F("Ma puhastan {}.", "Я чищу {N:accs}.", "I'm cleaning the {n}."),
+        "com": F("Ma lähen välja {}.", "Я выхожу на улицу в туфлях.", "I go out in my shoes.", ("pl",)),
+        "abess": F("Ma ei lähe välja {}.", "Я не выхожу на улицу без обуви.", "I don't go out without shoes.", ("pl",)),
+    },
+    "sokk": {
+        "com": None,
+        "abess": F("Ma kõnnin {}.", "Я хожу {P:без:gent}.", "I walk around without socks.", ("pl",)),
+    },
+    "särk": {
+        "ines": F("Mul on {} palav.", "Мне жарко {P:в:loct}.", "I'm too hot in this {n}.", SG),
+        "com": None,
+        "abess": F("Poiss jookseb rannas {}.", "Мальчик бегает по пляжу {P:без:gent}.", "The boy runs on the beach without a shirt.", SG),
+    },
+    "kleit": {
+        "ines": F("Ta on {}.||Tüdrukud on {}.", "Она {P:в:loct}.||Девочки {P:в:loct}.", "She is in {a}.||The girls are in {n}."),
+        "com": None, "abess": None,
+    },
+    "jope": {"ines": F("Mul on {} palav.", "Мне жарко {P:в:loct}.", "I'm too hot in this {n}.", SG)},
+    "mantel": {
+        "part": F("Ma vaatan {}.", "Я смотрю {P:на:accs}.", "I look at the {n}."),
+        "ines": F("Mul on {} soe.", "Мне тепло {P:в:loct}.", "I'm warm in this {n}.", SG),
+    },
+    # Люди.
+    "kokk": {
+        "transl": F("Ma tahan saada {}.||Nad tahavad saada {}.", "Я хочу стать {N:ablt}.||Они хотят стать {N:ablt}.", "I want to become {a}.||They want to become {n}."),
+        "ess": F("Ta töötab {}.||Nad töötavad {}.", "Он работает {N:ablt}.||Они работают {N:ablt}.", "He works as {a}.||They work as {n}."),
+    },
+    "müüja": {
+        "transl": F("Ta tahab saada {}.", "Она хочет стать {N:ablt}.", "She wants to become a shop assistant.", SG),
+        "ess": F("Ta töötab {}.||Nad töötavad {}.", "Она работает {N:ablt}.||Они работают {N:ablt}.", "She works as a shop assistant.||They work as shop assistants."),
+    },
+    "õpilane": {
+        "ess": F("{} õppisin ma palju.", "Когда я был учеником, я много учился.", "As a pupil, I studied a lot.", SG),
+    },
+    # Животные.
+    "hobune": {
+        "ade": F("{} on pikk saba.||{} on pikad sabad.", "{P:у:gent} длинный хвост.||{P:у:gent} длинные хвосты.", "The {n} {has} a long tail.||The {n} have long tails."),
+        "com": F("Talunik sõidab {} linna.", "Фермер едет в город {P:на:loct}.", "The farmer goes to town by horse.", SG),
+    },
+    "lehm": {
+        "gen": F("See on {} piim.", "Это коровье молоко.", "This is cow's milk.", SG),
+        "part": F("Ma lüpsan {}.", "Я дою {N:accs}.", "I milk the {n}."),
+        "ade": F("{} on vasikas.||{} on vasikad.", "{P:у:gent} телёнок.||{P:у:gent} телята.", "The {n} {has} a calf.||The {n} have calves."),
+    },
+    "lind": {
+        "gen": F("Ma kuulan {} laulu.", "Я слушаю пение {N:gent}.", "I'm listening to the {n} singing."),
+        "part": LOOK,
+        "ade": F("{} on pesa.||{} on pesad.", "{P:у:gent} гнездо.||{P:у:gent} гнёзда.", "The {n} {has} a nest.||The {n} have nests."),
+    },
+    "hiir": {
+        "gen": F("See on {} pesa.", "Это гнездо {N:gent}.", "This is a mouse's nest.", SG),
+        "part": F("Kass püüab {}.", "Кошка ловит {N:accs}.", "The cat is catching a mouse.||The cat is catching mice."),
+        "all": None, "ade": None,
+    },
+    "karu": {
+        "gen": F("See on {} jälg.||Need on {} jäljed.", "Это след {N:gent}.||Это следы {N:gent}.", "This is the bear's footprint.||These are the bears' footprints."),
+        "part": LOOK,
+        "all": None,
+        "ade": F("{} on suured käpad.", "{P:у:gent} большие лапы.", "The {n} {has} big paws.||The {n} have big paws."),
+    },
+    "hunt": {
+        "gen": F("See on {} jälg.||Need on {} jäljed.", "Это след {N:gent}.||Это следы {N:gent}.", "This is the wolf's footprint.||These are the wolves' footprints."),
+        "part": LOOK,
+        "all": None,
+        "ade": F("{} on teravad hambad.", "{P:у:gent} острые зубы.", "The {n} {has} sharp teeth.||The {n} have sharp teeth."),
+    },
+    "kana": {
+        "gen": F("See on {} pesa.", "Это гнездо {N:gent}.", "This is the hen's nest.", SG),
+        "part": F("Ma toidan {}.", "Я кормлю {N:accs}.", "I feed the {n}."),
+        "all": None,
+        "ade": F("{} on munad.", "{P:у:gent} есть яйца.", "The {n} {has} eggs.||The {n} have eggs."),
+    },
+    # Еда.
+    "piim": {
+        "part": F("Ma joon {}.", "Я пью {N:accs}.", "I drink milk.", SG),
+        "com": F("Ma joon kohvi {}.", "Я пью кофе {P:с:ablt}.", "I drink coffee with milk.", SG),
+        "abess": F("Ma joon kohvi {}.", "Я пью кофе {P:без:gent}.", "I drink coffee without milk.", SG),
+    },
+    "kohv": {
+        "part": F("Ma joon {}.", "Я пью кофе.", "I drink coffee.", SG),
+        "gen": F("See on {} hind.", "Это цена кофе.", "This is the price of the coffee.", SG),
+        "ines": F("{} on suhkrut.", "В кофе есть сахар.", "There is sugar in the coffee.", SG),
+    },
+    "juust": {
+        "part": F("Ma söön {}.", "Я ем {N:accs}.", "I eat cheese.", SG),
+        "com": F("Ma söön leiba {}.", "Я ем хлеб {P:с:ablt}.", "I eat bread with cheese.", SG),
+    },
+    "liha": {
+        "part": F("Ma söön {}.", "Я ем {N:accs}.", "I eat meat.", SG),
+        "com": F("Ma söön kartulit {}.", "Я ем картошку {P:с:ablt}.", "I eat potatoes with meat.", SG),
+        "abess": F("Ma söön suppi {}.", "Я ем суп {P:без:gent}.", "I eat soup without meat.", SG),
+    },
+    "supp": {
+        "part": F("Ma söön {}.", "Я ем {N:accs}.", "I'm eating {n}.", SG),
+        "ill": F("Ma panen soola {}.", "Я кладу соль {P:в:accs}.", "I put salt in the {n}.", SG),
+        "ines": F("{} on liha.", "{P:в:loct} мясо.", "There is meat in the {n}.", SG),
+    },
+    "kook": {
+        "part": F("Ma söön {}.", "Я ем {N:accs}.", "I'm eating cake.||I'm eating cakes."),
+        "com": F("Ma joon kohvi {}.", "Я пью кофе {P:с:ablt}.", "I drink coffee with a piece of cake.||I drink coffee with cakes."),
+    },
+    "muna": {
+        "part": F("Ma söön {}.", "Я ем {N:accs}.", "I'm eating {a}.||I'm eating {n}."),
+    },
+    "kartul": {
+        "nom": F("See on {}.||Need on {}.", "Это картофелина.||Это картофелины.", "This is a potato.||These are potatoes."),
+        "gen": F("See on {} hind.", "Это цена картошки.||Это цена картофеля.", "This is the price of potatoes."),
+        "part": F("Ma koorin {}.", "Я чищу картофелину.||Я чищу картошку.", "I'm peeling a potato.||I'm peeling potatoes."),
+        "com": F("Ma söön liha {}.", "Я ем мясо с картошкой.", "I eat meat with potatoes."),
+    },
+    "tomat": {
+        "part": F("Ma lõikan {}.", "Я режу {N:accs}.", "I'm cutting {a}.||I'm cutting {n}."),
+        "com": F("Ma söön leiba {}.", "Я ем хлеб {P:с:ablt}.", "I eat bread with {a}.||I eat bread with {n}."),
+    },
+    "mahl": {
+        "part": F("Ma joon {}.", "Я пью {N:accs}.", "I drink juice.", SG),
+        "gen": F("See on {} hind.", "Это цена {N:gent}.", "This is the price of the juice.", SG),
+    },
+    # Природа.
+    "päike": {
+        "gen": F("Ma istun {} käes.", "Я сижу на солнце.", "I'm sitting in the sun.", SG),
+        "part": F("Ma ootan {}.", "Я жду солнца.", "I'm waiting for the sun.", SG),
+        "abess": F("Päev möödus {}.", "День прошёл без солнца.", "The day passed without sun.", SG),
+    },
+    "tuul": {
+        "gen": F("Ma kuulan {} kohinat.", "Я слушаю шум ветра.", "I listen to the sound of the wind.", SG),
+        "part": F("Ma tunnen {}.", "Я чувствую ветер.", "I feel the wind.", SG),
+        "ines": F("Puud kõiguvad {}.", "Деревья качаются на ветру.", "The trees sway in the wind.", SG),
+    },
+    "kivi": {
+        "nom": NOM,
+        "gen": F("Ma istun {} peal.||Me istume {} peal.", "Я сижу {P:на:loct}.||Мы сидим {P:на:loct}.", "I sit on the {n}.||We sit on the {n}."),
+        "part": F("Ma ei näe {}.||Ma korjan {}.", "Я не вижу {N:gent}.||Я собираю {N:accs}.", "I don't see the {n}.||I collect {n}."),
+        "ade": BIRD_ON, "abl": BIRD_OFF,
+    },
+    # Время года и время суток.
+    "talv": {
+        "nom": F("||{} on külmad.", "||Зимы холодные.", "||The winters are cold.", ("pl",)),
+        "ade": F("{} on külm.", "Зимой холодно.", "It's cold in winter.", SG),
+        "term": F("Ma jään siia {}.", "Я остаюсь здесь до зимы.", "I'm staying here until winter.", SG),
+        "transl": F("Ma tulen {}.", "Я приезжаю на зиму.", "I'm coming for the winter.", SG),
+    },
+    "suvi": {
+        "part": None,  # «я помню те лета» по-русски не говорят
+        "ade": F("{} on soe.", "Летом тепло.", "It's warm in summer.", SG),
+        "term": F("Ma jään siia {}.", "Я остаюсь здесь до лета.", "I'm staying here until summer.", SG),
+        "transl": F("Ma tulen {}.", "Я приезжаю на лето.", "I'm coming for the summer.", SG),
+    },
+    "hommik": {
+        "ade": F("{} joon ma kohvi.", "Утром я пью кофе.", "In the morning I drink coffee.", SG),
+        "term": F("Ma töötan {}.", "Я работаю до утра.", "I work until morning.", SG),
+        "transl": F("Ma olen {} kodus.", "Я буду дома к утру.", "I'll be home by morning.", SG),
+    },
+    "õhtu": {
+        "ade": F("{} vaatan ma filmi.", "Вечером я смотрю фильм.", "In the evening I watch a film.", SG),
+        "term": F("Ma töötan {}.", "Я работаю до вечера.", "I work until the evening.", SG),
+        "transl": F("Ma olen {} kodus.", "Я буду дома к вечеру.", "I'll be home by the evening.", SG),
+    },
 }
 
 # Сочетания, которые во мн. ч. звучат неестественно («без мам», «цена рыб»): только ед. ч.
@@ -718,6 +1059,14 @@ SINGULAR_ONLY = {
     "leib": set(CASES) - {"nom"},
     "kala": {"gen", "ines", "ela", "com"},
     "ema": set(CASES) - {"nom"},
+    "piim": set(CASES),
+    "kohv": set(CASES),
+    "juust": set(CASES),
+    "liha": set(CASES),
+    "supp": set(CASES),
+    "mahl": set(CASES),
+    "päike": set(CASES),
+    "tuul": set(CASES),
     "isa": set(CASES) - {"nom"},
     "pere": set(CASES) - {"nom"},
 }
@@ -745,6 +1094,21 @@ ADJ_TRANSL = {
     "kiire": F("Elu on läinud {}.", "Жизнь стала суматошной.", "Life has become hectic.", SG),
     "tark": F("Ma tahan saada {}.", "Я хочу стать {A:ablt:masc}.", "I want to become clever.", SG),
     "ilus": F("Ta teeb toa {}.", "Она делает комнату {A:ablt:femn}.", "She makes the room beautiful.", SG),
+    "punane": F("Foor läks {}.", "Светофор загорелся красным.", "The light turned red.", SG),
+    "roheline": F("Foor läks {}.", "Светофор загорелся зелёным.", "The light turned green.", SG),
+    "kollane": F("Lehed lähevad {}.", "Листья желтеют.", "The leaves are turning yellow.", SG),
+    "valge": F("Juuksed läksid {}.", "Волосы поседели.", "The hair turned white.", SG),
+    "must": F("Taevas läks {}.", "Небо почернело.", "The sky turned black.", SG),
+    "puhas": F("Tuba sai {}.", "Комната стала чистой.", "The room is clean now.", SG),
+    "raske": F("Elu muutus {}.", "Жизнь стала тяжёлой.", "Life became hard.", SG),
+    "tühi": F("Tänav jäi {}.", "Улица опустела.", "The street became empty.", SG),
+    "rõõmus": F("Laps muutus {}.", "Ребёнок повеселел.", "The child cheered up.", SG),
+    "kurb": F("Ta muutus {}.", "Она загрустила.", "She became sad.", SG),
+    "tugev": F("Ma tahan saada {}.", "Я хочу стать сильным.", "I want to become strong.", SG),
+    "pime": F("Väljas läheb {}.", "На улице темнеет.", "It's getting dark outside.", SG),
+    "kõrge": F("Puu kasvas {}.", "Дерево выросло высоким.", "The tree grew tall.", SG),
+    "huvitav": F("Film muutus lõpus {}.", "К концу фильм стал интересным.", "The film got interesting at the end.", SG),
+    "kuum": F("Ilm läks {}.", "Стало жарко.", "It got hot.", SG),
 }
 ADJ_ESS = {
     "noor": F("{} olin ma õnnelik.", "В молодости я был счастлив.", "When I was young, I was happy.", SG),
@@ -752,6 +1116,7 @@ ADJ_ESS = {
     "väike": F("{} olin ma õnnelik.", "В детстве я был счастлив.", "When I was little, I was happy.", SG),
     "soe": F("Ma söön suppi {}.", "Я ем суп {A:ablt:masc}.", "I eat the soup warm.", SG),
     "külm": F("Ma söön suppi {}.", "Я ем суп {A:ablt:masc}.", "I eat the soup cold.", SG),
+    "kuum": F("Ma söön suppi alati {}.", "Я всегда ем суп горячим.", "I always eat soup hot.", SG),
 }
 
 
@@ -762,7 +1127,7 @@ ADJ_ESS = {
 morph = pymorphy3.MorphAnalyzer()
 
 RU_NA = {"улица", "остров", "гора", "кухня", "работа", "море", "озеро", "река", "корабль"}
-RU_LOC2 = {"лес", "снег", "год", "глаз"}
+RU_LOC2 = {"лес", "снег", "год", "глаз", "сад", "мост", "шкаф"}
 RU_PLURAL = {
     "стул": {"nomn": "стулья", "gent": "стульев", "datv": "стульям", "accs": "стулья", "ablt": "стульями", "loct": "стульях"},
     "учитель": {"nomn": "учителя", "gent": "учителей", "datv": "учителям", "accs": "учителей", "ablt": "учителями", "loct": "учителях"},
@@ -772,7 +1137,9 @@ RU_PLURAL = {
 
 
 def noun_parse(word):
-    return next(p for p in morph.parse(word) if "NOUN" in p.tag)
+    parses = [p for p in morph.parse(word) if "NOUN" in p.tag]
+    # Предпочитаем разбор, у которого словарная форма — само слово: «носок», а не «носка».
+    return next((p for p in parses if p.normal_form == word), parses[0])
 
 
 def ru_noun(word, case, number):
@@ -783,7 +1150,13 @@ def ru_noun(word, case, number):
         loc2 = parse.inflect({"loc2", "sing"})
         if loc2:
             return loc2.word
-    return parse.inflect({case, number}).word
+    inflected = parse.inflect({case, number})
+    if inflected:
+        return inflected.word
+    # Несклоняемые слова (кино, кафе, такси) не меняются.
+    if "Fixd" in parse.tag:
+        return word
+    raise ValueError(f"pymorphy не склоняет «{word}» ({case}, {number})")
 
 
 def ru_adj(word, case, number, gender=None, noun=None):
@@ -834,9 +1207,10 @@ def render_ru(template, ru_word, number, pos, adj=None):
             phrase = f"{ru_adj(adj, case, num, noun=ru_word)} {ru_noun(ru_word, case, num)}"
         else:
             phrase = ru_noun(ru_word, case, num)
-        if kind == "OFFTHIS":  # «с этой быстрой машины»
+        if kind == "THIS":  # «с этой быстрой машины», «от этого весёлого ребёнка»
             phrase = f"{ru_adj('этот', case, num, noun=ru_word)} {phrase}"
-            kind = "OFF"
+            parts = parts[1:]
+            kind = parts[0]
         na = ru_word in RU_NA
         prep = {
             "N": "",
@@ -855,7 +1229,11 @@ def render_ru(template, ru_word, number, pos, adj=None):
 # Английский
 # ---------------------------------------------------------------------------------------------
 
-EN_IRREGULAR = {"child": "children", "man": "men", "woman": "women", "person": "people", "fish": "fish"}
+EN_IRREGULAR = {
+    "child": "children", "man": "men", "woman": "women", "person": "people", "fish": "fish",
+    "knife": "knives", "scarf": "scarves", "wolf": "wolves", "mouse": "mice", "potato": "potatoes",
+    "tomato": "tomatoes", "shop assistant": "shop assistants",
+}
 
 
 def en_plural(noun):
@@ -875,7 +1253,7 @@ def en_article(phrase):
 
 
 # С этими словами по-английски говорят «my»: my mother, my friend.
-EN_MY = {"ema", "isa", "pere", "sõber"}
+EN_MY = {"ema", "isa", "pere", "sõber", "vend", "õde", "vanaema", "vanaisa", "poeg", "tütar"}
 
 
 def render_en(template, en_word, number, adj=None, lemma=None):
@@ -967,8 +1345,10 @@ def main():
                 et, ru, en = pick(et, number), pick(ru, number), pick(en, number)
                 if w["pos"] == "adj" and case == "abl":
                     et = et.replace("{}", "sellelt {}" if number == "sg" else "nendelt {}")
-                    ru = ru.replace("{OFF:", "{OFFTHIS:")
-                    en = en.replace("the {n}", "this {n}" if number == "sg" else "these {n}")
+                    ru = ru.replace("{", "{THIS:")
+                    this = "this {n}" if number == "sg" else "these {n}"
+                    en = en.replace("{the} {n}", this).replace("{The} {n}", this.capitalize())
+                    en = en.replace("the {n}", this)
                 entry[f"{number}.{case}"] = {
                     "et": et,
                     "ru": render_ru(ru, ru_word, number, w["pos"], adj_ru),

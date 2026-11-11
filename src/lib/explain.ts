@@ -189,9 +189,12 @@ function phraseParts(word: Word, form: string, key: FormKey): [string, string | 
   if (word.pos !== "adj" || caseKey === "transl" || caseKey === "ess") return [form, null];
   // Существительное того же типа, что и прилагательное: длинная форма к длинной (headele sõpradele),
   // краткая к краткой (heile sõbrule).
+  // Если у прилагательного одна форма, берём основную форму существительного (kergesse kotti).
+  const nounForms = WORD_BY_ID[adjectiveNoun(word.lemma)]!.forms[key];
+  if (word.forms[key].length === 1) return [form, nounForms[0]!];
   const byLength = (a: string, b: string) => b.length - a.length;
   const adjVariants = [...word.forms[key]].sort(byLength);
-  const nounVariants = [...WORD_BY_ID[adjectiveNoun(word.lemma)]!.forms[key]].sort(byLength);
+  const nounVariants = [...nounForms].sort(byLength);
   const index = Math.max(0, adjVariants.indexOf(form));
   return [form, nounVariants[Math.min(index, nounVariants.length - 1)]!];
 }
@@ -268,8 +271,9 @@ export function explain(
   const typed = variants.find((v) => normalize(v) === normalize(input));
   // В иллативе ед. ч. первой стоит краткая форма (majja) — она употребительнее;
   // в родительном мн. ч. показываем форму, которую объясняет правило -de/-te (koerade, а не koerte).
+  // В osastav мн. ч. подсказка про -sid — не главная форма: показываем основную (kive, а не kivisid).
   const preferred =
-    number === "sg" && caseKey === "ill"
+    (number === "sg" && caseKey === "ill") || (number === "pl" && caseKey === "part")
       ? variants[0]!
       : number === "pl" && caseKey === "gen"
         ? pluralGenitive(word).form

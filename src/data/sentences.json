@@ -41,9 +41,9 @@
       "en": "We take the old roof off the house."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до дома.",
-      "en": "I walk up to the house."
+      "en": "I walk as far as the house."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -61,19 +61,19 @@
       "en": "I look at the houses."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в дома.",
-      "en": "The children go into the houses."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в дома.",
+      "en": "People go into the houses."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в домах.",
-      "en": "The children are in the houses."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в домах.",
+      "en": "People are in the houses."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из домов.",
-      "en": "The children come out of the houses."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из домов.",
+      "en": "People come out of the houses."
     },
     "pl.all": {
       "et": "Me paneme {} uued katused.",
@@ -205,9 +205,9 @@
       "en": "I take the book off the table."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до стола.",
-      "en": "I walk up to the table."
+      "en": "I walk as far as the table."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -329,9 +329,9 @@
       "en": "A bird flies off the window."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до окна.",
-      "en": "I walk up to the window."
+      "en": "I walk as far as the window."
     },
     "sg.abess": {
       "et": "{} tuba on pime.",
@@ -401,9 +401,9 @@
       "en": "There is a number on the door."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до двери.",
-      "en": "I walk up to the door."
+      "en": "I walk as far as the door."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -458,9 +458,9 @@
       "en": "I come back from the city."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до города.",
-      "en": "I walk up to the city."
+      "en": "I walk as far as the city."
     },
     "sg.abess": {
       "et": "Ma ei saa elada {}.",
@@ -530,9 +530,9 @@
       "en": "I come in from the street."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до улицы.",
-      "en": "I walk up to the street."
+      "en": "I walk as far as the street."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -587,9 +587,9 @@
       "en": "A car goes off the road."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до дороги.",
-      "en": "I walk up to the road."
+      "en": "I walk as far as the road."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -659,9 +659,9 @@
       "en": "I wash the mud off the car."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до машины.",
-      "en": "I walk up to the car."
+      "en": "I walk as far as the car."
     },
     "sg.abess": {
       "et": "Ma olen {}.",
@@ -766,9 +766,9 @@
       "en": "I get off the train."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до поезда.",
-      "en": "I walk up to the train."
+      "en": "I walk as far as the train."
     },
     "sg.com": {
       "et": "Ma sõidan {}.",
@@ -848,9 +848,9 @@
       "en": "I get off the ship."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до корабля.",
-      "en": "I walk up to the ship."
+      "en": "I walk as far as the ship."
     },
     "sg.com": {
       "et": "Ma sõidan {}.",
@@ -930,9 +930,9 @@
       "en": "I get off the plane."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до самолёта.",
-      "en": "I walk up to the plane."
+      "en": "I walk as far as the plane."
     },
     "sg.com": {
       "et": "Ma sõidan {}.",
@@ -1017,9 +1017,9 @@
       "en": "I get a letter from the school."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до школы.",
-      "en": "I walk up to the school."
+      "en": "I walk as far as the school."
     },
     "sg.abess": {
       "et": "Küla jäi {}.",
@@ -1052,9 +1052,9 @@
       "en": "The children are at school."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из школ.",
-      "en": "The children come out of the schools."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из школ.",
+      "en": "People come out of the schools."
     },
     "pl.all": {
       "et": "Ma kirjutan {}.",
@@ -1109,9 +1109,9 @@
       "en": "I get a letter from the university."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до университета.",
-      "en": "I walk up to the university."
+      "en": "I walk as far as the university."
     },
     "sg.abess": {
       "et": "Linn jäi {}.",
@@ -1191,9 +1191,9 @@
       "en": "The church has a tall tower."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до церкви.",
-      "en": "I walk up to the church."
+      "en": "I walk as far as the church."
     },
     "sg.abess": {
       "et": "Küla jäi {}.",
@@ -1263,9 +1263,9 @@
       "en": "I come out of the shop."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до магазина.",
-      "en": "I walk up to the shop."
+      "en": "I walk as far as the shop."
     },
     "sg.abess": {
       "et": "Küla jäi {}.",
@@ -1340,19 +1340,19 @@
       "en": "I look at the rooms."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в комнаты.",
-      "en": "The children go into the rooms."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в комнаты.",
+      "en": "People go into the rooms."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в комнатах.",
-      "en": "The children are in the rooms."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в комнатах.",
+      "en": "People are in the rooms."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из комнат.",
-      "en": "The children come out of the rooms."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из комнат.",
+      "en": "People come out of the rooms."
     }
   },
   "köök": {
@@ -2250,7 +2250,7 @@
     "sg.part": {
       "et": "Ma silitan {}.",
       "ru": "Я глажу собаку.",
-      "en": "I pet the dog."
+      "en": "I stroke the dog."
     },
     "sg.all": {
       "et": "Ma annan {} süüa.",
@@ -2290,7 +2290,7 @@
     "pl.part": {
       "et": "Ma silitan {}.",
       "ru": "Я глажу собак.",
-      "en": "I pet the dogs."
+      "en": "I stroke the dogs."
     },
     "pl.all": {
       "et": "Ma annan {} süüa.",
@@ -2327,7 +2327,7 @@
     "sg.part": {
       "et": "Ma silitan {}.",
       "ru": "Я глажу кошку.",
-      "en": "I pet the cat."
+      "en": "I stroke the cat."
     },
     "sg.all": {
       "et": "Ma annan {} süüa.",
@@ -2335,9 +2335,9 @@
       "en": "I feed the cat."
     },
     "sg.ade": {
-      "et": "{} on nimi.",
-      "ru": "У кошки есть кличка.",
-      "en": "The cat has a name."
+      "et": "{} on rohelised silmad.",
+      "ru": "У кошки зелёные глаза.",
+      "en": "The cat has green eyes."
     },
     "sg.abl": {
       "et": "Ma võtan palli {}.",
@@ -2367,7 +2367,7 @@
     "pl.part": {
       "et": "Ma silitan {}.",
       "ru": "Я глажу кошек.",
-      "en": "I pet the cats."
+      "en": "I stroke the cats."
     },
     "pl.all": {
       "et": "Ma annan {} süüa.",
@@ -2375,9 +2375,9 @@
       "en": "I feed the cats."
     },
     "pl.ade": {
-      "et": "{} on nimed.",
-      "ru": "У кошек есть клички.",
-      "en": "The cats have names."
+      "et": "{} on rohelised silmad.",
+      "ru": "У кошек зелёные глаза.",
+      "en": "The cats have green eyes."
     },
     "pl.abl": {
       "et": "Ma võtan palli {}.",
@@ -2536,9 +2536,9 @@
       "en": "A bird flies off the tree."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до дерева.",
-      "en": "I walk up to the tree."
+      "en": "I walk as far as the tree."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -2598,9 +2598,9 @@
       "en": "I come out of the forest."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до леса.",
-      "en": "I walk up to the forest."
+      "en": "I walk as far as the forest."
     },
     "sg.abess": {
       "et": "Ma ei saa elada {}.",
@@ -2685,9 +2685,9 @@
       "en": "The boat comes back from the sea."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до моря.",
-      "en": "I walk up to the sea."
+      "en": "I walk as far as the sea."
     },
     "sg.abess": {
       "et": "Ma ei saa elada {}.",
@@ -2757,9 +2757,9 @@
       "en": "The boat comes back from the lake."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до озера.",
-      "en": "I walk up to the lake."
+      "en": "I walk as far as the lake."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -2834,9 +2834,9 @@
       "en": "The boat comes back from the river."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до реки.",
-      "en": "I walk up to the river."
+      "en": "I walk as far as the river."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -2953,9 +2953,9 @@
       "en": "I come down the mountain."
     },
     "sg.term": {
-      "et": "Ma kõnnin {}.",
+      "et": "Ma kõnnin kuni {}.",
       "ru": "Я дохожу до горы.",
-      "en": "I walk up to the mountain."
+      "en": "I walk as far as the mountain."
     },
     "pl.nom": {
       "et": "Need on {}.",
@@ -4143,6 +4143,3753 @@
       "en": "I wake up from my sleep."
     }
   },
+  "korter": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у квартиры.",
+      "en": "I'm waiting by the flat."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на квартиру.",
+      "en": "I look at the flat."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в квартиру.",
+      "en": "I go into the flat."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в квартире.",
+      "en": "I am in the flat."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из квартиры.",
+      "en": "I come out of the flat."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до квартиры.",
+      "en": "I walk as far as the flat."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это квартиры.",
+      "en": "These are flats."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список квартир.",
+      "en": "This is a list of flats."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на квартиры.",
+      "en": "I look at the flats."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в квартиры.",
+      "en": "People go into the flats."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в квартирах.",
+      "en": "People are in the flats."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из квартир.",
+      "en": "People come out of the flats."
+    }
+  },
+  "haigla": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у больницы.",
+      "en": "I'm waiting by the hospital."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на больницу.",
+      "en": "I look at the hospital."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в больницу.",
+      "en": "I go into the hospital."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в больнице.",
+      "en": "I'm at the hospital."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из больницы.",
+      "en": "I come out of the hospital."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до больницы.",
+      "en": "I walk as far as the hospital."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это больницы.",
+      "en": "These are hospitals."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список больниц.",
+      "en": "This is a list of hospitals."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на больницы.",
+      "en": "I look at the hospitals."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в больницы.",
+      "en": "People go into the hospitals."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в больницах.",
+      "en": "People are at the hospitals."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из больниц.",
+      "en": "People come out of the hospitals."
+    }
+  },
+  "apteek": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у аптеки.",
+      "en": "I'm waiting by the pharmacy."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на аптеку.",
+      "en": "I look at the pharmacy."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в аптеку.",
+      "en": "I go into the pharmacy."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в аптеке.",
+      "en": "I am in the pharmacy."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из аптеки.",
+      "en": "I come out of the pharmacy."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до аптеки.",
+      "en": "I walk as far as the pharmacy."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это аптеки.",
+      "en": "These are pharmacies."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список аптек.",
+      "en": "This is a list of pharmacies."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на аптеки.",
+      "en": "I look at the pharmacies."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в аптеки.",
+      "en": "People go into the pharmacies."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в аптеках.",
+      "en": "People are in the pharmacies."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из аптек.",
+      "en": "People come out of the pharmacies."
+    }
+  },
+  "pank": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у банка.",
+      "en": "I'm waiting by the bank."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на банк.",
+      "en": "I look at the bank."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в банк.",
+      "en": "I go into the bank."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в банке.",
+      "en": "I am in the bank."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из банка.",
+      "en": "I come out of the bank."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до банка.",
+      "en": "I walk as far as the bank."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это банки.",
+      "en": "These are banks."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список банков.",
+      "en": "This is a list of banks."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на банки.",
+      "en": "I look at the banks."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в банки.",
+      "en": "People go into the banks."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в банках.",
+      "en": "People are in the banks."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из банков.",
+      "en": "People come out of the banks."
+    }
+  },
+  "kino": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у кинотеатра.",
+      "en": "I'm waiting by the cinema."
+    },
+    "sg.part": {
+      "et": "Ma otsin {}.",
+      "ru": "Я ищу кинотеатр.",
+      "en": "I'm looking for the cinema."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в кинотеатр.",
+      "en": "I go into the cinema."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в кинотеатре.",
+      "en": "I am in the cinema."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из кинотеатра.",
+      "en": "I come out of the cinema."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до кинотеатра.",
+      "en": "I walk as far as the cinema."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это кинотеатры.",
+      "en": "These are cinemas."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список кинотеатров.",
+      "en": "This is a list of cinemas."
+    },
+    "pl.part": {
+      "et": "Ma otsin {}.",
+      "ru": "Я ищу кинотеатры.",
+      "en": "I'm looking for the cinemas."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в кинотеатры.",
+      "en": "People go into the cinemas."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в кинотеатрах.",
+      "en": "People are in the cinemas."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из кинотеатров.",
+      "en": "People come out of the cinemas."
+    }
+  },
+  "teater": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у театра.",
+      "en": "I'm waiting by the theatre."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на театр.",
+      "en": "I look at the theatre."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в театр.",
+      "en": "I go into the theatre."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в театре.",
+      "en": "I am in the theatre."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из театра.",
+      "en": "I come out of the theatre."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до театра.",
+      "en": "I walk as far as the theatre."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это театры.",
+      "en": "These are theatres."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список театров.",
+      "en": "This is a list of theatres."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на театры.",
+      "en": "I look at the theatres."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в театры.",
+      "en": "People go into the theatres."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в театрах.",
+      "en": "People are in the theatres."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из театров.",
+      "en": "People come out of the theatres."
+    }
+  },
+  "muuseum": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у музея.",
+      "en": "I'm waiting by the museum."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на музей.",
+      "en": "I look at the museum."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в музей.",
+      "en": "I go into the museum."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в музее.",
+      "en": "I am in the museum."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из музея.",
+      "en": "I come out of the museum."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до музея.",
+      "en": "I walk as far as the museum."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это музеи.",
+      "en": "These are museums."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список музеев.",
+      "en": "This is a list of museums."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на музеи.",
+      "en": "I look at the museums."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в музеи.",
+      "en": "People go into the museums."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в музеях.",
+      "en": "People are in the museums."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из музеев.",
+      "en": "People come out of the museums."
+    }
+  },
+  "restoran": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у ресторана.",
+      "en": "I'm waiting by the restaurant."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на ресторан.",
+      "en": "I look at the restaurant."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в ресторан.",
+      "en": "I go into the restaurant."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в ресторане.",
+      "en": "I am in the restaurant."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из ресторана.",
+      "en": "I come out of the restaurant."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до ресторана.",
+      "en": "I walk as far as the restaurant."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это рестораны.",
+      "en": "These are restaurants."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список ресторанов.",
+      "en": "This is a list of restaurants."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на рестораны.",
+      "en": "I look at the restaurants."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в рестораны.",
+      "en": "People go into the restaurants."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в ресторанах.",
+      "en": "People are in the restaurants."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из ресторанов.",
+      "en": "People come out of the restaurants."
+    }
+  },
+  "kohvik": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у кафе.",
+      "en": "I'm waiting by the café."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на кафе.",
+      "en": "I look at the café."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в кафе.",
+      "en": "I go into the café."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в кафе.",
+      "en": "I am in the café."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из кафе.",
+      "en": "I come out of the café."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до кафе.",
+      "en": "I walk as far as the café."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это кафе.",
+      "en": "These are cafés."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список кафе.",
+      "en": "This is a list of cafés."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на кафе.",
+      "en": "I look at the cafés."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в кафе.",
+      "en": "People go into the cafés."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в кафе.",
+      "en": "People are in the cafés."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из кафе.",
+      "en": "People come out of the cafés."
+    }
+  },
+  "hotell": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у гостиницы.",
+      "en": "I'm waiting by the hotel."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на гостиницу.",
+      "en": "I look at the hotel."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в гостиницу.",
+      "en": "I go into the hotel."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в гостинице.",
+      "en": "I am in the hotel."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из гостиницы.",
+      "en": "I come out of the hotel."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до гостиницы.",
+      "en": "I walk as far as the hotel."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это гостиницы.",
+      "en": "These are hotels."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список гостиниц.",
+      "en": "This is a list of hotels."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на гостиницы.",
+      "en": "I look at the hotels."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в гостиницы.",
+      "en": "People go into the hotels."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в гостиницах.",
+      "en": "People are in the hotels."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из гостиниц.",
+      "en": "People come out of the hotels."
+    }
+  },
+  "raamatukogu": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у библиотеки.",
+      "en": "I'm waiting by the library."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на библиотеку.",
+      "en": "I look at the library."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в библиотеку.",
+      "en": "I go into the library."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в библиотеке.",
+      "en": "I am in the library."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из библиотеки.",
+      "en": "I come out of the library."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до библиотеки.",
+      "en": "I walk as far as the library."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это библиотеки.",
+      "en": "These are libraries."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список библиотек.",
+      "en": "This is a list of libraries."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на библиотеки.",
+      "en": "I look at the libraries."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в библиотеки.",
+      "en": "People go into the libraries."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в библиотеках.",
+      "en": "People are in the libraries."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из библиотек.",
+      "en": "People come out of the libraries."
+    }
+  },
+  "kontor": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у офиса.",
+      "en": "I'm waiting by the office."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на офис.",
+      "en": "I look at the office."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в офис.",
+      "en": "I go into the office."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в офисе.",
+      "en": "I am in the office."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из офиса.",
+      "en": "I come out of the office."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до офиса.",
+      "en": "I walk as far as the office."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это офисы.",
+      "en": "These are offices."
+    },
+    "pl.gen": {
+      "et": "See on {} nimekiri.",
+      "ru": "Это список офисов.",
+      "en": "This is a list of offices."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на офисы.",
+      "en": "I look at the offices."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в офисы.",
+      "en": "People go into the offices."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в офисах.",
+      "en": "People are in the offices."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из офисов.",
+      "en": "People come out of the offices."
+    }
+  },
+  "park": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта парка.",
+      "en": "This is a map of the park."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на парк.",
+      "en": "I look at the park."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в парк.",
+      "en": "I go to the park."
+    },
+    "sg.ines": {
+      "et": "Ma jalutan {}.",
+      "ru": "Я гуляю в парке.",
+      "en": "I walk in the park."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я возвращаюсь из парка.",
+      "en": "I come back from the park."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до парка.",
+      "en": "I walk as far as the park."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это парки.",
+      "en": "These are parks."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта парков.",
+      "en": "This is a map of the parks."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на парки.",
+      "en": "I look at the parks."
+    },
+    "pl.ill": {
+      "et": "Lapsed lähevad {}.",
+      "ru": "Дети идут в парки.",
+      "en": "The children go to the parks."
+    },
+    "pl.ines": {
+      "et": "Inimesed jalutavad {}.",
+      "ru": "Люди гуляют в парках.",
+      "en": "People walk in the parks."
+    },
+    "pl.ela": {
+      "et": "Lapsed tulevad {}.",
+      "ru": "Дети возвращаются из парков.",
+      "en": "The children come back from the parks."
+    }
+  },
+  "väljak": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта площади.",
+      "en": "This is a map of the square."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на площадь.",
+      "en": "I look at the square."
+    },
+    "sg.all": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду на площадь.",
+      "en": "I go to the square."
+    },
+    "sg.ade": {
+      "et": "Ma seisan {}.",
+      "ru": "Я стою на площади.",
+      "en": "I'm standing in the square."
+    },
+    "sg.abl": {
+      "et": "Ma tulen {}.",
+      "ru": "Я иду с площади.",
+      "en": "I'm coming from the square."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до площади.",
+      "en": "I walk as far as the square."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это площади.",
+      "en": "These are squares."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта площадей.",
+      "en": "This is a map of the squares."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на площади.",
+      "en": "I look at the squares."
+    },
+    "pl.all": {
+      "et": "Inimesed kogunevad {}.",
+      "ru": "Люди собираются на площадях.",
+      "en": "People gather in the squares."
+    },
+    "pl.ade": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди на площадях.",
+      "en": "People are in the squares."
+    }
+  },
+  "aed": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта сада.",
+      "en": "This is a map of the garden."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на сад.",
+      "en": "I look at the garden."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в сад.",
+      "en": "I go into the garden."
+    },
+    "sg.ines": {
+      "et": "Ma töötan {}.",
+      "ru": "Я работаю в саду.",
+      "en": "I work in the garden."
+    },
+    "sg.ela": {
+      "et": "Ma toon {} õunu.",
+      "ru": "Я приношу яблоки из сада.",
+      "en": "I bring apples from the garden."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до сада.",
+      "en": "I walk as far as the garden."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это сады.",
+      "en": "These are gardens."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта садов.",
+      "en": "This is a map of the gardens."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на сады.",
+      "en": "I look at the gardens."
+    },
+    "pl.ines": {
+      "et": "Lapsed mängivad {}.",
+      "ru": "Дети играют в садах.",
+      "en": "Children play in the gardens."
+    }
+  },
+  "põld": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта поля.",
+      "en": "This is a map of the field."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на поле.",
+      "en": "I look at the field."
+    },
+    "sg.all": {
+      "et": "Traktor sõidab {}.",
+      "ru": "Трактор едет на поле.",
+      "en": "The tractor drives onto the field."
+    },
+    "sg.ade": {
+      "et": "Talunik töötab {}.",
+      "ru": "Фермер работает в поле.",
+      "en": "The farmer works in the field."
+    },
+    "sg.abl": {
+      "et": "Talunik tuleb {} koju.",
+      "ru": "Фермер возвращается домой с поля.",
+      "en": "The farmer comes home from the field."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до поля.",
+      "en": "I walk as far as the field."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это поля.",
+      "en": "These are fields."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта полей.",
+      "en": "This is a map of the fields."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на поля.",
+      "en": "I look at the fields."
+    },
+    "pl.ade": {
+      "et": "Lehmad on {}.",
+      "ru": "Коровы в полях.",
+      "en": "The cows are in the fields."
+    }
+  },
+  "rand": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта пляжа.",
+      "en": "This is a map of the beach."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на пляж.",
+      "en": "I look at the beach."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду на пляж.",
+      "en": "I go to the beach."
+    },
+    "sg.ines": {
+      "et": "Lapsed mängivad {}.",
+      "ru": "Дети играют на пляже.",
+      "en": "The children play on the beach."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} koju.",
+      "ru": "Я возвращаюсь домой с пляжа.",
+      "en": "I come home from the beach."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до пляжа.",
+      "en": "I walk as far as the beach."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это пляжи.",
+      "en": "These are beaches."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта пляжей.",
+      "en": "This is a map of the beaches."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на пляжи.",
+      "en": "I look at the beaches."
+    },
+    "pl.ill": {
+      "et": "Turistid lähevad {}.",
+      "ru": "Туристы идут на пляжи.",
+      "en": "Tourists go to the beaches."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди на пляжах.",
+      "en": "People are on the beaches."
+    }
+  },
+  "küla": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта деревни.",
+      "en": "This is a map of the village."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на деревню.",
+      "en": "I look at the village."
+    },
+    "sg.ill": {
+      "et": "Ma kolin {}.",
+      "ru": "Я переезжаю в деревню.",
+      "en": "I'm moving to a village."
+    },
+    "sg.ines": {
+      "et": "Ma elan {}.",
+      "ru": "Я живу в деревне.",
+      "en": "I live in a village."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я приезжаю из деревни.",
+      "en": "I come from a village."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до деревни.",
+      "en": "I walk as far as the village."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это деревни.",
+      "en": "These are villages."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта деревень.",
+      "en": "This is a map of the villages."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на деревни.",
+      "en": "I look at the villages."
+    },
+    "pl.ines": {
+      "et": "Inimesed elavad {}.",
+      "ru": "Люди живут в деревнях.",
+      "en": "People live in villages."
+    },
+    "pl.ela": {
+      "et": "Lapsed tulevad {} linna kooli.",
+      "ru": "Дети приезжают в городскую школу из деревень.",
+      "en": "Children come from the villages to school in town."
+    }
+  },
+  "turg": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта рынка.",
+      "en": "This is a map of the market."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на рынок.",
+      "en": "I look at the market."
+    },
+    "sg.all": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду на рынок.",
+      "en": "I go to the market."
+    },
+    "sg.ade": {
+      "et": "Ma ostan {} köögivilja.",
+      "ru": "Я покупаю овощи на рынке.",
+      "en": "I buy vegetables at the market."
+    },
+    "sg.abl": {
+      "et": "Ma tulen {} koju.",
+      "ru": "Я возвращаюсь домой с рынка.",
+      "en": "I come home from the market."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до рынка.",
+      "en": "I walk as far as the market."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это рынки.",
+      "en": "These are markets."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта рынков.",
+      "en": "This is a map of the markets."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на рынки.",
+      "en": "I look at the markets."
+    }
+  },
+  "sild": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта моста.",
+      "en": "This is a map of the bridge."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на мост.",
+      "en": "I look at the bridge."
+    },
+    "sg.all": {
+      "et": "Auto sõidab {}.",
+      "ru": "Машина въезжает на мост.",
+      "en": "A car drives onto the bridge."
+    },
+    "sg.ade": {
+      "et": "Ma seisan {}.",
+      "ru": "Я стою на мосту.",
+      "en": "I'm standing on the bridge."
+    },
+    "sg.abl": {
+      "et": "Ma vaatan {} jõge.",
+      "ru": "Я смотрю на реку с моста.",
+      "en": "I look at the river from the bridge."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до моста.",
+      "en": "I walk as far as the bridge."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это мосты.",
+      "en": "These are bridges."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта мостов.",
+      "en": "This is a map of the bridges."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на мосты.",
+      "en": "I look at the bridges."
+    },
+    "pl.ade": {
+      "et": "Inimesed seisavad {}.",
+      "ru": "Люди стоят на мостах.",
+      "en": "People are standing on the bridges."
+    }
+  },
+  "buss": {
+    "sg.gen": {
+      "et": "Ma seisan {} juures.",
+      "ru": "Я стою у автобуса.",
+      "en": "I'm standing by the bus."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду автобус.",
+      "en": "I'm waiting for the bus."
+    },
+    "sg.ill": {
+      "et": "Ma astun {}.",
+      "ru": "Я сажусь в автобус.",
+      "en": "I get on the bus."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в автобусе.",
+      "en": "I am on the bus."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} välja.",
+      "ru": "Я выхожу из автобуса.",
+      "en": "I get off the bus."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до автобуса.",
+      "en": "I walk as far as the bus."
+    },
+    "sg.com": {
+      "et": "Ma sõidan tööle {}.",
+      "ru": "Я езжу на работу на автобусе.",
+      "en": "I go to work by bus."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это автобусы.",
+      "en": "These are buses."
+    },
+    "pl.gen": {
+      "et": "See on {} sõiduplaan.",
+      "ru": "Это расписание автобусов.",
+      "en": "This is the timetable for the buses."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на автобусы.",
+      "en": "I look at the buses."
+    },
+    "pl.ill": {
+      "et": "Inimesed astuvad {}.",
+      "ru": "Люди садятся в автобусы.",
+      "en": "People get on the buses."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в автобусах.",
+      "en": "People are on the buses."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {} välja.",
+      "ru": "Люди выходят из автобусов.",
+      "en": "People get off the buses."
+    },
+    "pl.com": {
+      "et": "Lapsed sõidavad kooli {}.",
+      "ru": "Дети ездят в школу на автобусах.",
+      "en": "The children go to school by bus."
+    }
+  },
+  "tramm": {
+    "sg.gen": {
+      "et": "Ma seisan {} juures.",
+      "ru": "Я стою у трамвая.",
+      "en": "I'm standing by the tram."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду трамвай.",
+      "en": "I'm waiting for the tram."
+    },
+    "sg.ill": {
+      "et": "Ma astun {}.",
+      "ru": "Я сажусь в трамвай.",
+      "en": "I get on the tram."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в трамвае.",
+      "en": "I am on the tram."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} välja.",
+      "ru": "Я выхожу из трамвая.",
+      "en": "I get off the tram."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до трамвая.",
+      "en": "I walk as far as the tram."
+    },
+    "sg.com": {
+      "et": "Ma sõidan tööle {}.",
+      "ru": "Я езжу на работу на трамвае.",
+      "en": "I go to work by tram."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это трамваи.",
+      "en": "These are trams."
+    },
+    "pl.gen": {
+      "et": "See on {} sõiduplaan.",
+      "ru": "Это расписание трамваев.",
+      "en": "This is the timetable for the trams."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на трамваи.",
+      "en": "I look at the trams."
+    },
+    "pl.ill": {
+      "et": "Inimesed astuvad {}.",
+      "ru": "Люди садятся в трамваи.",
+      "en": "People get on the trams."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в трамваях.",
+      "en": "People are on the trams."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {} välja.",
+      "ru": "Люди выходят из трамваев.",
+      "en": "People get off the trams."
+    },
+    "pl.com": {
+      "et": "Lapsed sõidavad kooli {}.",
+      "ru": "Дети ездят в школу на трамваях.",
+      "en": "The children go to school by tram."
+    }
+  },
+  "jalgratas": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у велосипеда.",
+      "en": "I'm waiting by the bicycle."
+    },
+    "sg.part": {
+      "et": "Ma parandan {}.",
+      "ru": "Я чиню велосипед.",
+      "en": "I'm fixing the bicycle."
+    },
+    "sg.all": {
+      "et": "Ma hüppan {}.",
+      "ru": "Я запрыгиваю на велосипед.",
+      "en": "I jump on the bicycle."
+    },
+    "sg.ade": {
+      "et": "{} on kaks ratast.",
+      "ru": "У велосипеда два колеса.",
+      "en": "A bicycle has two wheels."
+    },
+    "sg.abl": {
+      "et": "Ma kukkusin {}.",
+      "ru": "Я упал с велосипеда.",
+      "en": "I fell off the bicycle."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до велосипеда.",
+      "en": "I walk as far as the bicycle."
+    },
+    "sg.com": {
+      "et": "Ma sõidan tööle {}.",
+      "ru": "Я езжу на работу на велосипеде.",
+      "en": "I go to work by bicycle."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это велосипеды.",
+      "en": "These are bicycles."
+    },
+    "pl.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у велосипедов.",
+      "en": "I'm waiting by the bicycles."
+    },
+    "pl.part": {
+      "et": "Ma parandan {}.",
+      "ru": "Я чиню велосипеды.",
+      "en": "I'm fixing the bicycles."
+    }
+  },
+  "paat": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у лодки.",
+      "en": "I'm waiting by the boat."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду лодку.",
+      "en": "I'm waiting for the boat."
+    },
+    "sg.ill": {
+      "et": "Ma astun {}.",
+      "ru": "Я сажусь в лодку.",
+      "en": "I get into the boat."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в лодке.",
+      "en": "I am in the boat."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} välja.",
+      "ru": "Я выхожу из лодки.",
+      "en": "I get out of the boat."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до лодки.",
+      "en": "I walk as far as the boat."
+    },
+    "sg.com": {
+      "et": "Ma sõidan {} saarele.",
+      "ru": "Я плыву на остров на лодке.",
+      "en": "I go to the island by boat."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это лодки.",
+      "en": "These are boats."
+    },
+    "pl.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у лодок.",
+      "en": "I'm waiting by the boats."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на лодки.",
+      "en": "I look at the boats."
+    },
+    "pl.ines": {
+      "et": "Kalurid on {}.",
+      "ru": "Рыбаки в лодках.",
+      "en": "The fishermen are in the boats."
+    }
+  },
+  "takso": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у такси.",
+      "en": "I'm waiting by the taxi."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду такси.",
+      "en": "I'm waiting for the taxi."
+    },
+    "sg.ill": {
+      "et": "Ma astun {}.",
+      "ru": "Я сажусь в такси.",
+      "en": "I get into the taxi."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в такси.",
+      "en": "I am in the taxi."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} välja.",
+      "ru": "Я выхожу из такси.",
+      "en": "I get out of the taxi."
+    },
+    "sg.term": {
+      "et": "Ma kõnnin kuni {}.",
+      "ru": "Я дохожу до такси.",
+      "en": "I walk as far as the taxi."
+    },
+    "sg.com": {
+      "et": "Ma sõidan koju {}.",
+      "ru": "Я еду домой на такси.",
+      "en": "I go home by taxi."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это такси.",
+      "en": "These are taxis."
+    },
+    "pl.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у такси.",
+      "en": "I'm waiting by the taxis."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на такси.",
+      "en": "I look at the taxis."
+    }
+  },
+  "voodi": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена кровати.",
+      "en": "This is the price of the bed."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на кровать.",
+      "en": "I look at the bed."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я ложусь в кровать.",
+      "en": "I go to bed."
+    },
+    "sg.ines": {
+      "et": "Ma loen {}.",
+      "ru": "Я читаю в кровати.",
+      "en": "I read in bed."
+    },
+    "sg.ela": {
+      "et": "Ma tõusen {}.",
+      "ru": "Я встаю с кровати.",
+      "en": "I get out of bed."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это кровати.",
+      "en": "These are beds."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на кровати.",
+      "en": "These are the prices of the beds."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на кровати.",
+      "en": "I look at the beds."
+    }
+  },
+  "kapp": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена шкафа.",
+      "en": "This is the price of the cupboard."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на шкаф.",
+      "en": "I look at the cupboard."
+    },
+    "sg.ill": {
+      "et": "Ma panen riided {}.",
+      "ru": "Я кладу одежду в шкаф.",
+      "en": "I put the clothes in the wardrobe."
+    },
+    "sg.ines": {
+      "et": "Riided on {}.",
+      "ru": "Одежда в шкафу.",
+      "en": "The clothes are in the wardrobe."
+    },
+    "sg.ela": {
+      "et": "Ma võtan riided {}.",
+      "ru": "Я достаю одежду из шкафа.",
+      "en": "I take the clothes out of the wardrobe."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это шкафы.",
+      "en": "These are cupboards."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на шкафы.",
+      "en": "These are the prices of the cupboards."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на шкафы.",
+      "en": "I look at the cupboards."
+    },
+    "pl.ines": {
+      "et": "Riided on {}.",
+      "ru": "Одежда в шкафах.",
+      "en": "The clothes are in the wardrobes."
+    }
+  },
+  "lamp": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена лампы.",
+      "en": "This is the price of the lamp."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на лампу.",
+      "en": "I look at the lamp."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это лампы.",
+      "en": "These are lamps."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на лампы.",
+      "en": "These are the prices of the lamps."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на лампы.",
+      "en": "I look at the lamps."
+    }
+  },
+  "tass": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена чашки.",
+      "en": "This is the price of the cup."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на чашку.",
+      "en": "I look at the cup."
+    },
+    "sg.ill": {
+      "et": "Ma valan kohvi {}.",
+      "ru": "Я наливаю кофе в чашку.",
+      "en": "I pour coffee into the cup."
+    },
+    "sg.ines": {
+      "et": "{} on kohv.",
+      "ru": "В чашке кофе.",
+      "en": "There is coffee in the cup."
+    },
+    "sg.ela": {
+      "et": "Ma joon {}.",
+      "ru": "Я пью из чашки.",
+      "en": "I drink from the cup."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это чашки.",
+      "en": "These are cups."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на чашки.",
+      "en": "These are the prices of the cups."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на чашки.",
+      "en": "I look at the cups."
+    }
+  },
+  "taldrik": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена тарелки.",
+      "en": "This is the price of the plate."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на тарелку.",
+      "en": "I look at the plate."
+    },
+    "sg.all": {
+      "et": "Ma panen toidu {}.",
+      "ru": "Я кладу еду на тарелку.",
+      "en": "I put the food on the plate."
+    },
+    "sg.ade": {
+      "et": "Toit on {}.",
+      "ru": "Еда на тарелке.",
+      "en": "The food is on the plate."
+    },
+    "sg.abl": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем с тарелки.",
+      "en": "I eat off the plate."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это тарелки.",
+      "en": "These are plates."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на тарелки.",
+      "en": "These are the prices of the plates."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на тарелки.",
+      "en": "I look at the plates."
+    },
+    "pl.ade": {
+      "et": "Toit on {}.",
+      "ru": "Еда на тарелках.",
+      "en": "The food is on the plates."
+    }
+  },
+  "klaas": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена стакана.",
+      "en": "This is the price of the glass."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на стакан.",
+      "en": "I look at the glass."
+    },
+    "sg.ill": {
+      "et": "Ma valan vett {}.",
+      "ru": "Я наливаю воду в стакан.",
+      "en": "I pour water into the glass."
+    },
+    "sg.ines": {
+      "et": "{} on vesi.",
+      "ru": "В стакане вода.",
+      "en": "There is water in the glass."
+    },
+    "sg.ela": {
+      "et": "Ma joon {}.",
+      "ru": "Я пью из стакана.",
+      "en": "I drink from the glass."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это стаканы.",
+      "en": "These are glasses."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на стаканы.",
+      "en": "These are the prices of the glasses."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на стаканы.",
+      "en": "I look at the glasses."
+    }
+  },
+  "nuga": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена ножа.",
+      "en": "This is the price of the knife."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на нож.",
+      "en": "I look at the knife."
+    },
+    "sg.com": {
+      "et": "Ma lõikan leiba {}.",
+      "ru": "Я режу хлеб ножом.",
+      "en": "I cut the bread with a knife."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это ножи.",
+      "en": "These are knives."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на ножи.",
+      "en": "These are the prices of the knives."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на ножи.",
+      "en": "I look at the knives."
+    }
+  },
+  "pudel": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена бутылки.",
+      "en": "This is the price of the bottle."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на бутылку.",
+      "en": "I look at the bottle."
+    },
+    "sg.ill": {
+      "et": "Ma valan vett {}.",
+      "ru": "Я наливаю воду в бутылку.",
+      "en": "I pour water into the bottle."
+    },
+    "sg.ines": {
+      "et": "{} on piim.",
+      "ru": "В бутылке молоко.",
+      "en": "There is milk in the bottle."
+    },
+    "sg.ela": {
+      "et": "Ma joon {}.",
+      "ru": "Я пью из бутылки.",
+      "en": "I drink from the bottle."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это бутылки.",
+      "en": "These are bottles."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на бутылки.",
+      "en": "These are the prices of the bottles."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на бутылки.",
+      "en": "I look at the bottles."
+    },
+    "pl.ines": {
+      "et": "{} on mahl.",
+      "ru": "В бутылках сок.",
+      "en": "There is juice in the bottles."
+    }
+  },
+  "kott": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена сумки.",
+      "en": "This is the price of the bag."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на сумку.",
+      "en": "I look at the bag."
+    },
+    "sg.ill": {
+      "et": "Ma panen raamatu {}.",
+      "ru": "Я кладу книгу в сумку.",
+      "en": "I put the book in the bag."
+    },
+    "sg.ines": {
+      "et": "Mul on raamat {}.",
+      "ru": "У меня книга в сумке.",
+      "en": "I have a book in my bag."
+    },
+    "sg.ela": {
+      "et": "Ma võtan raamatu {}.",
+      "ru": "Я достаю книгу из сумки.",
+      "en": "I take the book out of my bag."
+    },
+    "sg.com": {
+      "et": "Ma lähen poodi {}.",
+      "ru": "Я иду в магазин с сумкой.",
+      "en": "I go to the shop with a bag."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это сумки.",
+      "en": "These are bags."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на сумки.",
+      "en": "These are the prices of the bags."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на сумки.",
+      "en": "I look at the bags."
+    },
+    "pl.com": {
+      "et": "Ma lähen poodi {}.",
+      "ru": "Я иду в магазин с сумками.",
+      "en": "I go to the shop with bags."
+    }
+  },
+  "võti": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена ключа.",
+      "en": "This is the price of the key."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на ключ.",
+      "en": "I look at the key."
+    },
+    "sg.abess": {
+      "et": "Ma ei saa sisse {}.",
+      "ru": "Я не могу войти без ключа.",
+      "en": "I can't get in without the key."
+    },
+    "sg.com": {
+      "et": "Ma avan ukse {}.",
+      "ru": "Я открываю дверь ключом.",
+      "en": "I open the door with the key."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это ключи.",
+      "en": "These are keys."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на ключи.",
+      "en": "These are the prices of the keys."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на ключи.",
+      "en": "I look at the keys."
+    }
+  },
+  "telefon": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена телефона.",
+      "en": "This is the price of the phone."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на телефон.",
+      "en": "I look at the phone."
+    },
+    "sg.ines": {
+      "et": "{} on palju pilte.",
+      "ru": "В телефоне много фотографий.",
+      "en": "There are many photos on the phone."
+    },
+    "sg.abess": {
+      "et": "Ma ei saa elada {}.",
+      "ru": "Я не могу жить без телефона.",
+      "en": "I can't live without my phone."
+    },
+    "sg.com": {
+      "et": "Ma teen {} pilti.",
+      "ru": "Я фотографирую телефоном.",
+      "en": "I take a photo with my phone."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это телефоны.",
+      "en": "These are phones."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на телефоны.",
+      "en": "These are the prices of the phones."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на телефоны.",
+      "en": "I look at the phones."
+    }
+  },
+  "arvuti": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена компьютера.",
+      "en": "This is the price of the computer."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на компьютер.",
+      "en": "I look at the computer."
+    },
+    "sg.ines": {
+      "et": "{} on palju faile.",
+      "ru": "В компьютере много файлов.",
+      "en": "There are many files on the computer."
+    },
+    "sg.abess": {
+      "et": "Ma ei saa töötada {}.",
+      "ru": "Я не могу работать без компьютера.",
+      "en": "I can't work without a computer."
+    },
+    "sg.com": {
+      "et": "Ma töötan {}.",
+      "ru": "Я работаю за компьютером.",
+      "en": "I work at the computer."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это компьютеры.",
+      "en": "These are computers."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на компьютеры.",
+      "en": "These are the prices of the computers."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на компьютеры.",
+      "en": "I look at the computers."
+    }
+  },
+  "kell": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена часов.",
+      "en": "This is the price of the clock."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на часы.",
+      "en": "I look at the clock."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это часы.",
+      "en": "These are clocks."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены часов.",
+      "en": "These are the prices of the clocks."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на часы.",
+      "en": "I look at the clocks."
+    }
+  },
+  "pall": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена мяча.",
+      "en": "This is the price of the ball."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на мяч.",
+      "en": "I look at the ball."
+    },
+    "sg.com": {
+      "et": "Lapsed mängivad {}.",
+      "ru": "Дети играют в мяч.",
+      "en": "The children play with a ball."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это мячи.",
+      "en": "These are balls."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на мячи.",
+      "en": "These are the prices of the balls."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на мячи.",
+      "en": "I look at the balls."
+    },
+    "pl.com": {
+      "et": "Lapsed mängivad {}.",
+      "ru": "Дети играют с мячами.",
+      "en": "The children play with balls."
+    }
+  },
+  "särk": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена рубашки.",
+      "en": "This is the price of the shirt."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю рубашку.",
+      "en": "I'm washing the shirt."
+    },
+    "sg.ines": {
+      "et": "Mul on {} palav.",
+      "ru": "Мне жарко в рубашке.",
+      "en": "I'm too hot in this shirt."
+    },
+    "sg.abess": {
+      "et": "Poiss jookseb rannas {}.",
+      "ru": "Мальчик бегает по пляжу без рубашки.",
+      "en": "The boy runs on the beach without a shirt."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это рубашки.",
+      "en": "These are shirts."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена рубашек.",
+      "en": "This is the price of the shirts."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю рубашки.",
+      "en": "I'm washing the shirts."
+    }
+  },
+  "kleit": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена платья.",
+      "en": "This is the price of the dress."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю платье.",
+      "en": "I'm washing the dress."
+    },
+    "sg.ines": {
+      "et": "Ta on {}.",
+      "ru": "Она в платье.",
+      "en": "She is in a dress."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это платья.",
+      "en": "These are dresses."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена платьев.",
+      "en": "This is the price of the dresses."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю платья.",
+      "en": "I'm washing the dresses."
+    },
+    "pl.ines": {
+      "et": "Tüdrukud on {}.",
+      "ru": "Девочки в платьях.",
+      "en": "The girls are in dresses."
+    }
+  },
+  "jope": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена куртки.",
+      "en": "This is the price of the jacket."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю куртку.",
+      "en": "I'm washing the jacket."
+    },
+    "sg.ines": {
+      "et": "Mul on {} palav.",
+      "ru": "Мне жарко в куртке.",
+      "en": "I'm too hot in this jacket."
+    },
+    "sg.abess": {
+      "et": "Ma ei lähe välja {}.",
+      "ru": "Я не выхожу на улицу без куртки.",
+      "en": "I don't go out without a jacket."
+    },
+    "sg.com": {
+      "et": "Ma lähen välja {}.",
+      "ru": "Я выхожу на улицу в куртке.",
+      "en": "I go out in a jacket."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это куртки.",
+      "en": "These are jackets."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена курток.",
+      "en": "This is the price of the jackets."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю куртки.",
+      "en": "I'm washing the jackets."
+    }
+  },
+  "müts": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена шапки.",
+      "en": "This is the price of the hat."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю шапку.",
+      "en": "I'm washing the hat."
+    },
+    "sg.abess": {
+      "et": "Ma ei lähe välja {}.",
+      "ru": "Я не выхожу на улицу без шапки.",
+      "en": "I don't go out without a hat."
+    },
+    "sg.com": {
+      "et": "Ma lähen välja {}.",
+      "ru": "Я выхожу на улицу в шапке.",
+      "en": "I go out in a hat."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это шапки.",
+      "en": "These are hats."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена шапок.",
+      "en": "This is the price of the hats."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю шапки.",
+      "en": "I'm washing the hats."
+    }
+  },
+  "sall": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена шарфа.",
+      "en": "This is the price of the scarf."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю шарф.",
+      "en": "I'm washing the scarf."
+    },
+    "sg.abess": {
+      "et": "Ma ei lähe välja {}.",
+      "ru": "Я не выхожу на улицу без шарфа.",
+      "en": "I don't go out without a scarf."
+    },
+    "sg.com": {
+      "et": "Ma lähen välja {}.",
+      "ru": "Я выхожу на улицу в шарфе.",
+      "en": "I go out in a scarf."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это шарфы.",
+      "en": "These are scarves."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена шарфов.",
+      "en": "This is the price of the scarves."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю шарфы.",
+      "en": "I'm washing the scarves."
+    }
+  },
+  "king": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена туфли.",
+      "en": "This is the price of the shoe."
+    },
+    "sg.part": {
+      "et": "Ma puhastan {}.",
+      "ru": "Я чищу туфлю.",
+      "en": "I'm cleaning the shoe."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это туфли.",
+      "en": "These are shoes."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена туфель.",
+      "en": "This is the price of the shoes."
+    },
+    "pl.part": {
+      "et": "Ma puhastan {}.",
+      "ru": "Я чищу туфли.",
+      "en": "I'm cleaning the shoes."
+    },
+    "pl.abess": {
+      "et": "Ma ei lähe välja {}.",
+      "ru": "Я не выхожу на улицу без обуви.",
+      "en": "I don't go out without shoes."
+    },
+    "pl.com": {
+      "et": "Ma lähen välja {}.",
+      "ru": "Я выхожу на улицу в туфлях.",
+      "en": "I go out in my shoes."
+    }
+  },
+  "sokk": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена носка.",
+      "en": "This is the price of the sock."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю носок.",
+      "en": "I'm washing the sock."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это носки.",
+      "en": "These are socks."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена носков.",
+      "en": "This is the price of the socks."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю носки.",
+      "en": "I'm washing the socks."
+    },
+    "pl.abess": {
+      "et": "Ma kõnnin {}.",
+      "ru": "Я хожу без носков.",
+      "en": "I walk around without socks."
+    }
+  },
+  "mantel": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена пальто.",
+      "en": "This is the price of the coat."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на пальто.",
+      "en": "I look at the coat."
+    },
+    "sg.ines": {
+      "et": "Mul on {} soe.",
+      "ru": "Мне тепло в пальто.",
+      "en": "I'm warm in this coat."
+    },
+    "sg.abess": {
+      "et": "Ma ei lähe välja {}.",
+      "ru": "Я не выхожу на улицу без пальто.",
+      "en": "I don't go out without a coat."
+    },
+    "sg.com": {
+      "et": "Ma lähen välja {}.",
+      "ru": "Я выхожу на улицу в пальто.",
+      "en": "I go out in a coat."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это пальто.",
+      "en": "These are coats."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена пальто.",
+      "en": "This is the price of the coats."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на пальто.",
+      "en": "I look at the coats."
+    }
+  },
+  "vend": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга брата.",
+      "en": "This is my brother's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду брата.",
+      "en": "I'm waiting for my brother."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню брату.",
+      "en": "I call my brother."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У брата есть собака.",
+      "en": "My brother has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от брата.",
+      "en": "I get a letter from my brother."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с братом.",
+      "en": "I go to the cinema with my brother."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это братья.",
+      "en": "These are brothers."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят братья.",
+      "en": "I'm listening to what the brothers are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду братьев.",
+      "en": "I'm waiting for my brothers."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню братьям.",
+      "en": "I call my brothers."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У братьев есть собаки.",
+      "en": "My brothers have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от братьев.",
+      "en": "I get a letter from my brothers."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с братьями.",
+      "en": "I go to the cinema with my brothers."
+    }
+  },
+  "õde": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга сестры.",
+      "en": "This is my sister's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду сестру.",
+      "en": "I'm waiting for my sister."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню сестре.",
+      "en": "I call my sister."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У сестры есть собака.",
+      "en": "My sister has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от сестры.",
+      "en": "I get a letter from my sister."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с сестрой.",
+      "en": "I go to the cinema with my sister."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это сёстры.",
+      "en": "These are sisters."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят сёстры.",
+      "en": "I'm listening to what the sisters are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду сестёр.",
+      "en": "I'm waiting for my sisters."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню сёстрам.",
+      "en": "I call my sisters."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У сестёр есть собаки.",
+      "en": "My sisters have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от сестёр.",
+      "en": "I get a letter from my sisters."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с сёстрами.",
+      "en": "I go to the cinema with my sisters."
+    }
+  },
+  "vanaema": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга бабушки.",
+      "en": "This is my grandmother's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду бабушку.",
+      "en": "I'm waiting for my grandmother."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню бабушке.",
+      "en": "I call my grandmother."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У бабушки есть собака.",
+      "en": "My grandmother has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от бабушки.",
+      "en": "I get a letter from my grandmother."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с бабушкой.",
+      "en": "I go to the cinema with my grandmother."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это бабушки.",
+      "en": "These are grandmothers."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят бабушки.",
+      "en": "I'm listening to what the grandmothers are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду бабушек.",
+      "en": "I'm waiting for my grandmothers."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню бабушкам.",
+      "en": "I call my grandmothers."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У бабушек есть собаки.",
+      "en": "My grandmothers have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от бабушек.",
+      "en": "I get a letter from my grandmothers."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с бабушками.",
+      "en": "I go to the cinema with my grandmothers."
+    }
+  },
+  "vanaisa": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга дедушки.",
+      "en": "This is my grandfather's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду дедушку.",
+      "en": "I'm waiting for my grandfather."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню дедушке.",
+      "en": "I call my grandfather."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У дедушки есть собака.",
+      "en": "My grandfather has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от дедушки.",
+      "en": "I get a letter from my grandfather."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с дедушкой.",
+      "en": "I go to the cinema with my grandfather."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это дедушки.",
+      "en": "These are grandfathers."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят дедушки.",
+      "en": "I'm listening to what the grandfathers are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду дедушек.",
+      "en": "I'm waiting for my grandfathers."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню дедушкам.",
+      "en": "I call my grandfathers."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У дедушек есть собаки.",
+      "en": "My grandfathers have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от дедушек.",
+      "en": "I get a letter from my grandfathers."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с дедушками.",
+      "en": "I go to the cinema with my grandfathers."
+    }
+  },
+  "poeg": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга сына.",
+      "en": "This is my son's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду сына.",
+      "en": "I'm waiting for my son."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню сыну.",
+      "en": "I call my son."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У сына есть собака.",
+      "en": "My son has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от сына.",
+      "en": "I get a letter from my son."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с сыном.",
+      "en": "I go to the cinema with my son."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это сыновья.",
+      "en": "These are sons."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят сыновья.",
+      "en": "I'm listening to what the sons are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду сыновей.",
+      "en": "I'm waiting for my sons."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню сыновьям.",
+      "en": "I call my sons."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У сыновей есть собаки.",
+      "en": "My sons have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от сыновей.",
+      "en": "I get a letter from my sons."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с сыновьями.",
+      "en": "I go to the cinema with my sons."
+    }
+  },
+  "tütar": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга дочери.",
+      "en": "This is my daughter's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду дочь.",
+      "en": "I'm waiting for my daughter."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню дочери.",
+      "en": "I call my daughter."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У дочери есть собака.",
+      "en": "My daughter has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от дочери.",
+      "en": "I get a letter from my daughter."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с дочерью.",
+      "en": "I go to the cinema with my daughter."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это дочери.",
+      "en": "These are daughters."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят дочери.",
+      "en": "I'm listening to what the daughters are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду дочерей.",
+      "en": "I'm waiting for my daughters."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню дочерям.",
+      "en": "I call my daughters."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У дочерей есть собаки.",
+      "en": "My daughters have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от дочерей.",
+      "en": "I get a letter from my daughters."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с дочерьми.",
+      "en": "I go to the cinema with my daughters."
+    }
+  },
+  "naaber": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга соседа.",
+      "en": "This is the neighbour's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду соседа.",
+      "en": "I'm waiting for the neighbour."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню соседу.",
+      "en": "I call the neighbour."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У соседа есть собака.",
+      "en": "The neighbour has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от соседа.",
+      "en": "I get a letter from the neighbour."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с соседом.",
+      "en": "I go to the cinema with the neighbour."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это соседи.",
+      "en": "These are neighbours."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят соседи.",
+      "en": "I'm listening to what the neighbours are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду соседей.",
+      "en": "I'm waiting for the neighbours."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню соседям.",
+      "en": "I call the neighbours."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У соседей есть собаки.",
+      "en": "The neighbours have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от соседей.",
+      "en": "I get a letter from the neighbours."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с соседями.",
+      "en": "I go to the cinema with the neighbours."
+    }
+  },
+  "õpilane": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга ученика.",
+      "en": "This is the pupil's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду ученика.",
+      "en": "I'm waiting for the pupil."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню ученику.",
+      "en": "I call the pupil."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У ученика есть собака.",
+      "en": "The pupil has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от ученика.",
+      "en": "I get a letter from the pupil."
+    },
+    "sg.ess": {
+      "et": "{} õppisin ma palju.",
+      "ru": "Когда я был учеником, я много учился.",
+      "en": "As a pupil, I studied a lot."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с учеником.",
+      "en": "I go to the cinema with the pupil."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это ученики.",
+      "en": "These are pupils."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят ученики.",
+      "en": "I'm listening to what the pupils are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду учеников.",
+      "en": "I'm waiting for the pupils."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню ученикам.",
+      "en": "I call the pupils."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У учеников есть собаки.",
+      "en": "The pupils have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от учеников.",
+      "en": "I get a letter from the pupils."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с учениками.",
+      "en": "I go to the cinema with the pupils."
+    }
+  },
+  "müüja": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга продавца.",
+      "en": "This is the shop assistant's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду продавца.",
+      "en": "I'm waiting for the shop assistant."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню продавцу.",
+      "en": "I call the shop assistant."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У продавца есть собака.",
+      "en": "The shop assistant has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от продавца.",
+      "en": "I get a letter from the shop assistant."
+    },
+    "sg.transl": {
+      "et": "Ta tahab saada {}.",
+      "ru": "Она хочет стать продавцом.",
+      "en": "She wants to become a shop assistant."
+    },
+    "sg.ess": {
+      "et": "Ta töötab {}.",
+      "ru": "Она работает продавцом.",
+      "en": "She works as a shop assistant."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с продавцом.",
+      "en": "I go to the cinema with the shop assistant."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это продавцы.",
+      "en": "These are shop assistants."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят продавцы.",
+      "en": "I'm listening to what the shop assistants are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду продавцов.",
+      "en": "I'm waiting for the shop assistants."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню продавцам.",
+      "en": "I call the shop assistants."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У продавцов есть собаки.",
+      "en": "The shop assistants have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от продавцов.",
+      "en": "I get a letter from the shop assistants."
+    },
+    "pl.ess": {
+      "et": "Nad töötavad {}.",
+      "ru": "Они работают продавцами.",
+      "en": "They work as shop assistants."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с продавцами.",
+      "en": "I go to the cinema with the shop assistants."
+    }
+  },
+  "kokk": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга повара.",
+      "en": "This is the cook's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду повара.",
+      "en": "I'm waiting for the cook."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню повару.",
+      "en": "I call the cook."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У повара есть собака.",
+      "en": "The cook has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от повара.",
+      "en": "I get a letter from the cook."
+    },
+    "sg.transl": {
+      "et": "Ma tahan saada {}.",
+      "ru": "Я хочу стать поваром.",
+      "en": "I want to become a cook."
+    },
+    "sg.ess": {
+      "et": "Ta töötab {}.",
+      "ru": "Он работает поваром.",
+      "en": "He works as a cook."
+    },
+    "sg.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с поваром.",
+      "en": "I go to the cinema with the cook."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это повара.",
+      "en": "These are cooks."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят повара.",
+      "en": "I'm listening to what the cooks are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду поваров.",
+      "en": "I'm waiting for the cooks."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню поварам.",
+      "en": "I call the cooks."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У поваров есть собаки.",
+      "en": "The cooks have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja {}.",
+      "ru": "Я получаю письмо от поваров.",
+      "en": "I get a letter from the cooks."
+    },
+    "pl.transl": {
+      "et": "Nad tahavad saada {}.",
+      "ru": "Они хотят стать поварами.",
+      "en": "They want to become cooks."
+    },
+    "pl.ess": {
+      "et": "Nad töötavad {}.",
+      "ru": "Они работают поварами.",
+      "en": "They work as cooks."
+    },
+    "pl.com": {
+      "et": "Ma lähen {} kinno.",
+      "ru": "Я иду в кино с поварами.",
+      "en": "I go to the cinema with the cooks."
+    }
+  },
+  "hobune": {
+    "sg.gen": {
+      "et": "See on {} toit.",
+      "ru": "Это корм для лошади.",
+      "en": "This is food for the horse."
+    },
+    "sg.part": {
+      "et": "Ma silitan {}.",
+      "ru": "Я глажу лошадь.",
+      "en": "I stroke the horse."
+    },
+    "sg.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю лошадь.",
+      "en": "I feed the horse."
+    },
+    "sg.ade": {
+      "et": "{} on pikk saba.",
+      "ru": "У лошади длинный хвост.",
+      "en": "The horse has a long tail."
+    },
+    "sg.com": {
+      "et": "Talunik sõidab {} linna.",
+      "ru": "Фермер едет в город на лошади.",
+      "en": "The farmer goes to town by horse."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это лошади.",
+      "en": "These are horses."
+    },
+    "pl.gen": {
+      "et": "See on {} toit.",
+      "ru": "Это корм для лошадей.",
+      "en": "This is food for the horses."
+    },
+    "pl.part": {
+      "et": "Ma silitan {}.",
+      "ru": "Я глажу лошадей.",
+      "en": "I stroke the horses."
+    },
+    "pl.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю лошадей.",
+      "en": "I feed the horses."
+    },
+    "pl.ade": {
+      "et": "{} on pikad sabad.",
+      "ru": "У лошадей длинные хвосты.",
+      "en": "The horses have long tails."
+    }
+  },
+  "lehm": {
+    "sg.gen": {
+      "et": "See on {} piim.",
+      "ru": "Это коровье молоко.",
+      "en": "This is cow's milk."
+    },
+    "sg.part": {
+      "et": "Ma lüpsan {}.",
+      "ru": "Я дою корову.",
+      "en": "I milk the cow."
+    },
+    "sg.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю корову.",
+      "en": "I feed the cow."
+    },
+    "sg.ade": {
+      "et": "{} on vasikas.",
+      "ru": "У коровы телёнок.",
+      "en": "The cow has a calf."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это коровы.",
+      "en": "These are cows."
+    },
+    "pl.part": {
+      "et": "Ma lüpsan {}.",
+      "ru": "Я дою коров.",
+      "en": "I milk the cows."
+    },
+    "pl.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю коров.",
+      "en": "I feed the cows."
+    },
+    "pl.ade": {
+      "et": "{} on vasikad.",
+      "ru": "У коров телята.",
+      "en": "The cows have calves."
+    }
+  },
+  "lind": {
+    "sg.gen": {
+      "et": "Ma kuulan {} laulu.",
+      "ru": "Я слушаю пение птицы.",
+      "en": "I'm listening to the bird singing."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на птицу.",
+      "en": "I look at the bird."
+    },
+    "sg.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю птицу.",
+      "en": "I feed the bird."
+    },
+    "sg.ade": {
+      "et": "{} on pesa.",
+      "ru": "У птицы гнездо.",
+      "en": "The bird has a nest."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это птицы.",
+      "en": "These are birds."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} laulu.",
+      "ru": "Я слушаю пение птиц.",
+      "en": "I'm listening to the birds singing."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на птиц.",
+      "en": "I look at the birds."
+    },
+    "pl.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю птиц.",
+      "en": "I feed the birds."
+    },
+    "pl.ade": {
+      "et": "{} on pesad.",
+      "ru": "У птиц гнёзда.",
+      "en": "The birds have nests."
+    }
+  },
+  "hiir": {
+    "sg.gen": {
+      "et": "See on {} pesa.",
+      "ru": "Это гнездо мыши.",
+      "en": "This is a mouse's nest."
+    },
+    "sg.part": {
+      "et": "Kass püüab {}.",
+      "ru": "Кошка ловит мышь.",
+      "en": "The cat is catching a mouse."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это мыши.",
+      "en": "These are mice."
+    },
+    "pl.part": {
+      "et": "Kass püüab {}.",
+      "ru": "Кошка ловит мышей.",
+      "en": "The cat is catching mice."
+    }
+  },
+  "karu": {
+    "sg.gen": {
+      "et": "See on {} jälg.",
+      "ru": "Это след медведя.",
+      "en": "This is the bear's footprint."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на медведя.",
+      "en": "I look at the bear."
+    },
+    "sg.ade": {
+      "et": "{} on suured käpad.",
+      "ru": "У медведя большие лапы.",
+      "en": "The bear has big paws."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это медведи.",
+      "en": "These are bears."
+    },
+    "pl.gen": {
+      "et": "Need on {} jäljed.",
+      "ru": "Это следы медведей.",
+      "en": "These are the bears' footprints."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на медведей.",
+      "en": "I look at the bears."
+    },
+    "pl.ade": {
+      "et": "{} on suured käpad.",
+      "ru": "У медведей большие лапы.",
+      "en": "The bears have big paws."
+    }
+  },
+  "hunt": {
+    "sg.gen": {
+      "et": "See on {} jälg.",
+      "ru": "Это след волка.",
+      "en": "This is the wolf's footprint."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на волка.",
+      "en": "I look at the wolf."
+    },
+    "sg.ade": {
+      "et": "{} on teravad hambad.",
+      "ru": "У волка острые зубы.",
+      "en": "The wolf has sharp teeth."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это волки.",
+      "en": "These are wolves."
+    },
+    "pl.gen": {
+      "et": "Need on {} jäljed.",
+      "ru": "Это следы волков.",
+      "en": "These are the wolves' footprints."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на волков.",
+      "en": "I look at the wolves."
+    },
+    "pl.ade": {
+      "et": "{} on teravad hambad.",
+      "ru": "У волков острые зубы.",
+      "en": "The wolves have sharp teeth."
+    }
+  },
+  "kana": {
+    "sg.gen": {
+      "et": "See on {} pesa.",
+      "ru": "Это гнездо курицы.",
+      "en": "This is the hen's nest."
+    },
+    "sg.part": {
+      "et": "Ma toidan {}.",
+      "ru": "Я кормлю курицу.",
+      "en": "I feed the hen."
+    },
+    "sg.ade": {
+      "et": "{} on munad.",
+      "ru": "У курицы есть яйца.",
+      "en": "The hen has eggs."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это курицы.",
+      "en": "These are hens."
+    },
+    "pl.part": {
+      "et": "Ma toidan {}.",
+      "ru": "Я кормлю куриц.",
+      "en": "I feed the hens."
+    },
+    "pl.ade": {
+      "et": "{} on munad.",
+      "ru": "У куриц есть яйца.",
+      "en": "The hens have eggs."
+    }
+  },
+  "piim": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена молока.",
+      "en": "This is the price of the milk."
+    },
+    "sg.part": {
+      "et": "Ma joon {}.",
+      "ru": "Я пью молоко.",
+      "en": "I drink milk."
+    },
+    "sg.abess": {
+      "et": "Ma joon kohvi {}.",
+      "ru": "Я пью кофе без молока.",
+      "en": "I drink coffee without milk."
+    },
+    "sg.com": {
+      "et": "Ma joon kohvi {}.",
+      "ru": "Я пью кофе с молоком.",
+      "en": "I drink coffee with milk."
+    }
+  },
+  "kohv": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена кофе.",
+      "en": "This is the price of the coffee."
+    },
+    "sg.part": {
+      "et": "Ma joon {}.",
+      "ru": "Я пью кофе.",
+      "en": "I drink coffee."
+    },
+    "sg.ines": {
+      "et": "{} on suhkrut.",
+      "ru": "В кофе есть сахар.",
+      "en": "There is sugar in the coffee."
+    }
+  },
+  "juust": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена сыра.",
+      "en": "This is the price of the cheese."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем сыр.",
+      "en": "I eat cheese."
+    },
+    "sg.com": {
+      "et": "Ma söön leiba {}.",
+      "ru": "Я ем хлеб с сыром.",
+      "en": "I eat bread with cheese."
+    }
+  },
+  "liha": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена мяса.",
+      "en": "This is the price of the meat."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем мясо.",
+      "en": "I eat meat."
+    },
+    "sg.abess": {
+      "et": "Ma söön suppi {}.",
+      "ru": "Я ем суп без мяса.",
+      "en": "I eat soup without meat."
+    },
+    "sg.com": {
+      "et": "Ma söön kartulit {}.",
+      "ru": "Я ем картошку с мясом.",
+      "en": "I eat potatoes with meat."
+    }
+  },
+  "supp": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена супа.",
+      "en": "This is the price of the soup."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем суп.",
+      "en": "I'm eating soup."
+    },
+    "sg.ill": {
+      "et": "Ma panen soola {}.",
+      "ru": "Я кладу соль в суп.",
+      "en": "I put salt in the soup."
+    },
+    "sg.ines": {
+      "et": "{} on liha.",
+      "ru": "В супе мясо.",
+      "en": "There is meat in the soup."
+    }
+  },
+  "kook": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена пирога.",
+      "en": "This is the price of the cake."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем пирог.",
+      "en": "I'm eating cake."
+    },
+    "sg.com": {
+      "et": "Ma joon kohvi {}.",
+      "ru": "Я пью кофе с пирогом.",
+      "en": "I drink coffee with a piece of cake."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это пироги.",
+      "en": "These are cakes."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена пирогов.",
+      "en": "This is the price of the cakes."
+    },
+    "pl.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем пироги.",
+      "en": "I'm eating cakes."
+    },
+    "pl.com": {
+      "et": "Ma joon kohvi {}.",
+      "ru": "Я пью кофе с пирогами.",
+      "en": "I drink coffee with cakes."
+    }
+  },
+  "muna": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена яйца.",
+      "en": "This is the price of the egg."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем яйцо.",
+      "en": "I'm eating an egg."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это яйца.",
+      "en": "These are eggs."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена яиц.",
+      "en": "This is the price of the eggs."
+    },
+    "pl.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем яйца.",
+      "en": "I'm eating eggs."
+    }
+  },
+  "kartul": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена картошки.",
+      "en": "This is the price of potatoes."
+    },
+    "sg.part": {
+      "et": "Ma koorin {}.",
+      "ru": "Я чищу картофелину.",
+      "en": "I'm peeling a potato."
+    },
+    "sg.com": {
+      "et": "Ma söön liha {}.",
+      "ru": "Я ем мясо с картошкой.",
+      "en": "I eat meat with potatoes."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это картофелины.",
+      "en": "These are potatoes."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена картофеля.",
+      "en": "This is the price of potatoes."
+    },
+    "pl.part": {
+      "et": "Ma koorin {}.",
+      "ru": "Я чищу картошку.",
+      "en": "I'm peeling potatoes."
+    },
+    "pl.com": {
+      "et": "Ma söön liha {}.",
+      "ru": "Я ем мясо с картошкой.",
+      "en": "I eat meat with potatoes."
+    }
+  },
+  "tomat": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена помидора.",
+      "en": "This is the price of the tomato."
+    },
+    "sg.part": {
+      "et": "Ma lõikan {}.",
+      "ru": "Я режу помидор.",
+      "en": "I'm cutting a tomato."
+    },
+    "sg.com": {
+      "et": "Ma söön leiba {}.",
+      "ru": "Я ем хлеб с помидором.",
+      "en": "I eat bread with a tomato."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это помидоры.",
+      "en": "These are tomatoes."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена помидоров.",
+      "en": "This is the price of the tomatoes."
+    },
+    "pl.part": {
+      "et": "Ma lõikan {}.",
+      "ru": "Я режу помидоры.",
+      "en": "I'm cutting tomatoes."
+    },
+    "pl.com": {
+      "et": "Ma söön leiba {}.",
+      "ru": "Я ем хлеб с помидорами.",
+      "en": "I eat bread with tomatoes."
+    }
+  },
+  "mahl": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена сока.",
+      "en": "This is the price of the juice."
+    },
+    "sg.part": {
+      "et": "Ma joon {}.",
+      "ru": "Я пью сок.",
+      "en": "I drink juice."
+    }
+  },
+  "päike": {
+    "sg.gen": {
+      "et": "Ma istun {} käes.",
+      "ru": "Я сижу на солнце.",
+      "en": "I'm sitting in the sun."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду солнца.",
+      "en": "I'm waiting for the sun."
+    },
+    "sg.abess": {
+      "et": "Päev möödus {}.",
+      "ru": "День прошёл без солнца.",
+      "en": "The day passed without sun."
+    }
+  },
+  "tuul": {
+    "sg.gen": {
+      "et": "Ma kuulan {} kohinat.",
+      "ru": "Я слушаю шум ветра.",
+      "en": "I listen to the sound of the wind."
+    },
+    "sg.part": {
+      "et": "Ma tunnen {}.",
+      "ru": "Я чувствую ветер.",
+      "en": "I feel the wind."
+    },
+    "sg.ines": {
+      "et": "Puud kõiguvad {}.",
+      "ru": "Деревья качаются на ветру.",
+      "en": "The trees sway in the wind."
+    }
+  },
+  "kivi": {
+    "sg.gen": {
+      "et": "Ma istun {} peal.",
+      "ru": "Я сижу на камне.",
+      "en": "I sit on the stone."
+    },
+    "sg.part": {
+      "et": "Ma ei näe {}.",
+      "ru": "Я не вижу камня.",
+      "en": "I don't see the stone."
+    },
+    "sg.ade": {
+      "et": "Lind istub {}.",
+      "ru": "Птица сидит на камне.",
+      "en": "A bird sits on the stone."
+    },
+    "sg.abl": {
+      "et": "Lind lendab {} ära.",
+      "ru": "Птица улетает с камня.",
+      "en": "A bird flies off the stone."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это камни.",
+      "en": "These are stones."
+    },
+    "pl.gen": {
+      "et": "Me istume {} peal.",
+      "ru": "Мы сидим на камнях.",
+      "en": "We sit on the stones."
+    },
+    "pl.part": {
+      "et": "Ma korjan {}.",
+      "ru": "Я собираю камни.",
+      "en": "I collect stones."
+    },
+    "pl.ade": {
+      "et": "Linnud istuvad {}.",
+      "ru": "Птицы сидят на камнях.",
+      "en": "Birds sit on the stones."
+    },
+    "pl.abl": {
+      "et": "Linnud lendavad {} ära.",
+      "ru": "Птицы улетают с камней.",
+      "en": "Birds fly off the stones."
+    }
+  },
+  "talv": {
+    "sg.ade": {
+      "et": "{} on külm.",
+      "ru": "Зимой холодно.",
+      "en": "It's cold in winter."
+    },
+    "sg.transl": {
+      "et": "Ma tulen {}.",
+      "ru": "Я приезжаю на зиму.",
+      "en": "I'm coming for the winter."
+    },
+    "sg.term": {
+      "et": "Ma jään siia {}.",
+      "ru": "Я остаюсь здесь до зимы.",
+      "en": "I'm staying here until winter."
+    },
+    "pl.nom": {
+      "et": "{} on külmad.",
+      "ru": "Зимы холодные.",
+      "en": "The winters are cold."
+    },
+    "pl.part": {
+      "et": "Ma mäletan neid {}.",
+      "ru": "Я помню те зимы.",
+      "en": "I remember those winters."
+    }
+  },
+  "suvi": {
+    "sg.ade": {
+      "et": "{} on soe.",
+      "ru": "Летом тепло.",
+      "en": "It's warm in summer."
+    },
+    "sg.transl": {
+      "et": "Ma tulen {}.",
+      "ru": "Я приезжаю на лето.",
+      "en": "I'm coming for the summer."
+    },
+    "sg.term": {
+      "et": "Ma jään siia {}.",
+      "ru": "Я остаюсь здесь до лета.",
+      "en": "I'm staying here until summer."
+    }
+  },
+  "hommik": {
+    "sg.ade": {
+      "et": "{} joon ma kohvi.",
+      "ru": "Утром я пью кофе.",
+      "en": "In the morning I drink coffee."
+    },
+    "sg.transl": {
+      "et": "Ma olen {} kodus.",
+      "ru": "Я буду дома к утру.",
+      "en": "I'll be home by morning."
+    },
+    "sg.term": {
+      "et": "Ma töötan {}.",
+      "ru": "Я работаю до утра.",
+      "en": "I work until morning."
+    },
+    "pl.part": {
+      "et": "Ma mäletan neid {}.",
+      "ru": "Я помню те утра.",
+      "en": "I remember those mornings."
+    }
+  },
+  "õhtu": {
+    "sg.ade": {
+      "et": "{} vaatan ma filmi.",
+      "ru": "Вечером я смотрю фильм.",
+      "en": "In the evening I watch a film."
+    },
+    "sg.transl": {
+      "et": "Ma olen {} kodus.",
+      "ru": "Я буду дома к вечеру.",
+      "en": "I'll be home by the evening."
+    },
+    "sg.term": {
+      "et": "Ma töötan {}.",
+      "ru": "Я работаю до вечера.",
+      "en": "I work until the evening."
+    },
+    "pl.part": {
+      "et": "Ma mäletan neid {}.",
+      "ru": "Я помню те вечера.",
+      "en": "I remember those evenings."
+    }
+  },
   "ilus": {
     "sg.gen": {
       "et": "Ma tean {} nime.",
@@ -4267,19 +8014,19 @@
       "en": "I look at the big houses."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в большие дома.",
-      "en": "The children go into the big houses."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в большие дома.",
+      "en": "People go into the big houses."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в больших домах.",
-      "en": "The children are in the big houses."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в больших домах.",
+      "en": "People are in the big houses."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из больших домов.",
-      "en": "The children come out of the big houses."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из больших домов.",
+      "en": "People come out of the big houses."
     },
     "pl.all": {
       "et": "Me paneme {} uued katused.",
@@ -4364,19 +8111,19 @@
       "en": "I look at the small houses."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в маленькие дома.",
-      "en": "The children go into the small houses."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в маленькие дома.",
+      "en": "People go into the small houses."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в маленьких домах.",
-      "en": "The children are in the small houses."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в маленьких домах.",
+      "en": "People are in the small houses."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из маленьких домов.",
-      "en": "The children come out of the small houses."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из маленьких домов.",
+      "en": "People come out of the small houses."
     },
     "pl.all": {
       "et": "Me paneme {} uued katused.",
@@ -4456,19 +8203,19 @@
       "en": "I look at the new houses."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в новые дома.",
-      "en": "The children go into the new houses."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в новые дома.",
+      "en": "People go into the new houses."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в новых домах.",
-      "en": "The children are in the new houses."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в новых домах.",
+      "en": "People are in the new houses."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из новых домов.",
-      "en": "The children come out of the new houses."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из новых домов.",
+      "en": "People come out of the new houses."
     },
     "pl.all": {
       "et": "Me paneme {} uued katused.",
@@ -4553,19 +8300,19 @@
       "en": "I look at the old houses."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в старые дома.",
-      "en": "The children go into the old houses."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в старые дома.",
+      "en": "People go into the old houses."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в старых домах.",
-      "en": "The children are in the old houses."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в старых домах.",
+      "en": "People are in the old houses."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из старых домов.",
-      "en": "The children come out of the old houses."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из старых домов.",
+      "en": "People come out of the old houses."
     },
     "pl.all": {
       "et": "Me paneme {} uued katused.",
@@ -4606,8 +8353,8 @@
     },
     "sg.abl": {
       "et": "Ma saan kirja sellelt {}.",
-      "ru": "Я получаю письмо от хорошего друга.",
-      "en": "I get a letter from my good friend."
+      "ru": "Я получаю письмо от этого хорошего друга.",
+      "en": "I get a letter from this good friend."
     },
     "sg.transl": {
       "et": "Kõik saab jälle {}.",
@@ -4636,8 +8383,8 @@
     },
     "pl.abl": {
       "et": "Ma saan kirja nendelt {}.",
-      "ru": "Я получаю письмо от хороших друзей.",
-      "en": "I get a letter from my good friends."
+      "ru": "Я получаю письмо от этих хороших друзей.",
+      "en": "I get a letter from these good friends."
     }
   },
   "halb": {
@@ -4720,8 +8467,8 @@
     },
     "sg.abl": {
       "et": "Ma saan kirja sellelt {}.",
-      "ru": "Я получаю письмо от молодого человека.",
-      "en": "I get a letter from the young man."
+      "ru": "Я получаю письмо от этого молодого человека.",
+      "en": "I get a letter from this young man."
     },
     "sg.transl": {
       "et": "Ma tahan jääda {}.",
@@ -4760,8 +8507,8 @@
     },
     "pl.abl": {
       "et": "Ma saan kirja nendelt {}.",
-      "ru": "Я получаю письмо от молодых людей.",
-      "en": "I get a letter from the young men."
+      "ru": "Я получаю письмо от этих молодых людей.",
+      "en": "I get a letter from these young men."
     }
   },
   "kiire": {
@@ -4903,19 +8650,19 @@
       "en": "I look at the warm rooms."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в тёплые комнаты.",
-      "en": "The children go into the warm rooms."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в тёплые комнаты.",
+      "en": "People go into the warm rooms."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в тёплых комнатах.",
-      "en": "The children are in the warm rooms."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в тёплых комнатах.",
+      "en": "People are in the warm rooms."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из тёплых комнат.",
-      "en": "The children come out of the warm rooms."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из тёплых комнат.",
+      "en": "People come out of the warm rooms."
     }
   },
   "külm": {
@@ -4965,19 +8712,19 @@
       "en": "I look at the cold rooms."
     },
     "pl.ill": {
-      "et": "Lapsed lähevad {}.",
-      "ru": "Дети идут в холодные комнаты.",
-      "en": "The children go into the cold rooms."
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в холодные комнаты.",
+      "en": "People go into the cold rooms."
     },
     "pl.ines": {
-      "et": "Lapsed on {}.",
-      "ru": "Дети в холодных комнатах.",
-      "en": "The children are in the cold rooms."
+      "et": "Inimesed on {}.",
+      "ru": "Люди в холодных комнатах.",
+      "en": "People are in the cold rooms."
     },
     "pl.ela": {
-      "et": "Lapsed tulevad {}.",
-      "ru": "Дети выходят из холодных комнат.",
-      "en": "The children come out of the cold rooms."
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из холодных комнат.",
+      "en": "People come out of the cold rooms."
     }
   },
   "pikk": {
@@ -5117,8 +8864,8 @@
     },
     "sg.abl": {
       "et": "Ma saan kirja sellelt {}.",
-      "ru": "Я получаю письмо от умного мальчика.",
-      "en": "I get a letter from the smart boy."
+      "ru": "Я получаю письмо от этого умного мальчика.",
+      "en": "I get a letter from this smart boy."
     },
     "sg.transl": {
       "et": "Ma tahan saada {}.",
@@ -5152,8 +8899,8 @@
     },
     "pl.abl": {
       "et": "Ma saan kirja nendelt {}.",
-      "ru": "Я получаю письмо от умных мальчиков.",
-      "en": "I get a letter from the smart boys."
+      "ru": "Я получаю письмо от этих умных мальчиков.",
+      "en": "I get a letter from these smart boys."
     }
   },
   "kallis": {
@@ -5338,6 +9085,1079 @@
       "et": "Me peseme nendelt {} pori maha.",
       "ru": "Мы смываем грязь с этих дешёвых машин.",
       "en": "We wash the mud off these cheap cars."
+    }
+  },
+  "punane": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена красного платья.",
+      "en": "This is the price of the red dress."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю красное платье.",
+      "en": "I'm washing the red dress."
+    },
+    "sg.ines": {
+      "et": "Ta on {}.",
+      "ru": "Она в красном платье.",
+      "en": "She is in a red dress."
+    },
+    "sg.transl": {
+      "et": "Foor läks {}.",
+      "ru": "Светофор загорелся красным.",
+      "en": "The light turned red."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это красные платья.",
+      "en": "These are red dresses."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена красных платьев.",
+      "en": "This is the price of the red dresses."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю красные платья.",
+      "en": "I'm washing the red dresses."
+    },
+    "pl.ines": {
+      "et": "Tüdrukud on {}.",
+      "ru": "Девочки в красных платьях.",
+      "en": "The girls are in red dresses."
+    }
+  },
+  "sinine": {
+    "sg.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у синей машины.",
+      "en": "I'm waiting by the blue car."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду синюю машину.",
+      "en": "I'm waiting for the blue car."
+    },
+    "sg.ill": {
+      "et": "Ma istun {}.",
+      "ru": "Я сажусь в синюю машину.",
+      "en": "I get into the blue car."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в синей машине.",
+      "en": "I am in the blue car."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} välja.",
+      "ru": "Я выхожу из синей машины.",
+      "en": "I get out of the blue car."
+    },
+    "sg.all": {
+      "et": "Ma panen {} uued rehvid.",
+      "ru": "Я ставлю новые шины на синюю машину.",
+      "en": "I put new tyres on the blue car."
+    },
+    "sg.ade": {
+      "et": "{} on uued rehvid.",
+      "ru": "У синей машины новые шины.",
+      "en": "The blue car has new tyres."
+    },
+    "sg.abl": {
+      "et": "Ma pesen sellelt {} pori maha.",
+      "ru": "Я смываю грязь с этой синей машины.",
+      "en": "I wash the mud off this blue car."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это синие машины.",
+      "en": "These are blue cars."
+    },
+    "pl.gen": {
+      "et": "Ma ootan {} juures.",
+      "ru": "Я жду у синих машин.",
+      "en": "I'm waiting by the blue cars."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на синие машины.",
+      "en": "I look at the blue cars."
+    },
+    "pl.ill": {
+      "et": "Inimesed istuvad {}.",
+      "ru": "Люди садятся в синие машины.",
+      "en": "People get into the blue cars."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в синих машинах.",
+      "en": "People are in the blue cars."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {} välja.",
+      "ru": "Люди выходят из синих машин.",
+      "en": "People get out of the blue cars."
+    },
+    "pl.all": {
+      "et": "Me paneme {} uued rehvid.",
+      "ru": "Мы ставим новые шины на синие машины.",
+      "en": "We put new tyres on the blue cars."
+    },
+    "pl.ade": {
+      "et": "{} on uued rehvid.",
+      "ru": "У синих машин новые шины.",
+      "en": "The blue cars have new tyres."
+    },
+    "pl.abl": {
+      "et": "Me peseme nendelt {} pori maha.",
+      "ru": "Мы смываем грязь с этих синих машин.",
+      "en": "We wash the mud off these blue cars."
+    }
+  },
+  "roheline": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта зелёного парка.",
+      "en": "This is a map of the green park."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на зелёный парк.",
+      "en": "I look at the green park."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в зелёный парк.",
+      "en": "I go to the green park."
+    },
+    "sg.ines": {
+      "et": "Ma jalutan {}.",
+      "ru": "Я гуляю в зелёном парке.",
+      "en": "I walk in the green park."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я возвращаюсь из зелёного парка.",
+      "en": "I come back from the green park."
+    },
+    "sg.transl": {
+      "et": "Foor läks {}.",
+      "ru": "Светофор загорелся зелёным.",
+      "en": "The light turned green."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это зелёные парки.",
+      "en": "These are green parks."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта зелёных парков.",
+      "en": "This is a map of the green parks."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на зелёные парки.",
+      "en": "I look at the green parks."
+    },
+    "pl.ill": {
+      "et": "Lapsed lähevad {}.",
+      "ru": "Дети идут в зелёные парки.",
+      "en": "The children go to the green parks."
+    },
+    "pl.ines": {
+      "et": "Inimesed jalutavad {}.",
+      "ru": "Люди гуляют в зелёных парках.",
+      "en": "People walk in the green parks."
+    },
+    "pl.ela": {
+      "et": "Lapsed tulevad {}.",
+      "ru": "Дети возвращаются из зелёных парков.",
+      "en": "The children come back from the green parks."
+    }
+  },
+  "valge": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена белой рубашки.",
+      "en": "This is the price of the white shirt."
+    },
+    "sg.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю белую рубашку.",
+      "en": "I'm washing the white shirt."
+    },
+    "sg.ines": {
+      "et": "Mul on {} palav.",
+      "ru": "Мне жарко в белой рубашке.",
+      "en": "I'm too hot in this white shirt."
+    },
+    "sg.transl": {
+      "et": "Juuksed läksid {}.",
+      "ru": "Волосы поседели.",
+      "en": "The hair turned white."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это белые рубашки.",
+      "en": "These are white shirts."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена белых рубашек.",
+      "en": "This is the price of the white shirts."
+    },
+    "pl.part": {
+      "et": "Ma pesen {}.",
+      "ru": "Я стираю белые рубашки.",
+      "en": "I'm washing the white shirts."
+    }
+  },
+  "must": {
+    "sg.gen": {
+      "et": "See on {} toit.",
+      "ru": "Это корм для чёрной кошки.",
+      "en": "This is food for the black cat."
+    },
+    "sg.part": {
+      "et": "Ma silitan {}.",
+      "ru": "Я глажу чёрную кошку.",
+      "en": "I stroke the black cat."
+    },
+    "sg.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю чёрную кошку.",
+      "en": "I feed the black cat."
+    },
+    "sg.ade": {
+      "et": "{} on rohelised silmad.",
+      "ru": "У чёрной кошки зелёные глаза.",
+      "en": "The black cat has green eyes."
+    },
+    "sg.abl": {
+      "et": "Ma võtan palli sellelt {}.",
+      "ru": "Я забираю мяч у этой чёрной кошки.",
+      "en": "I take the ball from this black cat."
+    },
+    "sg.transl": {
+      "et": "Taevas läks {}.",
+      "ru": "Небо почернело.",
+      "en": "The sky turned black."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это чёрные кошки.",
+      "en": "These are black cats."
+    },
+    "pl.gen": {
+      "et": "See on {} toit.",
+      "ru": "Это корм для чёрных кошек.",
+      "en": "This is food for the black cats."
+    },
+    "pl.part": {
+      "et": "Ma silitan {}.",
+      "ru": "Я глажу чёрных кошек.",
+      "en": "I stroke the black cats."
+    },
+    "pl.all": {
+      "et": "Ma annan {} süüa.",
+      "ru": "Я кормлю чёрных кошек.",
+      "en": "I feed the black cats."
+    },
+    "pl.ade": {
+      "et": "{} on rohelised silmad.",
+      "ru": "У чёрных кошек зелёные глаза.",
+      "en": "The black cats have green eyes."
+    },
+    "pl.abl": {
+      "et": "Ma võtan palli nendelt {}.",
+      "ru": "Я забираю мяч у этих чёрных кошек.",
+      "en": "I take the ball from these black cats."
+    }
+  },
+  "kollane": {
+    "sg.gen": {
+      "et": "Ma seisan {} juures.",
+      "ru": "Я стою у жёлтого автобуса.",
+      "en": "I'm standing by the yellow bus."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду жёлтый автобус.",
+      "en": "I'm waiting for the yellow bus."
+    },
+    "sg.ill": {
+      "et": "Ma astun {}.",
+      "ru": "Я сажусь в жёлтый автобус.",
+      "en": "I get on the yellow bus."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в жёлтом автобусе.",
+      "en": "I am on the yellow bus."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {} välja.",
+      "ru": "Я выхожу из жёлтого автобуса.",
+      "en": "I get off the yellow bus."
+    },
+    "sg.transl": {
+      "et": "Lehed lähevad {}.",
+      "ru": "Листья желтеют.",
+      "en": "The leaves are turning yellow."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это жёлтые автобусы.",
+      "en": "These are yellow buses."
+    },
+    "pl.gen": {
+      "et": "See on {} sõiduplaan.",
+      "ru": "Это расписание жёлтых автобусов.",
+      "en": "This is the timetable for the yellow buses."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на жёлтые автобусы.",
+      "en": "I look at the yellow buses."
+    },
+    "pl.ill": {
+      "et": "Inimesed astuvad {}.",
+      "ru": "Люди садятся в жёлтые автобусы.",
+      "en": "People get on the yellow buses."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в жёлтых автобусах.",
+      "en": "People are on the yellow buses."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {} välja.",
+      "ru": "Люди выходят из жёлтых автобусов.",
+      "en": "People get off the yellow buses."
+    }
+  },
+  "kuum": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена горячего супа.",
+      "en": "This is the price of the hot soup."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем горячий суп.",
+      "en": "I'm eating hot soup."
+    },
+    "sg.ill": {
+      "et": "Ma panen soola {}.",
+      "ru": "Я кладу соль в горячий суп.",
+      "en": "I put salt in the hot soup."
+    },
+    "sg.ines": {
+      "et": "{} on liha.",
+      "ru": "В горячем супе мясо.",
+      "en": "There is meat in the hot soup."
+    },
+    "sg.transl": {
+      "et": "Ilm läks {}.",
+      "ru": "Стало жарко.",
+      "en": "It got hot."
+    },
+    "sg.ess": {
+      "et": "Ma söön suppi alati {}.",
+      "ru": "Я всегда ем суп горячим.",
+      "en": "I always eat soup hot."
+    }
+  },
+  "puhas": {
+    "sg.gen": {
+      "et": "See on {} uks.",
+      "ru": "Это дверь в чистую комнату.",
+      "en": "This is the door to the clean room."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на чистую комнату.",
+      "en": "I look at the clean room."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в чистую комнату.",
+      "en": "I go into the clean room."
+    },
+    "sg.ines": {
+      "et": "Ma olen {}.",
+      "ru": "Я в чистой комнате.",
+      "en": "I am in the clean room."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из чистой комнаты.",
+      "en": "I come out of the clean room."
+    },
+    "sg.transl": {
+      "et": "Tuba sai {}.",
+      "ru": "Комната стала чистой.",
+      "en": "The room is clean now."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это чистые комнаты.",
+      "en": "These are clean rooms."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на чистые комнаты.",
+      "en": "I look at the clean rooms."
+    },
+    "pl.ill": {
+      "et": "Inimesed lähevad {}.",
+      "ru": "Люди идут в чистые комнаты.",
+      "en": "People go into the clean rooms."
+    },
+    "pl.ines": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди в чистых комнатах.",
+      "en": "People are in the clean rooms."
+    },
+    "pl.ela": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят из чистых комнат.",
+      "en": "People come out of the clean rooms."
+    }
+  },
+  "kerge": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена лёгкой сумки.",
+      "en": "This is the price of the light bag."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на лёгкую сумку.",
+      "en": "I look at the light bag."
+    },
+    "sg.ill": {
+      "et": "Ma panen raamatu {}.",
+      "ru": "Я кладу книгу в лёгкую сумку.",
+      "en": "I put the book in the light bag."
+    },
+    "sg.ines": {
+      "et": "Mul on raamat {}.",
+      "ru": "У меня книга в лёгкой сумке.",
+      "en": "I have a book in my light bag."
+    },
+    "sg.ela": {
+      "et": "Ma võtan raamatu {}.",
+      "ru": "Я достаю книгу из лёгкой сумки.",
+      "en": "I take the book out of my light bag."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это лёгкие сумки.",
+      "en": "These are light bags."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на лёгкие сумки.",
+      "en": "These are the prices of the light bags."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на лёгкие сумки.",
+      "en": "I look at the light bags."
+    }
+  },
+  "raske": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена тяжёлой сумки.",
+      "en": "This is the price of the heavy bag."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на тяжёлую сумку.",
+      "en": "I look at the heavy bag."
+    },
+    "sg.ill": {
+      "et": "Ma panen raamatu {}.",
+      "ru": "Я кладу книгу в тяжёлую сумку.",
+      "en": "I put the book in the heavy bag."
+    },
+    "sg.ines": {
+      "et": "Mul on raamat {}.",
+      "ru": "У меня книга в тяжёлой сумке.",
+      "en": "I have a book in my heavy bag."
+    },
+    "sg.ela": {
+      "et": "Ma võtan raamatu {}.",
+      "ru": "Я достаю книгу из тяжёлой сумки.",
+      "en": "I take the book out of my heavy bag."
+    },
+    "sg.transl": {
+      "et": "Elu muutus {}.",
+      "ru": "Жизнь стала тяжёлой.",
+      "en": "Life became hard."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это тяжёлые сумки.",
+      "en": "These are heavy bags."
+    },
+    "pl.gen": {
+      "et": "Need on {} hinnad.",
+      "ru": "Это цены на тяжёлые сумки.",
+      "en": "These are the prices of the heavy bags."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на тяжёлые сумки.",
+      "en": "I look at the heavy bags."
+    }
+  },
+  "tühi": {
+    "sg.gen": {
+      "et": "See on {} nimi.",
+      "ru": "Это название пустой улицы.",
+      "en": "This is the name of the empty street."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на пустую улицу.",
+      "en": "I look at the empty street."
+    },
+    "sg.all": {
+      "et": "Ma lähen {}.",
+      "ru": "Я выхожу на пустую улицу.",
+      "en": "I go out into the empty street."
+    },
+    "sg.ade": {
+      "et": "Ma olen {}.",
+      "ru": "Я на пустой улице.",
+      "en": "I am in the empty street."
+    },
+    "sg.abl": {
+      "et": "Ma tulen sellelt {} tuppa.",
+      "ru": "Я захожу в дом с этой пустой улицы.",
+      "en": "I come in from this empty street."
+    },
+    "sg.transl": {
+      "et": "Tänav jäi {}.",
+      "ru": "Улица опустела.",
+      "en": "The street became empty."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это пустые улицы.",
+      "en": "These are empty streets."
+    },
+    "pl.gen": {
+      "et": "Need on {} nimed.",
+      "ru": "Это названия пустых улиц.",
+      "en": "These are the names of the empty streets."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на пустые улицы.",
+      "en": "I look at the empty streets."
+    },
+    "pl.all": {
+      "et": "Inimesed tulevad {}.",
+      "ru": "Люди выходят на пустые улицы.",
+      "en": "People come out into the empty streets."
+    },
+    "pl.ade": {
+      "et": "Inimesed on {}.",
+      "ru": "Люди на пустых улицах.",
+      "en": "People are in the empty streets."
+    }
+  },
+  "rõõmus": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга весёлого человека.",
+      "en": "This is the cheerful person's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду весёлого человека.",
+      "en": "I'm waiting for the cheerful person."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню весёлому человеку.",
+      "en": "I call the cheerful person."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У весёлого человека есть собака.",
+      "en": "The cheerful person has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja sellelt {}.",
+      "ru": "Я получаю письмо от этого весёлого человека.",
+      "en": "I get a letter from this cheerful person."
+    },
+    "sg.transl": {
+      "et": "Laps muutus {}.",
+      "ru": "Ребёнок повеселел.",
+      "en": "The child cheered up."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это весёлые люди.",
+      "en": "These are cheerful people."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят весёлые люди.",
+      "en": "I'm listening to what the cheerful people are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду весёлых людей.",
+      "en": "I'm waiting for the cheerful people."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню весёлым людям.",
+      "en": "I call the cheerful people."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У весёлых людей есть собаки.",
+      "en": "The cheerful people have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja nendelt {}.",
+      "ru": "Я получаю письмо от этих весёлых людей.",
+      "en": "I get a letter from these cheerful people."
+    }
+  },
+  "kurb": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга грустной девочки.",
+      "en": "This is the sad girl's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду грустную девочку.",
+      "en": "I'm waiting for the sad girl."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню грустной девочке.",
+      "en": "I call the sad girl."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У грустной девочки есть собака.",
+      "en": "The sad girl has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja sellelt {}.",
+      "ru": "Я получаю письмо от этой грустной девочки.",
+      "en": "I get a letter from this sad girl."
+    },
+    "sg.transl": {
+      "et": "Ta muutus {}.",
+      "ru": "Она загрустила.",
+      "en": "She became sad."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это грустные девочки.",
+      "en": "These are sad girls."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят грустные девочки.",
+      "en": "I'm listening to what the sad girls are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду грустных девочек.",
+      "en": "I'm waiting for the sad girls."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню грустным девочкам.",
+      "en": "I call the sad girls."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У грустных девочек есть собаки.",
+      "en": "The sad girls have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja nendelt {}.",
+      "ru": "Я получаю письмо от этих грустных девочек.",
+      "en": "I get a letter from these sad girls."
+    }
+  },
+  "huvitav": {
+    "sg.gen": {
+      "et": "See on {} lõpp.",
+      "ru": "Это конец интересной истории.",
+      "en": "This is the end of the interesting story."
+    },
+    "sg.part": {
+      "et": "Ma kuulan {}.",
+      "ru": "Я слушаю интересную историю.",
+      "en": "I listen to the interesting story."
+    },
+    "sg.ines": {
+      "et": "{} on viga.",
+      "ru": "В интересной истории ошибка.",
+      "en": "There is a mistake in the interesting story."
+    },
+    "sg.ela": {
+      "et": "Me räägime {}.",
+      "ru": "Мы говорим об интересной истории.",
+      "en": "We talk about the interesting story."
+    },
+    "sg.ade": {
+      "et": "{} on hea lõpp.",
+      "ru": "У интересной истории хороший конец.",
+      "en": "The interesting story has a good ending."
+    },
+    "sg.transl": {
+      "et": "Film muutus lõpus {}.",
+      "ru": "К концу фильм стал интересным.",
+      "en": "The film got interesting at the end."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это интересные истории.",
+      "en": "These are interesting stories."
+    },
+    "pl.gen": {
+      "et": "See on {} kogumik.",
+      "ru": "Это сборник рассказов.",
+      "en": "This is a collection of stories."
+    },
+    "pl.part": {
+      "et": "Ma kuulan {}.",
+      "ru": "Я слушаю интересные истории.",
+      "en": "I listen to the interesting stories."
+    },
+    "pl.ines": {
+      "et": "{} on vigu.",
+      "ru": "В интересных историях есть ошибки.",
+      "en": "There are mistakes in the interesting stories."
+    },
+    "pl.ela": {
+      "et": "Me räägime {}.",
+      "ru": "Мы говорим об интересных историях.",
+      "en": "We talk about the interesting stories."
+    },
+    "pl.ade": {
+      "et": "{} on head lõpud.",
+      "ru": "У интересных историй хорошие концовки.",
+      "en": "The interesting stories have good endings."
+    }
+  },
+  "pime": {
+    "sg.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта тёмного леса.",
+      "en": "This is a map of the dark forest."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на тёмный лес.",
+      "en": "I look at the dark forest."
+    },
+    "sg.ill": {
+      "et": "Ma lähen {}.",
+      "ru": "Я иду в тёмный лес.",
+      "en": "I go into the dark forest."
+    },
+    "sg.ines": {
+      "et": "Ma jalutan {}.",
+      "ru": "Я гуляю в тёмном лесу.",
+      "en": "I walk in the dark forest."
+    },
+    "sg.ela": {
+      "et": "Ma tulen {}.",
+      "ru": "Я выхожу из тёмного леса.",
+      "en": "I come out of the dark forest."
+    },
+    "sg.transl": {
+      "et": "Väljas läheb {}.",
+      "ru": "На улице темнеет.",
+      "en": "It's getting dark outside."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это тёмные леса.",
+      "en": "These are dark forests."
+    },
+    "pl.gen": {
+      "et": "See on {} kaart.",
+      "ru": "Это карта тёмных лесов.",
+      "en": "This is a map of the dark forests."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на тёмные леса.",
+      "en": "I look at the dark forests."
+    },
+    "pl.ill": {
+      "et": "Linnud lendavad {}.",
+      "ru": "Птицы летят в тёмные леса.",
+      "en": "Birds fly into the dark forests."
+    },
+    "pl.ines": {
+      "et": "Loomad elavad {}.",
+      "ru": "Звери живут в тёмных лесах.",
+      "en": "Animals live in the dark forests."
+    },
+    "pl.ela": {
+      "et": "Loomad tulevad {}.",
+      "ru": "Звери выходят из тёмных лесов.",
+      "en": "Animals come out of the dark forests."
+    }
+  },
+  "kõrge": {
+    "sg.gen": {
+      "et": "See on {} tipp.",
+      "ru": "Это вершина высокой горы.",
+      "en": "This is the top of the high mountain."
+    },
+    "sg.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на высокую гору.",
+      "en": "I look at the high mountain."
+    },
+    "sg.all": {
+      "et": "Ma ronin {}.",
+      "ru": "Я поднимаюсь на высокую гору.",
+      "en": "I climb up the high mountain."
+    },
+    "sg.ade": {
+      "et": "Ma olen {}.",
+      "ru": "Я на высокой горе.",
+      "en": "I am on the high mountain."
+    },
+    "sg.abl": {
+      "et": "Ma tulen sellelt {} alla.",
+      "ru": "Я спускаюсь с этой высокой горы.",
+      "en": "I come down this high mountain."
+    },
+    "sg.transl": {
+      "et": "Puu kasvas {}.",
+      "ru": "Дерево выросло высоким.",
+      "en": "The tree grew tall."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это высокие горы.",
+      "en": "These are high mountains."
+    },
+    "pl.gen": {
+      "et": "Need on {} tipud.",
+      "ru": "Это вершины высоких гор.",
+      "en": "These are the tops of the high mountains."
+    },
+    "pl.part": {
+      "et": "Ma vaatan {}.",
+      "ru": "Я смотрю на высокие горы.",
+      "en": "I look at the high mountains."
+    },
+    "pl.all": {
+      "et": "Päike paistab {}.",
+      "ru": "Солнце светит на высокие горы.",
+      "en": "The sun shines on the high mountains."
+    },
+    "pl.ade": {
+      "et": "{} on lumi.",
+      "ru": "На высоких горах лежит снег.",
+      "en": "There is snow on the high mountains."
+    },
+    "pl.abl": {
+      "et": "Tuul puhub nendelt {}.",
+      "ru": "Ветер дует с этих высоких гор.",
+      "en": "The wind blows from these high mountains."
+    }
+  },
+  "tugev": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга сильного мужчины.",
+      "en": "This is the strong man's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду сильного мужчину.",
+      "en": "I'm waiting for the strong man."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню сильному мужчине.",
+      "en": "I call the strong man."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У сильного мужчины есть собака.",
+      "en": "The strong man has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja sellelt {}.",
+      "ru": "Я получаю письмо от этого сильного мужчины.",
+      "en": "I get a letter from this strong man."
+    },
+    "sg.transl": {
+      "et": "Ma tahan saada {}.",
+      "ru": "Я хочу стать сильным.",
+      "en": "I want to become strong."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это сильные мужчины.",
+      "en": "These are strong men."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят сильные мужчины.",
+      "en": "I'm listening to what the strong men are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду сильных мужчин.",
+      "en": "I'm waiting for the strong men."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню сильным мужчинам.",
+      "en": "I call the strong men."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У сильных мужчин есть собаки.",
+      "en": "The strong men have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja nendelt {}.",
+      "ru": "Я получаю письмо от этих сильных мужчин.",
+      "en": "I get a letter from these strong men."
+    }
+  },
+  "lahke": {
+    "sg.gen": {
+      "et": "See on {} raamat.",
+      "ru": "Это книга доброго соседа.",
+      "en": "This is the kind neighbour's book."
+    },
+    "sg.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду доброго соседа.",
+      "en": "I'm waiting for the kind neighbour."
+    },
+    "sg.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню доброму соседу.",
+      "en": "I call the kind neighbour."
+    },
+    "sg.ade": {
+      "et": "{} on koer.",
+      "ru": "У доброго соседа есть собака.",
+      "en": "The kind neighbour has a dog."
+    },
+    "sg.abl": {
+      "et": "Ma saan kirja sellelt {}.",
+      "ru": "Я получаю письмо от этого доброго соседа.",
+      "en": "I get a letter from this kind neighbour."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это добрые соседи.",
+      "en": "These are kind neighbours."
+    },
+    "pl.gen": {
+      "et": "Ma kuulan {} juttu.",
+      "ru": "Я слушаю, о чём говорят добрые соседи.",
+      "en": "I'm listening to what the kind neighbours are saying."
+    },
+    "pl.part": {
+      "et": "Ma ootan {}.",
+      "ru": "Я жду добрых соседей.",
+      "en": "I'm waiting for the kind neighbours."
+    },
+    "pl.all": {
+      "et": "Ma helistan {}.",
+      "ru": "Я звоню добрым соседям.",
+      "en": "I call the kind neighbours."
+    },
+    "pl.ade": {
+      "et": "{} on koerad.",
+      "ru": "У добрых соседей есть собаки.",
+      "en": "The kind neighbours have dogs."
+    },
+    "pl.abl": {
+      "et": "Ma saan kirja nendelt {}.",
+      "ru": "Я получаю письмо от этих добрых соседей.",
+      "en": "I get a letter from these kind neighbours."
+    }
+  },
+  "värske": {
+    "sg.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена свежего яблока.",
+      "en": "This is the price of the fresh apple."
+    },
+    "sg.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем свежее яблоко.",
+      "en": "I'm eating a fresh apple."
+    },
+    "sg.ines": {
+      "et": "{} on uss.",
+      "ru": "В свежем яблоке червяк.",
+      "en": "There is a worm in the fresh apple."
+    },
+    "sg.ela": {
+      "et": "Ma teen {} mahla.",
+      "ru": "Я делаю сок из свежего яблока.",
+      "en": "I make juice from the fresh apple."
+    },
+    "sg.all": {
+      "et": "Ma panen kleebise {}.",
+      "ru": "Я клею наклейку на свежее яблоко.",
+      "en": "I put a sticker on the fresh apple."
+    },
+    "sg.ade": {
+      "et": "{} on punane koor.",
+      "ru": "У свежего яблока красная кожура.",
+      "en": "The fresh apple has red skin."
+    },
+    "pl.nom": {
+      "et": "Need on {}.",
+      "ru": "Это свежие яблоки.",
+      "en": "These are fresh apples."
+    },
+    "pl.gen": {
+      "et": "See on {} hind.",
+      "ru": "Это цена свежих яблок.",
+      "en": "This is the price of the fresh apples."
+    },
+    "pl.part": {
+      "et": "Ma söön {}.",
+      "ru": "Я ем свежие яблоки.",
+      "en": "I'm eating fresh apples."
+    },
+    "pl.ines": {
+      "et": "{} on ussid.",
+      "ru": "В свежих яблоках червяки.",
+      "en": "There are worms in the fresh apples."
+    },
+    "pl.ela": {
+      "et": "Ma teen {} mahla.",
+      "ru": "Я делаю сок из свежих яблок.",
+      "en": "I make juice from the fresh apples."
     }
   }
 }

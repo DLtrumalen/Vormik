@@ -66,6 +66,87 @@ lugu	S	история, песня	story, song	tarina
 pilt	S	картинка, изображение	picture	kuva	
 riik	S	страна	country	valtio	
 uni	S	сон	sleep, dream	uni	
+korter	S	квартира	flat	asunto	
+haigla	S	больница	hospital	sairaala	
+apteek	S	аптека	pharmacy	apteekki	
+pank	S	банк	bank	pankki	
+kino	S	кинотеатр, кино	cinema	elokuvateatteri	
+teater	S	театр	theatre	teatteri	
+muuseum	S	музей	museum	museo	
+restoran	S	ресторан	restaurant	ravintola	
+kohvik	S	кафе	café	kahvila	
+hotell	S	гостиница	hotel	hotelli	
+raamatukogu	S	библиотека	library	kirjasto	
+kontor	S	офис	office	toimisto	
+park	S	парк	park	puisto	
+väljak	S	площадь	square	aukio	
+aed	S	сад	garden	puutarha	
+põld	S	поле	field	pelto	
+rand	S	пляж	beach	ranta	
+küla	S	деревня	village	kylä	
+turg	S	рынок	market	tori	
+sild	S	мост	bridge	silta	
+buss	S	автобус	bus	bussi	
+tramm	S	трамвай	tram	raitiovaunu	
+jalgratas	S	велосипед	bicycle	polkupyörä	
+paat	S	лодка	boat	vene	
+takso	S	такси	taxi	taksi	
+voodi	S	кровать	bed	sänky	
+kapp	S	шкаф	cupboard, wardrobe	kaappi	kapi
+lamp	S	лампа	lamp	lamppu	
+tass	S	чашка	cup	kuppi	
+taldrik	S	тарелка	plate	lautanen	
+klaas	S	стакан	glass	lasi	
+nuga	S	нож	knife	veitsi	
+pudel	S	бутылка	bottle	pullo	
+kott	S	сумка	bag	laukku	koti
+võti	S	ключ	key	avain	
+telefon	S	телефон	phone	puhelin	
+arvuti	S	компьютер	computer	tietokone	
+kell	S	часы	clock, watch	kello	
+pall	S	мяч	ball	pallo	
+särk	S	рубашка	shirt	paita	
+kleit	S	платье	dress	mekko	
+jope	S	куртка	jacket	takki	
+müts	S	шапка	hat	pipo	mütsi
+sall	S	шарф	scarf	huivi	
+king	S	туфля	shoe	kenkä	
+sokk	S	носок	sock	sukka	soki
+mantel	S	пальто	coat	päällystakki	
+vend	S	брат	brother	veli	
+õde	S	сестра	sister	sisko	
+vanaema	S	бабушка	grandmother	isoäiti	
+vanaisa	S	дедушка	grandfather	isoisä	
+poeg	S	сын	son	poika	
+tütar	S	дочь	daughter	tytär	
+naaber	S	сосед	neighbour	naapuri	
+õpilane	S	ученик	pupil	oppilas	
+müüja	S	продавец	shop assistant	myyjä	
+kokk	S	повар	cook	kokki	
+hobune	S	лошадь	horse	hevonen	
+lehm	S	корова	cow	lehmä	
+lind	S	птица	bird	lintu	
+hiir	S	мышь	mouse	hiiri	
+karu	S	медведь	bear	karhu	
+hunt	S	волк	wolf	susi	
+kana	S	курица	hen	kana	
+piim	S	молоко	milk	maito	
+kohv	S	кофе	coffee	kahvi	
+juust	S	сыр	cheese	juusto	
+liha	S	мясо	meat	liha	
+supp	S	суп	soup	keitto	
+kook	S	пирог, торт	cake	kakku	koogi
+muna	S	яйцо	egg	muna	
+kartul	S	картошка	potato	peruna	
+tomat	S	помидор	tomato	tomaatti	
+mahl	S	сок	juice	mehu	
+päike	S	солнце	sun	aurinko	
+tuul	S	ветер	wind	tuuli	
+kivi	S	камень	stone	kivi	
+talv	S	зима	winter	talvi	
+suvi	S	лето	summer	kesä	
+hommik	S	утро	morning	aamu	
+õhtu	S	вечер	evening	ilta	
 ilus	A	красивый	beautiful	kaunis	
 suur	A	большой	big	suuri	
 väike	A	маленький	small	pieni	
@@ -82,3 +163,22 @@ lühike	A	короткий	short	lyhyt
 tark	A	умный	smart	viisas	
 kallis	A	дорогой	expensive	kallis	
 odav	A	дешёвый	cheap	halpa	
+punane	A	красный	red	punainen	
+sinine	A	синий	blue	sininen	
+roheline	A	зелёный	green	vihreä	
+valge	A	белый	white	valkoinen	
+must	A	чёрный	black	musta	
+kollane	A	жёлтый	yellow	keltainen	
+kuum	A	горячий	hot	kuuma	
+puhas	A	чистый	clean	puhdas	
+kerge	A	лёгкий	light	kevyt	
+raske	A	тяжёлый	heavy	raskas	
+tühi	A	пустой	empty	tyhjä	
+rõõmus	A	весёлый	cheerful	iloinen	
+kurb	A	грустный	sad	surullinen	
+huvitav	A	интересный	interesting	kiinnostava	
+pime	A	тёмный	dark	pimeä	
+kõrge	A	высокий	high	korkea	
+tugev	A	сильный	strong	vahva	
+lahke	A	добрый	kind	ystävällinen	
+värske	A	свежий	fresh	tuore	

@@ -24,7 +24,7 @@ describe("словарь", () => {
 
   it("не смешивает типы склонения омонимов (kool → kooli, а не koola)", () => {
     // Два родительных ед. ч. — признак того, что генератор смешал два разных слова.
-    const allowed = new Set(["väike"]); // väikese / väikse — оба нормативны
+    const allowed = new Set(["väike", "päike"]); // väikese / väikse, päikese / päikse — оба нормативны
     for (const word of WORDS) {
       if (allowed.has(word.lemma)) continue;
       expect(word.forms["sg.gen"], word.lemma).toHaveLength(1);
