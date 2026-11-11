@@ -243,6 +243,8 @@ export const fi: Dictionary = {
     number: "Luku",
     groups: ["Perussijat", "Sisäpaikallissijat", "Ulkopaikallissijat", "Muut"],
     presets: ["Kaikki 14", "Perussijat", "Paikallissijat (6)", "Muut (5)"],
+    blocked:
+      "Silloin ei jäisi yhtään tehtävää. Yksikön nimetav on sanakirjamuoto, eikä sitä kysytä, joten valitse vielä ainakin yksi sija.",
     minHint:
       "Vähintään yksi tehtävä täytyy jäädä. Yksikön nominatiivi on sanakirjamuoto, sitä ei kysytä.",
     all: "Kaikki sijat",

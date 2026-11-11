@@ -157,6 +157,8 @@ export type Dictionary = {
     groups: [string, string, string, string];
     presets: [string, string, string, string];
     minHint: string;
+    /** Почему выбор не применился: не осталось бы ни одного задания. */
+    blocked: string;
     all: string;
     count: (n: number) => string;
     bothNumbers: string;

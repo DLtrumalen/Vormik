@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { Dictionary } from "@/i18n";
 import { CASE_BY_KEY, type CaseKey, type GrammaticalNumber } from "@/lib/cases";
 import { taskIds, type Settings } from "@/lib/srs";
@@ -44,10 +45,15 @@ export function settingsSummary(settings: Settings, t: Dictionary) {
 type Props = { t: Dictionary; settings: Settings; onChange: (settings: Settings) => void };
 
 export function CasePickerFields({ t, settings, onChange }: Props) {
+  const [blocked, setBlocked] = useState(false);
+
   // Выбор, при котором не остаётся ни одного задания (например, только именительный в ед. ч. —
   // словарную форму не спрашиваем), не применяем: иначе тренажёр сразу сказал бы «всё сделано».
+  // Но и молча не игнорируем — объясняем, почему кнопка не нажалась.
   function apply(next: Settings) {
-    if (taskIds(next).length > 0) onChange(next);
+    const ok = taskIds(next).length > 0;
+    setBlocked(!ok);
+    if (ok) onChange(next);
   }
   function setCases(cases: CaseKey[]) {
     apply({ ...settings, cases });
@@ -68,6 +74,12 @@ export function CasePickerFields({ t, settings, onChange }: Props) {
           ))}
         </div>
       </fieldset>
+
+      {blocked && (
+        <p role="status" className="rounded-xl bg-warning-soft px-3 py-2 text-sm text-warning">
+          {t.picker.blocked}
+        </p>
+      )}
 
       <fieldset>
         <legend className="mb-2 text-sm font-medium">{t.picker.number}</legend>

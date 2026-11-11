@@ -243,6 +243,8 @@ export const en: Dictionary = {
     number: "Number",
     groups: ["Basic", "Inner local · in / out", "Outer local · on / off", "Other"],
     presets: ["All 14", "Basic", "Local (6)", "Other (5)"],
+    blocked:
+      "That would leave no tasks. Nimetav singular is the dictionary form and is never asked, so choose at least one more case.",
     minHint:
       "At least one task must remain. Nominative singular is the dictionary form, so it is never asked.",
     all: "All cases",
