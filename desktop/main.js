@@ -3,6 +3,7 @@
 // (страницы кэширует service worker сайта).
 const { app, BrowserWindow, shell } = require("electron");
 const path = require("node:path");
+const { pathToFileURL } = require("node:url");
 
 const APP_URL = "https://vormik.vercel.app";
 const START_URL = `${APP_URL}/train`;
@@ -20,6 +21,25 @@ function isTrainerUrl(url) {
     return u.origin === APP_URL && u.pathname.startsWith("/train");
   } catch {
     return false;
+  }
+}
+
+// Единственный локальный файл, который можно открыть в окне: экран «Нет интернета».
+const OFFLINE_URL = pathToFileURL(path.join(__dirname, "offline.html")).href;
+
+function isOfflinePage(url) {
+  return url.split(/[?#]/)[0] === OFFLINE_URL;
+}
+
+/**
+ * Во внешний браузер отдаём только обычные https-ссылки. file:, smb: и другие схемы Windows
+ * могли бы запустить программы на компьютере, если бы на сайт кто-то подложил такую ссылку.
+ */
+function openSafely(url) {
+  try {
+    if (new URL(url).protocol === "https:") shell.openExternal(url);
+  } catch {
+    // Некорректная ссылка — ничего не открываем.
   }
 }
 
@@ -53,13 +73,13 @@ function createWindow() {
 
   // Всё, что не тренажёр (сайт, внешние ссылки), открываем в обычном браузере.
   win.webContents.setWindowOpenHandler(({ url }) => {
-    shell.openExternal(url);
+    openSafely(url);
     return { action: "deny" };
   });
   win.webContents.on("will-navigate", (event, url) => {
-    if (isTrainerUrl(url) || url.startsWith("file:")) return;
+    if (isTrainerUrl(url) || isOfflinePage(url)) return;
     event.preventDefault();
-    shell.openExternal(url);
+    openSafely(url);
   });
 
   // Нет интернета при самом первом запуске — показываем экран с кнопкой «Повторить».

@@ -204,9 +204,11 @@ function fill(template: string, part: string, noun: string | null) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
+/** Перевод предложения. Финского перевода пока нет — показываем английский, а не пустое место. */
 function translate(word: Word, key: FormKey, locale: Locale) {
   const template = sentenceTemplate(word, key);
-  return template && locale !== "fi" ? template[locale] : null;
+  if (!template) return null;
+  return locale === "fi" ? template.en : template[locale];
 }
 
 /** Предложение задания с пропуском на месте нужной формы: «Ma sõidan _____.» */

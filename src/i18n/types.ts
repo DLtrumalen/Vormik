@@ -101,6 +101,8 @@ export type Dictionary = {
     pickerTitle: string;
     done: string;
     loading: string;
+    /** Экран, если тренажёр не смог открыться (например, из-за испорченных данных). */
+    crash: { title: string; text: string; reset: string };
   };
 
   task: {
@@ -138,6 +140,20 @@ export type Dictionary = {
     outOf: (total: number) => string;
     reset: string;
     confirmReset: string;
+    backup: {
+      title: string;
+      text: string;
+      copy: string;
+      copied: string;
+      restore: string;
+      placeholder: string;
+      apply: string;
+      restored: string;
+      badCode: string;
+      confirmRestore: string;
+    };
+    /** Предупреждение для iPhone в Safari: сайт может потерять данные через 7 дней. */
+    iosWarning: string;
   };
 
   settings: {

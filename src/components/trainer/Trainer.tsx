@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { LangSwitcher } from "@/components/LangSwitcher";
+import { BACK_EVENT } from "@/components/NativeBack";
 import { getDictionary, localeHref, type Dictionary } from "@/i18n";
 import { useLocale } from "@/i18n/client";
 import { isStandalone } from "@/lib/install";
@@ -60,6 +61,18 @@ export default function Trainer() {
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLOR[theme]);
     document.documentElement.classList.toggle(LIGHT_CLASS, theme === "light");
   }, [theme]);
+
+  // Кнопка «Назад» на Android: сначала закрываем выбор падежей, потом возвращаемся на «Учить».
+  useEffect(() => {
+    const onBack = (event: Event) => {
+      if (pickerOpen) setPickerOpen(false);
+      else if (view !== "train") setView("train");
+      else return;
+      event.preventDefault();
+    };
+    window.addEventListener(BACK_EVENT, onBack);
+    return () => window.removeEventListener(BACK_EVENT, onBack);
+  }, [pickerOpen, view]);
 
   // Ответили в другой вкладке — берём её прогресс, чтобы не затереть его своим.
   useEffect(
@@ -186,6 +199,7 @@ export default function Trainer() {
                 resetProgress();
                 setSession(startSession());
               }}
+              onRestore={(restored) => update(restored, { advance: true })}
             />
           )}
 

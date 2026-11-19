@@ -184,6 +184,11 @@ export const en: Dictionary = {
     pickerTitle: "Which cases to practise",
     done: "Done",
     loading: "Loading the trainer",
+    crash: {
+      title: "The trainer couldn't open",
+      text: "Your saved progress seems to be damaged. You can reset it and start again — everything else will work.",
+      reset: "Reset progress and reopen",
+    },
   },
 
   task: {
@@ -226,6 +231,20 @@ export const en: Dictionary = {
     outOf: (n) => `of ${n}`,
     reset: "Reset progress",
     confirmReset: "Delete all progress? This can't be undone.",
+    backup: {
+      title: "Backup",
+      text: "Your progress is stored only on this device. Copy the code and keep it (for example in your notes) to move your progress to another device or restore it.",
+      copy: "Copy code",
+      copied: "Code copied",
+      restore: "Restore from code",
+      placeholder: "Paste the code that starts with VORMIK1:",
+      apply: "Restore",
+      restored: "Progress restored",
+      badCode: "This code doesn't work. Check that you copied all of it.",
+      confirmRestore: "Replace your current progress with the progress from the code?",
+    },
+    iosWarning:
+      "On iPhone, Safari deletes a website's data if you don't open it for 7 days. To keep your progress, install the app (Share → Add to Home Screen) or save a backup.",
   },
 
   settings: {
