@@ -184,6 +184,11 @@ export const fi: Dictionary = {
     pickerTitle: "Mitä sijoja harjoitellaan",
     done: "Valmis",
     loading: "Ladataan harjoittelua",
+    crash: {
+      title: "Harjoitus ei avautunut",
+      text: "Tallennettu edistyminen näyttää vioittuneen. Voit nollata sen ja aloittaa alusta — kaikki muu toimii.",
+      reset: "Nollaa edistyminen ja avaa uudelleen",
+    },
   },
 
   task: {
@@ -226,6 +231,20 @@ export const fi: Dictionary = {
     outOf: (n) => `${n} vastauksesta`,
     reset: "Nollaa edistyminen",
     confirmReset: "Poistetaanko kaikki edistyminen? Tätä ei voi perua.",
+    backup: {
+      title: "Varmuuskopio",
+      text: "Edistyminen tallennetaan vain tälle laitteelle. Kopioi koodi ja säilytä se (esimerkiksi muistiinpanoissa), jotta voit siirtää edistymisen toiselle laitteelle tai palauttaa sen.",
+      copy: "Kopioi koodi",
+      copied: "Koodi kopioitu",
+      restore: "Palauta koodista",
+      placeholder: "Liitä koodi, joka alkaa VORMIK1:",
+      apply: "Palauta",
+      restored: "Edistyminen palautettu",
+      badCode: "Tämä koodi ei kelpaa. Tarkista, että kopioit sen kokonaan.",
+      confirmRestore: "Korvataanko nykyinen edistyminen koodin edistymisellä?",
+    },
+    iosWarning:
+      "iPhonessa Safari poistaa sivuston tiedot, jos sitä ei avata 7 päivään. Jotta edistyminen säilyy, asenna sovellus (Jaa → Lisää Koti-valikkoon) tai tallenna varmuuskopio.",
   },
 
   settings: {

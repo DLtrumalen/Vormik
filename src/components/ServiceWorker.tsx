@@ -53,11 +53,22 @@ export function ServiceWorker() {
       .then((ready) => {
         // Файлы, загруженные ещё до service worker, иначе не попадут в кэш, и без интернета
         // приложение откроется пустым.
-        const urls = performance
-          .getEntriesByType("resource")
-          .map((entry) => entry.name)
-          .filter((url) => new URL(url).pathname.startsWith("/_next/static/"));
-        ready.active?.postMessage({ type: "cache", urls });
+        const cacheLoaded = () => {
+          const urls = performance
+            .getEntriesByType("resource")
+            .map((entry) => entry.name)
+            .filter((url) => new URL(url).pathname.startsWith("/_next/static/"));
+          ready.active?.postMessage({ type: "cache", urls });
+        };
+        cacheLoaded();
+        // Код тренажёра подгружается отдельно и не указан в HTML страниц, поэтому service worker
+        // не может скачать его заранее. Загружаем его сами, когда страница освободится: тогда
+        // тренажёр откроется без интернета, даже если раньше человек видел только главную.
+        const idle =
+          window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 2000));
+        idle(() => {
+          import("@/components/trainer/Trainer").then(cacheLoaded, () => {});
+        });
       })
       .catch(() => {
         // Без service worker всё работает, просто не офлайн.

@@ -63,7 +63,7 @@ describe("explain", () => {
     });
     expect(taskSentence(WORD_BY_ID.sõber!, "sg.ade", "fi")).toEqual({
       et: `${GAP} on koer.`,
-      translation: null,
+      translation: "My friend has a dog.",
     });
   });
 
@@ -146,7 +146,7 @@ describe("explain", () => {
     );
     expect(explain(uus, "sg.ill", "", "wrong", "fi").example).toEqual({
       et: "Ma lähen uude majja.",
-      translation: null,
+      translation: "I go into the new house.",
     });
   });
 
@@ -172,7 +172,7 @@ describe("explain", () => {
         expect(gap, id).toContain(GAP);
         // Пропуск, заполненный ответом, даёт ровно предложение из примера (без расхождений вроде teile/teedele).
         expect(gap.replace(GAP, e.answer).toLowerCase(), id).toBe(e.example.et.toLowerCase());
-        if (locale !== "fi") expect(e.example.translation, id).toBeTruthy();
+        expect(e.example.translation, id).toBeTruthy();
         for (const step of e.steps) {
           const result = step.split(" = ")[1]?.match(/^[^\s.,]+/)?.[0];
           if (result) expect(word.forms[formKey], `${id}: ${step}`).toContain(result);

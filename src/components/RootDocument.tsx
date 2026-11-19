@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
+import { NativeBack } from "@/components/NativeBack";
 import { ServiceWorker } from "@/components/ServiceWorker";
 import { ru } from "@/i18n/ru";
 import { INSTALL_CAPTURE_SCRIPT } from "@/lib/install-capture";
@@ -50,6 +51,7 @@ export function RootDocument({ lang, children }: { lang: string; children: React
       <body className="min-h-full flex flex-col">
         {children}
         <ServiceWorker />
+        <NativeBack />
       </body>
     </html>
   );

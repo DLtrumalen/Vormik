@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { TrainerErrorBoundary } from "./TrainerErrorBoundary";
 
 // Прогресс хранится в браузере, поэтому тренажёр рендерится только на клиенте.
 const Trainer = dynamic(() => import("./Trainer"), {
@@ -18,5 +19,9 @@ const Trainer = dynamic(() => import("./Trainer"), {
 });
 
 export function TrainerLoader() {
-  return <Trainer />;
+  return (
+    <TrainerErrorBoundary>
+      <Trainer />
+    </TrainerErrorBoundary>
+  );
 }
